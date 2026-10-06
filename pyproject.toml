@@ -1,0 +1,36 @@
+[project]
+name = "qa-workspace"
+version = "0.1.0"
+description = "Questionnaire Evidence & Review Workspace (Provectus take-home, Alternative C)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "langgraph>=1.2,<2",
+  "langchain-core>=1.6,<2",
+  "langchain-google-genai>=4.4,<5",
+  "langchain-anthropic>=1.7,<2",
+  "pydantic>=2.13,<3",
+  "streamlit>=1.65,<2",
+  "python-dotenv>=1.0",
+]
+
+[project.scripts]
+qa = "qa.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/qa"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 110
+src = ["src", "tests"]

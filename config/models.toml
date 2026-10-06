@@ -1,0 +1,5 @@
+# Application model settings live here (or wherever the implementation decides — record it in a decision note).
+# Intentionally empty: choose providers, exact model IDs and parameters after checking the current model lists
+#   https://ai.google.dev/gemini-api/docs/models
+#   https://platform.claude.com/docs/en/about-claude/models/overview
+# and record the exact IDs used in every saved run.
