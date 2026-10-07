@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
-"""PreToolUse hook: protect the supplied material and the hand-written answer key.
+"""PreToolUse hook: the few protections that must never depend on the agent's judgement.
 
-Why: the coding agent must never "fix" a failing check by editing the inputs or the expected answers.
+1. Supplied inputs (starter-pack/, data/seed/) are never edited by the agent.
+2. The hand-written answer key (reference/) is edited only when the human starts the session with
+   QA_ALLOW_REFERENCE_EDIT=1, so a failing check can't be "fixed" by changing the expected answers.
+3. Secrets in .env are never read or written by the agent (.env.example is fine).
+4. Local-only files (.private/, CLAUDE.local.md) are never staged or force-added to git.
 
-Rules
-- starter-pack/** and data/seed/**  -> never writable by the agent.
-- reference/**                      -> writable only if the human started the session with
-                                       QA_ALLOW_REFERENCE_EDIT=1.
-- .env (not .env.example)           -> never read or written by the agent.
-- .private/ and CLAUDE.local.md      -> local-only; never staged, force-added or committed.
+Edit/Write tools are checked exactly by path. Shell commands are checked only for explicit writes into a
+protected path (a redirect, tee, rm, mv, sed -i, truncate whose target is protected); reading is always allowed.
+Anything subtler is caught by git: every protected file is tracked, so `git diff` shows changes.
 
 Exit code 2 blocks the tool call; the message on stderr is shown to the agent.
-The Bash check is a heuristic (it looks for write-like commands that mention a protected path);
-it is a guard rail, not a sandbox. Reviewed by a human before enabling.
 """
+
 from __future__ import annotations
 
 import json
@@ -22,28 +22,17 @@ import re
 import sys
 
 ALWAYS = ("starter-pack/", "data/seed/")
-KEY = ("reference/",)
-ENV_RE = re.compile(r"(^|[\s/'\"=])\.env(?!\.example)(\b|$)")
-
-
-def rel(path: str, root: str) -> str:
-    p = os.path.normpath(os.path.join(root, path)) if not os.path.isabs(path) else os.path.normpath(path)
-    r = os.path.normpath(root)
-    return os.path.relpath(p, r).replace(os.sep, "/") if p.startswith(r) else p
-
-
-def protected(relpath: str) -> str | None:
-    rp = relpath.lstrip("./") if relpath.startswith("./") else relpath
-    if any(rp == a.rstrip("/") or rp.startswith(a) for a in ALWAYS):
-        return "is supplied material and must never be edited"
-    if any(rp == k.rstrip("/") or rp.startswith(k) for k in KEY) and os.environ.get("QA_ALLOW_REFERENCE_EDIT") != "1":
-        return "is the hand-written answer key; edit only when the human sets QA_ALLOW_REFERENCE_EDIT=1"
-    return None
-
-
-def is_env(path: str) -> bool:
-    base = os.path.basename(path)
-    return base == ".env" or (base.startswith(".env.") and base != ".env.example")
+KEY = "reference/"
+PROTECTED_RE = r"(?:\./)?(?:starter-pack|data/seed|reference)/"
+# A write whose *target* is a protected path. Redirects to /dev/null or to another stream (2>&1) never match.
+SHELL_WRITE = re.compile(
+    r"(?:>>?|\btee(?:\s+-a)?)\s*['\"]?"
+    + PROTECTED_RE
+    + r"|\b(?:rm|mv|truncate|sed\s+-i\S*)\b[^|;&]*?\s['\"]?"
+    + PROTECTED_RE
+)
+ENV_FILE = re.compile(r"(?:^|[\s/'\"=<])\.env(?![\w.])")
+GIT_ADD = re.compile(r"\bgit\s+add\b")
 
 
 def block(msg: str) -> None:
@@ -51,38 +40,48 @@ def block(msg: str) -> None:
     sys.exit(2)
 
 
+def relative(path: str, root: str) -> str:
+    full = os.path.normpath(path if os.path.isabs(path) else os.path.join(root, path))
+    root = os.path.normpath(root)
+    return os.path.relpath(full, root).replace(os.sep, "/") if full.startswith(root) else full
+
+
+def check_edit(path: str, root: str) -> None:
+    rel = relative(path, root)
+    if rel.startswith(ALWAYS):
+        block(f"{path} is supplied input and is never edited")
+    if rel.startswith(KEY) and os.environ.get("QA_ALLOW_REFERENCE_EDIT") != "1":
+        block(
+            f"{path} is the hand-written answer key; the human must start the session with QA_ALLOW_REFERENCE_EDIT=1"
+        )
+
+
+def check_shell(cmd: str) -> None:
+    if ENV_FILE.search(cmd):
+        block("shell commands must not touch .env (secrets); use .env.example for names")
+    if GIT_ADD.search(cmd) and re.search(r"\s(?:-f|--force)\b|\.private|CLAUDE\.local\.md", cmd):
+        block("local-only files must never be staged, and ignored files must never be force-added")
+    match = SHELL_WRITE.search(cmd)
+    if match:
+        target_is_key = "reference/" in match.group(0)
+        if not (target_is_key and os.environ.get("QA_ALLOW_REFERENCE_EDIT") == "1"):
+            block(f"command writes into a protected path: {match.group(0).strip()!r}")
+
+
 def main() -> None:
     data = json.load(sys.stdin)
     tool = data.get("tool_name", "")
-    inp = data.get("tool_input", {}) or {}
+    inp = data.get("tool_input") or {}
     root = os.environ.get("CLAUDE_PROJECT_DIR") or data.get("cwd") or os.getcwd()
 
-    if tool in ("Edit", "Write", "MultiEdit", "NotebookEdit", "Read"):
+    if tool in ("Read", "Edit", "Write", "MultiEdit", "NotebookEdit"):
         path = inp.get("file_path") or inp.get("notebook_path") or ""
-        if path and is_env(path):
-            block(f"{path} holds secrets; use .env.example for variable names")
-        if tool != "Read" and path:
-            reason = protected(rel(path, root))
-            if reason:
-                block(f"{path} {reason}")
-        return
-
-    if tool == "Bash":
-        cmd = inp.get("command", "")
-        if ENV_RE.search(cmd):
-            block("shell commands must not touch .env (secrets)")
-        if re.search(r"\bgit\s+add\b", cmd) and (
-            re.search(r"\s(-f|--force)\b", cmd) or ".private" in cmd or "CLAUDE.local.md" in cmd
-        ):
-            block("local-only files (.private/, CLAUDE.local.md) must never be staged; do not force-add ignored files")
-        writes = re.search(r"(>>?|\btee\b|\brm\b|\bmv\b|\bcp\b|\bsed\s+-i|\btruncate\b|\bchmod\b|\bgit\s+(checkout|restore)\b|\bunlink\b|\bln\b)", cmd)
-        if writes:
-            for prefix in ALWAYS + KEY:
-                if re.search(r"(^|[\s'\"=/])(\./)?" + re.escape(prefix), cmd):
-                    reason = protected(prefix)
-                    if reason:
-                        block(f"command writes near protected path {prefix} ({reason})")
-        return
+        if os.path.basename(path) == ".env":
+            block(".env holds secrets; use .env.example for variable names")
+        if path and tool != "Read":
+            check_edit(path, root)
+    elif tool == "Bash":
+        check_shell(inp.get("command", ""))
 
 
 if __name__ == "__main__":
