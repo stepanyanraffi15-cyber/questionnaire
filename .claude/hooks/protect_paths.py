@@ -8,7 +8,8 @@
 4. Local-only files (.private/, CLAUDE.local.md) are never staged or force-added to git.
 
 Edit/Write tools are checked exactly by path. Shell commands are checked only for explicit writes into a
-protected path (a redirect, tee, rm, mv, sed -i, truncate whose target is protected); reading is always allowed.
+protected path (a redirect, tee, rm, mv, sed -i, truncate whose target is protected); reading is always
+allowed.
 Anything subtler is caught by git: every protected file is tracked, so `git diff` shows changes.
 
 Exit code 2 blocks the tool call; the message on stderr is shown to the agent.
@@ -52,7 +53,8 @@ def check_edit(path: str, root: str) -> None:
         block(f"{path} is supplied input and is never edited")
     if rel.startswith(KEY) and os.environ.get("QA_ALLOW_REFERENCE_EDIT") != "1":
         block(
-            f"{path} is the hand-written answer key; the human must start the session with QA_ALLOW_REFERENCE_EDIT=1"
+            f"{path} is part of the answer key; the human must start the session with "
+            "QA_ALLOW_REFERENCE_EDIT=1"
         )
 
 

@@ -1,0 +1,394 @@
+{
+ "05759f865f8776884d6af87ddaa1055bbba4a56897315c2e09769689cd9facca": {
+  "case": "XR-Q7",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-07T21:32:04Z",
+  "request": {
+   "answer": "Paid subscriptions are billed monthly.",
+   "expected_facts": [
+    "Subscriptions are billed monthly (saying \"paid subscriptions\" or mentioning USD is fine, and leaving them out is fine)."
+   ],
+   "forbidden_claims": [
+    "Subscriptions are billed at another frequency, such as yearly.",
+    "No other billing frequency exists."
+   ],
+   "passages": [
+    {
+     "id": "BILLING-v1:p1",
+     "text": "Paid subscriptions are billed monthly in USD. Account owners can download billing invoices."
+    }
+   ],
+   "question": "How often are subscriptions billed?"
+  },
+  "response": {
+   "basis": "The answer accurately states that subscriptions are billed monthly without making any forbidden claims.",
+   "facts": [
+    {
+     "fact": "Subscriptions are billed monthly (saying \"paid subscriptions\" or mentioning USD is fine, and leaving them out is fine).",
+     "quote": "Paid subscriptions are billed monthly.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Subscriptions are billed at another frequency, such as yearly.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "No other billing frequency exists.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "UbrGarKoFNm_vdIPipa9oQ8",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 165,
+   "prompt_token_count": 353,
+   "thoughts_token_count": 141
+  }
+ },
+ "0b30adb23e887921b5ad762212b75dbc93d3aa017eb32603dba105e0b0e1b07b": {
+  "case": "XR-Q5",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-07T21:31:57Z",
+  "request": {
+   "answer": "Users can sign in with email and password.",
+   "expected_facts": [
+    "Users sign in with email and password."
+   ],
+   "forbidden_claims": [
+    "Email and password is the only sign-in method.",
+    "Single sign-on (SSO) or another sign-in method is available, or is not available."
+   ],
+   "passages": [
+    {
+     "id": "ACCESS-v1:p1",
+     "text": "Users can sign in with email and password. Account owners can invite team members."
+    }
+   ],
+   "question": "How do users sign in?"
+  },
+  "response": {
+   "basis": "The answer accurately states that users can sign in with email and password without claiming exclusivity or mentioning other methods.",
+   "facts": [
+    {
+     "fact": "Users sign in with email and password.",
+     "quote": "Users can sign in with email and password.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Email and password is the only sign-in method.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "Single sign-on (SSO) or another sign-in method is available, or is not available.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "SrrGavecFev7xs0Pqc7umQM",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 173,
+   "prompt_token_count": 356,
+   "thoughts_token_count": 207
+  }
+ },
+ "3725d62d9080c484801b2049550f151ea5201dc330062980f3b9f95a39307d8b": {
+  "case": "XR-Q6",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-07T21:32:00Z",
+  "request": {
+   "answer": "Account owners can invite team members.",
+   "expected_facts": [
+    "Account owners can invite team members (the bare answer \"Account owners.\" is acceptable)."
+   ],
+   "forbidden_claims": [
+    "Only account owners can invite team members.",
+    "Any claim about whether other roles can invite team members."
+   ],
+   "passages": [
+    {
+     "id": "ACCESS-v1:p1",
+     "text": "Users can sign in with email and password. Account owners can invite team members."
+    }
+   ],
+   "question": "Who can invite team members?"
+  },
+  "response": {
+   "basis": "The answer directly states that account owners can invite team members without adding any claims about exclusivity or other roles.",
+   "facts": [
+    {
+     "fact": "Account owners can invite team members (the bare answer \"Account owners.\" is acceptable).",
+     "quote": "Account owners can invite team members.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Only account owners can invite team members.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "Any claim about whether other roles can invite team members.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "TbrGaqT6Moz7vdIP8vW8uAQ",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 167,
+   "prompt_token_count": 349,
+   "thoughts_token_count": 94
+  }
+ },
+ "545b2e7a045104ad450c5bbf1950876c56e887cafb5d8722fdc8ea30e2e45658": {
+  "case": "RC-1",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-07T21:31:45Z",
+  "request": {
+   "answer": "Email support is available Monday to Friday, 09:00 to 17:00 UTC.",
+   "expected_facts": [
+    "Email support is available Monday to Friday (all five weekdays, not only some of them).",
+    "Support hours are 09:00 to 17:00 (9 am to 5 pm is the same).",
+    "The times are in UTC."
+   ],
+   "forbidden_claims": [
+    "Email support is available at weekends.",
+    "The hours are in a time zone other than UTC.",
+    "Live chat is available or offered."
+   ],
+   "passages": [
+    {
+     "id": "SUPPORT-v1:p1",
+     "text": "Email support is available Monday to Friday, 09:00 to 17:00 UTC. Live chat is not offered."
+    }
+   ],
+   "question": "When is email support available?"
+  },
+  "response": {
+   "basis": "The answer directly and accurately repeats the schedule for email support from the passage.",
+   "facts": [
+    {
+     "fact": "Email support is available Monday to Friday (all five weekdays, not only some of them).",
+     "quote": "Email support is available Monday to Friday",
+     "stated": true
+    },
+    {
+     "fact": "Support hours are 09:00 to 17:00 (9 am to 5 pm is the same).",
+     "quote": "09:00 to 17:00",
+     "stated": true
+    },
+    {
+     "fact": "The times are in UTC.",
+     "quote": "UTC",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Email support is available at weekends.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "The hours are in a time zone other than UTC.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "Live chat is available or offered.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "PLrGaqO1O8rrvdIPr8P2qQU",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 293,
+   "prompt_token_count": 429,
+   "thoughts_token_count": 232
+  }
+ },
+ "c451a9e8866e2f4c8e3e06a5accd6245b6edd6973a5be2c58700c4532c2a37ec": {
+  "case": "XR-Q8",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-07T21:32:08Z",
+  "request": {
+   "answer": "Account owners can download billing invoices.",
+   "expected_facts": [
+    "Account owners can download billing invoices (the bare answer \"Account owners.\" is acceptable)."
+   ],
+   "forbidden_claims": [
+    "Only account owners can download billing invoices.",
+    "Any claim about whether other roles can download invoices."
+   ],
+   "passages": [
+    {
+     "id": "BILLING-v1:p1",
+     "text": "Paid subscriptions are billed monthly in USD. Account owners can download billing invoices."
+    }
+   ],
+   "question": "Who can download billing invoices?"
+  },
+  "response": {
+   "basis": "The answer accurately states that account owners can download billing invoices without claiming exclusivity or mentioning other roles.",
+   "facts": [
+    {
+     "fact": "Account owners can download billing invoices (the bare answer \"Account owners.\" is acceptable).",
+     "quote": "Account owners can download billing invoices.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Only account owners can download billing invoices.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "Any claim about whether other roles can download invoices.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "VbrGaqjyE5PlkdUPoO-imQ0",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 164,
+   "prompt_token_count": 348,
+   "thoughts_token_count": 132
+  }
+ },
+ "ce0b3b72981ad504abdabf093538dcbb9119c58db9800c1b9bbdbd08b3e34b10": {
+  "case": "RC-3",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-07T21:31:50Z",
+  "request": {
+   "answer": "No, free-plan users cannot export CSV.",
+   "expected_facts": [
+    "The answer is no: free-plan users cannot export CSV.",
+    "CSV export is for paid plans only."
+   ],
+   "forbidden_claims": [
+    "Free-plan users can export CSV.",
+    "CSV export is available on every plan as the current policy (mentioning the old, replaced policy as replaced is fine)."
+   ],
+   "passages": [
+    {
+     "id": "EXPORT-v2:p1",
+     "text": "CSV exports are available on paid plans only. Free-plan users cannot export CSV."
+    },
+    {
+     "id": "EXPORT-v1:p1",
+     "text": "CSV exports are available on every plan."
+    }
+   ],
+   "question": "Can free-plan users export CSV?"
+  },
+  "response": {
+   "basis": "The answer directly confirms that free-plan users cannot export CSV, but does not mention paid plans.",
+   "facts": [
+    {
+     "fact": "The answer is no: free-plan users cannot export CSV.",
+     "quote": "No, free-plan users cannot export CSV.",
+     "stated": true
+    },
+    {
+     "fact": "CSV export is for paid plans only.",
+     "quote": "",
+     "stated": false
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Free-plan users can export CSV.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "CSV export is available on every plan as the current policy (mentioning the old, replaced policy as replaced is fine).",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "QbrGavTqMcTTxN8PqeOEsAQ",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 211,
+   "prompt_token_count": 409,
+   "thoughts_token_count": 247
+  }
+ },
+ "fca3924a0df8e42e7d883174d8fbc2bf298d9dbb194dc9dc6bd48f43506ba63c": {
+  "case": "XR-Q4",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-07T21:31:53Z",
+  "request": {
+   "answer": "No, live chat is not offered.",
+   "expected_facts": [
+    "No: live chat is not offered."
+   ],
+   "forbidden_claims": [
+    "Live chat is offered.",
+    "Another support channel, such as phone support, is offered."
+   ],
+   "passages": [
+    {
+     "id": "SUPPORT-v1:p1",
+     "text": "Email support is available Monday to Friday, 09:00 to 17:00 UTC. Live chat is not offered."
+    }
+   ],
+   "question": "Is live chat offered?"
+  },
+  "response": {
+   "basis": "The answer directly states that live chat is not offered and contains no forbidden claims.",
+   "facts": [
+    {
+     "fact": "No: live chat is not offered.",
+     "quote": "No, live chat is not offered.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Live chat is offered.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "Another support channel, such as phone support, is offered.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "RrrGatm1IavzvdIP2JPl0Qg",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 151,
+   "prompt_token_count": 351,
+   "thoughts_token_count": 129
+  }
+ }
+}

@@ -1,5 +1,48 @@
-# Walkthrough (SUB-4)
+# Walkthrough
 
-TODO — a written walkthrough (or link to a 3–5 minute recording): the problem, the approach, one demo path
-(supported answer → conflict → unknown → approve → reuse → source change → needs review), what the checks show,
-what failed and why, what I would do next.
+## The problem
+
+A sales team answers buyer questionnaires from company documents. Answers must cite the documents, unknowns must be
+routed to the right reviewer instead of guessed, an outdated document must not win over the one that replaced it,
+and a reviewer's approved correction must be reused next time, but only while its sources are unchanged.
+
+## The approach in one paragraph
+
+Code applies the four rules; the model writes and checks wording. For each question, Gemini drafts an answer from
+the current passages only, with passage IDs and verbatim excerpts. Code checks the IDs, the excerpts and that each
+cited passage is current. A second recorded Gemini call checks that the cited passages support every claim. Anything
+that fails, or that the passages do not answer, stays unresolved with the owner from the topic map. Reviewers edit,
+approve or leave a note; approvals record the source versions, and a version change marks them for review.
+
+## Demo path (replay mode, no API key)
+
+```bash
+uv sync --locked
+uv run streamlit run src/qa/ui.py
+```
+
+1. Click **New request**. Q3 is answered from SUPPORT-v1:p1, with the cited excerpt quoted beside it (MIN-1).
+2. Q2 ("Is JSON export available?") is unresolved, routed to the Product reviewer, with a missing-evidence warning;
+   Approve is refused until a supporting passage is chosen (MIN-2).
+3. Q1 cites EXPORT-v2:p1 and shows EXPORT-v1:p1 in a "Superseded text" box (MIN-3).
+4. Edit Q1 to "No. CSV export is for paid plans only; free-plan users cannot export CSV." and save without
+   approving. Click **New request**: Q1 is a fresh draft, not the edit. Approve the edit with source EXPORT-v2:p1, then
+   **New request** again: Q1 shows **REUSED APPROVAL** with the approver and sources (MIN-4).
+5. Refresh the browser or restart the server: everything is still there. Tick **SOURCE CHANGE** in the sidebar
+   (EXPORT-v2 goes to version 3): the approved Q1 items turn to **needs review**, "EXPORT-v2: version 2 at approval,
+   3 now". A new request drafts Q1 afresh instead of reusing the stale approval (MIN-5).
+6. Open **Revision history** on Q1 to see every draft, edit, approval and mark; use **Download** to export the
+   request with evidence references and unresolved items.
+
+In replay mode an approval of new wording has no saved support check, so it needs a note and is stored as an
+override; the scripted wording above was checked live and replays.
+
+## What the checks show
+
+`uv run qa report && uv run python reference/grade.py` replays the scripted scenario (S1–S11) and grades it against
+the hand-made key: every mechanical check and count passes. The meaning checks await the author's sign-off, and one
+real model answer (Q1) fails a meaning check: it says "No" without "paid plans only". See `docs/RESULTS.md`.
+
+## What I would do next
+
+A cross-family judge, repeated live runs to measure consistency, and a reworded-question suggestion shown for review.

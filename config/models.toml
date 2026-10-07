@@ -1,5 +1,9 @@
-# Application model settings live here (or wherever the implementation decides — record it in a decision note).
-# Intentionally empty: choose providers, exact model IDs and parameters after checking the current model lists
-#   https://ai.google.dev/gemini-api/docs/models
-#   https://platform.claude.com/docs/en/about-claude/models/overview
-# and record the exact IDs used in every saved run.
+# Model settings for the application's real calls. Every saved recording repeats these values.
+# Checked against https://ai.google.dev/gemini-api/docs/models on 2026-10-08: gemini-3.8-flash is listed as stable,
+# and the page recommends 3.8 Flash for new projects.
+provider = "gemini"
+model = "gemini-3.8-flash"
+thinking_level = "medium"   # the documented default, set explicitly so it is recorded
+timeout_ms = 60000          # transport only; not part of a request's fingerprint
+retry_attempts = 3
+# temperature, top_p and top_k are deliberately not set (Gemini 3 guidance: keep the defaults)

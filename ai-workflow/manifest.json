@@ -1,0 +1,363 @@
+{
+  "instructions": "Record of the AI configuration used for this exercise. Status values: used, not-used, default, redacted, not-exportable. Every saved_path is relative to the repository root. No credentials are stored anywhere in this record.",
+  "categories": {
+    "development_tools_and_models": {
+      "status": "used",
+      "files": ["ai-workflow/README.md"],
+      "notes": "Claude Code 2.1.293 with Claude Opus 5.5 (claude-opus-5-5) for planning, building and review. Claude Code workflows (multi-agent orchestration scripts) were used for planning and for the first milestone; the rest was built in the main session with two subagents (a UI builder and a final verifier). Session settings were the tool defaults apart from the per-step effort levels set inside the workflow scripts."
+    },
+    "plugins_and_extensions": {
+      "status": "not-used",
+      "files": [],
+      "notes": "Connectors and plugins available in the session (Slack, Google Drive, Claude Docs, Chrome, Telegram, GitLab) were not used for this exercise. No IDE extension was used."
+    },
+    "application_models_and_parameters": {
+      "status": "used",
+      "files": ["config/models.toml", "reference/judge.py", "uv.lock"],
+      "notes": "Google Gemini gemini-3.8-flash through the google-genai SDK 2.28.0, thinking level medium, timeout 60000 ms, 3 retry attempts; temperature, top_p and top_k not set (provider defaults). The grader's judge uses the same model and thinking level, set in reference/judge.py. Saved real responses: 16 application calls in runs/recordings/ and 7 judge verdicts in runs/judge/verdicts.json, recorded 2026-10-07 21:29-21:32 UTC (2026-10-08 local time)."
+    },
+    "skills": {
+      "status": "used",
+      "files": [".claude/skills/generate-assignment-data/SKILL.md"],
+      "notes": "Starter-pack skill, copied unchanged. Used as a checklist only when preparing the scenario inputs; no new documents were generated with it."
+    },
+    "agent_instructions_and_subagents": {
+      "status": "used",
+      "files": [
+        "CLAUDE.md",
+        "AGENTS.md",
+        ".claude/agents/researcher.md",
+        ".claude/agents/verifier.md",
+        "ai-workflow/snapshots/qa-deep-review.js",
+        "ai-workflow/snapshots/qa-build.js"
+      ],
+      "notes": "CLAUDE.md is the project instruction file Claude Code reads. AGENTS.md points other AI tools to CLAUDE.md and had no effect because no other tool was used. The verifier subagent ran the final verification pass; the researcher subagent was not used. The two workflow scripts are saved as sanitized snapshots. Local private instructions and planning notes are not exportable; the user-level instruction file is omitted (see the README)."
+    },
+    "hooks_and_scripts": {
+      "status": "used",
+      "files": [".claude/hooks/protect_paths.py", ".claude/settings.json", "tests/test_protect_paths_hook.py"],
+      "notes": "One PreToolUse hook (Edit, Write, MultiEdit, NotebookEdit, Bash, Read). Exit code 2 blocks the tool call. It keeps starter-pack/ and data/seed/ read-only, allows edits to reference/ only when the human starts the session with QA_ALLOW_REFERENCE_EDIT=1, blocks reading or writing .env, and blocks staging or force-adding local-only files. First version in commit 9f7f30d, narrowed in commit 5e42644."
+    },
+    "prompts_and_rules": {
+      "status": "used",
+      "files": ["prompts/draft_answer.md", "prompts/check_support.md", "reference/judge_prompt.md", "data/seed/domain.md"],
+      "notes": "Two application prompts (draft, support check) and the grader's judge prompt. Every recording stores the prompt file path and its SHA-256, so a changed prompt cannot replay an old response. The four exercise rules in data/seed/domain.md are supplied input and are never edited."
+    },
+    "tool_and_mcp_settings": {
+      "status": "used",
+      "files": [".claude/settings.json"],
+      "notes": "Project settings hold the permissions and the hook registration. There is no project MCP configuration (.mcp.json) and no .claude/settings.local.json. MCP servers available at user or account level were not used (see plugins_and_extensions)."
+    },
+    "permissions_and_environment_names": {
+      "status": "used",
+      "files": [".claude/settings.json", ".env.example", "ai-workflow/.env.example"],
+      "notes": "Permissions: 7 allow entries and 2 deny entries, each explained in the README. Environment variable names: GOOGLE_API_KEY (record mode and judge only; the SDK also reads GEMINI_API_KEY), QA_MODE, QA_STATE_DIR, and the developer-only QA_ALLOW_REFERENCE_EDIT (set in the shell, read only by the hook, never in .env)."
+    }
+  },
+  "configuration_records": [
+    {
+      "name": "Claude Code",
+      "category": "development_tools_and_models",
+      "purpose": "Coding assistant for planning, building, testing and reviewing the workspace.",
+      "original_path_or_scope": "Claude Code CLI, installed for the user",
+      "saved_path": "ai-workflow/README.md",
+      "version_or_commit": "2.1.293 (version when this record was written; the version of each earlier session was not recorded)",
+      "used_during": "Whole exercise, 2026-10-06 to 2026-10-08: planning, implementation, review",
+      "status": "used",
+      "redactions": []
+    },
+    {
+      "name": "Claude Opus 5.5 (development model)",
+      "category": "development_tools_and_models",
+      "purpose": "Model behind the Claude Code sessions, workflow agents and subagents.",
+      "original_path_or_scope": "Claude Code session model",
+      "saved_path": "ai-workflow/README.md",
+      "version_or_commit": "claude-opus-5-5",
+      "used_during": "Whole exercise",
+      "status": "used",
+      "redactions": []
+    },
+    {
+      "name": "Workflow qa-deep-review (multi-agent planning review)",
+      "category": "agent_instructions_and_subagents",
+      "purpose": "Six read-only review lenses with a skeptic per lens, three candidate plans, two judges, a merge, a completeness critic and a patch step; produced the implementation plan, the draft answer key for human review and the proposed decision records.",
+      "original_path_or_scope": "Local-only, git-ignored workflow folder",
+      "saved_path": "ai-workflow/snapshots/qa-deep-review.js",
+      "version_or_commit": "Snapshot of the last local version, taken 2026-10-08",
+      "used_during": "Planning, before any application code was written",
+      "status": "redacted",
+      "redactions": [
+        "Paths of local-only planning files replaced by placeholders (<PLAN_FILE>, <BRIEF_FILE>, <REVIEW_OUTPUT_DIR>, <IMPLEMENTATION_PLAN_FILE>)",
+        "Author's first name replaced by 'the author'",
+        "Name of the local-only folder in one prompt line replaced by 'local-only files'"
+      ]
+    },
+    {
+      "name": "Workflow qa-build (one milestone with checks and review)",
+      "category": "agent_instructions_and_subagents",
+      "purpose": "Builds one milestone: prepare, implement task by task, format/lint/test loop, four review lenses with two refuters per serious issue, fix, report.",
+      "original_path_or_scope": "Local-only, git-ignored workflow folder",
+      "saved_path": "ai-workflow/snapshots/qa-build.js",
+      "version_or_commit": "Snapshot of the last local version, taken 2026-10-08; its change log shows the effort settings changed after the first milestone",
+      "used_during": "First milestone (M0) only; later milestones were built directly in the main session",
+      "status": "redacted",
+      "redactions": [
+        "Paths of local-only planning files replaced by placeholders (<PLAN_FILE>, <IMPLEMENTATION_PLAN_FILE>, <PROGRESS_DIR>)",
+        "A step that maintained the author's private study notes removed, with every instruction that referred to it",
+        "Author's first name and the names of the local instruction file and folder replaced by neutral wording"
+      ]
+    },
+    {
+      "name": "UI builder subagent",
+      "category": "agent_instructions_and_subagents",
+      "purpose": "Built the Streamlit review page (src/qa/ui.py) from a task prompt given in the main session.",
+      "original_path_or_scope": "Ad-hoc general-purpose subagent started from the main session; no definition file",
+      "saved_path": "",
+      "version_or_commit": "claude-opus-5-5 (inherited from the session)",
+      "used_during": "Implementation, after the first milestone",
+      "status": "not-exportable",
+      "redactions": [
+        "No definition file exists: it was a one-off task prompt inside a session, not saved configuration. Its output is ordinary code in the repository, checked by the tests and the final verification pass."
+      ]
+    },
+    {
+      "name": "Subagent verifier",
+      "category": "agent_instructions_and_subagents",
+      "purpose": "Independent read-only check of the submission against the rules, requirements and answer key; reports findings, never edits.",
+      "original_path_or_scope": ".claude/agents/verifier.md",
+      "saved_path": ".claude/agents/verifier.md",
+      "version_or_commit": "9f7f30d (unchanged since)",
+      "used_during": "Final verification pass",
+      "status": "used",
+      "redactions": []
+    },
+    {
+      "name": "Subagent researcher",
+      "category": "agent_instructions_and_subagents",
+      "purpose": "Read-only research on one design question, written to docs/research/.",
+      "original_path_or_scope": ".claude/agents/researcher.md",
+      "saved_path": ".claude/agents/researcher.md",
+      "version_or_commit": "9f7f30d (unchanged since)",
+      "used_during": "Not used: the planning research was done by the main session and workflows (docs/research/ holds only the planning bibliography, no researcher notes)",
+      "status": "not-used",
+      "redactions": []
+    },
+    {
+      "name": "Project instructions CLAUDE.md",
+      "category": "agent_instructions_and_subagents",
+      "purpose": "Non-negotiables from the assignment, clean-code rules, protected paths and where files go; read by Claude Code at the start of every session.",
+      "original_path_or_scope": "CLAUDE.md",
+      "saved_path": "CLAUDE.md",
+      "version_or_commit": "9f7f30d (unchanged since)",
+      "used_during": "Whole exercise",
+      "status": "used",
+      "redactions": []
+    },
+    {
+      "name": "Instructions for other AI tools AGENTS.md",
+      "category": "agent_instructions_and_subagents",
+      "purpose": "Points AI coding tools other than Claude Code (for example Cursor) to CLAUDE.md and repeats the key rules.",
+      "original_path_or_scope": "AGENTS.md",
+      "saved_path": "AGENTS.md",
+      "version_or_commit": "9f7f30d (unchanged since)",
+      "used_during": "Not used: only Claude Code was used, and it reads CLAUDE.md",
+      "status": "not-used",
+      "redactions": []
+    },
+    {
+      "name": "Local private instructions and planning notes",
+      "category": "agent_instructions_and_subagents",
+      "purpose": "Personal working notes and private instructions used while developing.",
+      "original_path_or_scope": "Local, git-ignored files in the project folder",
+      "saved_path": "",
+      "version_or_commit": "",
+      "used_during": "Whole exercise",
+      "status": "not-exportable",
+      "redactions": [
+        "Personal working notes and private instructions; the rules that matter are restated in CLAUDE.md and the decision records in docs/decisions/"
+      ]
+    },
+    {
+      "name": "User-level global instruction file",
+      "category": "agent_instructions_and_subagents",
+      "purpose": "A personal rule for every project: never merge into the integration branch; the human does every merge.",
+      "original_path_or_scope": "User-level Claude Code configuration",
+      "saved_path": "",
+      "version_or_commit": "",
+      "used_during": "Whole exercise (applies to every project)",
+      "status": "redacted",
+      "redactions": [
+        "Omitted: not exercise-specific (wording pending the author's confirmation)"
+      ]
+    },
+    {
+      "name": "Skill generate-assignment-data",
+      "category": "skills",
+      "purpose": "Starter-pack guidance for extending the fictional data under the supplied rules.",
+      "original_path_or_scope": "starter-pack/skills/generate-assignment-data/SKILL.md, installed at .claude/skills/generate-assignment-data/SKILL.md",
+      "saved_path": ".claude/skills/generate-assignment-data/SKILL.md",
+      "version_or_commit": "Starter pack 2026-10-02 (starter-pack/pack-version.json); identical to the starter-pack copy; commit 9f7f30d",
+      "used_during": "Used (checklist only): its checklist was followed when preparing the scenario inputs; no new documents were generated",
+      "status": "used",
+      "redactions": []
+    },
+    {
+      "name": "Hook protect_paths.py",
+      "category": "hooks_and_scripts",
+      "purpose": "Protections that must never depend on the agent's judgement: supplied inputs read-only, answer key locked unless the human unlocks it, .env never touched, local-only files never staged.",
+      "original_path_or_scope": ".claude/hooks/protect_paths.py, registered in .claude/settings.json (PreToolUse)",
+      "saved_path": ".claude/hooks/protect_paths.py",
+      "version_or_commit": "First version 9f7f30d; narrowed in 5e42644; the working tree adds only line wrapping",
+      "used_during": "Every Claude Code tool call from 2026-10-06 on",
+      "status": "used",
+      "redactions": []
+    },
+    {
+      "name": "Hook tests",
+      "category": "hooks_and_scripts",
+      "purpose": "Pin down what the hook blocks and what it allows.",
+      "original_path_or_scope": "tests/test_protect_paths_hook.py",
+      "saved_path": "tests/test_protect_paths_hook.py",
+      "version_or_commit": "5e42644",
+      "used_during": "Every test run (uv run pytest)",
+      "status": "used",
+      "redactions": []
+    },
+    {
+      "name": "Project settings .claude/settings.json",
+      "category": "tool_and_mcp_settings",
+      "purpose": "Registers the hook and holds the permission allow and deny lists.",
+      "original_path_or_scope": ".claude/settings.json",
+      "saved_path": ".claude/settings.json",
+      "version_or_commit": "9f7f30d (unchanged since)",
+      "used_during": "Whole exercise",
+      "status": "used",
+      "redactions": []
+    },
+    {
+      "name": "Permissions",
+      "category": "permissions_and_environment_names",
+      "purpose": "Allow routine local commands (uv sync, tests, lint, the app CLI, read-only git) without a prompt; deny reading .env and .env.local.",
+      "original_path_or_scope": ".claude/settings.json (permissions.allow, permissions.deny)",
+      "saved_path": ".claude/settings.json",
+      "version_or_commit": "9f7f30d (unchanged since)",
+      "used_during": "Whole exercise",
+      "status": "used",
+      "redactions": []
+    },
+    {
+      "name": "MCP servers and plugins available in the session",
+      "category": "plugins_and_extensions",
+      "purpose": "Slack, Google Drive, Claude Docs, Chrome, Telegram and GitLab connectors or plugins were available in the Claude Code session.",
+      "original_path_or_scope": "User and account level",
+      "saved_path": "",
+      "version_or_commit": "",
+      "used_during": "Not used for this exercise",
+      "status": "not-used",
+      "redactions": []
+    },
+    {
+      "name": "Application model settings",
+      "category": "application_models_and_parameters",
+      "purpose": "Provider, model ID and request settings for the application's draft and support-check calls.",
+      "original_path_or_scope": "config/models.toml",
+      "saved_path": "config/models.toml",
+      "version_or_commit": "gemini-3.8-flash; thinking_level medium; timeout_ms 60000; retry_attempts 3; temperature, top_p, top_k not set; google-genai 2.28.0 (uv.lock)",
+      "used_during": "Record run 2026-10-07 21:29-21:31 UTC; every replay",
+      "status": "used",
+      "redactions": []
+    },
+    {
+      "name": "Grader judge model settings",
+      "category": "application_models_and_parameters",
+      "purpose": "The grader's meaning checks: one verdict per expected fact and forbidden claim. Kept apart from the application (imports nothing from src/).",
+      "original_path_or_scope": "reference/judge.py (JUDGE_MODEL, THINKING_LEVEL)",
+      "saved_path": "reference/judge.py",
+      "version_or_commit": "gemini-3.8-flash; thinking_level medium; google-genai 2.28.0 (uv.lock)",
+      "used_during": "Judge run 2026-10-07 21:31-21:32 UTC; replayed by reference/grade.py",
+      "status": "used",
+      "redactions": []
+    },
+    {
+      "name": "Saved real application responses",
+      "category": "application_models_and_parameters",
+      "purpose": "16 real Gemini calls (8 drafts, 8 support checks) keyed by a fingerprint of the exact request; replay needs no API key.",
+      "original_path_or_scope": "runs/recordings/",
+      "saved_path": "runs/recordings/",
+      "version_or_commit": "Each file stores provider, model, thinking level, prompt file and its SHA-256, request, response and recording time",
+      "used_during": "Recorded 2026-10-07 21:29-21:31 UTC (2026-10-08 local time); replayed by uv run qa report",
+      "status": "used",
+      "redactions": []
+    },
+    {
+      "name": "Saved judge verdicts",
+      "category": "application_models_and_parameters",
+      "purpose": "7 real judge verdicts for the answer key's meaning checks; replayed by the grader without a key.",
+      "original_path_or_scope": "runs/judge/verdicts.json",
+      "saved_path": "runs/judge/verdicts.json",
+      "version_or_commit": "Each verdict stores model, thinking level, prompt file, request, response and recording time",
+      "used_during": "Recorded 2026-10-07 21:31-21:32 UTC (2026-10-08 local time)",
+      "status": "used",
+      "redactions": []
+    },
+    {
+      "name": "Prompt draft_answer.md",
+      "category": "prompts_and_rules",
+      "purpose": "System prompt for drafting a cited answer from the passages, or marking the question unresolved.",
+      "original_path_or_scope": "prompts/draft_answer.md",
+      "saved_path": "prompts/draft_answer.md",
+      "version_or_commit": "sha256 7388b8c19101650cbd3c2e26bf641181bfa6c0b668ee9d737de1cbcab25e38b9 (matches all 8 draft recordings)",
+      "used_during": "Record run and every replay",
+      "status": "used",
+      "redactions": []
+    },
+    {
+      "name": "Prompt check_support.md",
+      "category": "prompts_and_rules",
+      "purpose": "System prompt for checking that a drafted answer is supported by its cited passages.",
+      "original_path_or_scope": "prompts/check_support.md",
+      "saved_path": "prompts/check_support.md",
+      "version_or_commit": "sha256 bfbecc28b07aed9937bebb9e983db5b4d05a44ee6718528aeed9ce4dfbfc8d0a (matches all 8 support recordings)",
+      "used_during": "Record run and every replay",
+      "status": "used",
+      "redactions": []
+    },
+    {
+      "name": "Judge prompt judge_prompt.md",
+      "category": "prompts_and_rules",
+      "purpose": "The grader's judge prompt: decide per expected fact and forbidden claim whether the answer states it, quoting the answer.",
+      "original_path_or_scope": "reference/judge_prompt.md",
+      "saved_path": "reference/judge_prompt.md",
+      "version_or_commit": "sha256 e3af09bd101fc86e8c23a8caf601b632b97fc262d6127b27f7066fe15054206a",
+      "used_during": "Judge run 2026-10-07",
+      "status": "used",
+      "redactions": []
+    },
+    {
+      "name": "Exercise rules domain.md",
+      "category": "prompts_and_rules",
+      "purpose": "The four supplied rules the application and the answer key apply exactly.",
+      "original_path_or_scope": "starter-pack/tasks/evidence/domain.md, copied to data/seed/domain.md",
+      "saved_path": "data/seed/domain.md",
+      "version_or_commit": "Starter pack 2026-10-02; commit 9f7f30d (never edited)",
+      "used_during": "Whole exercise",
+      "status": "used",
+      "redactions": []
+    },
+    {
+      "name": "Environment variable names",
+      "category": "permissions_and_environment_names",
+      "purpose": "Names of the variables the application, the judge and the hook read; no values.",
+      "original_path_or_scope": ".env.example and ai-workflow/.env.example",
+      "saved_path": "ai-workflow/.env.example",
+      "version_or_commit": "GOOGLE_API_KEY, QA_MODE, QA_STATE_DIR, QA_ALLOW_REFERENCE_EDIT (developer only)",
+      "used_during": "Record run and judge run (GOOGLE_API_KEY); every run (QA_MODE, QA_STATE_DIR); answer-key session (QA_ALLOW_REFERENCE_EDIT)",
+      "status": "used",
+      "redactions": [
+        "The real API key lives only in a local, git-ignored .env file and is never read by the coding assistant"
+      ]
+    }
+  ],
+  "replay_command": "uv sync --locked && uv run qa report && uv run python reference/grade.py",
+  "workflow_example_path": "ai-workflow/README.md#one-workflow-example"
+}
