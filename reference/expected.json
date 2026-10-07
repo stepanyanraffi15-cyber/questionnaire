@@ -1,0 +1,269 @@
+{
+ "contract_version": 1,
+ "_purpose": "Answer key for the reference scenario in data/scenario/min-demo.json (steps S1-S11, requests R1-R5 of the eight seed questions). Every expected value was derived by reading the passages and authority metadata in data/seed/seed.json and the rules in data/seed/domain.md. It was drafted with AI assistance, checked against the passages by a separate AI review agent, and approved row by row by the author. It was never taken from application output. Mechanical checks are graded by code; meaning checks (expected facts and forbidden claims in plain words) are graded by a recorded Gemini judge plus the author's sign-off.",
+ "texts": {
+  "W": "No. CSV export is for paid plans only; free-plan users cannot export CSV.",
+  "E3": "Email support hours are 09:00 to 17:00 UTC, Monday to Friday.",
+  "N": "Needs Product reviewer: JSON export is not documented."
+ },
+ "cases": [
+  {
+   "id": "RC-1",
+   "covers": ["MIN-1"],
+   "title": "A supported question gets a draft whose cited passages exist and support it (Q3)",
+   "rules": ["RULE-1"],
+   "decisions": ["005-documented-negative-is-answered.md", "008-citations-and-verbatim-excerpts.md", "027-answer-key-method-and-grading.md"],
+   "seed_case": "Q3: answer \"Monday to Friday, 09:00–17:00 UTC\", source SUPPORT-v1:p1",
+   "derived_from": [
+    {"passage_id": "SUPPORT-v1:p1", "quote": "Email support is available Monday to Friday, 09:00 to 17:00 UTC.", "authority": {"doc_id": "SUPPORT-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+   ],
+   "checks": [
+    {"step": "S1", "item": "R1/Q3", "field": "status", "equals": "answered"},
+    {"step": "S1", "item": "R1/Q3", "field": "citations", "ids_subset_of": ["SUPPORT-v1:p1"], "non_empty": true},
+    {"step": "S1", "item": "R1/Q3", "field": "citations", "excerpts_verbatim": true},
+    {"step": "S1", "item": "R1/Q3", "field": "owner", "equals": "Support reviewer"},
+    {"step": "S1", "item": "R1/Q3", "field": "reason", "not_equals": "conflict"}
+   ],
+   "meaning": [
+    {"step": "S1", "item": "R1/Q3", "field": "answer",
+     "expected_facts": ["Email support is available Monday to Friday (all five weekdays, not only some of them).", "Support hours are 09:00 to 17:00 (9 am to 5 pm is the same).", "The times are in UTC."],
+     "forbidden_claims": ["Email support is available at weekends.", "The hours are in a time zone other than UTC.", "Live chat is available or offered."]}
+   ]
+  },
+  {
+   "id": "RC-2",
+   "covers": ["MIN-2"],
+   "title": "The unsupported question stays unresolved with a review route and no invented capability (Q2)",
+   "rules": ["RULE-1", "RULE-4"],
+   "decisions": ["007-partial-evidence-is-unresolved.md", "021-load-validation-and-unmapped-topics.md", "027-answer-key-method-and-grading.md"],
+   "seed_case": "Q2: status unresolved, owner Product reviewer, reason JSON export is undocumented",
+   "derived_from": [
+    {"passage_id": "EXPORT-v2:p1", "quote": "CSV exports are available on paid plans only.", "authority": {"doc_id": "EXPORT-v2", "version": 2, "date": "2026-08-01", "status": "current", "supersedes": "EXPORT-v1", "superseded_by": null}},
+    {"passage_id": "EXPORT-v1:p1", "quote": "CSV exports are available on every plan.", "authority": {"doc_id": "EXPORT-v1", "version": 1, "date": "2026-01-01", "status": "superseded", "supersedes": null, "superseded_by": "EXPORT-v2"}}
+   ],
+   "note": "No passage in the seed mentions JSON; the nearest passages are about CSV only. domain.md: an undocumented feature is unknown, not automatically supported or unsupported. The owner comes from owners[\"exports\"].",
+   "checks": [
+    {"step": "S1", "item": "R1/Q2", "field": "status", "equals": "unresolved"},
+    {"step": "S1", "item": "R1/Q2", "field": "reason", "equals": "undocumented"},
+    {"step": "S1", "item": "R1/Q2", "field": "owner", "equals": "Product reviewer"},
+    {"step": "S1", "item": "R1/Q2", "field": "answer", "equals": ""},
+    {"step": "S1", "item": "R1/Q2", "field": "citations", "equals": []},
+    {"step": "S2", "item": "R1/Q2", "field": "note", "equals_text": "N"},
+    {"step": "S2", "item": "R1/Q2", "field": "status", "equals": "unresolved"}
+   ],
+   "meaning": [
+    {"step": "S1", "item": "R1/Q2", "field": "suggestion.answer",
+     "expected_facts": [],
+     "forbidden_claims": ["JSON export is available.", "JSON export is not available or not supported.", "The CSV paid-plan rule also covers JSON export."]}
+   ]
+  },
+  {
+   "id": "RC-3",
+   "covers": ["MIN-3"],
+   "title": "The outdated policy's conflict is visible and the answer uses the document that supersedes it (Q1)",
+   "rules": ["RULE-2"],
+   "decisions": ["001-authority-from-supersedes-only.md", "002-dates-and-versions-grant-no-authority.md", "004-replaced-text-kept-out-of-prompts.md"],
+   "seed_case": "Q1: answer \"No, paid plans only.\", source EXPORT-v2:p1, show_conflict_with EXPORT-v1:p1",
+   "derived_from": [
+    {"passage_id": "EXPORT-v2:p1", "quote": "Free-plan users cannot export CSV.", "authority": {"doc_id": "EXPORT-v2", "version": 2, "date": "2026-08-01", "status": "current", "supersedes": "EXPORT-v1", "superseded_by": null}},
+    {"passage_id": "EXPORT-v1:p1", "quote": "CSV exports are available on every plan.", "authority": {"doc_id": "EXPORT-v1", "version": 1, "date": "2026-01-01", "status": "superseded", "supersedes": null, "superseded_by": "EXPORT-v2"}}
+   ],
+   "checks": [
+    {"step": "S1", "item": "R1/Q1", "field": "status", "equals": "answered"},
+    {"step": "S1", "item": "R1/Q1", "field": "citations", "ids_subset_of": ["EXPORT-v2:p1"], "non_empty": true},
+    {"step": "S1", "item": "R1/Q1", "field": "citations", "excerpts_verbatim": true},
+    {"step": "S1", "item": "R1/Q1", "field": "replaced_shown", "ids_include": ["EXPORT-v1:p1"]},
+    {"step": "S1", "item": "R1/Q1", "field": "owner", "equals": "Product reviewer"},
+    {"step": "S1", "item": "R1/Q1", "field": "reason", "not_equals": "conflict"}
+   ],
+   "meaning": [
+    {"step": "S1", "item": "R1/Q1", "field": "answer",
+     "expected_facts": ["The answer is no: free-plan users cannot export CSV.", "CSV export is for paid plans only."],
+     "forbidden_claims": ["Free-plan users can export CSV.", "CSV export is available on every plan as the current policy (mentioning the old, replaced policy as replaced is fine)."]}
+   ]
+  },
+  {
+   "id": "RC-4",
+   "covers": ["MIN-4"],
+   "title": "An approved correction is reused when Q1 is asked again; an unapproved edit is not",
+   "rules": ["RULE-3"],
+   "decisions": ["014-exact-question-matching.md", "015-asked-again-means-a-later-request.md", "016-approval-guard.md", "025-corrected-q1-wording-and-scenario-inputs.md"],
+   "seed_case": "approval-reuse: approve a corrected Q1 answer, then ask Q1 again; reuse only the approved wording with approval and source records",
+   "derived_from": [
+    {"passage_id": "EXPORT-v2:p1", "quote": "CSV exports are available on paid plans only. Free-plan users cannot export CSV.", "authority": {"doc_id": "EXPORT-v2", "version": 2, "date": "2026-08-01", "status": "current", "supersedes": "EXPORT-v1", "superseded_by": null}}
+   ],
+   "note": "W restates only EXPORT-v2:p1 (read by the author). E3 restates only the first sentence of SUPPORT-v1:p1 and is never approved.",
+   "checks": [
+    {"step": "S3", "item": "R2/Q1", "field": "status", "equals": "answered"},
+    {"step": "S3", "item": "R2/Q1", "field": "reused", "equals": false},
+    {"step": "S3", "item": "R2/Q1", "field": "answer", "not_equals_text": "W"},
+    {"step": "S3", "item": "R2/Q1", "field": "calls", "non_empty": true},
+    {"step": "S3", "item": "R2/Q3", "field": "answer", "not_equals_text": "E3"},
+    {"step": "S4", "item": "R1/Q1", "field": "status", "equals": "approved"},
+    {"step": "S4", "item": "R1/Q1", "field": "approval.text", "equals_text": "W"},
+    {"step": "S4", "item": "R1/Q1", "field": "approval.approver", "equals": "Product reviewer"},
+    {"step": "S4", "item": "R1/Q1", "field": "approval.at", "equals": "2026-10-08T09:03:00Z"},
+    {"step": "S4", "item": "R1/Q1", "field": "approval.sources", "versions": {"EXPORT-v2:p1": 2}},
+    {"step": "S4", "item": "R2/Q1", "field": "status", "equals": "answered"},
+    {"step": "S5", "item": "R3/Q1", "field": "status", "equals": "approved"},
+    {"step": "S5", "item": "R3/Q1", "field": "reused", "equals": true},
+    {"step": "S5", "item": "R3/Q1", "field": "answer", "equals_text": "W"},
+    {"step": "S5", "item": "R3/Q1", "field": "approval.item", "equals": "R1/Q1"},
+    {"step": "S5", "item": "R3/Q1", "field": "approval.approver", "equals": "Product reviewer"},
+    {"step": "S5", "item": "R3/Q1", "field": "approval.sources", "versions": {"EXPORT-v2:p1": 2}},
+    {"step": "S5", "item": "R3/Q1", "field": "replaced_shown", "ids_include": ["EXPORT-v1:p1"]},
+    {"step": "S5", "item": "R3/Q1", "field": "calls", "equals": []},
+    {"step": "S5", "item": "R3/Q3", "field": "status", "equals": "answered"},
+    {"step": "S5", "item": "R3/Q3", "field": "answer", "not_equals_text": "E3"},
+    {"step": "S5", "item": "R1/Q3", "field": "edited", "equals": true},
+    {"step": "S5", "item": "R1/Q3", "field": "status", "equals": "answered"}
+   ],
+   "meaning": []
+  },
+  {
+   "id": "RC-5",
+   "covers": ["MIN-5"],
+   "title": "Reloading keeps approval and evidence; a source version change makes the approved answer need review",
+   "rules": ["RULE-3"],
+   "decisions": ["010-what-counts-as-a-version-change.md", "011-sticky-stale-marks.md", "013-stale-approval-on-a-repeat.md", "024-source-change-as-in-place-version-bump.md", "030-json-state-file.md"],
+   "seed_case": "source-change: change the version of an approved answer's source; mark the answer for review before reuse",
+   "derived_from": [
+    {"passage_id": "EXPORT-v2:p1", "quote": "CSV exports are available on paid plans only. Free-plan users cannot export CSV.", "authority": {"doc_id": "EXPORT-v2", "version": 2, "date": "2026-08-01", "status": "current", "supersedes": "EXPORT-v1", "superseded_by": null}}
+   ],
+   "note": "data/changes/export-v2-version-3.json is the same EXPORT-v2 record with version 3; the text is unchanged.",
+   "checks": [
+    {"step": "S6", "same_as": "S5"},
+    {"step": "S7", "item": "R1/Q1", "field": "status", "equals": "needs_review"},
+    {"step": "S7", "item": "R1/Q1", "field": "approval.stale_reasons", "equals": [{"doc_id": "EXPORT-v2", "approved_version": 2, "current_version": 3, "change": "version"}]},
+    {"step": "S7", "item": "R3/Q1", "field": "status", "equals": "needs_review"},
+    {"step": "S7", "item": "R3/Q1", "field": "approval.stale_reasons", "equals": [{"doc_id": "EXPORT-v2", "approved_version": 2, "current_version": 3, "change": "version"}]},
+    {"step": "S7", "item": "R2/Q1", "field": "status", "equals": "answered"},
+    {"step": "S8", "item": "R4/Q1", "field": "status", "equals": "answered"},
+    {"step": "S8", "item": "R4/Q1", "field": "reused", "equals": false},
+    {"step": "S8", "item": "R4/Q1", "field": "stale_approval_shown", "not_equals": null},
+    {"step": "S8", "item": "R4/Q1", "field": "calls", "non_empty": true},
+    {"step": "S9", "same_as": "S8"}
+   ],
+   "meaning": []
+  }
+ ],
+ "extra_rows": [
+  {
+   "id": "XR-1",
+   "title": "Re-approval after the source change: a new approval at version 3, and reuse resumes",
+   "rules": ["RULE-3"],
+   "decisions": ["011-sticky-stale-marks.md"],
+   "checks": [
+    {"step": "S10", "item": "R1/Q1", "field": "status", "equals": "approved"},
+    {"step": "S10", "item": "R1/Q1", "field": "approval.sources", "versions": {"EXPORT-v2:p1": 3}},
+    {"step": "S10", "item": "R3/Q1", "field": "status", "equals": "needs_review"},
+    {"step": "S11", "item": "R5/Q1", "field": "status", "equals": "approved"},
+    {"step": "S11", "item": "R5/Q1", "field": "reused", "equals": true},
+    {"step": "S11", "item": "R5/Q1", "field": "answer", "equals_text": "W"},
+    {"step": "S11", "item": "R5/Q1", "field": "approval.sources", "versions": {"EXPORT-v2:p1": 3}},
+    {"step": "S11", "item": "R5/Q1", "field": "calls", "equals": []}
+   ],
+   "meaning": []
+  },
+  {
+   "id": "XR-Q4",
+   "title": "A documented negative is answered No (Q4)",
+   "rules": ["RULE-1"],
+   "decisions": ["005-documented-negative-is-answered.md"],
+   "derived_from": [{"passage_id": "SUPPORT-v1:p1", "quote": "Live chat is not offered.", "authority": {"doc_id": "SUPPORT-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}],
+   "checks": [
+    {"step": "S1", "item": "R1/Q4", "field": "status", "equals": "answered"},
+    {"step": "S1", "item": "R1/Q4", "field": "citations", "ids_subset_of": ["SUPPORT-v1:p1"], "non_empty": true},
+    {"step": "S1", "item": "R1/Q4", "field": "owner", "equals": "Support reviewer"}
+   ],
+   "meaning": [
+    {"step": "S1", "item": "R1/Q4", "field": "answer",
+     "expected_facts": ["No: live chat is not offered."],
+     "forbidden_claims": ["Live chat is offered.", "Another support channel, such as phone support, is offered."]}
+   ]
+  },
+  {
+   "id": "XR-Q5",
+   "title": "Q5 is answered from ACCESS-v1:p1 without overclaiming",
+   "rules": ["RULE-1"],
+   "decisions": ["006-answers-never-stronger-than-passages.md"],
+   "derived_from": [{"passage_id": "ACCESS-v1:p1", "quote": "Users can sign in with email and password.", "authority": {"doc_id": "ACCESS-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}],
+   "checks": [
+    {"step": "S1", "item": "R1/Q5", "field": "status", "equals": "answered"},
+    {"step": "S1", "item": "R1/Q5", "field": "citations", "ids_subset_of": ["ACCESS-v1:p1"], "non_empty": true},
+    {"step": "S1", "item": "R1/Q5", "field": "owner", "equals": "Product reviewer"}
+   ],
+   "meaning": [
+    {"step": "S1", "item": "R1/Q5", "field": "answer",
+     "expected_facts": ["Users sign in with email and password."],
+     "forbidden_claims": ["Email and password is the only sign-in method.", "Single sign-on (SSO) or another sign-in method is available, or is not available."]}
+   ]
+  },
+  {
+   "id": "XR-Q6",
+   "title": "Q6 says account owners can invite team members, never that only they can",
+   "rules": ["RULE-1"],
+   "decisions": ["006-answers-never-stronger-than-passages.md"],
+   "derived_from": [{"passage_id": "ACCESS-v1:p1", "quote": "Account owners can invite team members.", "authority": {"doc_id": "ACCESS-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}],
+   "checks": [
+    {"step": "S1", "item": "R1/Q6", "field": "status", "equals": "answered"},
+    {"step": "S1", "item": "R1/Q6", "field": "citations", "ids_subset_of": ["ACCESS-v1:p1"], "non_empty": true},
+    {"step": "S1", "item": "R1/Q6", "field": "owner", "equals": "Product reviewer"}
+   ],
+   "meaning": [
+    {"step": "S1", "item": "R1/Q6", "field": "answer",
+     "expected_facts": ["Account owners can invite team members (the bare answer \"Account owners.\" is acceptable)."],
+     "forbidden_claims": ["Only account owners can invite team members.", "Any claim about whether other roles can invite team members."]}
+   ]
+  },
+  {
+   "id": "XR-Q7",
+   "title": "Q7 says subscriptions are billed monthly",
+   "rules": ["RULE-1"],
+   "decisions": ["006-answers-never-stronger-than-passages.md"],
+   "derived_from": [{"passage_id": "BILLING-v1:p1", "quote": "Paid subscriptions are billed monthly in USD.", "authority": {"doc_id": "BILLING-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}],
+   "checks": [
+    {"step": "S1", "item": "R1/Q7", "field": "status", "equals": "answered"},
+    {"step": "S1", "item": "R1/Q7", "field": "citations", "ids_subset_of": ["BILLING-v1:p1"], "non_empty": true},
+    {"step": "S1", "item": "R1/Q7", "field": "owner", "equals": "Billing reviewer"}
+   ],
+   "meaning": [
+    {"step": "S1", "item": "R1/Q7", "field": "answer",
+     "expected_facts": ["Subscriptions are billed monthly (saying \"paid subscriptions\" or mentioning USD is fine, and leaving them out is fine)."],
+     "forbidden_claims": ["Subscriptions are billed at another frequency, such as yearly.", "No other billing frequency exists."]}
+   ]
+  },
+  {
+   "id": "XR-Q8",
+   "title": "Q8 says account owners can download billing invoices, never that only they can",
+   "rules": ["RULE-1"],
+   "decisions": ["006-answers-never-stronger-than-passages.md"],
+   "derived_from": [{"passage_id": "BILLING-v1:p1", "quote": "Account owners can download billing invoices.", "authority": {"doc_id": "BILLING-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}],
+   "checks": [
+    {"step": "S1", "item": "R1/Q8", "field": "status", "equals": "answered"},
+    {"step": "S1", "item": "R1/Q8", "field": "citations", "ids_subset_of": ["BILLING-v1:p1"], "non_empty": true},
+    {"step": "S1", "item": "R1/Q8", "field": "owner", "equals": "Billing reviewer"}
+   ],
+   "meaning": [
+    {"step": "S1", "item": "R1/Q8", "field": "answer",
+     "expected_facts": ["Account owners can download billing invoices (the bare answer \"Account owners.\" is acceptable)."],
+     "forbidden_claims": ["Only account owners can download billing invoices.", "Any claim about whether other roles can download invoices."]}
+   ]
+  }
+ ],
+ "counts_order": ["answered", "unresolved", "approved", "needs_review", "error"],
+ "counts": {
+  "S1": {"R1": [7, 1, 0, 0, 0]},
+  "S2": {"R1": [7, 1, 0, 0, 0]},
+  "S3": {"R1": [7, 1, 0, 0, 0], "R2": [7, 1, 0, 0, 0]},
+  "S4": {"R1": [6, 1, 1, 0, 0], "R2": [7, 1, 0, 0, 0]},
+  "S5": {"R1": [6, 1, 1, 0, 0], "R2": [7, 1, 0, 0, 0], "R3": [6, 1, 1, 0, 0]},
+  "S6": {"R1": [6, 1, 1, 0, 0], "R2": [7, 1, 0, 0, 0], "R3": [6, 1, 1, 0, 0]},
+  "S7": {"R1": [6, 1, 0, 1, 0], "R2": [7, 1, 0, 0, 0], "R3": [6, 1, 0, 1, 0]},
+  "S8": {"R1": [6, 1, 0, 1, 0], "R2": [7, 1, 0, 0, 0], "R3": [6, 1, 0, 1, 0], "R4": [7, 1, 0, 0, 0]},
+  "S9": {"R1": [6, 1, 0, 1, 0], "R2": [7, 1, 0, 0, 0], "R3": [6, 1, 0, 1, 0], "R4": [7, 1, 0, 0, 0]},
+  "S10": {"R1": [6, 1, 1, 0, 0], "R2": [7, 1, 0, 0, 0], "R3": [6, 1, 0, 1, 0], "R4": [7, 1, 0, 0, 0]},
+  "S11": {"R1": [6, 1, 1, 0, 0], "R2": [7, 1, 0, 0, 0], "R3": [6, 1, 0, 1, 0], "R4": [7, 1, 0, 0, 0], "R5": [6, 1, 1, 0, 0]}
+ },
+ "counts_note": "Hand-computed from the passages: Q2 is the only unresolved item; Q1 and Q3-Q8 are answered unless approved. The counts assume each real draft passes its checks; a mismatch is reported as a FAIL, never fixed in this key."
+}

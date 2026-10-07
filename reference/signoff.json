@@ -1,0 +1,4 @@
+{
+ "_purpose": "The author's final call on each meaning check, after reading the observed answer and the judge's verdict. Keys are the meaning keys printed by `uv run python reference/judge.py --list`. Each entry: {\"result\": \"pass\" or \"fail\", \"by\": name, \"date\": YYYY-MM-DD, \"comment\": optional}. Empty until the author signs; unsigned meaning checks are graded PENDING.",
+ "signoffs": {}
+}
