@@ -1,0 +1,19 @@
+{
+  "_purpose": "Source change applied at step S7 of the reference scenario. It replaces the loaded EXPORT-v2 by ID with the same record at version 3. The text, date, status, supersedes link and passage IDs are exactly as supplied in data/seed/seed.json, so the version number is the only difference, and the change adds no document, passage or fact.",
+  "label": "SOURCE CHANGE",
+  "documents": [
+    {
+      "id": "EXPORT-v2",
+      "version": 3,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": "EXPORT-v1",
+      "passages": [
+        {
+          "id": "EXPORT-v2:p1",
+          "text": "CSV exports are available on paid plans only. Free-plan users cannot export CSV."
+        }
+      ]
+    }
+  ]
+}

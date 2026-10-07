@@ -1,0 +1,138 @@
+{
+  "_purpose": "Fixed inputs for the reference scenario, steps S1 to S11: which requests to run, what the reviewer edits, notes and approves, which change file to apply, and when. It starts from a clean state with only the supplied seed loaded. Each run_questionnaire step runs the seed's whole questionnaire (Q1 to Q8, eight items) as a new request; items are named request/question, such as R1/Q1. The reviewer texts are scripted, not model output, and add no product facts: the Q1 correction restates EXPORT-v2:p1, the Q3 edit restates the first sentence of SUPPORT-v1:p1, and the Q2 note records that JSON export is not documented. Times are fixed, one minute per step, so every run is reproducible. Expected results are kept separately, in the answer key.",
+  "label": "SCRIPTED REVIEWER INPUT",
+  "dataset": "data/seed/seed.json",
+  "steps": [
+    {
+      "id": "S1",
+      "at": "2026-10-08T09:00:00Z",
+      "actions": [
+        {
+          "type": "run_questionnaire",
+          "request": "R1"
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "at": "2026-10-08T09:01:00Z",
+      "actions": [
+        {
+          "type": "save_edit",
+          "item": "R1/Q1",
+          "text": "No. CSV export is for paid plans only; free-plan users cannot export CSV."
+        },
+        {
+          "type": "save_edit",
+          "item": "R1/Q3",
+          "text": "Email support hours are 09:00 to 17:00 UTC, Monday to Friday."
+        },
+        {
+          "type": "add_note",
+          "item": "R1/Q2",
+          "text": "Needs Product reviewer: JSON export is not documented."
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "at": "2026-10-08T09:02:00Z",
+      "actions": [
+        {
+          "type": "run_questionnaire",
+          "request": "R2"
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "at": "2026-10-08T09:03:00Z",
+      "actions": [
+        {
+          "type": "approve",
+          "item": "R1/Q1",
+          "text": "No. CSV export is for paid plans only; free-plan users cannot export CSV.",
+          "sources": [
+            "EXPORT-v2:p1"
+          ],
+          "approver": "Product reviewer",
+          "note": "Corrected wording checked against EXPORT-v2:p1."
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "at": "2026-10-08T09:04:00Z",
+      "actions": [
+        {
+          "type": "run_questionnaire",
+          "request": "R3"
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "at": "2026-10-08T09:05:00Z",
+      "actions": [
+        {
+          "type": "reload"
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "at": "2026-10-08T09:06:00Z",
+      "actions": [
+        {
+          "type": "apply_change",
+          "file": "data/changes/export-v2-version-3.json"
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "at": "2026-10-08T09:07:00Z",
+      "actions": [
+        {
+          "type": "run_questionnaire",
+          "request": "R4"
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "at": "2026-10-08T09:08:00Z",
+      "actions": [
+        {
+          "type": "reload"
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "at": "2026-10-08T09:09:00Z",
+      "actions": [
+        {
+          "type": "approve",
+          "item": "R1/Q1",
+          "text": "No. CSV export is for paid plans only; free-plan users cannot export CSV.",
+          "sources": [
+            "EXPORT-v2:p1"
+          ],
+          "approver": "Product reviewer",
+          "note": "Re-checked against EXPORT-v2 version 3."
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "at": "2026-10-08T09:10:00Z",
+      "actions": [
+        {
+          "type": "run_questionnaire",
+          "request": "R5"
+        }
+      ]
+    }
+  ]
+}
