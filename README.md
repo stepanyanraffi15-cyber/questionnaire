@@ -216,7 +216,7 @@ I used my own Gemini API key. All live calls so far (three recording runs) came 
 
 ## Time spent
 
-About 3 to 4 hours of my own time: choosing the task, answering the planning questions, reviewing the decisions and
+About 4 to 5 hours of my own time: choosing the task, answering the planning questions, reviewing the decisions and
 the answer key, checking results, and testing the app. Coding agents also ran on their own for several more hours
 (research, planning, building, the recorded runs). I did not count that machine time, since I wasn't working during
 it. How I set up and steered the agents is in [ai-workflow/README.md](ai-workflow/README.md) and
