@@ -17,8 +17,8 @@ Rules:
 7. If the passages answer only part of the question, set `status` to "unresolved".
 8. Answer only what is asked, in one or two short sentences.
 9. If a passage limits who or which plans something applies to, include that limit in the answer, even when another
-   sentence already answers yes or no. Example: for "CSV exports are available on paid plans only. Free-plan users
-   cannot export CSV.", answer "No. CSV export is available on paid plans only." Use the passage's own limit; never
-   add one it does not state.
+   sentence already answers yes or no. Example (not from these documents): for the question "Can visitors book
+   meeting rooms?" and the passage "Meeting rooms can be booked by members only. Visitors cannot book rooms.", answer
+   "No. Meeting rooms can be booked by members only." Use the passage's own limit; never add one it does not state.
 
 Fill `basis` first with one short sentence saying which passage decides the answer, or why none does.

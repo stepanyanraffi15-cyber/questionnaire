@@ -18,12 +18,13 @@ No API key needed.
 ```bash
 uv sync --locked
 uv run streamlit run src/qa/ui.py                      # click "New request", then look at Q1, Q2 and Q3
-uv run qa report && uv run python reference/grade.py   # replay the saved run and grade it: 115 PASS
+uv run qa report && uv run python reference/grade.py   # replay the saved run and grade it: 0 FAIL
 ```
 
 Then, if you want more: [docs/RESULTS.md](docs/RESULTS.md) for every check,
 [decision 038](docs/decisions/038-state-the-deciding-condition.md) for the one real failure and how it was fixed, and
-[prompts/](prompts/) for the two prompts. Everything else is detail.
+[prompts/](prompts/) for the two prompts, and [Papers behind the design](#papers-behind-the-design) for the
+ideas it is built on. Everything else is detail.
 
 ## What it looks like
 
@@ -78,6 +79,26 @@ a small word list ("only", "every", "always"...) but it only shows a hint to the
 The documents are also treated as data, never as instructions. The prompts hold the rules, and the passages are sent
 separately as JSON. Replaced passages are never sent to the model. The model has no tools, so it cannot approve,
 reuse, or route anything by itself. Only the reviewer's clicks do that.
+
+## Papers behind the design
+
+I read around before building. These are the ones whose ideas actually ended up in the code. The full reading list is
+in [docs/research/README.md](docs/research/README.md).
+
+| Idea in this project | Where it comes from |
+|---|---|
+| Every answer carries a passage ID and a word-for-word quote, so a person can check it in seconds | Gao et al., *Enabling Large Language Models to Generate Text with Citations* (ALCE), EMNLP 2023. [link](https://aclanthology.org/2023.emnlp-main.398.pdf) |
+| A correct answer with a citation is not proof the citation was used. So the support check asks whether the cited text says everything the answer says, not whether the answer is true | Wallat et al., *Correctness is not Faithfulness in RAG Attributions*, ICTIR 2025. [link](https://staff.fnwi.uva.nl/m.derijke/wp-content/papercite-data/pdf/wallat-2025-correctness.pdf) |
+| A separate step checks each claim against the cited passages | Tang, Laban, Durrett, *MiniCheck*, EMNLP 2024. [link](https://aclanthology.org/2024.emnlp-main.499/) |
+| When the documents don't answer, the right output is "I don't know" and a handoff, not a guess | Wen et al., *Know Your Limits: A Survey of Abstention in LLMs*, TACL 2025 [link](https://aclanthology.org/2025.tacl-1.26/); Song et al., *Trust-Align*, ICLR 2025 [link](https://arxiv.org/abs/2409.11242) |
+| Models often follow whatever context they are given, even when it is wrong, so replaced passages are never sent to the model | Wu, Wu, Zou, *ClashEval*, NeurIPS 2024 [link](https://arxiv.org/abs/2404.10198) |
+| Conflicts between sources are shown to the reviewer, not hidden by quietly picking one | Xu et al., *Knowledge Conflicts for LLMs: A Survey*, EMNLP 2024 [link](https://arxiv.org/abs/2403.08319); Cattan et al., *DRAGged into Conflicts*, 2025 [link](https://arxiv.org/abs/2506.08500) |
+| Documents go in a separate JSON data message, marked as content and never instructions | Hines et al., *Defending Against Indirect Prompt Injection Attacks With Spotlighting*, 2024. [link](https://arxiv.org/abs/2403.14720) |
+| The model has no tools. Approving, reusing and routing happen only in code the reviewer triggers | Beurer-Kellner et al., *Design Patterns for Securing LLM Agents against Prompt Injections*, 2025. [link](https://arxiv.org/abs/2506.08837) |
+| Strict JSON output can hurt reasoning, so the JSON has a `basis` field the model fills in first | Tam et al., *Let Me Speak Freely?*, EMNLP 2024 Industry. [link](https://aclanthology.org/2024.emnlp-industry.91/) |
+| Reusing an answer for a question that only looks similar can return the wrong answer. Making that safe takes real work, so I reuse only on an exact text match | *vCache: Verified Semantic Prompt Caching*, 2025. [link](https://arxiv.org/abs/2502.03771) |
+| An LLM judge needs a human check of its verdicts, so meaning rows need a sign-off | Shankar et al., *Who Validates the Validators?*, UIST 2024. [link](https://arxiv.org/abs/2404.12272) |
+| A small test set is weak evidence, which is why I don't claim an accuracy number | Miller, *Adding Error Bars to Evals*, 2024. [link](https://arxiv.org/abs/2411.00640) |
 
 ## Run it
 
@@ -146,44 +167,25 @@ the Python standard library and imports nothing from the app.
 | MIN-4: an approved correction is reused; an unapproved edit is not | PASS |
 | MIN-5: a reload keeps everything; a version change means "needs review" | PASS |
 | Counts at every step | PASS |
-| **All rows** | **115 PASS, 0 FAIL, 0 PENDING** |
+| **All rows** | **113 PASS, 0 FAIL, 2 PENDING** (two meaning rows awaiting sign-off) |
 
 Full table: [docs/RESULTS.md](docs/RESULTS.md).
 
 Plain checks (statuses, IDs, quotes, counts) are graded by code. The seven rows about meaning ("does this answer say
 the right thing?") are graded by a recorded Gemini judge and then signed off by a person in
-`reference/signoff.json`. A judge PASS alone only counts as PENDING. The meaning review was done by Claude at my
-request, against the passages, and the sign-offs say so.
+`reference/signoff.json`. A judge PASS alone only counts as PENDING. After the last re-record two answers (Q4, Q7)
+changed wording, so their rows are PENDING until signed off.
 
 **The one real failure.** In the first live run, Gemini answered Q1 with "No, free-plan users cannot export CSV."
 That is true, but it drops the limit the document actually states: paid plans only. The judge caught it, and the
 grader failed it. I did not touch the key. I changed the drafting prompt instead: first a soft rule, which did not
-help, then a clear rule with a worked example, which did. Q1 now reads "No. CSV exports are available on paid plans
-only." The story is in [decision 038](docs/decisions/038-state-the-deciding-condition.md) and
+help, then a clear rule with a worked example, which did. That example first used Q1's own passage; I replaced it
+with an unrelated one (meeting rooms) so the prompt does not contain the answer, and Q1 still reads "No. CSV exports
+are available on paid plans only." The story is in [decision 038](docs/decisions/038-state-the-deciding-condition.md) and
 [docs/LLM_USAGE.md](docs/LLM_USAGE.md).
 
-Eight questions and five documents are a tiny test. 115 passing rows show that the rules work on this data, not that
+Eight questions and five documents are a tiny test. The passing rows show that the rules work on this data, not that
 the system is accurate in general.
-
-## Papers behind the design
-
-I read around before building. These are the ones whose ideas actually ended up in the code. The full reading list is
-in [docs/research/README.md](docs/research/README.md).
-
-| Idea in this project | Where it comes from |
-|---|---|
-| Every answer carries a passage ID and a word-for-word quote, so a person can check it in seconds | Gao et al., *Enabling Large Language Models to Generate Text with Citations* (ALCE), EMNLP 2023. [link](https://aclanthology.org/2023.emnlp-main.398.pdf) |
-| A correct answer with a citation is not proof the citation was used. So the support check asks whether the cited text says everything the answer says, not whether the answer is true | Wallat et al., *Correctness is not Faithfulness in RAG Attributions*, ICTIR 2025. [link](https://staff.fnwi.uva.nl/m.derijke/wp-content/papercite-data/pdf/wallat-2025-correctness.pdf) |
-| A separate step checks each claim against the cited passages | Tang, Laban, Durrett, *MiniCheck*, EMNLP 2024. [link](https://aclanthology.org/2024.emnlp-main.499/) |
-| When the documents don't answer, the right output is "I don't know" and a handoff, not a guess | Wen et al., *Know Your Limits: A Survey of Abstention in LLMs*, TACL 2025 [link](https://aclanthology.org/2025.tacl-1.26/); Song et al., *Trust-Align*, ICLR 2025 [link](https://arxiv.org/abs/2409.11242) |
-| Models often follow whatever context they are given, even when it is wrong, so replaced passages are never sent to the model | Wu, Wu, Zou, *ClashEval*, NeurIPS 2024 [link](https://arxiv.org/abs/2404.10198) |
-| Conflicts between sources are shown to the reviewer, not hidden by quietly picking one | Xu et al., *Knowledge Conflicts for LLMs: A Survey*, EMNLP 2024 [link](https://arxiv.org/abs/2403.08319); Cattan et al., *DRAGged into Conflicts*, 2025 [link](https://arxiv.org/abs/2506.08500) |
-| Documents go in a separate JSON data message, marked as content and never instructions | Hines et al., *Defending Against Indirect Prompt Injection Attacks With Spotlighting*, 2024. [link](https://arxiv.org/abs/2403.14720) |
-| The model has no tools. Approving, reusing and routing happen only in code the reviewer triggers | Beurer-Kellner et al., *Design Patterns for Securing LLM Agents against Prompt Injections*, 2025. [link](https://arxiv.org/abs/2506.08837) |
-| Strict JSON output can hurt reasoning, so the JSON has a `basis` field the model fills in first | Tam et al., *Let Me Speak Freely?*, EMNLP 2024 Industry. [link](https://aclanthology.org/2024.emnlp-industry.91/) |
-| Reusing an answer for a question that only looks similar can return the wrong answer. Making that safe takes real work, so I reuse only on an exact text match | *vCache: Verified Semantic Prompt Caching*, 2025. [link](https://arxiv.org/abs/2502.03771) |
-| An LLM judge needs a human check of its verdicts, so meaning rows need a sign-off | Shankar et al., *Who Validates the Validators?*, UIST 2024. [link](https://arxiv.org/abs/2404.12272) |
-| A small test set is weak evidence, which is why I don't claim an accuracy number | Miller, *Adding Error Bars to Evals*, 2024. [link](https://arxiv.org/abs/2411.00640) |
 
 ## The judgement calls
 
@@ -211,8 +213,8 @@ Gemini `gemini-3.8-flash`, thinking level medium, default sampling, 3 retries, 6
 [prompts/check_support.md](prompts/check_support.md). The grader's judge has its own:
 [reference/judge_prompt.md](reference/judge_prompt.md).
 
-I used my own Gemini API key. All live calls so far (three recording runs) came to about 20.2k input, 2.6k output and
-5.8k thinking tokens over 35 calls, plus 10 judge calls. That is well under one US dollar.
+I used my own Gemini API key. All live calls so far (four recording runs) came to about 25.9k input, 3.4k output and
+8.3k thinking tokens over 44 calls, plus 11 judge calls. That is well under one US dollar.
 
 ## What it doesn't do yet
 

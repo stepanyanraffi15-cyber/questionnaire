@@ -463,6 +463,58 @@
    "thoughts_token_count": 247
   }
  },
+ "faf61fa6937171b5d9406fc30e53306c7b32200fc4218c056474ff59f11267bf": {
+  "case": "XR-Q7",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T11:16:19Z",
+  "request": {
+   "answer": "Paid subscriptions are billed monthly in USD.",
+   "expected_facts": [
+    "Subscriptions are billed monthly (saying \"paid subscriptions\" or mentioning USD is fine, and leaving them out is fine)."
+   ],
+   "forbidden_claims": [
+    "Subscriptions are billed at another frequency, such as yearly.",
+    "No other billing frequency exists."
+   ],
+   "passages": [
+    {
+     "id": "BILLING-v1:p1",
+     "text": "Paid subscriptions are billed monthly in USD. Account owners can download billing invoices."
+    }
+   ],
+   "question": "How often are subscriptions billed?"
+  },
+  "response": {
+   "basis": "The answer directly states that paid subscriptions are billed monthly in USD.",
+   "facts": [
+    {
+     "fact": "Subscriptions are billed monthly (saying \"paid subscriptions\" or mentioning USD is fine, and leaving them out is fine).",
+     "quote": "Paid subscriptions are billed monthly in USD.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Subscriptions are billed at another frequency, such as yearly.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "No other billing frequency exists.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "gHvHapbAE5bgvdIPh-P80A0",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 165,
+   "prompt_token_count": 355,
+   "thoughts_token_count": 154
+  }
+ },
  "fc1fcd0ca1a0ee333ee64a4aa5d6d7f8c61f41babbb303097cefa59fddc8f7ed": {
   "case": "XR-Q4",
   "model": "gemini-3.8-flash",

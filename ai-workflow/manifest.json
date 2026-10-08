@@ -304,7 +304,7 @@
     {
       "name": "Saved real application responses",
       "category": "application_models_and_parameters",
-      "purpose": "35 real Gemini calls from three record runs (the first run and one per prompt fix of decision 038), keyed by a fingerprint of the exact request; replay uses the latest and needs no API key.",
+      "purpose": "44 real Gemini calls from four record runs (the first run and one per prompt change of decision 038), keyed by a fingerprint of the exact request; replay uses the latest and needs no API key.",
       "original_path_or_scope": "runs/recordings/",
       "saved_path": "runs/recordings/",
       "version_or_commit": "Each file stores provider, model, thinking level, prompt file and its SHA-256, request, response and recording time",
@@ -315,7 +315,7 @@
     {
       "name": "Saved judge verdicts",
       "category": "application_models_and_parameters",
-      "purpose": "10 real judge verdicts (one per distinct answer graded); replayed by the grader without a key.",
+      "purpose": "11 real judge verdicts (one per distinct answer graded); replayed by the grader without a key.",
       "original_path_or_scope": "runs/judge/verdicts.json",
       "saved_path": "runs/judge/verdicts.json",
       "version_or_commit": "Each verdict stores model, thinking level, prompt file, request, response and recording time",
@@ -329,8 +329,8 @@
       "purpose": "System prompt for drafting a cited answer from the passages, or marking the question unresolved.",
       "original_path_or_scope": "prompts/draft_answer.md",
       "saved_path": "prompts/draft_answer.md",
-      "version_or_commit": "sha256 963a1f695bcab035b5ecd24257de807c37958488641868c66fb79dc383e27f86 (current, rule 9 of decision 038); earlier versions: commit 38d5577 (no rule 9) and the first rule-9 wording, both kept in runs/recordings/",
-      "used_during": "Three record runs (2026-10-07 21:29 UTC; 2026-10-08 05:45 and 10:20 UTC) and every replay",
+      "version_or_commit": "sha256 70e2480a675a4442afb60bbe8ea5dc855a96d6f5a928015c75f9866ba3075f19 (current: rule 9 of decision 038 with a neutral example); earlier versions are in git history and their responses in runs/recordings/",
+      "used_during": "Four record runs (2026-10-07 and 2026-10-08) and every replay",
       "status": "used",
       "redactions": []
     },

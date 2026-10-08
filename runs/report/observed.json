@@ -58,9 +58,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -105,9 +105,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -151,9 +151,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -189,7 +189,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -205,22 +205,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -259,9 +259,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -313,9 +313,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -350,8 +350,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -367,22 +367,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -421,9 +421,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -497,9 +497,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -544,9 +544,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -590,9 +590,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -628,7 +628,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -644,22 +644,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -698,9 +698,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -752,9 +752,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -789,8 +789,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -806,22 +806,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -860,9 +860,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -943,9 +943,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -990,9 +990,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -1036,9 +1036,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -1074,7 +1074,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -1090,22 +1090,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -1144,9 +1144,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -1198,9 +1198,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -1235,8 +1235,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -1252,22 +1252,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -1306,9 +1306,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -1368,9 +1368,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -1415,9 +1415,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -1461,9 +1461,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -1499,7 +1499,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -1515,22 +1515,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -1569,9 +1569,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -1623,9 +1623,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -1660,8 +1660,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -1677,22 +1677,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -1731,9 +1731,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -1840,9 +1840,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -1887,9 +1887,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -1933,9 +1933,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -1971,7 +1971,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -1987,22 +1987,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -2041,9 +2041,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -2095,9 +2095,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -2132,8 +2132,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -2149,22 +2149,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -2203,9 +2203,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -2265,9 +2265,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -2312,9 +2312,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -2358,9 +2358,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -2396,7 +2396,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -2412,22 +2412,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -2466,9 +2466,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -2520,9 +2520,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -2557,8 +2557,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -2574,22 +2574,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -2628,9 +2628,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -2744,9 +2744,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -2791,9 +2791,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -2837,9 +2837,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -2875,7 +2875,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -2891,22 +2891,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -2945,9 +2945,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -2999,9 +2999,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -3036,8 +3036,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -3053,22 +3053,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -3107,9 +3107,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -3169,9 +3169,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -3216,9 +3216,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -3262,9 +3262,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -3300,7 +3300,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -3316,22 +3316,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -3370,9 +3370,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -3424,9 +3424,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -3461,8 +3461,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -3478,22 +3478,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -3532,9 +3532,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -3644,9 +3644,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -3690,9 +3690,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -3728,7 +3728,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -3744,22 +3744,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -3798,9 +3798,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -3852,9 +3852,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -3889,8 +3889,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -3906,22 +3906,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -3960,9 +3960,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -4076,9 +4076,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -4123,9 +4123,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -4169,9 +4169,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -4207,7 +4207,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -4223,22 +4223,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -4277,9 +4277,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -4331,9 +4331,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -4368,8 +4368,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -4385,22 +4385,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -4439,9 +4439,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -4501,9 +4501,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -4548,9 +4548,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -4594,9 +4594,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -4632,7 +4632,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -4648,22 +4648,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -4702,9 +4702,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -4756,9 +4756,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -4793,8 +4793,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -4810,22 +4810,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -4864,9 +4864,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -4976,9 +4976,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -5022,9 +5022,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -5060,7 +5060,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -5076,22 +5076,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -5130,9 +5130,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -5184,9 +5184,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -5221,8 +5221,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -5238,22 +5238,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -5292,9 +5292,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -5421,9 +5421,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -5468,9 +5468,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -5514,9 +5514,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -5552,7 +5552,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -5568,22 +5568,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -5622,9 +5622,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -5676,9 +5676,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -5713,8 +5713,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -5730,22 +5730,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -5784,9 +5784,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -5846,9 +5846,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -5893,9 +5893,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -5939,9 +5939,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -5977,7 +5977,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -5993,22 +5993,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -6047,9 +6047,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -6101,9 +6101,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -6138,8 +6138,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -6155,22 +6155,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -6209,9 +6209,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -6319,9 +6319,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -6365,9 +6365,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -6403,7 +6403,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -6419,22 +6419,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -6473,9 +6473,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -6527,9 +6527,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -6564,8 +6564,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -6581,22 +6581,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -6635,9 +6635,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -6771,9 +6771,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -6818,9 +6818,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -6864,9 +6864,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -6902,7 +6902,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -6918,22 +6918,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -6972,9 +6972,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -7026,9 +7026,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -7063,8 +7063,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -7080,22 +7080,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -7134,9 +7134,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -7196,9 +7196,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -7243,9 +7243,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -7289,9 +7289,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -7327,7 +7327,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -7343,22 +7343,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -7397,9 +7397,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -7451,9 +7451,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -7488,8 +7488,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -7505,22 +7505,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -7559,9 +7559,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -7669,9 +7669,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -7715,9 +7715,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -7753,7 +7753,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -7769,22 +7769,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -7823,9 +7823,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -7877,9 +7877,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -7914,8 +7914,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -7931,22 +7931,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -7985,9 +7985,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -8047,9 +8047,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -8094,9 +8094,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -8140,9 +8140,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -8178,7 +8178,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -8194,22 +8194,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -8248,9 +8248,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -8302,9 +8302,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -8339,8 +8339,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -8356,22 +8356,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -8410,9 +8410,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -8546,9 +8546,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -8593,9 +8593,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -8639,9 +8639,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -8677,7 +8677,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -8693,22 +8693,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -8747,9 +8747,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -8801,9 +8801,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -8838,8 +8838,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -8855,22 +8855,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -8909,9 +8909,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -8971,9 +8971,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -9018,9 +9018,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -9064,9 +9064,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -9102,7 +9102,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -9118,22 +9118,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -9172,9 +9172,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -9226,9 +9226,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -9263,8 +9263,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -9280,22 +9280,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -9334,9 +9334,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -9444,9 +9444,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -9490,9 +9490,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -9528,7 +9528,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -9544,22 +9544,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -9598,9 +9598,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -9652,9 +9652,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -9689,8 +9689,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -9706,22 +9706,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -9760,9 +9760,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -9822,9 +9822,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -9869,9 +9869,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -9915,9 +9915,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -9953,7 +9953,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -9969,22 +9969,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -10023,9 +10023,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -10077,9 +10077,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -10114,8 +10114,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -10131,22 +10131,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -10185,9 +10185,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -10308,9 +10308,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -10355,9 +10355,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -10401,9 +10401,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -10439,7 +10439,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -10455,22 +10455,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -10509,9 +10509,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -10563,9 +10563,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -10600,8 +10600,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -10617,22 +10617,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -10671,9 +10671,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -10733,9 +10733,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -10780,9 +10780,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -10826,9 +10826,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -10864,7 +10864,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -10880,22 +10880,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -10934,9 +10934,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -10988,9 +10988,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -11025,8 +11025,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -11042,22 +11042,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -11096,9 +11096,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -11206,9 +11206,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -11252,9 +11252,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -11290,7 +11290,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -11306,22 +11306,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -11360,9 +11360,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -11414,9 +11414,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -11451,8 +11451,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -11468,22 +11468,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -11522,9 +11522,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -11584,9 +11584,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -11631,9 +11631,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -11677,9 +11677,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -11715,7 +11715,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -11731,22 +11731,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -11785,9 +11785,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -11839,9 +11839,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -11876,8 +11876,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -11893,22 +11893,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -11947,9 +11947,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -12077,9 +12077,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -12124,9 +12124,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -12170,9 +12170,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -12208,7 +12208,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -12224,22 +12224,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -12278,9 +12278,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -12332,9 +12332,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -12369,8 +12369,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -12386,22 +12386,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -12440,9 +12440,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -12502,9 +12502,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -12549,9 +12549,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -12595,9 +12595,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -12633,7 +12633,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -12649,22 +12649,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -12703,9 +12703,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -12757,9 +12757,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -12794,8 +12794,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -12811,22 +12811,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -12865,9 +12865,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -12975,9 +12975,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -13021,9 +13021,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -13059,7 +13059,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -13075,22 +13075,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -13129,9 +13129,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -13183,9 +13183,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -13220,8 +13220,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -13237,22 +13237,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -13291,9 +13291,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -13353,9 +13353,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
+       "fingerprint": "f3e209d537da5eef00e6219195c40332ec7b069cbbb1da5020615789d3634bbc",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:20:53Z"
+       "recorded_at": "2026-10-08T11:15:46Z"
       },
       {
        "call_type": "support",
@@ -13400,9 +13400,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -13446,9 +13446,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -13484,7 +13484,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -13500,22 +13500,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -13554,9 +13554,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -13608,9 +13608,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -13645,8 +13645,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -13662,22 +13662,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -13716,9 +13716,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",
@@ -13828,9 +13828,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
+       "fingerprint": "43764ea62b3803156b7d1f41cb7f7e157000be8e3d66b76463188f92fc95de12",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:00Z"
+       "recorded_at": "2026-10-08T11:15:48Z"
       }
      ],
      "suggestion": {
@@ -13874,9 +13874,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
+       "fingerprint": "de51be17aa0e5e521ca90de3e96f661d286ed93548f00270f5f792baa1146c4a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:04Z"
+       "recorded_at": "2026-10-08T11:15:52Z"
       },
       {
        "call_type": "support",
@@ -13912,7 +13912,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No. Live chat is not offered.",
+     "answer": "No, live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -13928,22 +13928,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
+       "fingerprint": "bfc173d7d935f08d6922706724608f98d17f8948ddc6227c2f599cb9fb78704a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:08Z"
+       "recorded_at": "2026-10-08T11:15:56Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
+       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T05:46:03Z"
+       "recorded_at": "2026-10-07T21:30:15Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No. Live chat is not offered.",
+      "answer": "No, live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -13982,9 +13982,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
+       "fingerprint": "c09c705c90e9bb3193c3d409e0c7204a57422926f8db5b2ee47859ce0c0faabe",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:11Z"
+       "recorded_at": "2026-10-08T11:16:01Z"
       },
       {
        "call_type": "support",
@@ -14036,9 +14036,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
+       "fingerprint": "07fd5089ff46e81b0e93f51cb1bf95d4f4ea69ab529df16ea1788ff019b42903",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:15Z"
+       "recorded_at": "2026-10-08T11:16:04Z"
       },
       {
        "call_type": "support",
@@ -14073,8 +14073,8 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage directly states that paid subscriptions are billed monthly.",
-     "answer": "Paid subscriptions are billed monthly.",
+     "detail": "The answer is directly stated in the cited passage.",
+     "answer": "Paid subscriptions are billed monthly in USD.",
      "answer_source": "model",
      "citations": [
       {
@@ -14090,22 +14090,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
+       "fingerprint": "fc779547190bc0cfd77c5c5840643a38890ba7163f7c2844763deda55230236f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:19Z"
+       "recorded_at": "2026-10-08T11:16:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
+       "fingerprint": "a4e5ec68d0fc90cf0375a227eb9178e55fe16a8da51b76055b4edca26b3cc01b",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:35Z"
+       "recorded_at": "2026-10-08T11:16:11Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "Paid subscriptions are billed monthly.",
+      "answer": "Paid subscriptions are billed monthly in USD.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -14144,9 +14144,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
+       "fingerprint": "fe3a777718aa6c2084c200b3f8ff04f060518179a89b48de06494601ce444ccb",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-08T10:21:24Z"
+       "recorded_at": "2026-10-08T11:16:14Z"
       },
       {
        "call_type": "support",

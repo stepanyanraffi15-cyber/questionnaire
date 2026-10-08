@@ -38,10 +38,10 @@ Option 3. Two attempts, both recorded:
 ## Consequences
 
 - Each prompt change gives every draft request a new fingerprint, so each attempt was one live run. The responses of
-  all three runs stay in `runs/recordings/` as evidence; replay uses the latest ones.
+  every run stay in `runs/recordings/` as evidence; replay uses the latest ones.
 - The other answers kept their meaning; their counts at every step still match the answer key.
-- The worked example in the prompt uses the Q1 passage itself. That makes the fix for Q1 more likely, and it means
-  this result is weaker evidence for questions the prompt has not seen; stated as a limitation.
+- Attempt 2's worked example used the Q1 passage itself, so the prompt contained Q1's answer. An outside review
+  pointed this out, and the example was replaced (see the update below).
 - This is the "one correction" example in `docs/LLM_USAGE.md`.
 
 ## Evidence
@@ -49,7 +49,12 @@ Option 3. Two attempts, both recorded:
 - `docs/RESULTS.md` at commit 38d5577 (RC-3 meaning FAIL) and now (no FAIL).
 - `uv run qa inspect S1 R1/Q1` shows the current request and response.
 
-## Update (sign-off)
+## Update: a neutral example (2026-10-08)
 
-The meaning checks, RC-3 included, were later signed off in `reference/signoff.json`; the run now grades 115 PASS,
-0 FAIL, 0 PENDING.
+Rule 9's example now comes from an unrelated area and is marked "not from these documents": for "Can visitors book
+meeting rooms?" and "Meeting rooms can be booked by members only. Visitors cannot book rooms.", answer "No. Meeting
+rooms can be booked by members only." Re-recorded once. Q1 still reads "No. CSV exports are available on paid plans
+only." and the judge passes it, so the fix does not depend on the prompt containing Q1's answer. Two other answers
+changed wording without changing meaning (Q4 "No, live chat is not offered."; Q7 "Paid subscriptions are billed
+monthly in USD."); every count still matches the answer key. The meaning sign-offs are made by the author against the
+current answers.

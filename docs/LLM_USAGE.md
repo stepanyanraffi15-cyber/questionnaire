@@ -59,9 +59,14 @@ was not changed.
    add one it does not state". Re-recorded once more. Gemini answered "No. CSV exports are available on paid plans
    only."; the judge found every expected fact and no forbidden claim, and the grader shows no FAIL.
 
-All three runs' responses are kept in `runs/recordings/`. Lesson: the first fix described the goal in abstract words
-and the model reasonably read it differently; naming the exact pattern (a limit stated in another sentence) worked.
-Because the worked example uses the Q1 passage, this is weaker evidence for unseen questions.
+3. *Check of the fix:* an outside review noted that attempt 2's example was the Q1 passage itself, so the prompt
+   contained the answer it was meant to produce. The example was replaced with an unrelated one (meeting rooms booked
+   by members only) and re-recorded once. Q1 still reads "No. CSV exports are available on paid plans only." and the
+   judge still passes it.
+
+Every run's responses are kept in `runs/recordings/`. Lesson: the first fix described the goal in abstract words and
+the model reasonably read it differently; naming the exact pattern (a limit stated in another sentence) worked, and it
+still works when the example comes from a different domain.
 
 **An earlier correction, during planning.** The first AI-drafted plan invented two refund documents and a new
 question to show a conflict that metadata does not resolve, and graded answers with regular expressions. An
