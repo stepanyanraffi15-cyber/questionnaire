@@ -111,7 +111,7 @@ uv run qa report                       # replay the scripted scenario S1-S11 -> 
 uv run python reference/grade.py       # grade it against the answer key -> docs/RESULTS.md
 uv run pytest                          # offline tests (network is blocked in tests)
 uv run qa check-data                   # load the data and list any reference problems
-uv run qa export R1                    # print a request as a finished questionnaire
+uv run qa export R1                    # after making request R1 in the workspace: print it as a questionnaire
 uv run qa inspect S1 R1/Q1             # one item, with the saved request and raw model response behind it
 ```
 
@@ -128,7 +128,8 @@ quietly calling the model. Labels on screen tell you where each answer came from
 
 ## What the output looks like
 
-`uv run qa export R1` turns a request into a finished questionnaire with its evidence:
+`uv run qa export R1` turns a request into a finished questionnaire with its evidence. This example is R1 after the
+walkthrough steps (edit, approve, source change, approve again):
 
 ```markdown
 # Questionnaire R1
@@ -228,6 +229,9 @@ I used my own Gemini API key. All live calls so far (four recording runs) came t
 - In replay mode, a reviewer's own new wording has no saved support check. Approving it needs a note and is saved
   as an override. In record mode the check runs live.
 - Two browser tabs saving at the same time: the last one wins. The file never gets corrupted.
+- A separate experiment on the branch `feature/rag-agent-extended-data` adds 30 fictional documents, 26 questions,
+  hybrid search (BM25 plus embeddings) and a read-only search tool. It is not part of this submission: on data this
+  small, plain keyword search already finds every right passage, so search adds nothing measurable yet.
 - Next things I would do: a cross-family judge, several live runs to measure how stable the answers are, and
   suggesting an approved answer for a reworded question (shown for review, never reused automatically).
 
