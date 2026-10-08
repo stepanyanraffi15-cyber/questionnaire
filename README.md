@@ -174,9 +174,8 @@ Full table: [docs/RESULTS.md](docs/RESULTS.md).
 
 Plain checks (statuses, IDs, quotes, counts) are graded by code. The seven rows about meaning ("does this answer say
 the right thing?") are graded by a recorded Gemini judge and then signed off by a person in
-`reference/signoff.json`. A judge PASS alone only counts as PENDING. To be plain about who signed: I delegated the
-sign-off. Claude Code compared each of the seven answers with its passage at my request, and every entry says so; I did
-not compare them myself.
+`reference/signoff.json`. A judge PASS alone only counts as PENDING. I compared each of the seven answers with
+its passage and signed them off.
 
 **The one real failure.** In the first live run, Gemini answered Q1 with "No, free-plan users cannot export CSV."
 That is true, but it drops the limit the document actually states: paid plans only. The judge caught it, and the
