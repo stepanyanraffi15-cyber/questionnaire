@@ -56,5 +56,6 @@ meeting rooms?" and "Meeting rooms can be booked by members only. Visitors canno
 rooms can be booked by members only." Re-recorded once. Q1 still reads "No. CSV exports are available on paid plans
 only." and the judge passes it, so the fix does not depend on the prompt containing Q1's answer. Two other answers
 changed wording without changing meaning (Q4 "No, live chat is not offered."; Q7 "Paid subscriptions are billed
-monthly in USD."); every count still matches the answer key. The meaning sign-offs are made by the author against the
-current answers.
+monthly in USD."); every count still matches the answer key. The meaning sign-offs for the current answers were
+delegated by the author: Claude Code compared each answer with its passage, and each entry in
+`reference/signoff.json` says so.

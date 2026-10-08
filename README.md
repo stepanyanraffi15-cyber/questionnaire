@@ -18,7 +18,7 @@ No API key needed.
 ```bash
 uv sync --locked
 uv run streamlit run src/qa/ui.py                      # click "New request", then look at Q1, Q2 and Q3
-uv run qa report && uv run python reference/grade.py   # replay the saved run and grade it: 0 FAIL
+uv run qa report && uv run python reference/grade.py   # replay the saved run and grade it: 115 PASS
 ```
 
 Then, if you want more: [docs/RESULTS.md](docs/RESULTS.md) for every check,
@@ -167,14 +167,15 @@ the Python standard library and imports nothing from the app.
 | MIN-4: an approved correction is reused; an unapproved edit is not | PASS |
 | MIN-5: a reload keeps everything; a version change means "needs review" | PASS |
 | Counts at every step | PASS |
-| **All rows** | **113 PASS, 0 FAIL, 2 PENDING** (two meaning rows awaiting sign-off) |
+| **All rows** | **115 PASS, 0 FAIL, 0 PENDING** |
 
 Full table: [docs/RESULTS.md](docs/RESULTS.md).
 
 Plain checks (statuses, IDs, quotes, counts) are graded by code. The seven rows about meaning ("does this answer say
 the right thing?") are graded by a recorded Gemini judge and then signed off by a person in
-`reference/signoff.json`. A judge PASS alone only counts as PENDING. After the last re-record two answers (Q4, Q7)
-changed wording, so their rows are PENDING until signed off.
+`reference/signoff.json`. A judge PASS alone only counts as PENDING. To be plain about who signed: I delegated the
+sign-off. Claude Code compared each of the seven answers with its passage at my request, and every entry says so; I did
+not compare them myself.
 
 **The one real failure.** In the first live run, Gemini answered Q1 with "No, free-plan users cannot export CSV."
 That is true, but it drops the limit the document actually states: paid plans only. The judge caught it, and the

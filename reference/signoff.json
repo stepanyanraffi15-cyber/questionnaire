@@ -3,45 +3,45 @@
  "signoffs": {
   "545b2e7a045104ad450c5bbf1950876c56e887cafb5d8722fdc8ea30e2e45658": {
    "result": "pass",
-   "by": "Raffi",
+   "by": "Claude Code, delegated by the author",
    "date": "2026-10-08",
-   "comment": "RC-1: answer checked against SUPPORT-v1:p1; review done by Claude (Cowork) at Raffi's explicit request, sign-off delegated by Raffi."
+   "comment": "RC-1: compared with SUPPORT-v1:p1 by Claude Code at the author's request: repeats sentence 1 word for word: all five weekdays, 09:00 to 17:00, UTC; nothing about weekends or live chat. The author delegated this sign-off and did not compare the answer himself."
   },
   "1c656b563f5ebf90a5e2c59d5f60768c2beee08a6a5e6da9be0b3824e3a55028": {
    "result": "pass",
-   "by": "Raffi",
+   "by": "Claude Code, delegated by the author",
    "date": "2026-10-08",
-   "comment": "RC-3: answer checked against EXPORT-v2:p1; review done by Claude (Cowork) at Raffi's explicit request, sign-off delegated by Raffi."
+   "comment": "RC-3: compared with EXPORT-v2:p1 by Claude Code at the author's request: says no and gives the passage's own limit, paid plans only; nothing about every plan. The author delegated this sign-off and did not compare the answer himself."
   },
-  "fc1fcd0ca1a0ee333ee64a4aa5d6d7f8c61f41babbb303097cefa59fddc8f7ed": {
+  "fca3924a0df8e42e7d883174d8fbc2bf298d9dbb194dc9dc6bd48f43506ba63c": {
    "result": "pass",
-   "by": "Raffi",
+   "by": "Claude Code, delegated by the author",
    "date": "2026-10-08",
-   "comment": "XR-Q4: answer checked against SUPPORT-v1:p1; review done by Claude (Cowork) at Raffi's explicit request, sign-off delegated by Raffi."
+   "comment": "XR-Q4: compared with SUPPORT-v1:p1 by Claude Code at the author's request: repeats sentence 2; no other channel invented. The author delegated this sign-off and did not compare the answer himself."
   },
   "0b30adb23e887921b5ad762212b75dbc93d3aa017eb32603dba105e0b0e1b07b": {
    "result": "pass",
-   "by": "Raffi",
+   "by": "Claude Code, delegated by the author",
    "date": "2026-10-08",
-   "comment": "XR-Q5: answer checked against ACCESS-v1:p1; review done by Claude (Cowork) at Raffi's explicit request, sign-off delegated by Raffi."
+   "comment": "XR-Q5: compared with ACCESS-v1:p1 by Claude Code at the author's request: repeats sentence 1; no 'only', nothing about SSO. The author delegated this sign-off and did not compare the answer himself."
   },
   "3725d62d9080c484801b2049550f151ea5201dc330062980f3b9f95a39307d8b": {
    "result": "pass",
-   "by": "Raffi",
+   "by": "Claude Code, delegated by the author",
    "date": "2026-10-08",
-   "comment": "XR-Q6: answer checked against ACCESS-v1:p1; review done by Claude (Cowork) at Raffi's explicit request, sign-off delegated by Raffi."
+   "comment": "XR-Q6: compared with ACCESS-v1:p1 by Claude Code at the author's request: repeats sentence 2; no 'only', nothing about other roles. The author delegated this sign-off and did not compare the answer himself."
   },
-  "05759f865f8776884d6af87ddaa1055bbba4a56897315c2e09769689cd9facca": {
+  "faf61fa6937171b5d9406fc30e53306c7b32200fc4218c056474ff59f11267bf": {
    "result": "pass",
-   "by": "Raffi",
+   "by": "Claude Code, delegated by the author",
    "date": "2026-10-08",
-   "comment": "XR-Q7: answer checked against BILLING-v1:p1; review done by Claude (Cowork) at Raffi's explicit request, sign-off delegated by Raffi."
+   "comment": "XR-Q7: compared with BILLING-v1:p1 by Claude Code at the author's request: repeats sentence 1; monthly, no other frequency. The author delegated this sign-off and did not compare the answer himself."
   },
   "c451a9e8866e2f4c8e3e06a5accd6245b6edd6973a5be2c58700c4532c2a37ec": {
    "result": "pass",
-   "by": "Raffi",
+   "by": "Claude Code, delegated by the author",
    "date": "2026-10-08",
-   "comment": "XR-Q8: answer checked against BILLING-v1:p1; review done by Claude (Cowork) at Raffi's explicit request, sign-off delegated by Raffi."
+   "comment": "XR-Q8: compared with BILLING-v1:p1 by Claude Code at the author's request: repeats sentence 2; no 'only', nothing about other roles. The author delegated this sign-off and did not compare the answer himself."
   }
  }
 }
