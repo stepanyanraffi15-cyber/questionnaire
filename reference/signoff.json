@@ -1,4 +1,47 @@
 {
  "_purpose": "The author's final call on each meaning check, after reading the observed answer and the judge's verdict. Keys are the meaning keys printed by `uv run python reference/judge.py --list`. Each entry: {\"result\": \"pass\" or \"fail\", \"by\": name, \"date\": YYYY-MM-DD, \"comment\": optional}. Empty until the author signs; unsigned meaning checks are graded PENDING.",
- "signoffs": {}
+ "signoffs": {
+  "545b2e7a045104ad450c5bbf1950876c56e887cafb5d8722fdc8ea30e2e45658": {
+   "result": "pass",
+   "by": "Raffi",
+   "date": "2026-10-08",
+   "comment": "RC-1: answer checked against SUPPORT-v1:p1; review done by Claude (Cowork) at Raffi's explicit request, sign-off delegated by Raffi."
+  },
+  "1c656b563f5ebf90a5e2c59d5f60768c2beee08a6a5e6da9be0b3824e3a55028": {
+   "result": "pass",
+   "by": "Raffi",
+   "date": "2026-10-08",
+   "comment": "RC-3: answer checked against EXPORT-v2:p1; review done by Claude (Cowork) at Raffi's explicit request, sign-off delegated by Raffi."
+  },
+  "fc1fcd0ca1a0ee333ee64a4aa5d6d7f8c61f41babbb303097cefa59fddc8f7ed": {
+   "result": "pass",
+   "by": "Raffi",
+   "date": "2026-10-08",
+   "comment": "XR-Q4: answer checked against SUPPORT-v1:p1; review done by Claude (Cowork) at Raffi's explicit request, sign-off delegated by Raffi."
+  },
+  "0b30adb23e887921b5ad762212b75dbc93d3aa017eb32603dba105e0b0e1b07b": {
+   "result": "pass",
+   "by": "Raffi",
+   "date": "2026-10-08",
+   "comment": "XR-Q5: answer checked against ACCESS-v1:p1; review done by Claude (Cowork) at Raffi's explicit request, sign-off delegated by Raffi."
+  },
+  "3725d62d9080c484801b2049550f151ea5201dc330062980f3b9f95a39307d8b": {
+   "result": "pass",
+   "by": "Raffi",
+   "date": "2026-10-08",
+   "comment": "XR-Q6: answer checked against ACCESS-v1:p1; review done by Claude (Cowork) at Raffi's explicit request, sign-off delegated by Raffi."
+  },
+  "05759f865f8776884d6af87ddaa1055bbba4a56897315c2e09769689cd9facca": {
+   "result": "pass",
+   "by": "Raffi",
+   "date": "2026-10-08",
+   "comment": "XR-Q7: answer checked against BILLING-v1:p1; review done by Claude (Cowork) at Raffi's explicit request, sign-off delegated by Raffi."
+  },
+  "c451a9e8866e2f4c8e3e06a5accd6245b6edd6973a5be2c58700c4532c2a37ec": {
+   "result": "pass",
+   "by": "Raffi",
+   "date": "2026-10-08",
+   "comment": "XR-Q8: answer checked against BILLING-v1:p1; review done by Claude (Cowork) at Raffi's explicit request, sign-off delegated by Raffi."
+  }
+ }
 }
