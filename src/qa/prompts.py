@@ -1,8 +1,8 @@
 """Build the two model requests: the instructions come from `prompts/*.md`, the documents travel as JSON data.
 
 REQ-T1: passage text only ever appears inside the JSON user message, never in the instructions. Only
-authoritative passages are sent (RULE-2 is applied in code), and dates, versions and status are not sent,
-so they cannot sway the model (decisions 002 and 004).
+retrieved authoritative passages are sent (RULE-2 is applied in code before retrieval), and dates,
+versions and status are not sent, so they cannot sway the model (decisions 002, 004 and 040).
 """
 
 from __future__ import annotations
@@ -12,7 +12,7 @@ from typing import Literal
 
 from pydantic import BaseModel
 
-from qa.dataset import ROOT, Dataset, Question
+from qa.dataset import ROOT, Dataset, Passage, Question
 from qa.llm import ModelRequest
 
 DRAFT_PROMPT = "prompts/draft_answer.md"
@@ -30,7 +30,11 @@ class ConflictPair(BaseModel):
 
 
 class DraftOutput(BaseModel):
+    """One step of the drafting loop: either a search_passages call or the final draft (decision 041)."""
+
     basis: str
+    action: Literal["search_passages", "answer"]
+    query: str
     status: Literal["answered", "unresolved"]
     answer: str
     citations: list[Citation]
@@ -50,17 +54,32 @@ class SupportVerdict(BaseModel):
     contradicted_by: list[Contradiction]
 
 
-def draft_request(question: Question, dataset: Dataset) -> ModelRequest:
-    passages = [{"id": p.id, "text": p.text} for p in dataset.authoritative_passages()]
-    data = {"question": question.text, "passages": passages}
+def draft_request(
+    question: Question, passages: list[Passage], searches: list[dict], searches_left: int
+) -> ModelRequest:
+    """Each step is a whole, self-contained request: the passages found so far, the searches already made
+    and how many remain. So every step is recorded and replayed on its own.
+    """
+    data = {
+        "question": question.text,
+        "passages": [{"id": p.id, "text": p.text} for p in passages],
+        "searches": searches,
+        "searches_left": searches_left,
+    }
     return _request("draft", DRAFT_PROMPT, data, DraftOutput)
 
 
-def support_request(question_text: str, answer: str, cited_ids: list[str], dataset: Dataset) -> ModelRequest:
-    """The check sees the cited passages and, apart, the other current passages, to spot contradictions."""
-    current = dataset.authoritative_passages()
-    cited = [{"id": p.id, "text": p.text} for p in current if p.id in cited_ids]
-    other = [{"id": p.id, "text": p.text} for p in current if p.id not in cited_ids]
+def support_request(
+    question_text: str, answer: str, cited_ids: list[str], dataset: Dataset, context_ids: list[str]
+) -> ModelRequest:
+    """The check sees the cited passages and, apart, the other retrieved passages, to spot contradictions."""
+    current = {p.id: p for p in dataset.authoritative_passages()}
+    cited = [{"id": pid, "text": current[pid].text} for pid in sorted(set(cited_ids)) if pid in current]
+    other = [
+        {"id": pid, "text": current[pid].text}
+        for pid in dict.fromkeys(context_ids)
+        if pid in current and pid not in cited_ids
+    ]
     data = {"question": question_text, "answer": answer, "cited_passages": cited, "other_passages": other}
     return _request("support", SUPPORT_PROMPT, data, SupportVerdict)
 

@@ -6,7 +6,7 @@
       "files": [
         "ai-workflow/README.md"
       ],
-      "notes": "Claude Code 2.1.293 with Claude Opus 5.5 (claude-opus-5-5) for planning, building and review. Claude Code workflows (multi-agent orchestration scripts) were used for planning and for the first milestone; the rest was built in the main session with two subagents (a UI builder and a final verifier). Session settings were the tool defaults apart from the per-step effort levels set inside the workflow scripts."
+      "notes": "Claude Code 2.1.293 with Claude Opus 5.5 (claude-opus-5-5) for planning, building and review. Claude Code workflows (multi-agent orchestration scripts) were used for planning and for the first milestone; the rest was built in the main session with subagents (a UI builder, a researcher, a blind answer-key author and a verifier). Session settings were the tool defaults apart from the per-step effort levels set inside the workflow scripts."
     },
     "plugins_and_extensions": {
       "status": "not-used",
@@ -17,17 +17,18 @@
       "status": "used",
       "files": [
         "config/models.toml",
+        "config/retrieval.toml",
         "reference/judge.py",
         "uv.lock"
       ],
-      "notes": "Google Gemini gemini-3.8-flash through the google-genai SDK 2.28.0, thinking level medium, timeout 60000 ms, 3 retry attempts; temperature, top_p and top_k not set (provider defaults). The grader's judge uses the same model and thinking level, set in reference/judge.py. Saved real responses: 16 application calls in runs/recordings/ and 7 judge verdicts in runs/judge/verdicts.json, recorded 2026-10-07 21:29-21:32 UTC (2026-10-08 local time)."
+      "notes": "Google Gemini gemini-3.8-flash through the google-genai SDK 2.28.0, thinking level medium, timeout 60000 ms, 3 retry attempts; temperature, top_p and top_k not set (provider defaults). Retrieval embeddings: gemini-embedding-001 at 768 dimensions; retrieval settings in config/retrieval.toml. The grader's judge uses the same model and thinking level, set in reference/judge.py. Saved real responses: 117 application calls and 81 embeddings in runs/recordings/ and 26 judge verdicts in runs/judge/verdicts.json, from five record runs on 2026-10-07 and 2026-10-08."
     },
     "skills": {
       "status": "used",
       "files": [
         ".claude/skills/generate-assignment-data/SKILL.md"
       ],
-      "notes": "Starter-pack skill, copied unchanged. Used as a checklist only when preparing the scenario inputs; no new documents were generated with it."
+      "notes": "Starter-pack skill, copied unchanged. Used as the method for the scenario inputs and for the added fictional data (data/additions/extended.json, data/GENERATION.md)."
     },
     "agent_instructions_and_subagents": {
       "status": "used",
@@ -39,7 +40,7 @@
         "ai-workflow/snapshots/qa-deep-review.js",
         "ai-workflow/snapshots/qa-build.js"
       ],
-      "notes": "CLAUDE.md is the project instruction file Claude Code reads. AGENTS.md points other AI tools to CLAUDE.md and had no effect because no other tool was used. The verifier subagent ran the final verification pass; the researcher subagent was not used. The two workflow scripts are saved as sanitized snapshots. Local private instructions and planning notes are not exportable; the user-level instruction file is omitted (see the README)."
+      "notes": "CLAUDE.md is the project instruction file Claude Code reads. AGENTS.md points other AI tools to CLAUDE.md and had no effect because no other tool was used. The verifier subagent ran the final verification passes; the researcher subagent wrote docs/research/retrieval-and-agent.md; ad-hoc subagents built the UI page and re-derived the extended answer key blind. The two workflow scripts are saved as sanitized snapshots. Local private instructions and planning notes are not exportable; the user-level instruction file is omitted (see the README)."
     },
     "hooks_and_scripts": {
       "status": "used",
@@ -144,6 +145,19 @@
       ]
     },
     {
+      "name": "Blind answer-key subagent",
+      "category": "agent_instructions_and_subagents",
+      "purpose": "Re-derived every row of the extended answer key from the data, domain.md and the decision records, without seeing the application's code, output or the existing key (decision 042).",
+      "original_path_or_scope": "Ad-hoc general-purpose subagent started from the main session; no definition file",
+      "saved_path": "",
+      "version_or_commit": "claude-opus-5-5 (inherited from the session)",
+      "used_during": "Extended data and key, 2026-10-08",
+      "status": "not-exportable",
+      "redactions": [
+        "One-off task prompt inside a session, not saved configuration. Its result and how disagreements were resolved are in docs/decisions/042-extended-answer-key-and-recall.md."
+      ]
+    },
+    {
       "name": "Subagent verifier",
       "category": "agent_instructions_and_subagents",
       "purpose": "Independent read-only check of the submission against the rules, requirements and answer key; reports findings, never edits.",
@@ -161,8 +175,8 @@
       "original_path_or_scope": ".claude/agents/researcher.md",
       "saved_path": ".claude/agents/researcher.md",
       "version_or_commit": "24290b1 (unchanged since)",
-      "used_during": "Not used: the planning research was done by the main session and workflows (docs/research/ holds only the planning bibliography, no researcher notes)",
-      "status": "not-used",
+      "used_during": "Retrieval and search-tool research (2026-10-08): wrote docs/research/retrieval-and-agent.md",
+      "status": "used",
       "redactions": []
     },
     {
@@ -220,7 +234,7 @@
       "original_path_or_scope": "starter-pack/skills/generate-assignment-data/SKILL.md, installed at .claude/skills/generate-assignment-data/SKILL.md",
       "saved_path": ".claude/skills/generate-assignment-data/SKILL.md",
       "version_or_commit": "Starter pack 2026-10-02 (starter-pack/pack-version.json); identical to the starter-pack copy; commit 24290b1",
-      "used_during": "Used (checklist only): its checklist was followed when preparing the scenario inputs; no new documents were generated",
+      "used_during": "Used as the method for the scenario inputs and, on 2026-10-08, for the added fictional data in data/additions/extended.json (data/GENERATION.md)",
       "status": "used",
       "redactions": []
     },
@@ -282,11 +296,22 @@
     {
       "name": "Application model settings",
       "category": "application_models_and_parameters",
-      "purpose": "Provider, model ID and request settings for the application's draft and support-check calls.",
+      "purpose": "Provider, model IDs and request settings for the application's draft and support-check calls and the retrieval embeddings.",
       "original_path_or_scope": "config/models.toml",
       "saved_path": "config/models.toml",
-      "version_or_commit": "gemini-3.8-flash; thinking_level medium; timeout_ms 60000; retry_attempts 3; temperature, top_p, top_k not set; google-genai 2.28.0 (uv.lock)",
-      "used_during": "Record run 2026-10-07 21:29-21:31 UTC; every replay",
+      "version_or_commit": "gemini-3.8-flash; thinking_level medium; timeout_ms 60000; retry_attempts 3; temperature, top_p, top_k not set; embeddings gemini-embedding-001 at 768 dimensions; google-genai 2.28.0 (uv.lock)",
+      "used_during": "Five record runs (2026-10-07 and 2026-10-08) and every replay",
+      "status": "used",
+      "redactions": []
+    },
+    {
+      "name": "Retrieval settings",
+      "category": "application_models_and_parameters",
+      "purpose": "Hybrid retrieval and the read-only search tool: top_k, the RRF constant, BM25 k1 and b, and the search budget.",
+      "original_path_or_scope": "config/retrieval.toml",
+      "saved_path": "config/retrieval.toml",
+      "version_or_commit": "top_k 5; rrf_k 60; bm25_k1 1.2; bm25_b 0.75; max_searches 2 (decisions 040, 041)",
+      "used_during": "Record run 2026-10-08 12:02 UTC and every replay",
       "status": "used",
       "redactions": []
     },
@@ -304,18 +329,18 @@
     {
       "name": "Saved real application responses",
       "category": "application_models_and_parameters",
-      "purpose": "44 real Gemini calls from four record runs (the first run and one per prompt change of decision 038), keyed by a fingerprint of the exact request; replay uses the latest and needs no API key.",
+      "purpose": "117 real Gemini calls from five record runs (the first run, one per prompt change of decision 038, and one for retrieval and the added data) plus 81 recorded embeddings, each keyed by a fingerprint of the exact request or text; replay uses the latest and needs no API key.",
       "original_path_or_scope": "runs/recordings/",
       "saved_path": "runs/recordings/",
-      "version_or_commit": "Each file stores provider, model, thinking level, prompt file and its SHA-256, request, response and recording time",
-      "used_during": "Recorded 2026-10-07 21:29 UTC, 2026-10-08 05:45 UTC and 10:20 UTC; replayed by uv run qa report",
+      "version_or_commit": "Each call file stores provider, model, thinking level, prompt file and its SHA-256, request, response and recording time; each embed-*.json file stores model, size, task type, text and vector",
+      "used_during": "Recorded 2026-10-07 21:29 UTC and on 2026-10-08 (last run 12:02-12:08 UTC); replayed by uv run qa report",
       "status": "used",
       "redactions": []
     },
     {
       "name": "Saved judge verdicts",
       "category": "application_models_and_parameters",
-      "purpose": "11 real judge verdicts (one per distinct answer graded); replayed by the grader without a key.",
+      "purpose": "26 real judge verdicts (one per distinct answer graded, 15 of them for the extended questionnaire); replayed by the grader without a key.",
       "original_path_or_scope": "runs/judge/verdicts.json",
       "saved_path": "runs/judge/verdicts.json",
       "version_or_commit": "Each verdict stores model, thinking level, prompt file, request, response and recording time",
@@ -326,11 +351,11 @@
     {
       "name": "Prompt draft_answer.md",
       "category": "prompts_and_rules",
-      "purpose": "System prompt for drafting a cited answer from the passages, or marking the question unresolved.",
+      "purpose": "System prompt for drafting a cited answer from the retrieved passages, calling the read-only search_passages tool, or marking the question unresolved.",
       "original_path_or_scope": "prompts/draft_answer.md",
       "saved_path": "prompts/draft_answer.md",
-      "version_or_commit": "sha256 70e2480a675a4442afb60bbe8ea5dc855a96d6f5a928015c75f9866ba3075f19 (current: rule 9 of decision 038 with a neutral example); earlier versions are in git history and their responses in runs/recordings/",
-      "used_during": "Four record runs (2026-10-07 and 2026-10-08) and every replay",
+      "version_or_commit": "sha256 eebbb28b2d790fc72a0eb52f51674729e4e0da636f7eaf238a7e56bf2f0d8851 (current: the search_passages tool of decision 041 plus rule 9 of decision 038); earlier versions are in git history and their responses in runs/recordings/",
+      "used_during": "Five record runs (2026-10-07 and 2026-10-08) and every replay",
       "status": "used",
       "redactions": []
     },
@@ -340,8 +365,8 @@
       "purpose": "System prompt for checking that a drafted answer is supported by its cited passages.",
       "original_path_or_scope": "prompts/check_support.md",
       "saved_path": "prompts/check_support.md",
-      "version_or_commit": "sha256 bfbecc28b07aed9937bebb9e983db5b4d05a44ee6718528aeed9ce4dfbfc8d0a (matches all 8 support recordings)",
-      "used_during": "Record run and every replay",
+      "version_or_commit": "sha256 4d7a101fdcb3343f3da34e778b6611258e70c9784153a882d99dd9ce778acbef (other_passages are the retrieved ones, decision 040)",
+      "used_during": "Five record runs and every replay",
       "status": "used",
       "redactions": []
     },

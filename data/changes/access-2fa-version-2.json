@@ -1,0 +1,19 @@
+{
+  "_purpose": "Source change applied at step S4 of the extended scenario. It replaces the loaded ACCESS-2FA-v1 by ID with the same record at version 2. The text, date, status, supersedes link and passage IDs are exactly as in data/additions/extended.json, so the version number is the only difference.",
+  "label": "SOURCE CHANGE",
+  "documents": [
+    {
+      "id": "ACCESS-2FA-v1",
+      "version": 2,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "ACCESS-2FA-v1:p1",
+          "text": "Each user can turn on two-factor authentication in their profile settings. Account owners can require two-factor authentication for the whole team."
+        }
+      ]
+    }
+  ]
+}

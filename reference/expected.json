@@ -1,6 +1,6 @@
 {
  "contract_version": 1,
- "_purpose": "Answer key for the reference scenario in data/scenario/min-demo.json (steps S1-S11, requests R1-R5 of the eight seed questions). Every expected value was derived by reading the passages and authority metadata in data/seed/seed.json and the rules in data/seed/domain.md. It was drafted with AI assistance, checked against the passages by a separate AI review agent, and approved row by row by the author. It was never taken from application output. Mechanical checks are graded by code; meaning checks (expected facts and forbidden claims in plain words) are graded by a recorded Gemini judge plus the author's sign-off.",
+ "_purpose": "Answer key for the reference scenario in data/scenario/min-demo.json (steps S1-S11, requests R1-R5 of the eight seed questions). Every expected value was derived by reading the passages and authority metadata in data/seed/seed.json and the rules in data/seed/domain.md. It was drafted with AI assistance, checked against the passages by a separate AI review agent, and approved row by row by the author. It was never taken from application output. Mechanical checks are graded by code; meaning checks (expected facts and forbidden claims in plain words) are graded by a recorded Gemini judge plus the author's sign-off. gold_passages (added with the retrieval change, decision 042) are the current passages that answer each question, read from derived_from; the grader reports retrieval recall@k against them. The key for the extended questionnaire is under \"extended\".",
  "texts": {
   "W": "No. CSV export is for paid plans only; free-plan users cannot export CSV.",
   "E3": "Email support hours are 09:00 to 17:00 UTC, Monday to Friday.",
@@ -17,6 +17,7 @@
    "derived_from": [
     {"passage_id": "SUPPORT-v1:p1", "quote": "Email support is available Monday to Friday, 09:00 to 17:00 UTC.", "authority": {"doc_id": "SUPPORT-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
    ],
+   "gold_passages": ["SUPPORT-v1:p1"],
    "checks": [
     {"step": "S1", "item": "R1/Q3", "field": "status", "equals": "answered"},
     {"step": "S1", "item": "R1/Q3", "field": "citations", "ids_subset_of": ["SUPPORT-v1:p1"], "non_empty": true},
@@ -41,6 +42,7 @@
     {"passage_id": "EXPORT-v2:p1", "quote": "CSV exports are available on paid plans only.", "authority": {"doc_id": "EXPORT-v2", "version": 2, "date": "2026-08-01", "status": "current", "supersedes": "EXPORT-v1", "superseded_by": null}},
     {"passage_id": "EXPORT-v1:p1", "quote": "CSV exports are available on every plan.", "authority": {"doc_id": "EXPORT-v1", "version": 1, "date": "2026-01-01", "status": "superseded", "supersedes": null, "superseded_by": "EXPORT-v2"}}
    ],
+   "gold_passages": [],
    "note": "No passage in the seed mentions JSON; the nearest passages are about CSV only. domain.md: an undocumented feature is unknown, not automatically supported or unsupported. The owner comes from owners[\"exports\"].",
    "checks": [
     {"step": "S1", "item": "R1/Q2", "field": "status", "equals": "unresolved"},
@@ -68,6 +70,7 @@
     {"passage_id": "EXPORT-v2:p1", "quote": "Free-plan users cannot export CSV.", "authority": {"doc_id": "EXPORT-v2", "version": 2, "date": "2026-08-01", "status": "current", "supersedes": "EXPORT-v1", "superseded_by": null}},
     {"passage_id": "EXPORT-v1:p1", "quote": "CSV exports are available on every plan.", "authority": {"doc_id": "EXPORT-v1", "version": 1, "date": "2026-01-01", "status": "superseded", "supersedes": null, "superseded_by": "EXPORT-v2"}}
    ],
+   "gold_passages": ["EXPORT-v2:p1"],
    "checks": [
     {"step": "S1", "item": "R1/Q1", "field": "status", "equals": "answered"},
     {"step": "S1", "item": "R1/Q1", "field": "citations", "ids_subset_of": ["EXPORT-v2:p1"], "non_empty": true},
@@ -171,6 +174,7 @@
    "rules": ["RULE-1"],
    "decisions": ["005-documented-negative-is-answered.md"],
    "derived_from": [{"passage_id": "SUPPORT-v1:p1", "quote": "Live chat is not offered.", "authority": {"doc_id": "SUPPORT-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}],
+   "gold_passages": ["SUPPORT-v1:p1"],
    "checks": [
     {"step": "S1", "item": "R1/Q4", "field": "status", "equals": "answered"},
     {"step": "S1", "item": "R1/Q4", "field": "citations", "ids_subset_of": ["SUPPORT-v1:p1"], "non_empty": true},
@@ -188,6 +192,7 @@
    "rules": ["RULE-1"],
    "decisions": ["006-answers-never-stronger-than-passages.md"],
    "derived_from": [{"passage_id": "ACCESS-v1:p1", "quote": "Users can sign in with email and password.", "authority": {"doc_id": "ACCESS-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}],
+   "gold_passages": ["ACCESS-v1:p1"],
    "checks": [
     {"step": "S1", "item": "R1/Q5", "field": "status", "equals": "answered"},
     {"step": "S1", "item": "R1/Q5", "field": "citations", "ids_subset_of": ["ACCESS-v1:p1"], "non_empty": true},
@@ -205,6 +210,7 @@
    "rules": ["RULE-1"],
    "decisions": ["006-answers-never-stronger-than-passages.md"],
    "derived_from": [{"passage_id": "ACCESS-v1:p1", "quote": "Account owners can invite team members.", "authority": {"doc_id": "ACCESS-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}],
+   "gold_passages": ["ACCESS-v1:p1"],
    "checks": [
     {"step": "S1", "item": "R1/Q6", "field": "status", "equals": "answered"},
     {"step": "S1", "item": "R1/Q6", "field": "citations", "ids_subset_of": ["ACCESS-v1:p1"], "non_empty": true},
@@ -222,6 +228,7 @@
    "rules": ["RULE-1"],
    "decisions": ["006-answers-never-stronger-than-passages.md"],
    "derived_from": [{"passage_id": "BILLING-v1:p1", "quote": "Paid subscriptions are billed monthly in USD.", "authority": {"doc_id": "BILLING-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}],
+   "gold_passages": ["BILLING-v1:p1"],
    "checks": [
     {"step": "S1", "item": "R1/Q7", "field": "status", "equals": "answered"},
     {"step": "S1", "item": "R1/Q7", "field": "citations", "ids_subset_of": ["BILLING-v1:p1"], "non_empty": true},
@@ -239,6 +246,7 @@
    "rules": ["RULE-1"],
    "decisions": ["006-answers-never-stronger-than-passages.md"],
    "derived_from": [{"passage_id": "BILLING-v1:p1", "quote": "Account owners can download billing invoices.", "authority": {"doc_id": "BILLING-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}],
+   "gold_passages": ["BILLING-v1:p1"],
    "checks": [
     {"step": "S1", "item": "R1/Q8", "field": "status", "equals": "answered"},
     {"step": "S1", "item": "R1/Q8", "field": "citations", "ids_subset_of": ["BILLING-v1:p1"], "non_empty": true},
@@ -265,5 +273,649 @@
   "S10": {"R1": [6, 1, 1, 0, 0], "R2": [7, 1, 0, 0, 0], "R3": [6, 1, 0, 1, 0], "R4": [7, 1, 0, 0, 0]},
   "S11": {"R1": [6, 1, 1, 0, 0], "R2": [7, 1, 0, 0, 0], "R3": [6, 1, 0, 1, 0], "R4": [7, 1, 0, 0, 0], "R5": [6, 1, 1, 0, 0]}
  },
- "counts_note": "Hand-computed from the passages: Q2 is the only unresolved item; Q1 and Q3-Q8 are answered unless approved. The counts assume each real draft passes its checks; a mismatch is reported as a FAIL, never fixed in this key."
+ "counts_note": "Hand-computed from the passages: Q2 is the only unresolved item; Q1 and Q3-Q8 are answered unless approved. The counts assume each real draft passes its checks; a mismatch is reported as a FAIL, never fixed in this key.",
+ "extended": {
+  "_purpose": "Answer key for the extended scenario in data/scenario/extended-demo.json (steps S1-S5, requests R1-R3 of the extended questionnaire X1-X26, over the seed documents plus data/additions/extended.json). Every expected value was derived by reading the passages and authority metadata and the rules in data/seed/domain.md, written before the application was run on this data, and re-derived blind by a separate AI agent; disagreements were resolved before use (decision 042). Never taken from application output. gold_passages are the current passages that answer each question (both sides of a conflict, the documented part of a partial question, none for an undocumented one); the grader reports retrieval recall@k against them.",
+  "scenario": "data/scenario/extended-demo.json",
+  "observed": "runs/report/observed-extended.json",
+  "texts": {
+   "A1": "Scheduled exports run once a day at 02:00 UTC.",
+   "A13": "Yes. Account owners can require two-factor authentication for the whole team.",
+   "E12": "Tickets close after 14 days without a customer reply.",
+   "N5": "Needs Product reviewer: EXPORT-FILES-v1 and EXPORT-HELP-v1 give different download periods, and neither supersedes the other."
+  },
+  "cases": [
+   {
+    "id": "EXT-X1",
+    "kind": "supported, multi-sentence passage",
+    "title": "The run time is the first of three sentences (X1)",
+    "question": "When do scheduled exports run?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": ["008-citations-and-verbatim-excerpts.md"],
+    "derived_from": [
+     {"passage_id": "EXPORT-SCHEDULE-v1:p1", "quote": "Scheduled exports run once a day at 02:00 UTC.", "authority": {"doc_id": "EXPORT-SCHEDULE-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["EXPORT-SCHEDULE-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X1", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X1", "field": "citations", "ids_subset_of": ["EXPORT-SCHEDULE-v1:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X1", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X1", "field": "owner", "equals": "Product reviewer"}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X1", "field": "answer", "expected_facts": ["Scheduled exports run once a day.", "They run at 02:00 UTC."], "forbidden_claims": ["Scheduled exports run more than once a day.", "They run at a time other than 02:00 UTC."]}
+    ]
+   },
+   {
+    "id": "EXT-X2",
+    "kind": "can vs only (supported)",
+    "title": "\"can be sent to an SFTP server\" is a permission, not the only destination (X2)",
+    "question": "Where can scheduled exports be sent?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": ["006-answers-never-stronger-than-passages.md"],
+    "derived_from": [
+     {"passage_id": "EXPORT-SCHEDULE-v1:p1", "quote": "Scheduled exports can be sent to an SFTP server.", "authority": {"doc_id": "EXPORT-SCHEDULE-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["EXPORT-SCHEDULE-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X2", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X2", "field": "citations", "ids_subset_of": ["EXPORT-SCHEDULE-v1:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X2", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X2", "field": "owner", "equals": "Product reviewer"}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X2", "field": "answer", "expected_facts": ["Scheduled exports can be sent to an SFTP server."], "forbidden_claims": ["An SFTP server is the only destination for scheduled exports.", "Scheduled exports cannot be sent anywhere other than an SFTP server.", "Scheduled exports can be sent by email or to cloud storage."]}
+    ]
+   },
+   {
+    "id": "EXT-X3",
+    "kind": "can vs only (undocumented)",
+    "title": "SFTP is documented; Amazon S3 is not, so the answer is unknown, not No (X3)",
+    "question": "Can scheduled exports be sent to Amazon S3?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": ["006-answers-never-stronger-than-passages.md"],
+    "derived_from": [
+     {"passage_id": "EXPORT-SCHEDULE-v1:p1", "quote": "Scheduled exports can be sent to an SFTP server.", "authority": {"doc_id": "EXPORT-SCHEDULE-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": [],
+    "note": "No passage mentions Amazon S3. 'can be sent to an SFTP server' does not exclude other destinations.",
+    "checks": [
+     {"step": "S1", "item": "R1/X3", "field": "status", "equals": "unresolved"},
+     {"step": "S1", "item": "R1/X3", "field": "reason", "equals": "undocumented"},
+     {"step": "S1", "item": "R1/X3", "field": "owner", "equals": "Product reviewer"},
+     {"step": "S1", "item": "R1/X3", "field": "answer", "equals": ""}
+    ],
+    "meaning": []
+   },
+   {
+    "id": "EXT-X4",
+    "kind": "conflict settled by supersedes",
+    "title": "EXPORT-LIMITS-v2 supersedes v1: 50,000 rows, with the old 10,000 shown as replaced (X4)",
+    "question": "How many rows can a single CSV export contain?",
+    "rules": ["RULE-1", "RULE-4", "RULE-2"],
+    "decisions": ["001-authority-from-supersedes-only.md", "004-replaced-text-kept-out-of-prompts.md"],
+    "derived_from": [
+     {"passage_id": "EXPORT-LIMITS-v2:p1", "quote": "A single CSV export can contain up to 50,000 rows.", "authority": {"doc_id": "EXPORT-LIMITS-v2", "version": 2, "date": "2026-08-01", "status": "current", "supersedes": "EXPORT-LIMITS-v1", "superseded_by": null}},
+     {"passage_id": "EXPORT-LIMITS-v1:p1", "quote": "A single CSV export can contain up to 10,000 rows.", "authority": {"doc_id": "EXPORT-LIMITS-v1", "version": 1, "date": "2026-03-01", "status": "superseded", "supersedes": null, "superseded_by": "EXPORT-LIMITS-v2"}}
+    ],
+    "gold_passages": ["EXPORT-LIMITS-v2:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X4", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X4", "field": "citations", "ids_subset_of": ["EXPORT-LIMITS-v2:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X4", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X4", "field": "owner", "equals": "Product reviewer"},
+     {"step": "S1", "item": "R1/X4", "field": "replaced_shown", "ids_include": ["EXPORT-LIMITS-v1:p1"]}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X4", "field": "answer", "expected_facts": ["A single CSV export can contain up to 50,000 rows."], "forbidden_claims": ["A single CSV export is limited to 10,000 rows.", "Exports larger than the limit are refused."]}
+    ]
+   },
+   {
+    "id": "EXT-X5",
+    "kind": "conflict not settled by supersedes",
+    "title": "7 days vs 30 days; EXPORT-HELP-v1 is newer but supersedes nothing (X5)",
+    "question": "How long can export files be downloaded after they are created?",
+    "rules": ["RULE-1", "RULE-4", "RULE-2"],
+    "decisions": ["002-dates-and-versions-grant-no-authority.md", "009-support-check-contradictions.md"],
+    "derived_from": [
+     {"passage_id": "EXPORT-FILES-v1:p1", "quote": "Export files can be downloaded for 7 days after they are created.", "authority": {"doc_id": "EXPORT-FILES-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}},
+     {"passage_id": "EXPORT-HELP-v1:p1", "quote": "Export files can be downloaded for 30 days after they are created.", "authority": {"doc_id": "EXPORT-HELP-v1", "version": 1, "date": "2026-09-15", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["EXPORT-FILES-v1:p1", "EXPORT-HELP-v1:p1"],
+    "note": "Both documents are current and neither supersedes the other; the later date (2026-09-15) gives no authority.",
+    "checks": [
+     {"step": "S1", "item": "R1/X5", "field": "status", "equals": "unresolved"},
+     {"step": "S1", "item": "R1/X5", "field": "reason", "equals": "conflict"},
+     {"step": "S1", "item": "R1/X5", "field": "owner", "equals": "Product reviewer"},
+     {"step": "S1", "item": "R1/X5", "field": "answer", "equals": ""},
+     {"step": "S1", "item": "R1/X5", "field": "conflicts_shown", "ids_include": ["EXPORT-FILES-v1:p1", "EXPORT-HELP-v1:p1"]}
+    ],
+    "meaning": []
+   },
+   {
+    "id": "EXT-X6",
+    "kind": "undocumented",
+    "title": "No passage mentions XLSX (X6)",
+    "question": "Is XLSX export available?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": [],
+    "derived_from": [
+     {"passage_id": "EXPORT-v2:p1", "quote": "CSV exports are available on paid plans only.", "authority": {"doc_id": "EXPORT-v2", "version": 2, "date": "2026-08-01", "status": "current", "supersedes": "EXPORT-v1", "superseded_by": null}}
+    ],
+    "gold_passages": [],
+    "note": "Only CSV export is documented; XLSX is unknown, not No.",
+    "checks": [
+     {"step": "S1", "item": "R1/X6", "field": "status", "equals": "unresolved"},
+     {"step": "S1", "item": "R1/X6", "field": "reason", "equals": "undocumented"},
+     {"step": "S1", "item": "R1/X6", "field": "owner", "equals": "Product reviewer"},
+     {"step": "S1", "item": "R1/X6", "field": "answer", "equals": ""}
+    ],
+    "meaning": []
+   },
+   {
+    "id": "EXT-X7",
+    "kind": "supported, distractor in the same passage",
+    "title": "Paid plans: one business day (the free-plan sentence must not be used) (X7)",
+    "question": "How quickly do paid-plan customers get a first reply to email support?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": [],
+    "derived_from": [
+     {"passage_id": "SUPPORT-REPLY-v1:p1", "quote": "Paid-plan customers receive a first reply to email support within one business day.", "authority": {"doc_id": "SUPPORT-REPLY-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["SUPPORT-REPLY-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X7", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X7", "field": "citations", "ids_subset_of": ["SUPPORT-REPLY-v1:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X7", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X7", "field": "owner", "equals": "Support reviewer"}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X7", "field": "answer", "expected_facts": ["Paid-plan customers get a first reply to email support within one business day."], "forbidden_claims": ["Paid-plan customers wait up to three business days for a first reply.", "The first reply comes within 24 hours."]}
+    ]
+   },
+   {
+    "id": "EXT-X8",
+    "kind": "documented No, multi-sentence passage",
+    "title": "\"Phone support is not offered\" is the second of three sentences (X8)",
+    "question": "Is phone support offered?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": ["005-documented-negative-is-answered.md"],
+    "derived_from": [
+     {"passage_id": "SUPPORT-CHANNELS-v1:p1", "quote": "Phone support is not offered.", "authority": {"doc_id": "SUPPORT-CHANNELS-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["SUPPORT-CHANNELS-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X8", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X8", "field": "citations", "ids_subset_of": ["SUPPORT-CHANNELS-v1:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X8", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X8", "field": "owner", "equals": "Support reviewer"}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X8", "field": "answer", "expected_facts": ["Phone support is not offered (the answer is No)."], "forbidden_claims": ["Phone support is offered or available."]}
+    ]
+   },
+   {
+    "id": "EXT-X9",
+    "kind": "can vs only (undocumented)",
+    "title": "English and German requests are answered; French is not mentioned (X9)",
+    "question": "Are support requests written in French answered?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": ["006-answers-never-stronger-than-passages.md"],
+    "derived_from": [
+     {"passage_id": "SUPPORT-CHANNELS-v1:p1", "quote": "Requests written in English or German are answered.", "authority": {"doc_id": "SUPPORT-CHANNELS-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": [],
+    "note": "The passage does not say that only English or German requests are answered.",
+    "checks": [
+     {"step": "S1", "item": "R1/X9", "field": "status", "equals": "unresolved"},
+     {"step": "S1", "item": "R1/X9", "field": "reason", "equals": "undocumented"},
+     {"step": "S1", "item": "R1/X9", "field": "owner", "equals": "Support reviewer"},
+     {"step": "S1", "item": "R1/X9", "field": "answer", "equals": ""}
+    ],
+    "meaning": []
+   },
+   {
+    "id": "EXT-X10",
+    "kind": "conflict settled by supersedes",
+    "title": "SUPPORT-STATUS-v2 supersedes v1: every 30 minutes, with every hour shown as replaced (X10)",
+    "question": "How often are status updates posted during an incident?",
+    "rules": ["RULE-1", "RULE-4", "RULE-2"],
+    "decisions": ["001-authority-from-supersedes-only.md"],
+    "derived_from": [
+     {"passage_id": "SUPPORT-STATUS-v2:p1", "quote": "During an incident, status updates are posted every 30 minutes.", "authority": {"doc_id": "SUPPORT-STATUS-v2", "version": 2, "date": "2026-08-01", "status": "current", "supersedes": "SUPPORT-STATUS-v1", "superseded_by": null}},
+     {"passage_id": "SUPPORT-STATUS-v1:p1", "quote": "During an incident, status updates are posted every hour.", "authority": {"doc_id": "SUPPORT-STATUS-v1", "version": 1, "date": "2026-03-01", "status": "superseded", "supersedes": null, "superseded_by": "SUPPORT-STATUS-v2"}}
+    ],
+    "gold_passages": ["SUPPORT-STATUS-v2:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X10", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X10", "field": "citations", "ids_subset_of": ["SUPPORT-STATUS-v2:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X10", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X10", "field": "owner", "equals": "Support reviewer"},
+     {"step": "S1", "item": "R1/X10", "field": "replaced_shown", "ids_include": ["SUPPORT-STATUS-v1:p1"]}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X10", "field": "answer", "expected_facts": ["During an incident, status updates are posted every 30 minutes."], "forbidden_claims": ["Status updates are posted every hour."]}
+    ]
+   },
+   {
+    "id": "EXT-X11",
+    "kind": "conflict not settled by supersedes",
+    "title": "English only vs English and Spanish; SUPPORT-FAQ-v1 is newer but supersedes nothing (X11)",
+    "question": "In which languages is the help centre available?",
+    "rules": ["RULE-1", "RULE-4", "RULE-2"],
+    "decisions": ["002-dates-and-versions-grant-no-authority.md"],
+    "derived_from": [
+     {"passage_id": "SUPPORT-HELPCENTRE-v1:p1", "quote": "The help centre is available in English only.", "authority": {"doc_id": "SUPPORT-HELPCENTRE-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}},
+     {"passage_id": "SUPPORT-FAQ-v1:p1", "quote": "The help centre is available in English and Spanish.", "authority": {"doc_id": "SUPPORT-FAQ-v1", "version": 1, "date": "2026-09-20", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["SUPPORT-FAQ-v1:p1", "SUPPORT-HELPCENTRE-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X11", "field": "status", "equals": "unresolved"},
+     {"step": "S1", "item": "R1/X11", "field": "reason", "equals": "conflict"},
+     {"step": "S1", "item": "R1/X11", "field": "owner", "equals": "Support reviewer"},
+     {"step": "S1", "item": "R1/X11", "field": "answer", "equals": ""},
+     {"step": "S1", "item": "R1/X11", "field": "conflicts_shown", "ids_include": ["SUPPORT-FAQ-v1:p1", "SUPPORT-HELPCENTRE-v1:p1"]}
+    ],
+    "meaning": []
+   },
+   {
+    "id": "EXT-X12",
+    "kind": "supported",
+    "title": "Tickets close after 14 days without a customer reply (X12)",
+    "question": "When are support tickets closed automatically?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": [],
+    "derived_from": [
+     {"passage_id": "SUPPORT-TICKETS-v1:p1", "quote": "Support tickets are closed automatically after 14 days without a customer reply.", "authority": {"doc_id": "SUPPORT-TICKETS-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["SUPPORT-TICKETS-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X12", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X12", "field": "citations", "ids_subset_of": ["SUPPORT-TICKETS-v1:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X12", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X12", "field": "owner", "equals": "Support reviewer"}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X12", "field": "answer", "expected_facts": ["Support tickets are closed automatically after 14 days without a customer reply."], "forbidden_claims": ["Tickets are closed after a period other than 14 days.", "Tickets are closed 14 days after they are opened."]}
+    ]
+   },
+   {
+    "id": "EXT-X13",
+    "kind": "supported, multi-sentence passage",
+    "title": "Yes: account owners can require 2FA for the whole team (X13)",
+    "question": "Can account owners require two-factor authentication for the whole team?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": [],
+    "derived_from": [
+     {"passage_id": "ACCESS-2FA-v1:p1", "quote": "Account owners can require two-factor authentication for the whole team.", "authority": {"doc_id": "ACCESS-2FA-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["ACCESS-2FA-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X13", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X13", "field": "citations", "ids_subset_of": ["ACCESS-2FA-v1:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X13", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X13", "field": "owner", "equals": "Product reviewer"}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X13", "field": "answer", "expected_facts": ["Yes, account owners can require two-factor authentication for the whole team."], "forbidden_claims": ["Two-factor authentication is required for every user by default."]}
+    ]
+   },
+   {
+    "id": "EXT-X14",
+    "kind": "can vs only (supported)",
+    "title": "Each user can turn 2FA on; the answer must not limit it to account owners (X14)",
+    "question": "Who can turn on two-factor authentication for their own account?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": ["006-answers-never-stronger-than-passages.md"],
+    "derived_from": [
+     {"passage_id": "ACCESS-2FA-v1:p1", "quote": "Each user can turn on two-factor authentication in their profile settings.", "authority": {"doc_id": "ACCESS-2FA-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["ACCESS-2FA-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X14", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X14", "field": "citations", "ids_subset_of": ["ACCESS-2FA-v1:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X14", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X14", "field": "owner", "equals": "Product reviewer"}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X14", "field": "answer", "expected_facts": ["Each user can turn on two-factor authentication for their own account."], "forbidden_claims": ["Only account owners can turn on two-factor authentication.", "Only administrators can turn on two-factor authentication."]}
+    ]
+   },
+   {
+    "id": "EXT-X15",
+    "kind": "partial answer",
+    "title": "Removing team members is documented; changing roles is not (X15)",
+    "question": "Can account owners remove team members and change their roles?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": ["007-partial-evidence-is-unresolved.md"],
+    "derived_from": [
+     {"passage_id": "ACCESS-ROLES-v1:p1", "quote": "Account owners can remove team members.", "authority": {"doc_id": "ACCESS-ROLES-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["ACCESS-ROLES-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X15", "field": "status", "equals": "unresolved"},
+     {"step": "S1", "item": "R1/X15", "field": "reason", "equals": "undocumented"},
+     {"step": "S1", "item": "R1/X15", "field": "owner", "equals": "Product reviewer"},
+     {"step": "S1", "item": "R1/X15", "field": "answer", "equals": ""}
+    ],
+    "meaning": []
+   },
+   {
+    "id": "EXT-X16",
+    "kind": "conflict settled by supersedes",
+    "title": "ACCESS-SESSION-v2 supersedes v1: 8 hours, with 12 hours shown as replaced (X16)",
+    "question": "After how long are inactive sessions signed out?",
+    "rules": ["RULE-1", "RULE-4", "RULE-2"],
+    "decisions": ["001-authority-from-supersedes-only.md"],
+    "derived_from": [
+     {"passage_id": "ACCESS-SESSION-v2:p1", "quote": "Inactive sessions are signed out after 8 hours.", "authority": {"doc_id": "ACCESS-SESSION-v2", "version": 2, "date": "2026-08-01", "status": "current", "supersedes": "ACCESS-SESSION-v1", "superseded_by": null}},
+     {"passage_id": "ACCESS-SESSION-v1:p1", "quote": "Inactive sessions are signed out after 12 hours.", "authority": {"doc_id": "ACCESS-SESSION-v1", "version": 1, "date": "2026-03-01", "status": "superseded", "supersedes": null, "superseded_by": "ACCESS-SESSION-v2"}}
+    ],
+    "gold_passages": ["ACCESS-SESSION-v2:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X16", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X16", "field": "citations", "ids_subset_of": ["ACCESS-SESSION-v2:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X16", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X16", "field": "owner", "equals": "Product reviewer"},
+     {"step": "S1", "item": "R1/X16", "field": "replaced_shown", "ids_include": ["ACCESS-SESSION-v1:p1"]}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X16", "field": "answer", "expected_facts": ["Inactive sessions are signed out after 8 hours."], "forbidden_claims": ["Inactive sessions are signed out after 12 hours."]}
+    ]
+   },
+   {
+    "id": "EXT-X17",
+    "kind": "documented No, multi-sentence passage",
+    "title": "\"Passwords do not expire\" is the second sentence (X17)",
+    "question": "Do passwords expire?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": ["005-documented-negative-is-answered.md"],
+    "derived_from": [
+     {"passage_id": "ACCESS-PASSWORD-v1:p1", "quote": "Passwords do not expire.", "authority": {"doc_id": "ACCESS-PASSWORD-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["ACCESS-PASSWORD-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X17", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X17", "field": "citations", "ids_subset_of": ["ACCESS-PASSWORD-v1:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X17", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X17", "field": "owner", "equals": "Product reviewer"}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X17", "field": "answer", "expected_facts": ["Passwords do not expire (the answer is No)."], "forbidden_claims": ["Passwords expire after some period."]}
+    ]
+   },
+   {
+    "id": "EXT-X18",
+    "kind": "conflict not settled by supersedes",
+    "title": "can vs cannot; ACCESS-GUEST-NOTE-v1 is newer but supersedes nothing (X18)",
+    "question": "Can guest users view shared reports?",
+    "rules": ["RULE-1", "RULE-4", "RULE-2"],
+    "decisions": ["002-dates-and-versions-grant-no-authority.md"],
+    "derived_from": [
+     {"passage_id": "ACCESS-GUEST-v1:p1", "quote": "Guest users can view shared reports.", "authority": {"doc_id": "ACCESS-GUEST-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}},
+     {"passage_id": "ACCESS-GUEST-NOTE-v1:p1", "quote": "Guest users cannot view shared reports.", "authority": {"doc_id": "ACCESS-GUEST-NOTE-v1", "version": 1, "date": "2026-09-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["ACCESS-GUEST-NOTE-v1:p1", "ACCESS-GUEST-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X18", "field": "status", "equals": "unresolved"},
+     {"step": "S1", "item": "R1/X18", "field": "reason", "equals": "conflict"},
+     {"step": "S1", "item": "R1/X18", "field": "owner", "equals": "Product reviewer"},
+     {"step": "S1", "item": "R1/X18", "field": "answer", "equals": ""},
+     {"step": "S1", "item": "R1/X18", "field": "conflicts_shown", "ids_include": ["ACCESS-GUEST-NOTE-v1:p1", "ACCESS-GUEST-v1:p1"]}
+    ],
+    "meaning": []
+   },
+   {
+    "id": "EXT-X19",
+    "kind": "supported, on-topic distractors",
+    "title": "90 days (EXPORT-AUDIT-v1 also mentions the audit log but does not answer) (X19)",
+    "question": "How long are sign-in attempts kept in the audit log?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": [],
+    "derived_from": [
+     {"passage_id": "ACCESS-AUDIT-v1:p1", "quote": "Sign-in attempts are kept in the audit log for 90 days.", "authority": {"doc_id": "ACCESS-AUDIT-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["ACCESS-AUDIT-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X19", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X19", "field": "citations", "ids_subset_of": ["ACCESS-AUDIT-v1:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X19", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X19", "field": "owner", "equals": "Product reviewer"}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X19", "field": "answer", "expected_facts": ["Sign-in attempts are kept in the audit log for 90 days."], "forbidden_claims": ["Sign-in attempts are kept for a period other than 90 days."]}
+    ]
+   },
+   {
+    "id": "EXT-X20",
+    "kind": "conflict settled by supersedes",
+    "title": "BILLING-REFUND-v2 supersedes v1: 30 days, with 14 days shown as replaced (X20)",
+    "question": "Within how many days of a payment can a refund be requested?",
+    "rules": ["RULE-1", "RULE-4", "RULE-2"],
+    "decisions": ["001-authority-from-supersedes-only.md"],
+    "derived_from": [
+     {"passage_id": "BILLING-REFUND-v2:p1", "quote": "Refunds can be requested within 30 days of a payment.", "authority": {"doc_id": "BILLING-REFUND-v2", "version": 2, "date": "2026-08-01", "status": "current", "supersedes": "BILLING-REFUND-v1", "superseded_by": null}},
+     {"passage_id": "BILLING-REFUND-v1:p1", "quote": "Refunds can be requested within 14 days of a payment.", "authority": {"doc_id": "BILLING-REFUND-v1", "version": 1, "date": "2026-03-01", "status": "superseded", "supersedes": null, "superseded_by": "BILLING-REFUND-v2"}}
+    ],
+    "gold_passages": ["BILLING-REFUND-v2:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X20", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X20", "field": "citations", "ids_subset_of": ["BILLING-REFUND-v2:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X20", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X20", "field": "owner", "equals": "Billing reviewer"},
+     {"step": "S1", "item": "R1/X20", "field": "replaced_shown", "ids_include": ["BILLING-REFUND-v1:p1"]}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X20", "field": "answer", "expected_facts": ["A refund can be requested within 30 days of a payment."], "forbidden_claims": ["Refunds must be requested within 14 days."]}
+    ]
+   },
+   {
+    "id": "EXT-X21",
+    "kind": "supported",
+    "title": "Yes: payments can be made by credit card (X21)",
+    "question": "Can payments be made by credit card?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": ["006-answers-never-stronger-than-passages.md"],
+    "derived_from": [
+     {"passage_id": "BILLING-PAYMENT-v1:p1", "quote": "Payments can be made by credit card.", "authority": {"doc_id": "BILLING-PAYMENT-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["BILLING-PAYMENT-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X21", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X21", "field": "citations", "ids_subset_of": ["BILLING-PAYMENT-v1:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X21", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X21", "field": "owner", "equals": "Billing reviewer"}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X21", "field": "answer", "expected_facts": ["Yes, payments can be made by credit card."], "forbidden_claims": ["Credit card is the only accepted payment method."]}
+    ]
+   },
+   {
+    "id": "EXT-X22",
+    "kind": "can vs only (undocumented)",
+    "title": "\"can be made by credit card\" does not say only (X22)",
+    "question": "Is credit card the only accepted payment method?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": ["006-answers-never-stronger-than-passages.md"],
+    "derived_from": [
+     {"passage_id": "BILLING-PAYMENT-v1:p1", "quote": "Payments can be made by credit card.", "authority": {"doc_id": "BILLING-PAYMENT-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": [],
+    "note": "No passage says whether other payment methods are accepted.",
+    "checks": [
+     {"step": "S1", "item": "R1/X22", "field": "status", "equals": "unresolved"},
+     {"step": "S1", "item": "R1/X22", "field": "reason", "equals": "undocumented"},
+     {"step": "S1", "item": "R1/X22", "field": "owner", "equals": "Billing reviewer"},
+     {"step": "S1", "item": "R1/X22", "field": "answer", "equals": ""}
+    ],
+    "meaning": []
+   },
+   {
+    "id": "EXT-X23",
+    "kind": "documented No, multi-sentence passage",
+    "title": "\"Annual billing is not offered\" (X23)",
+    "question": "Is annual billing offered?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": ["005-documented-negative-is-answered.md"],
+    "derived_from": [
+     {"passage_id": "BILLING-TERMS-v1:p1", "quote": "Annual billing is not offered.", "authority": {"doc_id": "BILLING-TERMS-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["BILLING-TERMS-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X23", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X23", "field": "citations", "ids_subset_of": ["BILLING-TERMS-v1:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X23", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X23", "field": "owner", "equals": "Billing reviewer"}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X23", "field": "answer", "expected_facts": ["Annual billing is not offered (the answer is No)."], "forbidden_claims": ["Annual billing is offered or available."]}
+    ]
+   },
+   {
+    "id": "EXT-X24",
+    "kind": "conflict not settled by supersedes",
+    "title": "include vs do not include sales tax; BILLING-PRICING-v1 is newer but supersedes nothing (X24)",
+    "question": "Do prices on the pricing page include sales tax?",
+    "rules": ["RULE-1", "RULE-4", "RULE-2"],
+    "decisions": ["002-dates-and-versions-grant-no-authority.md"],
+    "derived_from": [
+     {"passage_id": "BILLING-TAX-v1:p1", "quote": "Prices on the pricing page include sales tax.", "authority": {"doc_id": "BILLING-TAX-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}},
+     {"passage_id": "BILLING-PRICING-v1:p1", "quote": "Prices on the pricing page do not include sales tax.", "authority": {"doc_id": "BILLING-PRICING-v1", "version": 1, "date": "2026-09-10", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["BILLING-PRICING-v1:p1", "BILLING-TAX-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X24", "field": "status", "equals": "unresolved"},
+     {"step": "S1", "item": "R1/X24", "field": "reason", "equals": "conflict"},
+     {"step": "S1", "item": "R1/X24", "field": "owner", "equals": "Billing reviewer"},
+     {"step": "S1", "item": "R1/X24", "field": "answer", "equals": ""},
+     {"step": "S1", "item": "R1/X24", "field": "conflicts_shown", "ids_include": ["BILLING-PRICING-v1:p1", "BILLING-TAX-v1:p1"]}
+    ],
+    "meaning": []
+   },
+   {
+    "id": "EXT-X25",
+    "kind": "partial answer",
+    "title": "The refund method is documented; how long refunds take is not (X25)",
+    "question": "Are refunds paid back to the original payment method, and how long do they take to arrive?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": ["007-partial-evidence-is-unresolved.md"],
+    "derived_from": [
+     {"passage_id": "BILLING-REFUND-v2:p1", "quote": "Refunds are paid back to the original payment method.", "authority": {"doc_id": "BILLING-REFUND-v2", "version": 2, "date": "2026-08-01", "status": "current", "supersedes": "BILLING-REFUND-v1", "superseded_by": null}}
+    ],
+    "gold_passages": ["BILLING-REFUND-v2:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X25", "field": "status", "equals": "unresolved"},
+     {"step": "S1", "item": "R1/X25", "field": "reason", "equals": "undocumented"},
+     {"step": "S1", "item": "R1/X25", "field": "owner", "equals": "Billing reviewer"},
+     {"step": "S1", "item": "R1/X25", "field": "answer", "equals": ""}
+    ],
+    "meaning": []
+   },
+   {
+    "id": "EXT-X26",
+    "kind": "partial answer",
+    "title": "Password expiry is documented (No); the lockout threshold is not (X26)",
+    "question": "Do passwords expire, and how many failed sign-in attempts lock an account?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": ["007-partial-evidence-is-unresolved.md"],
+    "derived_from": [
+     {"passage_id": "ACCESS-PASSWORD-v1:p1", "quote": "Passwords do not expire.", "authority": {"doc_id": "ACCESS-PASSWORD-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["ACCESS-PASSWORD-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X26", "field": "status", "equals": "unresolved"},
+     {"step": "S1", "item": "R1/X26", "field": "reason", "equals": "undocumented"},
+     {"step": "S1", "item": "R1/X26", "field": "owner", "equals": "Product reviewer"},
+     {"step": "S1", "item": "R1/X26", "field": "answer", "equals": ""}
+    ],
+    "meaning": []
+   }
+  ],
+  "extra_rows": [
+   {
+    "id": "EXT-REUSE",
+    "kind": "approved reuse",
+    "title": "Approved X1 and X13 are reused in R2 with no model call; the unapproved X12 edit is not",
+    "rules": ["RULE-3"],
+    "decisions": ["014-exact-question-matching.md", "015-asked-again-means-a-later-request.md"],
+    "checks": [
+     {"step": "S2", "item": "R1/X1", "field": "status", "equals": "approved"},
+     {"step": "S2", "item": "R1/X1", "field": "approval.text", "equals_text": "A1"},
+     {"step": "S2", "item": "R1/X1", "field": "approval.sources", "versions": {"EXPORT-SCHEDULE-v1:p1": 1}},
+     {"step": "S2", "item": "R1/X12", "field": "edited", "equals": true},
+     {"step": "S2", "item": "R1/X12", "field": "status", "equals": "answered"},
+     {"step": "S3", "item": "R2/X1", "field": "status", "equals": "approved"},
+     {"step": "S3", "item": "R2/X1", "field": "reused", "equals": true},
+     {"step": "S3", "item": "R2/X1", "field": "answer", "equals_text": "A1"},
+     {"step": "S3", "item": "R2/X1", "field": "calls", "equals": []},
+     {"step": "S3", "item": "R2/X13", "field": "reused", "equals": true},
+     {"step": "S3", "item": "R2/X13", "field": "answer", "equals_text": "A13"},
+     {"step": "S3", "item": "R2/X12", "field": "reused", "equals": false},
+     {"step": "S3", "item": "R2/X12", "field": "answer", "not_equals_text": "E12"}
+    ],
+    "meaning": []
+   },
+   {
+    "id": "EXT-CHANGE",
+    "kind": "changed source version",
+    "title": "ACCESS-2FA-v1 goes to version 2: the X13 approval needs review; R3/X13 gets a fresh draft",
+    "rules": ["RULE-3"],
+    "decisions": ["010-what-counts-as-a-version-change.md", "011-sticky-stale-marks.md", "013-stale-approval-on-a-repeat.md"],
+    "checks": [
+     {"step": "S4", "item": "R1/X13", "field": "status", "equals": "needs_review"},
+     {"step": "S4", "item": "R1/X13", "field": "reason", "equals": "source_changed"},
+     {"step": "S4", "item": "R2/X13", "field": "status", "equals": "needs_review"},
+     {"step": "S4", "item": "R1/X1", "field": "status", "equals": "approved"},
+     {"step": "S5", "item": "R3/X13", "field": "reused", "equals": false},
+     {"step": "S5", "item": "R3/X13", "field": "status", "equals": "answered"},
+     {"step": "S5", "item": "R3/X13", "field": "stale_approval_shown", "equals": "A2"},
+     {"step": "S5", "item": "R3/X13", "field": "calls", "non_empty": true},
+     {"step": "S5", "item": "R3/X1", "field": "reused", "equals": true}
+    ],
+    "meaning": []
+   },
+   {
+    "id": "EXT-NOTE",
+    "kind": "unresolved with a note",
+    "title": "The X5 conflict is left unresolved with a note for the Product reviewer",
+    "rules": ["RULE-4"],
+    "decisions": ["020-statuses-and-counts.md"],
+    "checks": [
+     {"step": "S2", "item": "R1/X5", "field": "note", "equals_text": "N5"},
+     {"step": "S2", "item": "R1/X5", "field": "status", "equals": "unresolved"}
+    ],
+    "meaning": []
+   }
+  ],
+  "counts_order": ["answered", "unresolved", "approved", "needs_review", "error"],
+  "counts": {
+   "S1": {"R1": [15, 11, 0, 0, 0]},
+   "S2": {"R1": [13, 11, 2, 0, 0]},
+   "S3": {"R1": [13, 11, 2, 0, 0], "R2": [13, 11, 2, 0, 0]},
+   "S4": {"R1": [13, 11, 1, 1, 0], "R2": [13, 11, 1, 1, 0]},
+   "S5": {"R1": [13, 11, 1, 1, 0], "R2": [13, 11, 1, 1, 0], "R3": [14, 11, 1, 0, 0]}
+  },
+  "counts_note": "Hand-computed: 15 of X1-X26 are answered and 11 unresolved when every draft is right. S2 approves X1 and X13 (2 approved). R2 reuses both. S4 makes the X13 approval stale in R1 and R2. R3 reuses X1 and drafts X13 afresh. A mismatch is reported as a FAIL, never fixed in this key."
+ }
 }

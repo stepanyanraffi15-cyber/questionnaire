@@ -1,0 +1,6 @@
+# Hybrid retrieval and the read-only search tool (decisions 040 and 041).
+top_k = 5           # passages returned per search
+rrf_k = 60          # reciprocal rank fusion constant (Cormack, Clarke and Buettcher 2009)
+bm25_k1 = 1.2       # BM25 term-frequency saturation (Robertson and Zaragoza 2009)
+bm25_b = 0.75       # BM25 length normalisation
+max_searches = 2    # search_passages calls the model may make before it must answer

@@ -14,6 +14,7 @@ from qa.checks import strengthening_hints
 from qa.dataset import ROOT, Dataset, load_dataset
 from qa.drafting import check_support, draft_item
 from qa.llm import ModelCallError
+from qa.retrieval import hit_ids, load_retrieval_settings, search
 from qa.staleness import refresh_stale_marks, stale_mark
 from qa.store import append
 from qa.views import item_view
@@ -29,8 +30,12 @@ def match_key(question_text: str) -> str:
 
 
 def workspace_dataset(state: dict) -> Dataset:
-    """The documents as they are now: the seed plus the change files applied in this workspace."""
-    return load_dataset(change_paths=[ROOT / path for path in state["applied_changes"]])
+    """The documents as they are now: the seed, this workspace's additions file if it has one, and the change
+    files applied in this workspace.
+    """
+    additions = ROOT / state["additions"] if state.get("additions") else None
+    changes = [ROOT / path for path in state["applied_changes"]]
+    return load_dataset(change_paths=changes, additions_path=additions)
 
 
 def set_change(state: dict, change_path: str, applied: bool, at: str) -> Dataset:
@@ -146,9 +151,12 @@ def _guard_sources(view: dict, dataset: Dataset, source_ids: list[str], text: st
 
 
 def _support(question_text: str, text: str, source_ids: list[str], dataset: Dataset, client) -> tuple:
-    """Run the recorded support check on the exact text being approved; a failure is reported, not hidden."""
+    """Run the recorded support check on the exact text being approved, against the passages retrieved for
+    the question; a failure is reported, not hidden.
+    """
     try:
-        verdict, call = check_support(question_text, text, source_ids, dataset, client)
+        context = hit_ids(search(question_text, dataset, client, load_retrieval_settings()))
+        verdict, call = check_support(question_text, text, source_ids, dataset, client, context)
     except ModelCallError as exc:
         return False, f"support check unavailable: {exc}", None
     return verdict.supported, verdict.basis, call

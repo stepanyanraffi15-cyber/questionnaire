@@ -1,0 +1,84 @@
+{
+  "_purpose": "Fixed inputs for the extended scenario, steps S1 to S5, on the extended questionnaire X1-X26 (seed documents plus data/additions/extended.json). Each run_questionnaire step runs the whole extended questionnaire as a new request (items R1/X1 ... R1/X26). The reviewer texts are scripted, not model output, and add no product facts: the X1 and X13 approvals restate EXPORT-SCHEDULE-v1:p1 and ACCESS-2FA-v1:p1, the X12 edit restates SUPPORT-TICKETS-v1:p1 and is never approved, and the X5 note records the conflict. Times are fixed. Expected results are kept separately, in the answer key.",
+  "label": "SCRIPTED REVIEWER INPUT",
+  "dataset": "data/seed/seed.json",
+  "additions": "data/additions/extended.json",
+  "steps": [
+    {
+      "id": "S1",
+      "at": "2026-10-08T10:00:00Z",
+      "actions": [
+        {
+          "type": "run_questionnaire",
+          "request": "R1"
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "at": "2026-10-08T10:01:00Z",
+      "actions": [
+        {
+          "type": "approve",
+          "item": "R1/X1",
+          "text": "Scheduled exports run once a day at 02:00 UTC.",
+          "sources": [
+            "EXPORT-SCHEDULE-v1:p1"
+          ],
+          "approver": "Product reviewer",
+          "note": "Checked against EXPORT-SCHEDULE-v1:p1."
+        },
+        {
+          "type": "approve",
+          "item": "R1/X13",
+          "text": "Yes. Account owners can require two-factor authentication for the whole team.",
+          "sources": [
+            "ACCESS-2FA-v1:p1"
+          ],
+          "approver": "Product reviewer",
+          "note": "Checked against ACCESS-2FA-v1:p1."
+        },
+        {
+          "type": "save_edit",
+          "item": "R1/X12",
+          "text": "Tickets close after 14 days without a customer reply."
+        },
+        {
+          "type": "add_note",
+          "item": "R1/X5",
+          "text": "Needs Product reviewer: EXPORT-FILES-v1 and EXPORT-HELP-v1 give different download periods, and neither supersedes the other."
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "at": "2026-10-08T10:02:00Z",
+      "actions": [
+        {
+          "type": "run_questionnaire",
+          "request": "R2"
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "at": "2026-10-08T10:03:00Z",
+      "actions": [
+        {
+          "type": "apply_change",
+          "file": "data/changes/access-2fa-version-2.json"
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "at": "2026-10-08T10:04:00Z",
+      "actions": [
+        {
+          "type": "run_questionnaire",
+          "request": "R3"
+        }
+      ]
+    }
+  ]
+}

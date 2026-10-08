@@ -18,11 +18,16 @@ No API key needed.
 ```bash
 uv sync --locked
 uv run streamlit run src/qa/ui.py                      # click "New request", then look at Q1, Q2 and Q3
-uv run qa report && uv run python reference/grade.py   # replay the saved run and grade it: 115 PASS
+uv run qa report && uv run python reference/grade.py   # replay both saved runs and grade them
 ```
 
+There are two questionnaires. The **seed** one is the supplied five documents and eight questions (Q1–Q8). The
+**extended** one (X1–X26) runs over the seed plus 30 added fictional documents, made to test retrieval and every
+scenario kind several times (decision 039). Switch between them in the sidebar.
+
 Then, if you want more: [docs/RESULTS.md](docs/RESULTS.md) for every check,
-[decision 038](docs/decisions/038-state-the-deciding-condition.md) for the one real failure and how it was fixed, and
+[decision 038](docs/decisions/038-state-the-deciding-condition.md) for the first real failure and how it was fixed,
+[decisions 039–042](docs/decisions/) for the added data, retrieval and the search tool, and
 [prompts/](prompts/) for the two prompts, and [Papers behind the design](#papers-behind-the-design) for the
 ideas it is built on. Everything else is detail.
 
@@ -58,8 +63,10 @@ All four screens come from the saved scenario run, in replay mode, with no API k
 flowchart TD
     Q[Buyer question] --> R{Approved answer for this exact question,<br/>with its sources unchanged?}
     R -- yes --> U[Reuse it. No model call.]
-    R -- no --> D[Gemini drafts from current passages only:<br/>answer, passage IDs, word-for-word quotes]
-    D --> C[Code checks: the IDs exist, the quotes are exact,<br/>the passage has not been replaced]
+    R -- no --> H[Hybrid search over current passages only:<br/>BM25 + Gemini embeddings, rank fusion, top 5]
+    H --> D[Gemini drafts from those passages:<br/>answer, passage IDs, word-for-word quotes]
+    D -- "search_passages(query), at most twice" --> H
+    D --> C[Code checks: the IDs exist and were shown, the quotes are exact,<br/>the passage has not been replaced]
     C --> S[Second Gemini call: do the cited passages<br/>really say everything the answer says?]
     S -- yes --> A[answered]
     S -- no, or nothing found, or a conflict --> O[unresolved, sent to the topic owner]
@@ -77,8 +84,10 @@ answer?", is left to the model and then to a person. I did not want a list of ke
 a small word list ("only", "every", "always"...) but it only shows a hint to the reviewer and never decides anything.
 
 The documents are also treated as data, never as instructions. The prompts hold the rules, and the passages are sent
-separately as JSON. Replaced passages are never sent to the model. The model has no tools, so it cannot approve,
-reuse, or route anything by itself. Only the reviewer's clicks do that.
+separately as JSON. Replaced passages are removed before the search, so they never reach the model. The model has one
+tool, `search_passages`, which only reads: when the first five passages don't settle the question, it may search
+again in its own words, at most twice (decision 041). It cannot approve, reuse, or route anything. Only the
+reviewer's clicks do that. Every search step is saved and shown in the "Checks and raw draft" panel.
 
 ## Papers behind the design
 
@@ -94,7 +103,16 @@ in [docs/research/README.md](docs/research/README.md).
 | Models often follow whatever context they are given, even when it is wrong, so replaced passages are never sent to the model | Wu, Wu, Zou, *ClashEval*, NeurIPS 2024 [link](https://arxiv.org/abs/2404.10198) |
 | Conflicts between sources are shown to the reviewer, not hidden by quietly picking one | Xu et al., *Knowledge Conflicts for LLMs: A Survey*, EMNLP 2024 [link](https://arxiv.org/abs/2403.08319); Cattan et al., *DRAGged into Conflicts*, 2025 [link](https://arxiv.org/abs/2506.08500) |
 | Documents go in a separate JSON data message, marked as content and never instructions | Hines et al., *Defending Against Indirect Prompt Injection Attacks With Spotlighting*, 2024. [link](https://arxiv.org/abs/2403.14720) |
-| The model has no tools. Approving, reusing and routing happen only in code the reviewer triggers | Beurer-Kellner et al., *Design Patterns for Securing LLM Agents against Prompt Injections*, 2025. [link](https://arxiv.org/abs/2506.08837) |
+| The model's only tool reads. Approving, reusing and routing happen only in code the reviewer triggers | Beurer-Kellner et al., *Design Patterns for Securing LLM Agents against Prompt Injections*, 2025. [link](https://arxiv.org/abs/2506.08837) |
+| Draft from retrieved passages instead of everything | Lewis et al., *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*, NeurIPS 2020. [link](https://arxiv.org/abs/2005.11401) |
+| Keyword search (BM25) as one half of retrieval, with standard settings | Robertson & Zaragoza, *The Probabilistic Relevance Framework: BM25 and Beyond*, 2009 [link](https://www.staff.city.ac.uk/~sbrp622/papers/foundations_bm25_review.pdf); Thakur et al., *BEIR*, NeurIPS 2021 [link](https://arxiv.org/abs/2104.08663) |
+| Embeddings as the other half, because keyword-only and dense-only each miss things on a new domain | Chen et al., *Out-of-Domain Semantics to the Rescue! Zero-Shot Hybrid Retrieval Models*, ECIR 2022 [link](https://arxiv.org/abs/2201.10582); Lee et al., *Gemini Embedding*, 2025 [link](https://arxiv.org/abs/2503.07891) |
+| Merge the two rankings by rank, not by score, with k = 60 | Cormack, Clarke, Büttcher, *Reciprocal Rank Fusion*, SIGIR 2009. [link](http://cormack.uwaterloo.ca/cormacksigir09-rrf.pdf) |
+| Few passages, best first: irrelevant context distracts, and position matters | Shi et al., *Large Language Models Can Be Easily Distracted by Irrelevant Context*, ICML 2023 [link](https://arxiv.org/abs/2302.00093); Liu et al., *Lost in the Middle*, TACL 2024 [link](https://aclanthology.org/2024.tacl-1.9/) |
+| The model may search again in its own words, but only a couple of times | Yao et al., *ReAct*, ICLR 2023 [link](https://arxiv.org/abs/2210.03629); Liu et al., *Budget-Aware Tool Use Enables Effective Agent Scaling*, 2025 [link](https://arxiv.org/abs/2511.17006) |
+| Distractor passages are on-topic, because those are the ones that hurt | Cuconasu et al., *The Power of Noise*, SIGIR 2024. [link](https://arxiv.org/abs/2401.14887) |
+| Retrieval is measured apart from the answer (recall@k per row) | Salemi & Zamani, *Evaluating Retrieval Quality in Retrieval-Augmented Generation*, SIGIR 2024. [link](https://arxiv.org/abs/2404.13781) |
+| Invented test data is easier than real questions, so I claim no accuracy | Rahmani et al., *Synthetic Test Collections for Retrieval Evaluation*, SIGIR 2024. [link](https://arxiv.org/abs/2405.07767) |
 | Strict JSON output can hurt reasoning, so the JSON has a `basis` field the model fills in first | Tam et al., *Let Me Speak Freely?*, EMNLP 2024 Industry. [link](https://aclanthology.org/2024.emnlp-industry.91/) |
 | Reusing an answer for a question that only looks similar can return the wrong answer. Making that safe takes real work, so I reuse only on an exact text match | *vCache: Verified Semantic Prompt Caching*, 2025. [link](https://arxiv.org/abs/2502.03771) |
 | An LLM judge needs a human check of its verdicts, so meaning rows need a sign-off | Shankar et al., *Who Validates the Validators?*, UIST 2024. [link](https://arxiv.org/abs/2404.12272) |
@@ -107,18 +125,19 @@ You need [uv](https://docs.astral.sh/uv/). Python 3.12 is pinned and uv installs
 ```bash
 uv sync --locked
 uv run streamlit run src/qa/ui.py      # the review workspace (replay mode, no API key needed)
-uv run qa report                       # replay the scripted scenario S1-S11 -> runs/report/observed.json
+uv run qa report                       # replay both scenarios -> runs/report/observed.json, observed-extended.json
 uv run python reference/grade.py       # grade it against the answer key -> docs/RESULTS.md
 uv run pytest                          # offline tests (network is blocked in tests)
 uv run qa check-data                   # load the data and list any reference problems
-uv run qa export R1                    # print a request as a finished questionnaire
+uv run qa export R1                    # print a request as a finished questionnaire (--extended for X1-X26)
 uv run qa inspect S1 R1/Q1             # one item, with the saved request and raw model response behind it
+uv run qa inspect S1 R1/X9 --extended  # an item where the model used search_passages twice
 ```
 
 A short guided click-through is in [docs/WALKTHROUGH.md](docs/WALKTHROUGH.md).
 
 **No API key needed to try it.** Every real Gemini response was saved together with its request, prompt, settings
-and token counts. Replay is the default. It never reads `.env` and never creates a model client, so the reviewer sees
+and token counts, and so was every embedding used for retrieval. Replay is the default. It never reads `.env` and never creates a model client, so the reviewer sees
 the same answers I saw. If a request has no saved response, the item shows a clear `no_recording` error instead of
 quietly calling the model. Labels on screen tell you where each answer came from: **LIVE**, **REPLAYED**,
 **REUSED APPROVAL** (no model call), or **SIMULATED** (only in tests).
@@ -167,15 +186,41 @@ the Python standard library and imports nothing from the app.
 | MIN-4: an approved correction is reused; an unapproved edit is not | PASS |
 | MIN-5: a reload keeps everything; a version change means "needs review" | PASS |
 | Counts at every step | PASS |
-| **All rows** | **115 PASS, 0 FAIL, 0 PENDING** |
+| **All seed rows** | **115 PASS, 0 FAIL, 0 PENDING** |
+
+**The extended questionnaire** (X1–X26, decision 039) has its own key, written from the passages before the app ran
+on this data and re-derived blind by a separate agent, which agreed on every status, gold passage and count
+(decision 042).
+
+| Kind (cases) | Result |
+|---|---|
+| Undocumented, "can" vs "only" traps, partial answers (X3, X6, X9, X15, X22, X25, X26) | PASS: all stay unresolved, routed to the owner |
+| Conflicts `supersedes` does not settle, newer date second (X5, X11, X18, X24) | PASS: unresolved, both passages shown |
+| Approved reuse, an unapproved edit, a note, a source version change | PASS |
+| Counts at every step | PASS |
+| Conflicts settled by `supersedes` (X4, X10, X16, X20) | X10, X16, X20 pass their mechanical checks; **X4 FAILS** (below) |
+| Answered rows' meaning (15 rows) | judge PASS on all 15; **PENDING** my sign-off |
+| **All extended rows** | **144 PASS, 1 FAIL, 15 PENDING** |
+
+**Retrieval recall@k** (k = 5) is 1.00 on all 29 rows that have a gold passage, in both scenarios: every answering
+passage, and both sides of every conflict, were in the first five. On invented data this easy that is expected, not
+impressive. The model used `search_passages` only on the eight undocumented or partial questions, and each time it
+still left them open.
+
+**The new failure, X4.** Asked "How many rows can a single CSV export contain?", the model answered "A single CSV
+export can contain up to 50,000 rows. CSV exports are available on paid plans only." and cited both
+EXPORT-LIMITS-v2:p1 and EXPORT-v2:p1. Both sentences are true and quoted exactly, but the second was not asked for,
+and the key allows only EXPORT-LIMITS-v2:p1. It looks like a side effect of prompt rule 9 ("include the passage's
+limit"), the fix for Q1 in decision 038. I left the key and the prompt as they are; it is reported as a FAIL.
 
 Full table: [docs/RESULTS.md](docs/RESULTS.md).
 
-Plain checks (statuses, IDs, quotes, counts) are graded by code. The seven rows about meaning ("does this answer say
-the right thing?") are graded by a recorded Gemini judge and then signed off by a person in
-`reference/signoff.json`. A judge PASS alone only counts as PENDING. To be plain about who signed: I delegated the
-sign-off. Claude Code compared each of the seven answers with its passage at my request, and every entry says so; I did
-not compare them myself.
+Plain checks (statuses, IDs, quotes, counts) are graded by code. Rows about meaning ("does this answer say the right
+thing?") are graded by a recorded Gemini judge and then signed off by a person in `reference/signoff.json`. A judge
+PASS alone only counts as PENDING. To be plain about who signed: for the seven seed rows I delegated the sign-off.
+Claude Code compared each answer with its passage at my request, and every entry says so; I did not compare them
+myself. The seed answers did not change with retrieval, so those entries still apply. The 15 extended rows are not
+signed yet.
 
 **The one real failure.** In the first live run, Gemini answered Q1 with "No, free-plan users cannot export CSV."
 That is true, but it drops the limit the document actually states: paid plans only. The judge caught it, and the
@@ -185,8 +230,8 @@ with an unrelated one (meeting rooms) so the prompt does not contain the answer,
 are available on paid plans only." The story is in [decision 038](docs/decisions/038-state-the-deciding-condition.md) and
 [docs/LLM_USAGE.md](docs/LLM_USAGE.md).
 
-Eight questions and five documents are a tiny test. The passing rows show that the rules work on this data, not that
-the system is accurate in general.
+Thirty-four questions and 35 short fictional documents are still a small test. The passing rows show that the rules
+work on this data, not that the system is accurate in general.
 
 ## The judgement calls
 
@@ -205,23 +250,34 @@ The main ones:
 | What counts as the same question | Same text after normal whitespace and Unicode cleanup. Different wording is a different question (014) |
 | What stops an approval | Broken IDs or quotes block it. A failed support check needs a written note and is saved as an override (016) |
 | Who approves | A name is recorded. There is no login (019) |
-| Adding data | I added nothing to the seed. The only extra files are the scenario steps and one version bump for EXPORT-v2 (033) |
+| Adding data | The seed is unchanged. Added data is a separate, labelled file with its own questionnaire, so the seed counts can't change (033, 039) |
+| How passages are found | Hybrid search (BM25 + embeddings, rank fusion, top 5) over current passages only (040) |
+| What the model may do | Search again, read-only, at most twice. Nothing else (041) |
+| How retrieval is judged | recall@k per row against hand-picked gold passages, shown next to the row's result, not graded (042) |
 
 ## Model and cost
 
-Gemini `gemini-3.8-flash`, thinking level medium, default sampling, 3 retries, 60 second timeout
-(`config/models.toml`). Two prompts: [prompts/draft_answer.md](prompts/draft_answer.md) and
+Gemini `gemini-3.8-flash`, thinking level medium, default sampling, 3 retries, 60 second timeout, and
+`gemini-embedding-001` at 768 dimensions for retrieval (`config/models.toml`, `config/retrieval.toml`). Two prompts: [prompts/draft_answer.md](prompts/draft_answer.md) and
 [prompts/check_support.md](prompts/check_support.md). The grader's judge has its own:
 [reference/judge_prompt.md](reference/judge_prompt.md).
 
-I used my own Gemini API key. All live calls so far (four recording runs) came to about 25.9k input, 3.4k output and
-8.3k thinking tokens over 44 calls, plus 11 judge calls. That is well under one US dollar.
+I used my own Gemini API key. All live calls so far (five recording runs) came to about 87.5k input, 9.4k output and
+31.2k thinking tokens over 117 calls, plus 81 embedded texts and 26 judge calls. The fifth run, for retrieval and the
+extended data, was 73 of those calls (61.6k input, 6.1k output, 22.9k thinking tokens) and all 81 embeddings. That
+is well under one US dollar.
 
 ## What it doesn't do yet
 
 - The judge is the same model family as the drafter, so it may like similar wording. The human sign-off is the
   final say. A judge from another model family would be better.
-- The supplied data has no conflict that metadata can't resolve, so that case is shown only in a test.
+- The added data is invented by the same process that wrote its key. A blind re-derivation by a separate agent
+  agreed on every row, but the data is still easy, and recall@k of 1.00 says little about harder documents.
+- Retrieval has no stemming and no tuning; top 5 and two searches are guesses backed by papers, not measured here.
+- Conflicts are now found only among the passages the model was shown. If one side of a conflict is not retrieved,
+  the item could be answered with no conflict shown. Recall is 1.00 here, so this never happened, but no test forces
+  it. The approval check uses the question's own top 5, not the draft's passages (040).
+- X4 fails: the Q1 fix (prompt rule 9) makes the model add a true but unasked limit from another passage.
 - No question needs facts from two documents, so combining sources isn't shown.
 - If a document's text changes but its version number doesn't, approvals are not marked. The rule in the brief
   talks about versions only (010, 012).
@@ -244,10 +300,11 @@ it. How I set up and steered the agents is in [ai-workflow/README.md](ai-workflo
 | Path | What |
 |---|---|
 | `src/qa/` | The application (module list in decision 032) |
-| `prompts/`, `config/models.toml` | Model instructions and settings |
-| `data/seed/` | The supplied data, unchanged. `data/scenario/` and `data/changes/` are the only additions |
+| `prompts/`, `config/` | Model instructions, model settings and retrieval settings |
+| `data/seed/` | The supplied data, unchanged |
+| `data/additions/`, `data/scenario/`, `data/changes/` | Added fictional data, scripted scenario steps, version changes (method in `data/GENERATION.md`) |
 | `reference/` | Answer key, grader, judge prompt, sign-offs |
-| `runs/` | Saved real model responses, judge verdicts, the scenario report |
+| `runs/` | Saved real model responses and embeddings, judge verdicts, the scenario reports |
 | `docs/` | Decisions, results, LLM usage note, walkthrough, reading list, screenshots |
 | `tests/` | Offline tests, one per rule or requirement |
 | `ai-workflow/`, `.claude/`, `CLAUDE.md`, `AGENTS.md` | How I set up and used the coding assistant |

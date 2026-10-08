@@ -7,3 +7,6 @@ thinking_level = "medium"   # the documented default, set explicitly so it is re
 timeout_ms = 60000          # transport only; not part of a request's fingerprint
 retry_attempts = 3
 # temperature, top_p and top_k are deliberately not set (Gemini 3 guidance: keep the defaults)
+# Embeddings for retrieval (decision 040). Passages are embedded as RETRIEVAL_DOCUMENT, queries as RETRIEVAL_QUERY.
+embedding_model = "gemini-embedding-001"
+embedding_dimensions = 768

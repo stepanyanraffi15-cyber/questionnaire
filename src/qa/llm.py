@@ -1,8 +1,9 @@
 """Model calls with record and replay (REQ-T2, GEN-2).
 
 Every real response is saved under `runs/recordings/`, keyed by a fingerprint of the exact request and
-model settings. Replay mode (the default) reads only those files, so a reviewer can rerun everything
-without an API key. Results are labelled LIVE (a new call) or REPLAYED (a saved real response).
+model settings. Embeddings are saved the same way, one file per text. Replay mode (the default) reads only
+those files, so a reviewer can rerun everything without an API key. Results are labelled LIVE (a new call)
+or REPLAYED (a saved real response).
 """
 
 from __future__ import annotations
@@ -21,6 +22,7 @@ from qa.dataset import ROOT
 RECORDINGS_DIR = ROOT / "runs" / "recordings"
 SETTINGS_PATH = ROOT / "config" / "models.toml"
 RECORDING_FORMAT = 1
+EMBED_BATCH = 50
 
 
 class ModelCallError(Exception):
@@ -38,6 +40,8 @@ class ModelSettings:
     thinking_level: str
     timeout_ms: int
     retry_attempts: int
+    embedding_model: str
+    embedding_dimensions: int
 
 
 @dataclass(frozen=True)
@@ -60,10 +64,20 @@ class ModelReply:
     recorded_at: str
 
 
+@dataclass(frozen=True)
+class Embedding:
+    vector: list[float]
+    label: str
+
+
 class ModelClient(Protocol):
-    """Anything that answers a model request: the replay and record clients here, a simulated one in tests."""
+    """Anything that answers model requests and embeds text: the replay and record clients here, a simulated
+    one in tests.
+    """
 
     def call(self, request: ModelRequest) -> ModelReply: ...
+
+    def embed(self, texts: list[str], task_type: str) -> list[Embedding]: ...
 
 
 def load_settings(path: Path = SETTINGS_PATH) -> ModelSettings:
@@ -84,12 +98,26 @@ def fingerprint(request: ModelRequest, settings: ModelSettings) -> str:
     return hashlib.sha256(json.dumps(key, sort_keys=True).encode()).hexdigest()
 
 
+def embedding_fingerprint(text: str, task_type: str, settings: ModelSettings) -> str:
+    """One text, one task type, one model and size: the unit an embedding recording is saved under."""
+    key = {
+        "call_type": "embed",
+        "provider": settings.provider,
+        "model": settings.embedding_model,
+        "dimensions": settings.embedding_dimensions,
+        "task_type": task_type,
+        "text": text,
+    }
+    return hashlib.sha256(json.dumps(key, sort_keys=True).encode()).hexdigest()
+
+
 class ReplayClient:
     """Serves saved real responses only. It never reads `.env` and never imports the provider SDK."""
 
     def __init__(self, settings: ModelSettings | None = None, recordings_dir: Path = RECORDINGS_DIR) -> None:
         self.settings = settings or load_settings()
         self.recordings_dir = recordings_dir
+        self._vectors: dict[Path, list[float]] = {}
 
     def call(self, request: ModelRequest) -> ModelReply:
         path = self._path(request)
@@ -99,9 +127,28 @@ class ReplayClient:
             )
         return _reply_from(json.loads(path.read_text()), "REPLAYED")
 
+    def embed(self, texts: list[str], task_type: str) -> list[Embedding]:
+        paths = [self._embedding_path(text, task_type) for text in texts]
+        missing = [p for p in paths if p not in self._vectors and not p.exists()]
+        if missing:
+            raise ModelCallError(
+                "no_recording", f"No saved embedding for {len(missing)} text(s); run with QA_MODE=record"
+            )
+        return [Embedding(self._vector(p), "REPLAYED") for p in paths]
+
     def _path(self, request: ModelRequest) -> Path:
         fp = fingerprint(request, self.settings)
         return self.recordings_dir / f"{request.call_type}-{fp[:16]}.json"
+
+    def _embedding_path(self, text: str, task_type: str) -> Path:
+        fp = embedding_fingerprint(text, task_type, self.settings)
+        return self.recordings_dir / f"embed-{fp[:16]}.json"
+
+    def _vector(self, path: Path) -> list[float]:
+        """Every search re-embeds the whole corpus, so vectors read once are kept in memory."""
+        if path not in self._vectors:
+            self._vectors[path] = json.loads(path.read_text())["vector"]
+        return self._vectors[path]
 
 
 class RecordingClient(ReplayClient):
@@ -137,6 +184,41 @@ class RecordingClient(ReplayClient):
         except (errors.APIError, HTTPError) as exc:
             raise ModelCallError("api_failure", f"Gemini call failed: {exc}") from exc
         return _recording(request, self.settings, response)
+
+    def embed(self, texts: list[str], task_type: str) -> list[Embedding]:
+        """Embed only the texts with no recording yet, in batches, and save one file per text."""
+        paths = [self._embedding_path(text, task_type) for text in texts]
+        todo = list(dict.fromkeys(t for t, p in zip(texts, paths, strict=True) if not p.exists()))
+        for start in range(0, len(todo), EMBED_BATCH):
+            batch = todo[start : start + EMBED_BATCH]
+            for text, vector in zip(batch, self._embed_live(batch, task_type), strict=True):
+                path = self._embedding_path(text, task_type)
+                path.parent.mkdir(parents=True, exist_ok=True)
+                record = _embedding_recording(text, task_type, vector, self.settings)
+                path.write_text(json.dumps(record, ensure_ascii=False) + "\n")
+        live = set(todo)
+        return [
+            Embedding(self._vector(p), "LIVE" if t in live else "REPLAYED")
+            for t, p in zip(texts, paths, strict=True)
+        ]
+
+    def _embed_live(self, texts: list[str], task_type: str) -> list[list[float]]:
+        from google.genai import errors, types
+        from httpx import HTTPError
+
+        config = types.EmbedContentConfig(
+            task_type=task_type, output_dimensionality=self.settings.embedding_dimensions
+        )
+        try:
+            response = self._client.models.embed_content(
+                model=self.settings.embedding_model, contents=texts, config=config
+            )
+        except (errors.APIError, HTTPError) as exc:
+            raise ModelCallError("api_failure", f"Gemini embedding call failed: {exc}") from exc
+        vectors = [list(e.values) for e in response.embeddings or []]
+        if len(vectors) != len(texts):
+            raise ModelCallError("invalid_model_output", f"{len(texts)} texts gave {len(vectors)} embeddings")
+        return vectors
 
 
 def make_client(mode: str | None = None) -> ReplayClient:
@@ -193,6 +275,21 @@ def _recording(request: ModelRequest, settings: ModelSettings, response) -> dict
                 "thoughts_token_count": usage.thoughts_token_count if usage else None,
             },
         },
+        "recorded_at": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
+    }
+
+
+def _embedding_recording(text: str, task_type: str, vector: list[float], settings: ModelSettings) -> dict:
+    return {
+        "format": RECORDING_FORMAT,
+        "fingerprint": embedding_fingerprint(text, task_type, settings),
+        "call_type": "embed",
+        "provider": settings.provider,
+        "model": settings.embedding_model,
+        "dimensions": settings.embedding_dimensions,
+        "task_type": task_type,
+        "text": text,
+        "vector": vector,
         "recorded_at": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
     }
 

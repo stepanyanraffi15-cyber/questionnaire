@@ -16,17 +16,24 @@ from qa.dataset import ROOT
 RECORD_KINDS = ("requests", "suggestions", "reuses", "edits", "notes", "approvals", "stale_marks")
 
 
-def state_path() -> Path:
-    """QA_STATE_DIR picks the state directory (default `state/`, which git ignores)."""
-    return Path(os.environ.get("QA_STATE_DIR") or ROOT / "state") / "workspace.json"
+EXTENDED_WORKSPACE = "workspace-extended"
+EXTENDED_ADDITIONS = "data/additions/extended.json"
 
 
-def new_state() -> dict:
-    return {"seq": 0, "applied_changes": [], **{kind: [] for kind in RECORD_KINDS}}
+def state_path(name: str = "workspace") -> Path:
+    """QA_STATE_DIR picks the state directory (default `state/`, which git ignores). Each questionnaire has
+    its own file, so the extended one never changes the seed workspace's counts.
+    """
+    return Path(os.environ.get("QA_STATE_DIR") or ROOT / "state") / f"{name}.json"
 
 
-def load_state(path: Path) -> dict:
-    return json.loads(path.read_text()) if path.exists() else new_state()
+def new_state(additions: str | None = None) -> dict:
+    """`additions` is the added-data file this workspace loads beside the seed (None: the seed only)."""
+    return {"seq": 0, "additions": additions, "applied_changes": [], **{kind: [] for kind in RECORD_KINDS}}
+
+
+def load_state(path: Path, additions: str | None = None) -> dict:
+    return json.loads(path.read_text()) if path.exists() else new_state(additions)
 
 
 def save_state(path: Path, state: dict) -> None:

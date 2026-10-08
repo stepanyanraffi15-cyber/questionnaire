@@ -1,7 +1,8 @@
-"""Run the scripted reference scenario (S1-S11) from a clean state and record what the workspace shows.
+"""Run a scripted scenario from a clean state and record what the workspace shows.
 
-The output, `runs/report/observed.json`, is application output. The expected results live separately in
-`reference/` and are never derived from it (REF-2).
+Two scenarios exist: the reference scenario on the seed (S1-S11) and the extended one on the added data
+(S1-S5). The outputs under `runs/report/` are application output. The expected results live separately
+in `reference/` and are never derived from them (REF-2).
 """
 
 from __future__ import annotations
@@ -15,13 +16,23 @@ from qa.store import load_state, new_state, save_state
 from qa.views import counts, item_view
 
 SCENARIO_PATH = ROOT / "data" / "scenario" / "min-demo.json"
-SUGGESTION_FIELDS = ("status", "reason", "answer", "hints", "conflict_source", "contradictions_rejected")
+EXTENDED_SCENARIO_PATH = ROOT / "data" / "scenario" / "extended-demo.json"
+SUGGESTION_FIELDS = (
+    "status",
+    "reason",
+    "answer",
+    "hints",
+    "conflict_source",
+    "contradictions_rejected",
+    "retrieval",
+    "steps",
+)
 
 
 def run_scenario(client, state_file: Path, scenario_path: Path = SCENARIO_PATH) -> dict:
     """Play every step; after each one, snapshot the counts and every item view."""
     scenario = json.loads(scenario_path.read_text())
-    state = new_state()
+    state = new_state(scenario.get("additions"))
     save_state(state_file, state)
     dataset = workspace_dataset(state)
     steps = {}

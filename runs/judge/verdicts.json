@@ -1,4 +1,112 @@
 {
+ "0141fa6dcd8ff79a9d589bbc0b7b54965a1df6c899616a254c5c4e61200086d7": {
+  "case": "EXT-X7",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T12:08:58Z",
+  "request": {
+   "answer": "Paid-plan customers receive a first reply to email support within one business day.",
+   "expected_facts": [
+    "Paid-plan customers get a first reply to email support within one business day."
+   ],
+   "forbidden_claims": [
+    "Paid-plan customers wait up to three business days for a first reply.",
+    "The first reply comes within 24 hours."
+   ],
+   "passages": [
+    {
+     "id": "SUPPORT-REPLY-v1:p1",
+     "text": "Paid-plan customers receive a first reply to email support within one business day. Free-plan customers receive a first reply within three business days."
+    }
+   ],
+   "question": "How quickly do paid-plan customers get a first reply to email support?"
+  },
+  "response": {
+   "basis": "The answer directly and accurately states the expected reply timeframe for paid-plan customers.",
+   "facts": [
+    {
+     "fact": "Paid-plan customers get a first reply to email support within one business day.",
+     "quote": "Paid-plan customers receive a first reply to email support within one business day.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Paid-plan customers wait up to three business days for a first reply.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "The first reply comes within 24 hours.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "1ofHao6YMrb7xs0P-cGg8Ac",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 175,
+   "prompt_token_count": 388,
+   "thoughts_token_count": 185
+  }
+ },
+ "04e6e841632e0ec5bf4970104301e87585b984b7af1a051297084bd9c5439728": {
+  "case": "EXT-X4",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T12:08:54Z",
+  "request": {
+   "answer": "A single CSV export can contain up to 50,000 rows. CSV exports are available on paid plans only.",
+   "expected_facts": [
+    "A single CSV export can contain up to 50,000 rows."
+   ],
+   "forbidden_claims": [
+    "A single CSV export is limited to 10,000 rows.",
+    "Exports larger than the limit are refused."
+   ],
+   "passages": [
+    {
+     "id": "EXPORT-LIMITS-v2:p1",
+     "text": "A single CSV export can contain up to 50,000 rows. Larger exports are split into several files."
+    },
+    {
+     "id": "EXPORT-LIMITS-v1:p1",
+     "text": "A single CSV export can contain up to 10,000 rows."
+    }
+   ],
+   "question": "How many rows can a single CSV export contain?"
+  },
+  "response": {
+   "basis": "The answer accurately states the expected row limit without making any forbidden claims.",
+   "facts": [
+    {
+     "fact": "A single CSV export can contain up to 50,000 rows.",
+     "quote": "A single CSV export can contain up to 50,000 rows.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "A single CSV export is limited to 10,000 rows.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "Exports larger than the limit are refused.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "04fHap3rDaGExN8P6vndkQ0",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 174,
+   "prompt_token_count": 435,
+   "thoughts_token_count": 177
+  }
+ },
  "05759f865f8776884d6af87ddaa1055bbba4a56897315c2e09769689cd9facca": {
   "case": "XR-Q7",
   "model": "gemini-3.8-flash",
@@ -103,6 +211,56 @@
    "thoughts_token_count": 207
   }
  },
+ "0c2d8104db25548b820ae2df0f5cc7004065e51c6223e71575881bb9055c14af": {
+  "case": "EXT-X16",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T12:09:23Z",
+  "request": {
+   "answer": "Inactive sessions are signed out after 8 hours.",
+   "expected_facts": [
+    "Inactive sessions are signed out after 8 hours."
+   ],
+   "forbidden_claims": [
+    "Inactive sessions are signed out after 12 hours."
+   ],
+   "passages": [
+    {
+     "id": "ACCESS-SESSION-v2:p1",
+     "text": "Inactive sessions are signed out after 8 hours."
+    },
+    {
+     "id": "ACCESS-SESSION-v1:p1",
+     "text": "Inactive sessions are signed out after 12 hours."
+    }
+   ],
+   "question": "After how long are inactive sessions signed out?"
+  },
+  "response": {
+   "basis": "The answer accurately states that inactive sessions are signed out after 8 hours and does not mention 12 hours.",
+   "facts": [
+    {
+     "fact": "Inactive sessions are signed out after 8 hours.",
+     "quote": "Inactive sessions are signed out after 8 hours.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Inactive sessions are signed out after 12 hours.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "74fHavHsKMzuxs0P753KmAw",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 131,
+   "prompt_token_count": 372,
+   "thoughts_token_count": 129
+  }
+ },
  "1c656b563f5ebf90a5e2c59d5f60768c2beee08a6a5e6da9be0b3824e3a55028": {
   "case": "RC-3",
   "model": "gemini-3.8-flash",
@@ -163,6 +321,58 @@
    "candidates_token_count": 213,
    "prompt_token_count": 410,
    "thoughts_token_count": 212
+  }
+ },
+ "32e4c8ff62f62a2df5669d77cf631a1242682d10cb369ac05926188aa1be61ac": {
+  "case": "EXT-X14",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T12:09:19Z",
+  "request": {
+   "answer": "Each user can turn on two-factor authentication in their profile settings.",
+   "expected_facts": [
+    "Each user can turn on two-factor authentication for their own account."
+   ],
+   "forbidden_claims": [
+    "Only account owners can turn on two-factor authentication.",
+    "Only administrators can turn on two-factor authentication."
+   ],
+   "passages": [
+    {
+     "id": "ACCESS-2FA-v1:p1",
+     "text": "Each user can turn on two-factor authentication in their profile settings. Account owners can require two-factor authentication for the whole team."
+    }
+   ],
+   "question": "Who can turn on two-factor authentication for their own account?"
+  },
+  "response": {
+   "basis": "The answer directly confirms that each user can turn on two-factor authentication in their profile settings without asserting any forbidden restrictions.",
+   "facts": [
+    {
+     "fact": "Each user can turn on two-factor authentication for their own account.",
+     "quote": "Each user can turn on two-factor authentication in their profile settings.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Only account owners can turn on two-factor authentication.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "Only administrators can turn on two-factor authentication.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "6YfHasPbNpL8vdIPz7LOuAk",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 175,
+   "prompt_token_count": 376,
+   "thoughts_token_count": 188
   }
  },
  "3725d62d9080c484801b2049550f151ea5201dc330062980f3b9f95a39307d8b": {
@@ -285,6 +495,434 @@
    "candidates_token_count": 293,
    "prompt_token_count": 429,
    "thoughts_token_count": 232
+  }
+ },
+ "59a5f348808c83f47b4fefbf512c81fdc05570bda30066937d13078f069e9484": {
+  "case": "EXT-X23",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T12:09:41Z",
+  "request": {
+   "answer": "No. Annual billing is not offered.",
+   "expected_facts": [
+    "Annual billing is not offered (the answer is No)."
+   ],
+   "forbidden_claims": [
+    "Annual billing is offered or available."
+   ],
+   "passages": [
+    {
+     "id": "BILLING-TERMS-v1:p1",
+     "text": "Annual billing is not offered. Subscriptions renew automatically each month."
+    }
+   ],
+   "question": "Is annual billing offered?"
+  },
+  "response": {
+   "basis": "The answer directly confirms that annual billing is not offered.",
+   "facts": [
+    {
+     "fact": "Annual billing is not offered (the answer is No).",
+     "quote": "No. Annual billing is not offered.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Annual billing is offered or available.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "AojHarX7D42p28oPtabW0Ak",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 115,
+   "prompt_token_count": 329,
+   "thoughts_token_count": 111
+  }
+ },
+ "5a76c30e271234d7f34df78d074fa3f31eb543b86f970a6ef9458f1c2fac8c0b": {
+  "case": "EXT-X10",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T12:09:05Z",
+  "request": {
+   "answer": "During an incident, status updates are posted every 30 minutes.",
+   "expected_facts": [
+    "During an incident, status updates are posted every 30 minutes."
+   ],
+   "forbidden_claims": [
+    "Status updates are posted every hour."
+   ],
+   "passages": [
+    {
+     "id": "SUPPORT-STATUS-v2:p1",
+     "text": "During an incident, status updates are posted every 30 minutes."
+    },
+    {
+     "id": "SUPPORT-STATUS-v1:p1",
+     "text": "During an incident, status updates are posted every hour."
+    }
+   ],
+   "question": "How often are status updates posted during an incident?"
+  },
+  "response": {
+   "basis": "The answer accurately states that status updates are posted every 30 minutes without mentioning the forbidden hourly claim.",
+   "facts": [
+    {
+     "fact": "During an incident, status updates are posted every 30 minutes.",
+     "quote": "During an incident, status updates are posted every 30 minutes.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Status updates are posted every hour.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "3YfHaq_iLsu0vdIPybKK6A0",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 133,
+   "prompt_token_count": 381,
+   "thoughts_token_count": 212
+  }
+ },
+ "632c7fea6e13696e2f1ceb7eaaa54f8f76fd3a42643932f1e49bd73ec1ee5f53": {
+  "case": "EXT-X21",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T12:09:37Z",
+  "request": {
+   "answer": "Yes, payments can be made by credit card.",
+   "expected_facts": [
+    "Yes, payments can be made by credit card."
+   ],
+   "forbidden_claims": [
+    "Credit card is the only accepted payment method."
+   ],
+   "passages": [
+    {
+     "id": "BILLING-PAYMENT-v1:p1",
+     "text": "Payments can be made by credit card. A receipt is sent by email after each payment."
+    }
+   ],
+   "question": "Can payments be made by credit card?"
+  },
+  "response": {
+   "basis": "The answer directly confirms that payments can be made by credit card without stating it is the only method.",
+   "facts": [
+    {
+     "fact": "Yes, payments can be made by credit card.",
+     "quote": "Yes, payments can be made by credit card.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Credit card is the only accepted payment method.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "_ofHauLUCrbhvdIP5pPo-QI",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 126,
+   "prompt_token_count": 340,
+   "thoughts_token_count": 127
+  }
+ },
+ "7acbac756da15ba13fb2711fc03d0f2cff383ca4ac9f590d4d2626e253acf8e4": {
+  "case": "EXT-X19",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T12:09:30Z",
+  "request": {
+   "answer": "Sign-in attempts are kept in the audit log for 90 days.",
+   "expected_facts": [
+    "Sign-in attempts are kept in the audit log for 90 days."
+   ],
+   "forbidden_claims": [
+    "Sign-in attempts are kept for a period other than 90 days."
+   ],
+   "passages": [
+    {
+     "id": "ACCESS-AUDIT-v1:p1",
+     "text": "Sign-in attempts are kept in the audit log for 90 days."
+    }
+   ],
+   "question": "How long are sign-in attempts kept in the audit log?"
+  },
+  "response": {
+   "basis": "The answer accurately states that sign-in attempts are kept in the audit log for 90 days.",
+   "facts": [
+    {
+     "fact": "Sign-in attempts are kept in the audit log for 90 days.",
+     "quote": "Sign-in attempts are kept in the audit log for 90 days.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Sign-in attempts are kept for a period other than 90 days.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "94fHasavDqiG28oPiseBsQk",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 146,
+   "prompt_token_count": 361,
+   "thoughts_token_count": 159
+  }
+ },
+ "8a69aca54ea984927b509d952fab08e53187478f1514003a27a4b4c9bc91f05a": {
+  "case": "EXT-X8",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T12:09:01Z",
+  "request": {
+   "answer": "No, phone support is not offered.",
+   "expected_facts": [
+    "Phone support is not offered (the answer is No)."
+   ],
+   "forbidden_claims": [
+    "Phone support is offered or available."
+   ],
+   "passages": [
+    {
+     "id": "SUPPORT-CHANNELS-v1:p1",
+     "text": "Support requests are handled by email. Phone support is not offered. Requests written in English or German are answered."
+    }
+   ],
+   "question": "Is phone support offered?"
+  },
+  "response": {
+   "basis": "The answer directly states that phone support is not offered.",
+   "facts": [
+    {
+     "fact": "Phone support is not offered (the answer is No).",
+     "quote": "No, phone support is not offered.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Phone support is offered or available.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "2ofHar7jHfXCvdIPsbPHuQs",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 115,
+   "prompt_token_count": 338,
+   "thoughts_token_count": 144
+  }
+ },
+ "90a21da3a07c0969514ade7f26872e268e03a0f0017f3051e4e14ee1cc0ce9b6": {
+  "case": "EXT-X17",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T12:09:26Z",
+  "request": {
+   "answer": "No. Passwords do not expire.",
+   "expected_facts": [
+    "Passwords do not expire (the answer is No)."
+   ],
+   "forbidden_claims": [
+    "Passwords expire after some period."
+   ],
+   "passages": [
+    {
+     "id": "ACCESS-PASSWORD-v1:p1",
+     "text": "Passwords must be at least 12 characters long. Passwords do not expire."
+    }
+   ],
+   "question": "Do passwords expire?"
+  },
+  "response": {
+   "basis": "The answer directly states that passwords do not expire.",
+   "facts": [
+    {
+     "fact": "Passwords do not expire (the answer is No).",
+     "quote": "No. Passwords do not expire.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Passwords expire after some period.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "84fHavC8G_qDxN8PyPGsgAs",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 112,
+   "prompt_token_count": 328,
+   "thoughts_token_count": 178
+  }
+ },
+ "be956c4de6f4417c0f06f9c4e2edf32fe51fd4c1558e76d6f24b63889c6d81db": {
+  "case": "EXT-X20",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T12:09:33Z",
+  "request": {
+   "answer": "Refunds can be requested within 30 days of a payment.",
+   "expected_facts": [
+    "A refund can be requested within 30 days of a payment."
+   ],
+   "forbidden_claims": [
+    "Refunds must be requested within 14 days."
+   ],
+   "passages": [
+    {
+     "id": "BILLING-REFUND-v2:p1",
+     "text": "Refunds can be requested within 30 days of a payment. Refunds are paid back to the original payment method."
+    },
+    {
+     "id": "BILLING-REFUND-v1:p1",
+     "text": "Refunds can be requested within 14 days of a payment."
+    }
+   ],
+   "question": "Within how many days of a payment can a refund be requested?"
+  },
+  "response": {
+   "basis": "The answer accurately states the 30-day refund window and makes no mention of a 14-day window.",
+   "facts": [
+    {
+     "fact": "A refund can be requested within 30 days of a payment.",
+     "quote": "Refunds can be requested within 30 days of a payment.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Refunds must be requested within 14 days.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "-ofHarSZK7OuvdIPvZTz6A0",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 141,
+   "prompt_token_count": 405,
+   "thoughts_token_count": 136
+  }
+ },
+ "c05583169dc3492a282974a0e8445dbe62e01b6f9e5e31ca8d79029d6ca7eed1": {
+  "case": "EXT-X12",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T12:09:10Z",
+  "request": {
+   "answer": "Support tickets are closed automatically after 14 days without a customer reply.",
+   "expected_facts": [
+    "Support tickets are closed automatically after 14 days without a customer reply."
+   ],
+   "forbidden_claims": [
+    "Tickets are closed after a period other than 14 days.",
+    "Tickets are closed 14 days after they are opened."
+   ],
+   "passages": [
+    {
+     "id": "SUPPORT-TICKETS-v1:p1",
+     "text": "Support tickets are closed automatically after 14 days without a customer reply."
+    }
+   ],
+   "question": "When are support tickets closed automatically?"
+  },
+  "response": {
+   "basis": "The answer accurately states that support tickets are closed automatically after 14 days without a customer reply.",
+   "facts": [
+    {
+     "fact": "Support tickets are closed automatically after 14 days without a customer reply.",
+     "quote": "Support tickets are closed automatically after 14 days without a customer reply.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Tickets are closed after a period other than 14 days.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "Tickets are closed 14 days after they are opened.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "4YfHasWNPKi8vdIPtvyFsQk",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 177,
+   "prompt_token_count": 365,
+   "thoughts_token_count": 151
+  }
+ },
+ "c078cc7d679a1f113751642e02b537adb0ee1a45216bb3b2dc57523ba11b5300": {
+  "case": "EXT-X13",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T12:09:13Z",
+  "request": {
+   "answer": "Yes. Account owners can require two-factor authentication for the whole team.",
+   "expected_facts": [
+    "Yes, account owners can require two-factor authentication for the whole team."
+   ],
+   "forbidden_claims": [
+    "Two-factor authentication is required for every user by default."
+   ],
+   "passages": [
+    {
+     "id": "ACCESS-2FA-v1:p1",
+     "text": "Each user can turn on two-factor authentication in their profile settings. Account owners can require two-factor authentication for the whole team."
+    }
+   ],
+   "question": "Can account owners require two-factor authentication for the whole team?"
+  },
+  "response": {
+   "basis": "The answer directly confirms that account owners can require two-factor authentication for the whole team and does not mention default requirements.",
+   "facts": [
+    {
+     "fact": "Yes, account owners can require two-factor authentication for the whole team.",
+     "quote": "Yes. Account owners can require two-factor authentication for the whole team.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Two-factor authentication is required for every user by default.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "5ofHarL-Kvz9vdIPpb630A8",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 143,
+   "prompt_token_count": 366,
+   "thoughts_token_count": 156
   }
  },
  "c451a9e8866e2f4c8e3e06a5accd6245b6edd6973a5be2c58700c4532c2a37ec": {
@@ -461,6 +1099,122 @@
    "candidates_token_count": 211,
    "prompt_token_count": 409,
    "thoughts_token_count": 247
+  }
+ },
+ "ea412c82f88c4b0093c5cc8a608c677c30a4ea769e936f56661ac9d378c32def": {
+  "case": "EXT-X1",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T12:08:47Z",
+  "request": {
+   "answer": "Scheduled exports run once a day at 02:00 UTC.",
+   "expected_facts": [
+    "Scheduled exports run once a day.",
+    "They run at 02:00 UTC."
+   ],
+   "forbidden_claims": [
+    "Scheduled exports run more than once a day.",
+    "They run at a time other than 02:00 UTC."
+   ],
+   "passages": [
+    {
+     "id": "EXPORT-SCHEDULE-v1:p1",
+     "text": "Scheduled exports run once a day at 02:00 UTC. Each scheduled export contains the records changed in the previous 24 hours. Scheduled exports can be sent to an SFTP server."
+    }
+   ],
+   "question": "When do scheduled exports run?"
+  },
+  "response": {
+   "basis": "The answer accurately states both the frequency and the specific time of scheduled exports without making any forbidden claims.",
+   "facts": [
+    {
+     "fact": "Scheduled exports run once a day.",
+     "quote": "Scheduled exports run once a day",
+     "stated": true
+    },
+    {
+     "fact": "They run at 02:00 UTC.",
+     "quote": "at 02:00 UTC.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Scheduled exports run more than once a day.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "They run at a time other than 02:00 UTC.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "y4fHarGdG72H28oPzeHCuQw",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 205,
+   "prompt_token_count": 393,
+   "thoughts_token_count": 159
+  }
+ },
+ "fa4227d18bca41d6d5a5dee59ab2b421d0d98758cf97325b76cbf73e4ab8480a": {
+  "case": "EXT-X2",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T12:08:50Z",
+  "request": {
+   "answer": "Scheduled exports can be sent to an SFTP server.",
+   "expected_facts": [
+    "Scheduled exports can be sent to an SFTP server."
+   ],
+   "forbidden_claims": [
+    "An SFTP server is the only destination for scheduled exports.",
+    "Scheduled exports cannot be sent anywhere other than an SFTP server.",
+    "Scheduled exports can be sent by email or to cloud storage."
+   ],
+   "passages": [
+    {
+     "id": "EXPORT-SCHEDULE-v1:p1",
+     "text": "Scheduled exports run once a day at 02:00 UTC. Each scheduled export contains the records changed in the previous 24 hours. Scheduled exports can be sent to an SFTP server."
+    }
+   ],
+   "question": "Where can scheduled exports be sent?"
+  },
+  "response": {
+   "basis": "The answer accurately states that scheduled exports can be sent to an SFTP server without asserting exclusivity.",
+   "facts": [
+    {
+     "fact": "Scheduled exports can be sent to an SFTP server.",
+     "quote": "Scheduled exports can be sent to an SFTP server.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "An SFTP server is the only destination for scheduled exports.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "Scheduled exports cannot be sent anywhere other than an SFTP server.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "Scheduled exports can be sent by email or to cloud storage.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "z4fHaoejIv6IxN8PjfXHyA0",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 205,
+   "prompt_token_count": 396,
+   "thoughts_token_count": 143
   }
  },
  "faf61fa6937171b5d9406fc30e53306c7b32200fc4218c056474ff59f11267bf": {

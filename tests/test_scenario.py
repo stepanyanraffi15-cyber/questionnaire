@@ -1,4 +1,5 @@
-"""The whole flow, S1-S11, graded by the independent grader against the answer key.
+"""Both scenarios end to end (seed S1-S11, extended S1-S5), graded by the independent grader against the
+answer key.
 
 The model replies are SIMULATED, so this proves the code's rules end to end, not the model's answers.
 Meaning rows stay PENDING here (no judge verdict or sign-off for simulated text), so the grader exits 3,
@@ -13,7 +14,7 @@ from conftest import SimulatedClient
 from qa.dataset import ROOT
 from qa.export import export_markdown
 from qa.review import workspace_dataset
-from qa.scenario import run_scenario
+from qa.scenario import EXTENDED_SCENARIO_PATH, run_scenario
 from qa.store import load_state
 
 
@@ -24,13 +25,22 @@ def test_the_simulated_scenario_passes_every_mechanical_check_of_the_key(tmp_pat
         "model": {"model": "simulated"},
         **run_scenario(SimulatedClient(), state_file),
     }
+    extended = {
+        "mode": "simulated",
+        "model": {"model": "simulated"},
+        **run_scenario(SimulatedClient(), tmp_path / "extended.json", EXTENDED_SCENARIO_PATH),
+    }
     observed_path, results = tmp_path / "observed.json", tmp_path / "RESULTS.md"
+    extended_path = tmp_path / "observed-extended.json"
     observed_path.write_text(json.dumps(observed))
+    extended_path.write_text(json.dumps(extended))
     grader = [
         sys.executable,
         "reference/grade.py",
         "--observed",
         str(observed_path),
+        "--extended-observed",
+        str(extended_path),
         "--results",
         str(results),
     ]

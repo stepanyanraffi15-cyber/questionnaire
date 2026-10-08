@@ -8,6 +8,11 @@ the passages from `data/` itself, so even the excerpt check is repeated here rat
   (`runs/judge/verdicts.json`, recorded by `reference/judge.py`) and the author's sign-off
   (`reference/signoff.json`). Only a sign-off makes a meaning check PASS: unsigned, a judge PASS (or no
   verdict) is PENDING and a judge FAIL is FAIL.
+- Retrieval recall@k is reported per row next to the row's result, as a measurement, not a check: was each
+  gold passage among the top k for the question, and was it shown to the model by the end of its searches.
+
+Two scenarios are graded: the seed one (top level of the key) and the extended one (the key's
+`extended` block), each against its own observed file.
 
 Exit code: 0 everything passes, 1 any FAIL, 3 no FAIL but something PENDING, 2 the grader itself crashed.
 """
@@ -23,6 +28,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED = ROOT / "reference" / "expected.json"
 OBSERVED = ROOT / "runs" / "report" / "observed.json"
+EXTENDED_OBSERVED = ROOT / "runs" / "report" / "observed-extended.json"
 VERDICTS = ROOT / "runs" / "judge" / "verdicts.json"
 SIGNOFF = ROOT / "reference" / "signoff.json"
 RESULTS = ROOT / "docs" / "RESULTS.md"
@@ -33,8 +39,12 @@ def collapse(text: str) -> str:
 
 
 def load_passages() -> dict[str, str]:
-    """Passage texts straight from the seed and the change files (a change file may replace a document)."""
+    """Passage texts straight from the seed, the additions and the change files (a change file may replace a
+    document; it never changes passage text here).
+    """
     docs = json.loads((ROOT / "data" / "seed" / "seed.json").read_text())["documents"]
+    for path in sorted((ROOT / "data" / "additions").glob("*.json")):
+        docs += json.loads(path.read_text()).get("documents", [])
     for path in sorted((ROOT / "data" / "changes").glob("*.json")):
         docs += json.loads(path.read_text()).get("documents", [])
     return {p["id"]: p["text"] for d in docs for p in d["passages"]}
@@ -132,7 +142,13 @@ def judge_result(verdict: dict, answer: str) -> tuple[str, str]:
     return "PASS", f"judge ({verdict['model']}): all facts stated, no forbidden claim"
 
 
-def grade(expected: dict, observed: dict, verdicts: dict, signoffs: dict) -> list[dict]:
+def suites(expected: dict) -> list[tuple[str, dict]]:
+    """The seed scenario's key is the top level; the extended scenario's key is its `extended` block."""
+    seed = {k: v for k, v in expected.items() if k != "extended"}
+    return [("seed", seed), ("extended", expected["extended"])]
+
+
+def grade(expected: dict, observed: dict, verdicts: dict, signoffs: dict, suite: str = "seed") -> list[dict]:
     """One row per check; every row is kept, failing or not."""
     passages, steps, rows = load_passages(), observed["steps"], []
     for case in expected["cases"] + expected["extra_rows"]:
@@ -142,6 +158,12 @@ def grade(expected: dict, observed: dict, verdicts: dict, signoffs: dict) -> lis
         for check in case["meaning"]:
             result, judged, signed = check_meaning(check, steps, verdicts, signoffs)
             rows.append(_row(case, check, "meaning", result, judged, signed))
+    rows += _count_rows(expected, steps)
+    return [{"suite": suite, **row} for row in rows]
+
+
+def _count_rows(expected: dict, steps: dict) -> list[dict]:
+    rows = []
     for step, requests in expected["counts"].items():
         for request, numbers in requests.items():
             found = steps[step]["counts"].get(request, {})
@@ -160,6 +182,32 @@ def grade(expected: dict, observed: dict, verdicts: dict, signoffs: dict) -> lis
                 }
             )
     return rows
+
+
+def recall(case: dict, steps: dict) -> dict | None:
+    """Recall of the row's gold passages, at the row's first checked item; None for rows with no gold field.
+
+    `at_k` counts the first retrieval for the question; `shown` adds what the model's own searches found.
+    Both are None when the row has no gold passage (an undocumented question) or the item was not drafted.
+    """
+    if "gold_passages" not in case:
+        return None
+    first = case["checks"][0]
+    view = steps[first["step"]]["items"].get(first["item"]) or {}
+    retrieval = (view.get("suggestion") or {}).get("retrieval")
+    gold = set(case["gold_passages"])
+    if not gold or not retrieval:
+        return {"item": f"{first['step']} {first['item']}", "gold": sorted(gold), "at_k": None, "shown": None}
+    top = [hit["passage_id"] for hit in retrieval["hits"]]
+    found = [pid for step in view["suggestion"].get("steps") or [] for pid in step.get("new", [])]
+    return {
+        "item": f"{first['step']} {first['item']}",
+        "gold": sorted(gold),
+        "k": retrieval["top_k"],
+        "at_k": len(gold & set(top)) / len(gold),
+        "shown": len(gold & set(top + found)) / len(gold),
+        "missed": sorted(gold - set(top + found)),
+    }
 
 
 def _row(case: dict, check: dict, kind: str, result: str, seen: str, signed: str) -> dict:
@@ -182,14 +230,17 @@ def overall(rows: list[dict]) -> str:
     return "FAIL" if "FAIL" in results else "PENDING" if "PENDING" in results else "PASS"
 
 
-def render(rows: list[dict], expected: dict, observed: dict) -> str:
+def render(rows: list[dict], expected: dict, observed: dict, extended: dict) -> str:
     key_sha = hashlib.sha256(EXPECTED.read_bytes()).hexdigest()[:16]
+    seed_rows = [r for r in rows if r["suite"] == "seed"]
     lines = [
         "# Check results",
         "",
-        "Written by `reference/grade.py` from `runs/report/observed.json`. Do not edit by hand.",
+        "Written by `reference/grade.py` from `runs/report/observed.json` (seed scenario) and",
+        "`runs/report/observed-extended.json` (extended scenario). Do not edit by hand.",
         "",
-        f"- Mode: {observed.get('mode')} · model: {observed.get('model', {}).get('model')}",
+        f"- Seed: {_run_line(observed)}",
+        f"- Extended: {_run_line(extended)}",
         f"- Answer key sha256: {key_sha}",
         "- Mechanical rows are graded by code. Meaning rows use a recorded Gemini judge (same model family",
         "  as the application, a stated limitation) plus the author's sign-off. Only a sign-off makes a",
@@ -201,25 +252,89 @@ def render(rows: list[dict], expected: dict, observed: dict) -> str:
         "|---|---|---|",
     ]
     for case in expected["cases"]:
-        case_rows = [r for r in rows if r["case"] == case["id"]]
+        case_rows = [r for r in seed_rows if r["case"] == case["id"]]
         lines.append(
             f"| {', '.join(case['covers'])} | {case['id']}: {case['title']} | {overall(case_rows)} |"
         )
-    count_rows = [r for r in rows if r["case"] == "counts"]
+    count_rows = [r for r in seed_rows if r["case"] == "counts"]
     lines += [
         f"| REQ-A3 | answered / unresolved / approved counts at every step | {overall(count_rows)} |",
         "",
     ]
-    lines += ["## Every check", "", "| Case | Kind | Where | Expected | Observed | Result | Sign-off |"]
-    lines.append("|---|---|---|---|---|---|---|")
+    lines += _extended_summary(rows, expected["extended"])
+    lines += _recall_table(rows, expected, observed, extended)
+    lines += [
+        "## Every check",
+        "",
+        "| Scenario | Case | Kind | Where | Expected | Observed | Result | Sign-off |",
+        "|---|---|---|---|---|---|---|---|",
+    ]
     for r in rows:
         expected_text = json.dumps(r["expected"], ensure_ascii=False).replace("|", "\\|")
         observed_text = str(r["observed"]).replace("|", "\\|")
         lines.append(
-            f"| {r['case']} | {r['kind']} | {r['where']} | {expected_text} | {observed_text} | "
-            f"{r['result']} | {r['signoff']} |"
+            f"| {r['suite']} | {r['case']} | {r['kind']} | {r['where']} | {expected_text} | "
+            f"{observed_text} | {r['result']} | {r['signoff']} |"
         )
     return "\n".join(lines) + "\n"
+
+
+def _run_line(observed: dict) -> str:
+    model = observed.get("model", {})
+    embeddings = model.get("embedding_model")
+    return f"mode {observed.get('mode')} · model {model.get('model')} · embeddings {embeddings}"
+
+
+def _extended_summary(rows: list[dict], key: dict) -> list[str]:
+    ext_rows = [r for r in rows if r["suite"] == "extended"]
+    lines = [
+        "## Extended questionnaire (added data, X1-X26)",
+        "",
+        "| Kind | Case | Result |",
+        "|---|---|---|",
+    ]
+    for case in key["cases"] + key["extra_rows"]:
+        case_rows = [r for r in ext_rows if r["case"] == case["id"]]
+        lines.append(f"| {case['kind']} | {case['id']}: {case['title']} | {overall(case_rows)} |")
+    count_rows = [r for r in ext_rows if r["case"] == "counts"]
+    return lines + [f"| counts | counts at every step | {overall(count_rows)} |", ""]
+
+
+def _recall_table(rows: list[dict], expected: dict, observed: dict, extended: dict) -> list[str]:
+    """Recall next to each row's own result; rows with no gold passage show n/a, never 0 or 1."""
+    lines = [
+        "## Retrieval recall@k",
+        "",
+        "Measured, not graded: recall@k is the share of a row's gold passages in the first retrieval for the",
+        'question; "shown" adds the passages the model\'s own searches found. n/a: no gold passage (an',
+        "undocumented question) or no draft at that item.",
+        "",
+        "| Scenario | Case | Item | Gold | recall@k | shown | Missed | Row result |",
+        "|---|---|---|---|---|---|---|---|",
+    ]
+    measured = []
+    for (suite, key), data in zip(suites(expected), (observed, extended), strict=True):
+        for case in key["cases"] + key["extra_rows"]:
+            found = recall(case, data["steps"])
+            if found is None:
+                continue
+            result = overall([r for r in rows if r["suite"] == suite and r["case"] == case["id"]])
+            if found["at_k"] is not None:
+                measured.append(found)
+            lines.append(
+                f"| {suite} | {case['id']} | {found['item']} | {', '.join(found['gold']) or '-'} | "
+                f"{_share(found['at_k'])} | {_share(found['shown'])} | "
+                f"{', '.join(found.get('missed', []))} | {result} |"
+            )
+    if measured:
+        at_k = sum(f["at_k"] for f in measured) / len(measured)
+        shown = sum(f["shown"] for f in measured) / len(measured)
+        lines.append(f"| **mean** | {len(measured)} rows with gold | | | {at_k:.2f} | {shown:.2f} | | |")
+    return lines + [""]
+
+
+def _share(value: float | None) -> str:
+    return "n/a" if value is None else f"{value:.2f}"
 
 
 def _load_json(path: Path, default: dict) -> dict:
@@ -229,14 +344,18 @@ def _load_json(path: Path, default: dict) -> dict:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--observed", type=Path, default=OBSERVED)
+    parser.add_argument("--extended-observed", type=Path, default=EXTENDED_OBSERVED)
     parser.add_argument("--results", type=Path, default=RESULTS)
     args = parser.parse_args(argv)
     expected = json.loads(EXPECTED.read_text())
     observed = json.loads(args.observed.read_text())
+    extended = json.loads(args.extended_observed.read_text())
     verdicts = _load_json(VERDICTS, {})
     signoffs = _load_json(SIGNOFF, {"signoffs": {}})["signoffs"]
-    rows = grade(expected, observed, verdicts, signoffs)
-    args.results.write_text(render(rows, expected, observed))
+    rows = []
+    for (suite, key), data in zip(suites(expected), (observed, extended), strict=True):
+        rows += grade(key, data, verdicts, signoffs, suite)
+    args.results.write_text(render(rows, expected, observed, extended))
     result = overall(rows)
     tally = {name: sum(r["result"] == name for r in rows) for name in ("PASS", "FAIL", "PENDING")}
     print(f"{result}: {tally} -> {args.results}")

@@ -24,23 +24,24 @@ Option 1, as built:
 
 | Module | Job |
 |---|---|
-| `dataset.py` | Load the seed and change files; validate IDs and references (decision 021); the one questionnaire is the seed's question list (decision 022) |
+| `dataset.py` | Load the seed, an optional additions file (decision 039) and change files; validate IDs and references (decision 021); the questionnaire is the seed's question list, or the additions' (decision 022) |
 | `authority.py` | Which documents are replaced, from `supersedes` only (decision 001) |
 | `prompts.py` | The draft and support-check requests: a prompt file plus JSON data; the model output schemas |
-| `llm.py` | Fingerprint; replay and record clients (decision 029) |
+| `llm.py` | Fingerprint; replay and record clients for model calls and embeddings (decision 029) |
 | `checks.py` | Mechanical evidence checks and the strengthening-word hint (decisions 006, 008, 009) |
-| `drafting.py` | One item: draft, mechanical checks, support check, status |
+| `retrieval.py` | Hybrid search over current passages: BM25, embeddings, reciprocal rank fusion (decision 040) |
+| `drafting.py` | One item: retrieval, the search_passages loop (decision 041), mechanical checks, support check, status |
 | `staleness.py` | Version comparison and sticky stale marks (decisions 010, 011) |
 | `review.py` | Process a request with exact-match reuse; edit, note, approve with the guard (decisions 014–016) |
 | `views.py` | The item view, counts and revision history shared by the UI and the report (decision 020) |
 | `store.py` | Atomic read and write of the JSON state file (decision 030) |
 | `export.py` | A request exported as a completed questionnaire (optional enhancement) |
-| `scenario.py` | The scripted reference scenario, steps S1–S11 (decision 026) → `runs/report/observed.json` |
+| `scenario.py` | The scripted scenarios: seed S1–S11 (decision 026) → `runs/report/observed.json`; extended S1–S5 → `observed-extended.json` |
 | `cli.py` | `qa report`, `qa check-data`, `qa export`, `qa inspect` |
 | `ui.py` | The Streamlit review workspace |
 
-Imports flow one way: ui, cli, scenario → review → drafting, views → checks, staleness, prompts → dataset,
-authority; `llm` and `store` are leaves. `views.item_view()` feeds both the UI and `observed.json`, so the screen and
+Imports flow one way: ui, cli, scenario → review → drafting, views → retrieval, checks, staleness, prompts →
+dataset, authority; `llm` and `store` are leaves. `views.item_view()` feeds both the UI and `observed.json`, so the screen and
 the report cannot disagree. Instructions live in `prompts/*.md`; document text is only ever placed inside JSON data.
 
 ## Consequences

@@ -1,0 +1,532 @@
+{
+  "_purpose": "Added fictional data for the extended questionnaire X1-X26 (decision 039). It is loaded together with the unchanged seed documents, which stay in the corpus as extra on-topic passages; the seed questions Q1-Q8 are not part of this questionnaire. Same four topics and owners as the seed, same short style. Hand-written with AI assistance; every passage is invented for this exercise and states no real product's policy. Some documents are on-topic distractors that answer none of the questions. Expected results live separately in reference/expected.json.",
+  "label": "ADDED FICTIONAL DATA",
+  "documents": [
+    {
+      "id": "EXPORT-SCHEDULE-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "EXPORT-SCHEDULE-v1:p1",
+          "text": "Scheduled exports run once a day at 02:00 UTC. Each scheduled export contains the records changed in the previous 24 hours. Scheduled exports can be sent to an SFTP server."
+        }
+      ]
+    },
+    {
+      "id": "EXPORT-LIMITS-v1",
+      "version": 1,
+      "date": "2026-03-01",
+      "status": "superseded",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "EXPORT-LIMITS-v1:p1",
+          "text": "A single CSV export can contain up to 10,000 rows."
+        }
+      ]
+    },
+    {
+      "id": "EXPORT-LIMITS-v2",
+      "version": 2,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": "EXPORT-LIMITS-v1",
+      "passages": [
+        {
+          "id": "EXPORT-LIMITS-v2:p1",
+          "text": "A single CSV export can contain up to 50,000 rows. Larger exports are split into several files."
+        }
+      ]
+    },
+    {
+      "id": "EXPORT-FILES-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "EXPORT-FILES-v1:p1",
+          "text": "Export files can be downloaded for 7 days after they are created."
+        }
+      ]
+    },
+    {
+      "id": "EXPORT-HELP-v1",
+      "version": 1,
+      "date": "2026-09-15",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "EXPORT-HELP-v1:p1",
+          "text": "Export files can be downloaded for 30 days after they are created."
+        }
+      ]
+    },
+    {
+      "id": "EXPORT-AUDIT-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "EXPORT-AUDIT-v1:p1",
+          "text": "Every export is recorded in the audit log with the name of the user who started it."
+        }
+      ]
+    },
+    {
+      "id": "SUPPORT-REPLY-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "SUPPORT-REPLY-v1:p1",
+          "text": "Paid-plan customers receive a first reply to email support within one business day. Free-plan customers receive a first reply within three business days."
+        }
+      ]
+    },
+    {
+      "id": "SUPPORT-CHANNELS-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "SUPPORT-CHANNELS-v1:p1",
+          "text": "Support requests are handled by email. Phone support is not offered. Requests written in English or German are answered."
+        }
+      ]
+    },
+    {
+      "id": "SUPPORT-STATUS-v1",
+      "version": 1,
+      "date": "2026-03-01",
+      "status": "superseded",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "SUPPORT-STATUS-v1:p1",
+          "text": "During an incident, status updates are posted every hour."
+        }
+      ]
+    },
+    {
+      "id": "SUPPORT-STATUS-v2",
+      "version": 2,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": "SUPPORT-STATUS-v1",
+      "passages": [
+        {
+          "id": "SUPPORT-STATUS-v2:p1",
+          "text": "During an incident, status updates are posted every 30 minutes."
+        }
+      ]
+    },
+    {
+      "id": "SUPPORT-HELPCENTRE-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "SUPPORT-HELPCENTRE-v1:p1",
+          "text": "The help centre is available in English only."
+        }
+      ]
+    },
+    {
+      "id": "SUPPORT-FAQ-v1",
+      "version": 1,
+      "date": "2026-09-20",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "SUPPORT-FAQ-v1:p1",
+          "text": "The help centre is available in English and Spanish."
+        }
+      ]
+    },
+    {
+      "id": "SUPPORT-TICKETS-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "SUPPORT-TICKETS-v1:p1",
+          "text": "Support tickets are closed automatically after 14 days without a customer reply."
+        }
+      ]
+    },
+    {
+      "id": "SUPPORT-TRAINING-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "SUPPORT-TRAINING-v1:p1",
+          "text": "Onboarding webinars are held on the first Tuesday of each month."
+        }
+      ]
+    },
+    {
+      "id": "ACCESS-2FA-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "ACCESS-2FA-v1:p1",
+          "text": "Each user can turn on two-factor authentication in their profile settings. Account owners can require two-factor authentication for the whole team."
+        }
+      ]
+    },
+    {
+      "id": "ACCESS-ROLES-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "ACCESS-ROLES-v1:p1",
+          "text": "Account owners can remove team members. A removed team member loses access immediately."
+        }
+      ]
+    },
+    {
+      "id": "ACCESS-SESSION-v1",
+      "version": 1,
+      "date": "2026-03-01",
+      "status": "superseded",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "ACCESS-SESSION-v1:p1",
+          "text": "Inactive sessions are signed out after 12 hours."
+        }
+      ]
+    },
+    {
+      "id": "ACCESS-SESSION-v2",
+      "version": 2,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": "ACCESS-SESSION-v1",
+      "passages": [
+        {
+          "id": "ACCESS-SESSION-v2:p1",
+          "text": "Inactive sessions are signed out after 8 hours."
+        }
+      ]
+    },
+    {
+      "id": "ACCESS-PASSWORD-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "ACCESS-PASSWORD-v1:p1",
+          "text": "Passwords must be at least 12 characters long. Passwords do not expire."
+        }
+      ]
+    },
+    {
+      "id": "ACCESS-GUEST-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "ACCESS-GUEST-v1:p1",
+          "text": "Guest users can view shared reports."
+        }
+      ]
+    },
+    {
+      "id": "ACCESS-GUEST-NOTE-v1",
+      "version": 1,
+      "date": "2026-09-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "ACCESS-GUEST-NOTE-v1:p1",
+          "text": "Guest users cannot view shared reports."
+        }
+      ]
+    },
+    {
+      "id": "ACCESS-AUDIT-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "ACCESS-AUDIT-v1:p1",
+          "text": "Sign-in attempts are kept in the audit log for 90 days."
+        }
+      ]
+    },
+    {
+      "id": "ACCESS-INVITE-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "ACCESS-INVITE-v1:p1",
+          "text": "Team invitations expire after 7 days if they are not accepted."
+        }
+      ]
+    },
+    {
+      "id": "BILLING-REFUND-v1",
+      "version": 1,
+      "date": "2026-03-01",
+      "status": "superseded",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "BILLING-REFUND-v1:p1",
+          "text": "Refunds can be requested within 14 days of a payment."
+        }
+      ]
+    },
+    {
+      "id": "BILLING-REFUND-v2",
+      "version": 2,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": "BILLING-REFUND-v1",
+      "passages": [
+        {
+          "id": "BILLING-REFUND-v2:p1",
+          "text": "Refunds can be requested within 30 days of a payment. Refunds are paid back to the original payment method."
+        }
+      ]
+    },
+    {
+      "id": "BILLING-PAYMENT-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "BILLING-PAYMENT-v1:p1",
+          "text": "Payments can be made by credit card. A receipt is sent by email after each payment."
+        }
+      ]
+    },
+    {
+      "id": "BILLING-TERMS-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "BILLING-TERMS-v1:p1",
+          "text": "Annual billing is not offered. Subscriptions renew automatically each month."
+        },
+        {
+          "id": "BILLING-TERMS-v1:p2",
+          "text": "Cancelling a subscription stops the next renewal."
+        }
+      ]
+    },
+    {
+      "id": "BILLING-TAX-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "BILLING-TAX-v1:p1",
+          "text": "Prices on the pricing page include sales tax."
+        }
+      ]
+    },
+    {
+      "id": "BILLING-PRICING-v1",
+      "version": 1,
+      "date": "2026-09-10",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "BILLING-PRICING-v1:p1",
+          "text": "Prices on the pricing page do not include sales tax."
+        }
+      ]
+    },
+    {
+      "id": "BILLING-DISCOUNT-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "BILLING-DISCOUNT-v1:p1",
+          "text": "Nonprofit organisations can apply for a discount by email."
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "X1",
+      "topic": "exports",
+      "text": "When do scheduled exports run?"
+    },
+    {
+      "id": "X2",
+      "topic": "exports",
+      "text": "Where can scheduled exports be sent?"
+    },
+    {
+      "id": "X3",
+      "topic": "exports",
+      "text": "Can scheduled exports be sent to Amazon S3?"
+    },
+    {
+      "id": "X4",
+      "topic": "exports",
+      "text": "How many rows can a single CSV export contain?"
+    },
+    {
+      "id": "X5",
+      "topic": "exports",
+      "text": "How long can export files be downloaded after they are created?"
+    },
+    {
+      "id": "X6",
+      "topic": "exports",
+      "text": "Is XLSX export available?"
+    },
+    {
+      "id": "X7",
+      "topic": "support",
+      "text": "How quickly do paid-plan customers get a first reply to email support?"
+    },
+    {
+      "id": "X8",
+      "topic": "support",
+      "text": "Is phone support offered?"
+    },
+    {
+      "id": "X9",
+      "topic": "support",
+      "text": "Are support requests written in French answered?"
+    },
+    {
+      "id": "X10",
+      "topic": "support",
+      "text": "How often are status updates posted during an incident?"
+    },
+    {
+      "id": "X11",
+      "topic": "support",
+      "text": "In which languages is the help centre available?"
+    },
+    {
+      "id": "X12",
+      "topic": "support",
+      "text": "When are support tickets closed automatically?"
+    },
+    {
+      "id": "X13",
+      "topic": "access",
+      "text": "Can account owners require two-factor authentication for the whole team?"
+    },
+    {
+      "id": "X14",
+      "topic": "access",
+      "text": "Who can turn on two-factor authentication for their own account?"
+    },
+    {
+      "id": "X15",
+      "topic": "access",
+      "text": "Can account owners remove team members and change their roles?"
+    },
+    {
+      "id": "X16",
+      "topic": "access",
+      "text": "After how long are inactive sessions signed out?"
+    },
+    {
+      "id": "X17",
+      "topic": "access",
+      "text": "Do passwords expire?"
+    },
+    {
+      "id": "X18",
+      "topic": "access",
+      "text": "Can guest users view shared reports?"
+    },
+    {
+      "id": "X19",
+      "topic": "access",
+      "text": "How long are sign-in attempts kept in the audit log?"
+    },
+    {
+      "id": "X20",
+      "topic": "billing",
+      "text": "Within how many days of a payment can a refund be requested?"
+    },
+    {
+      "id": "X21",
+      "topic": "billing",
+      "text": "Can payments be made by credit card?"
+    },
+    {
+      "id": "X22",
+      "topic": "billing",
+      "text": "Is credit card the only accepted payment method?"
+    },
+    {
+      "id": "X23",
+      "topic": "billing",
+      "text": "Is annual billing offered?"
+    },
+    {
+      "id": "X24",
+      "topic": "billing",
+      "text": "Do prices on the pricing page include sales tax?"
+    },
+    {
+      "id": "X25",
+      "topic": "billing",
+      "text": "Are refunds paid back to the original payment method, and how long do they take to arrive?"
+    },
+    {
+      "id": "X26",
+      "topic": "access",
+      "text": "Do passwords expire, and how many failed sign-in attempts lock an account?"
+    }
+  ]
+}

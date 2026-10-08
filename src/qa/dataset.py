@@ -92,17 +92,24 @@ class Dataset:
         return self.owners.get(question.topic)
 
 
-def load_dataset(seed_path: Path = SEED_PATH, change_paths: list[Path] | None = None) -> Dataset:
-    """Load the seed, apply change files in order, then validate references."""
+def load_dataset(
+    seed_path: Path = SEED_PATH, change_paths: list[Path] | None = None, additions_path: Path | None = None
+) -> Dataset:
+    """Load the seed, add an additions file if given, apply change files in order, then validate references.
+
+    An additions file brings its own documents (loaded beside the seed's) and its own questionnaire, which
+    replaces the seed questions; owners always come from the seed's topic mapping (decision 039).
+    """
     raw = json.loads(Path(seed_path).read_text())
+    added = json.loads(Path(additions_path).read_text()) if additions_path else {}
     issues: list[Issue] = []
-    documents = _load_documents(raw["documents"], issues)
+    documents = _load_documents(raw["documents"] + added.get("documents", []), issues)
     owners = dict(raw["owners"])
     applied = []
     for path in change_paths or []:
         if _apply_change(Path(path), documents, owners, issues):
             applied.append(_display_path(Path(path)))
-    questions = _load_questions(raw["questions"], owners, issues)
+    questions = _load_questions(added.get("questions", raw["questions"]), owners, issues)
     _check_supersedes(documents, issues)
     return Dataset(documents, questions, owners, issues, applied)
 

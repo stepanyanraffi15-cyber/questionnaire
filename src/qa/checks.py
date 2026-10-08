@@ -24,32 +24,43 @@ def is_verbatim(quote: str, text: str) -> bool:
     return bool(collapse(quote)) and collapse(quote) in collapse(text)
 
 
-def citation_problem(citation: Citation, dataset: Dataset) -> str | None:
-    """The first mechanical problem with one citation, as a reason code, or None when it checks out."""
+def citation_problem(citation: Citation, dataset: Dataset, shown_ids: list[str]) -> str | None:
+    """The first mechanical problem with one citation, as a reason code, or None when it checks out.
+
+    A passage the model was never shown cannot be its evidence, so citing one is invalid too.
+    """
     passage = dataset.passages.get(citation.passage_id)
     if passage is None:
         return "invalid_citation"
     if passage.doc_id in dataset.replaced_ids:
         return "superseded_source"
+    if passage.id not in shown_ids:
+        return "invalid_citation"
     if not is_verbatim(citation.excerpt, passage.text):
         return "invalid_excerpt"
     return None
 
 
-def valid_conflict(pair: ConflictPair, dataset: Dataset) -> bool:
-    """A reported conflict counts when it names two different current passages (the model judged meaning)."""
-    current = dataset.current_passage_ids
+def valid_conflict(pair: ConflictPair, dataset: Dataset, shown_ids: list[str]) -> bool:
+    """A reported conflict counts when it names two different current passages the model was shown (the
+    model judged meaning).
+    """
     ids = set(pair.passage_ids)
-    return len(ids) >= 2 and ids <= current
+    return len(ids) >= 2 and ids <= dataset.current_passage_ids & set(shown_ids)
 
 
-def valid_contradiction(item: Contradiction, answer: str, cited_ids: list[str], dataset: Dataset) -> bool:
-    """Decision 009: the model decides a contradiction exists; code checks only that its quotes are real."""
+def valid_contradiction(
+    item: Contradiction, answer: str, cited_ids: list[str], dataset: Dataset, context_ids: list[str]
+) -> bool:
+    """Decision 009: the model decides a contradiction exists; code checks only that its quotes are real and
+    that the passage was one it was shown.
+    """
     passage = dataset.passages.get(item.passage_id)
     current = dataset.current_passage_ids
     return (
         passage is not None
         and item.passage_id in current
+        and item.passage_id in context_ids
         and item.passage_id not in cited_ids
         and is_verbatim(item.passage_quote, passage.text)
         and is_verbatim(item.answer_claim, answer)

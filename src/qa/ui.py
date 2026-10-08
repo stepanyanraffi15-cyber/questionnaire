@@ -19,7 +19,7 @@ from qa.export import export_markdown
 from qa.llm import make_client
 from qa.review import add_note, approve, process_request, save_edit, set_change, workspace_dataset
 from qa.staleness import refresh_stale_marks, stale_mark
-from qa.store import load_state, save_state, state_path
+from qa.store import EXTENDED_ADDITIONS, EXTENDED_WORKSPACE, load_state, save_state, state_path
 from qa.views import STATUSES, counts, history, item_view, reasons_text
 
 CHANGES_DIR = ROOT / "data" / "changes"
@@ -35,15 +35,25 @@ STATUS_COLOURS = {
     "error": "red",
 }
 SUPERSEDED_LABEL = "Superseded text — replaced via the supersedes field; not used as evidence"
+QUESTIONNAIRES = {
+    "Seed questionnaire (Q1–Q8)": ("workspace", None),
+    "Extended questionnaire (X1–X26, added data)": (EXTENDED_WORKSPACE, EXTENDED_ADDITIONS),
+}
 
 
 def now() -> str:
     return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def load_workspace(path: Path) -> tuple[dict, Dataset]:
+def workspace() -> tuple[Path, str | None]:
+    """The chosen questionnaire's state file and additions; each questionnaire keeps its own workspace."""
+    name, additions = QUESTIONNAIRES[st.session_state.get("questionnaire", next(iter(QUESTIONNAIRES)))]
+    return state_path(name), additions
+
+
+def load_workspace(path: Path, additions: str | None) -> tuple[dict, Dataset]:
     """Fresh from disk each rerun; a version change found here is saved at once, so it shows needs_review."""
-    state = load_state(path)
+    state = load_state(path, additions)
     dataset = workspace_dataset(state)
     seq = state["seq"]
     refresh_stale_marks(state, dataset, now())
@@ -52,9 +62,10 @@ def load_workspace(path: Path) -> tuple[dict, Dataset]:
     return state, dataset
 
 
-def new_request(path: Path) -> None:
+def new_request() -> None:
     """A callback, so it can select the new request before the selector is drawn."""
-    state = load_state(path)
+    path, additions = workspace()
+    state = load_state(path, additions)
     st.session_state["request"] = process_request(state, workspace_dataset(state), make_client(), now())
     save_state(path, state)
 
@@ -64,6 +75,7 @@ def sidebar(state: dict, dataset: Dataset, path: Path) -> tuple[str | None, list
     with st.sidebar:
         text, colour = MODE_BADGES.get(os.environ.get("QA_MODE") or "replay", ("Unknown mode", "red"))
         st.badge(text, color=colour)
+        st.radio("Questionnaire", list(QUESTIONNAIRES), key="questionnaire", on_change=forget_request)
         st.caption(f"State file: `{path}`")
         request_ids = [r["id"] for r in state["requests"]]
         if st.session_state.get("request") not in request_ids:
@@ -75,13 +87,25 @@ def sidebar(state: dict, dataset: Dataset, path: Path) -> tuple[str | None, list
                 st.metric(name.replace("_", " ").capitalize(), number)
         st.subheader("Change files")
         for change in sorted(CHANGES_DIR.glob("*.json")):
-            change_checkbox(state, path, change)
+            if applies_to(change, dataset):
+                change_checkbox(state, path, change)
         st.subheader("Data issues")
         for issue in dataset.issues:
             st.caption(f"{issue.severity.upper()} {issue.code} {issue.item_id}: {issue.detail}")
         if not dataset.issues:
             st.caption("None")
     return request_id, statuses
+
+
+def forget_request() -> None:
+    """Request IDs restart in each questionnaire, so a switch must not keep the old selection."""
+    st.session_state.pop("request", None)
+
+
+def applies_to(change: Path, dataset: Dataset) -> bool:
+    """Only offer change files whose documents are loaded in this questionnaire's workspace."""
+    documents = json.loads(change.read_text()).get("documents", [])
+    return all(d["id"] in dataset.documents for d in documents)
 
 
 def change_checkbox(state: dict, path: Path, change: Path) -> None:
@@ -189,6 +213,8 @@ def passage_text(dataset: Dataset, passage_id: str) -> str:
 def checks_expander(suggestion: dict) -> None:
     """What the code checked and what the model said, so a reviewer can see why the status is what it is."""
     with st.expander("Checks and raw draft"):
+        if suggestion.get("retrieval"):
+            retrieval_steps(suggestion)
         for citation in suggestion["citations"]:
             st.write(f"✓ {citation['passage_id']}: excerpt found verbatim in a current passage")
         if suggestion["support"]:
@@ -200,6 +226,20 @@ def checks_expander(suggestion: dict) -> None:
         for item in suggestion["contradictions_rejected"]:
             st.write(f"Rejected contradiction (quotes not verbatim or not current): {item}")
         st.json(suggestion["draft"] or {})
+
+
+def retrieval_steps(suggestion: dict) -> None:
+    """What the model was shown: the first search for the question, then each search_passages call it made."""
+    retrieval = suggestion["retrieval"]
+    labels = ", ".join(retrieval["embedding_labels"])
+    st.write(f"Step 1 · retrieval for the question (top {retrieval['top_k']}, embeddings {labels}):")
+    st.table(retrieval["hits"])
+    for number, step in enumerate(suggestion.get("steps") or [], start=2):
+        if step["action"] == "search_passages":
+            new = ", ".join(step["new"]) or "nothing new"
+            st.write(f"Step {number} · model called search_passages({step['query']!r}) → found {new}")
+        else:
+            st.write(f"Step {number} · model answered ({step['status']})")
 
 
 def review_actions(state: dict, dataset: Dataset, view: dict) -> None:
@@ -258,17 +298,17 @@ def run_action(state: dict, dataset: Dataset, item: str, action: str) -> None:
     except ValueError as exc:
         st.error(str(exc))
         return
-    save_state(state_path(), state)
+    save_state(workspace()[0], state)
     st.rerun()
 
 
 def main() -> None:
     st.set_page_config(page_title="Questionnaire review", layout="wide")
-    path = state_path()
-    state, dataset = load_workspace(path)
+    path, additions = workspace()
+    state, dataset = load_workspace(path, additions)
     request_id, statuses = sidebar(state, dataset, path)
     st.title("Questionnaire review")
-    st.button("New request", key="new-request", on_click=new_request, args=(path,))
+    st.button("New request", key="new-request", on_click=new_request)
     if not request_id:
         st.info("No request yet. Press New request to run the questionnaire.")
         return

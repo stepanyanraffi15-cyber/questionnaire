@@ -17,7 +17,17 @@ import os
 import sys
 from datetime import UTC, datetime
 
-from grade import EXPECTED, OBSERVED, ROOT, VERDICTS, field_value, load_passages, meaning_key
+from grade import (
+    EXPECTED,
+    EXTENDED_OBSERVED,
+    OBSERVED,
+    ROOT,
+    VERDICTS,
+    field_value,
+    load_passages,
+    meaning_key,
+    suites,
+)
 
 JUDGE_MODEL = "gemini-3.8-flash"
 THINKING_LEVEL = "medium"
@@ -56,7 +66,9 @@ SCHEMA = {
 
 
 def meaning_checks(expected: dict, observed: dict) -> list[dict]:
-    """Every meaning check with the observed answer it grades; empty answers need no judge."""
+    """Every meaning check in one scenario's key with the observed answer it grades; empty answers need no
+    judge.
+    """
     passages = load_passages()
     found = []
     for case in expected["cases"] + expected["extra_rows"]:
@@ -117,9 +129,12 @@ def main() -> int:
         "--list", action="store_true", help="only list the checks and whether a verdict exists"
     )
     args = parser.parse_args()
-    expected, observed = json.loads(EXPECTED.read_text()), json.loads(OBSERVED.read_text())
+    expected = json.loads(EXPECTED.read_text())
+    observed = [json.loads(path.read_text()) for path in (OBSERVED, EXTENDED_OBSERVED)]
     verdicts = json.loads(VERDICTS.read_text()) if VERDICTS.exists() else {}
-    checks = meaning_checks(expected, observed)
+    checks = []
+    for (_, key), data in zip(suites(expected), observed, strict=True):
+        checks += meaning_checks(key, data)
     if args.list:
         for check in checks:
             state = "verdict saved" if check["key"] in verdicts else "no verdict"

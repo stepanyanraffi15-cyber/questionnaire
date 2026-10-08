@@ -1,6 +1,6 @@
 # 033 · The main dataset is the supplied seed; no documents, passages, topics or questions are added
 
-- Status: accepted
+- Status: accepted; its "add nothing" part is superseded by 039
 - Requirements: the assignment brief's "Use the five fictional documents and eight-question questionnaire in
   tasks/evidence/" and "Add questions or short passages only if needed for the checks."; its "Keep the provided seed
   cases and their expected results. Extend them with AI, a script, or handwritten examples while following the
@@ -79,3 +79,10 @@ Option 2.
 The lean build did not create `tests/fixtures/` or `data/changes/drill-exports-owner.json`. The same rules are tested
 with small inline variants of the seed in `tests/`, and the unresolved conflict (FX-1) is one of those inline tests.
 The rest of this decision stands: nothing was added to the main data.
+
+## Update (decision 039)
+
+At the author's request, a second dataset was added beside the seed: `data/additions/extended.json`, with its own
+questionnaire X1–X26 and its own scenario. The seed, the seed scenario and their expected results are unchanged, so
+everything above about the seed still holds. The unresolved conflict that the seed cannot show is now in the extended
+data (X5, X11, X18, X24) as well as in the test.

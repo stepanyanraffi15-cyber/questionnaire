@@ -15,7 +15,7 @@ sanitized workflow snapshots in `snapshots/` and the variable names in `.env.exa
 | Claude Code (CLI) | 2.1.293 when this record was written; the version of each earlier session was not recorded | Project settings in `.claude/settings.json`; otherwise tool defaults | Planning, building, testing and review, 2026-10-06 to 2026-10-08 |
 | Claude Opus 5.5 | `claude-opus-5-5` | Session model for the main session, workflow agents and subagents. The only changed setting is the per-step effort level inside the `qa-build` workflow (see its snapshot) | Same as above |
 | Claude Code workflows (multi-agent orchestration scripts) | Part of Claude Code 2.1.293 | `snapshots/qa-deep-review.js`, `snapshots/qa-build.js` | Planning (`qa-deep-review`) and the first milestone, M0 (`qa-build`). Later milestones were built directly in the main session |
-| Subagents | Inherit the session model | `verifier` (`.claude/agents/verifier.md`) and an ad-hoc UI builder with no definition file | UI builder: the Streamlit review page. `verifier`: the final verification pass |
+| Subagents | Inherit the session model | `verifier` and `researcher` (`.claude/agents/`), plus ad-hoc agents with no definition file | UI builder: the Streamlit review page. `researcher`: the retrieval and search-tool note. A blind key author: re-derived the extended answer key (decision 042). `verifier`: the verification passes |
 | Plugins, connectors, MCP servers, IDE extensions | — | — | `not-used` (see below) |
 
 The Claude Code session had connectors and plugins available (Slack, Google Drive, Claude Docs, Chrome, Telegram,
@@ -28,11 +28,13 @@ GitLab). None was used for this exercise. There is no project MCP configuration 
 |---|---|---|
 | Provider and SDK | Google Gemini through `google-genai` 2.28.0 | `pyproject.toml`, pinned in `uv.lock` |
 | Model | `gemini-3.8-flash` | `config/models.toml` |
+| Embeddings | `gemini-embedding-001`, 768 dimensions, task types `RETRIEVAL_DOCUMENT` / `RETRIEVAL_QUERY` | `config/models.toml` |
+| Retrieval | BM25 (k1 1.2, b 0.75) + embeddings, reciprocal rank fusion (k 60), top 5; at most 2 `search_passages` calls | `config/retrieval.toml` |
 | Thinking level | `medium` (the documented default, set explicitly so it is recorded) | `config/models.toml` |
 | Temperature, top_p, top_k | Not set: provider defaults | — |
 | Output limit | Not set: provider default | — |
 | Transport | timeout 60000 ms, 3 retry attempts (not part of a request's fingerprint) | `config/models.toml` |
-| Prompts | `prompts/draft_answer.md` (draft a cited answer), `prompts/check_support.md` (check the answer against its citations) | — |
+| Prompts | `prompts/draft_answer.md` (draft a cited answer; describes the one read-only tool), `prompts/check_support.md` (check the answer against its citations) | — |
 | Structured output | A JSON schema per call, stored in every recording | `src/qa/` |
 
 The grader's meaning checks use a judge with the same model and thinking level, set in `reference/judge.py`, with
@@ -40,14 +42,18 @@ its own prompt `reference/judge_prompt.md`. The grader imports nothing from the 
 
 Saved real responses:
 
-- `runs/recordings/*.json`: 44 application calls from four record runs (2026-10-07 21:29 UTC, then three on
-  2026-10-08, one per prompt change of decision 038); replay uses the latest. Each file stores the provider, model, thinking level, prompt file and its
-  SHA-256, the full request (system text, user text, schema), the response and the recording time.
-- `runs/judge/verdicts.json`: 11 judge verdicts, recorded 2026-10-07 and 2026-10-08: one for each distinct answer
-  graded, including earlier Q1, Q4 and Q7 answers from before the prompt changes of decision 038. The grader uses the verdict that matches the answer it is grading.
+- `runs/recordings/*.json`: 117 application calls from five record runs (2026-10-07 21:29 UTC, three on 2026-10-08
+  for the prompt changes of decision 038, and one on 2026-10-08 12:02-12:08 UTC for retrieval and the added data);
+  replay uses the latest. Each file stores the provider, model, thinking level, prompt file and its SHA-256, the full
+  request (system text, user text, schema), the response and the recording time.
+- `runs/recordings/embed-*.json`: 81 embeddings (31 passages and 50 queries), one file per text, with model, size,
+  task type, text and vector.
+- `runs/judge/verdicts.json`: 26 judge verdicts, recorded 2026-10-07 and 2026-10-08: one for each distinct answer
+  graded, including earlier Q1, Q4 and Q7 answers from before the prompt changes of decision 038, and 15 for the
+  extended questionnaire. The grader uses the verdict that matches the answer it is grading.
 
-The prompt hashes stored in the recordings match the current prompt files (`7388b8c1…` for the draft prompt,
-`bfbecc28…` for the support-check prompt).
+The prompt hashes stored in the latest recordings match the current prompt files (`eebbb28b…` for the draft prompt,
+`4d7a101f…` for the support-check prompt).
 
 ## Configuration files
 
@@ -57,9 +63,10 @@ The prompt hashes stored in the recordings match the current prompt files (`7388
 | Instructions for other AI tools | `AGENTS.md` | not-used | Points other tools to `CLAUDE.md`; only Claude Code was used, and it reads `CLAUDE.md` |
 | Exercise rules | `data/seed/domain.md` | used | The four supplied rules; copy of the starter pack, never edited |
 | Subagent `verifier` | `.claude/agents/verifier.md` | used | Final verification pass; read-only, reports and never fixes |
-| Subagent `researcher` | `.claude/agents/researcher.md` | not-used | The planning research was done by the main session and workflows; `docs/research/` holds only the planning bibliography |
+| Subagent `researcher` | `.claude/agents/researcher.md` | used | Wrote `docs/research/retrieval-and-agent.md` for decisions 040 and 041; the planning research was done by the main session and workflows |
 | UI builder subagent | — | not-exportable | A one-off task prompt to a general-purpose subagent; no definition file exists |
-| Skill `generate-assignment-data` | `.claude/skills/generate-assignment-data/SKILL.md` | used (checklist only) | Copied unchanged from `starter-pack/skills/`. Its checklist was followed when preparing the scenario inputs; no new documents were generated |
+| Blind answer-key subagent | — | not-exportable | A one-off task prompt; it re-derived the extended key from the data alone. Its output is saved in `docs/research/extended-key-blind-rederivation.md` |
+| Skill `generate-assignment-data` | `.claude/skills/generate-assignment-data/SKILL.md` | used | Copied unchanged from `starter-pack/skills/`. Followed for the scenario inputs and, later, for the added fictional data in `data/additions/` (`data/GENERATION.md`) |
 | Hook | `.claude/hooks/protect_paths.py` | used | Registered in `.claude/settings.json`; tests in `tests/test_protect_paths_hook.py` |
 | Settings and permissions | `.claude/settings.json` | used | Hook registration, allow and deny lists (table below) |
 | Workflow `qa-deep-review` | `ai-workflow/snapshots/qa-deep-review.js` | redacted | Sanitized snapshot; the original is local-only |
@@ -160,18 +167,17 @@ it if missing). No API key is needed.
 uv sync --locked && uv run qa report && uv run python reference/grade.py
 ```
 
-- `uv run qa report` runs the reference scenario from a clean state in replay mode (the default). Every model call is
-  answered from `runs/recordings/` by an exact fingerprint of the request. It never loads `.env` and never builds the
+- `uv run qa report` runs both scenarios (seed and extended) from a clean state in replay mode (the default). Every
+  model call and every embedding is answered from `runs/recordings/` by an exact fingerprint of the request. It never loads `.env` and never builds the
   SDK client. A request with no recording is a visible error (`no_recording`), never a guess.
 - `uv run python reference/grade.py` compares the result with the hand-written answer key and replays the judge
   verdicts from `runs/judge/verdicts.json`. It writes `docs/RESULTS.md`. Exit code 0: all pass; 1: any FAIL;
   3: no FAIL but something PENDING; 2: the grader crashed.
 
-Checked on 2026-10-08 in a clean copy of the repository with no API key in the environment: the report ran and its
-output was byte-identical to the committed `runs/report/observed.json`, and the grader reproduced the committed
-`docs/RESULTS.md` (0 FAIL; meaning rows count as PASS only once the author has signed them off in
-`reference/signoff.json`, otherwise PENDING with exit code 3). The first run's Q1 FAIL and
-its fix are described in `docs/LLM_USAGE.md`.
+Checked on 2026-10-08 with no API key in the environment: two replays gave byte-identical `observed.json` and
+`observed-extended.json`, and the grader reproduced `docs/RESULTS.md`: seed 115 PASS; extended 144 PASS, 1 FAIL
+(X4), 15 PENDING (meaning rows await the author's sign-off); exit code 1. The first run's Q1 FAIL and its fix, and
+the X4 FAIL, are described in `docs/LLM_USAGE.md`.
 
 To record new responses (live calls, needs a key in a local `.env`): `QA_MODE=record uv run qa report`, then
 `uv run python reference/judge.py` for missing verdicts. Any change to a prompt, schema or model setting changes the
@@ -210,7 +216,7 @@ placeholders (for example `<PLAN_FILE>`) with real files through the script's `a
   was slow at maximum effort.
 - **One model family.** The application, its support check and the grader's judge all use Gemini
   `gemini-3.8-flash`, so self-preference is possible. A judge from another model family would be the first change.
-- **Not used.** The `researcher` subagent, `AGENTS.md`, and every connector, plugin and MCP server. No extra skills,
+- **Not used.** `AGENTS.md`, and every connector, plugin and MCP server. No extra skills,
   agents or hooks were created to fill the manifest.
 - **What I would change.** Record the Claude Code version per session, save each workflow script in the repository
   from the start (sanitized), and give the UI builder a definition file so it can be restored.

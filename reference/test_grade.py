@@ -12,6 +12,7 @@ import grade
 HERE = Path(__file__).parent
 EXPECTED = json.loads((HERE / "expected.json").read_text())
 SEED = json.loads((HERE.parent / "data" / "seed" / "seed.json").read_text())
+ADDED = json.loads((HERE.parent / "data" / "additions" / "extended.json").read_text())
 
 
 def test_the_grader_and_judge_import_nothing_from_the_application():
@@ -24,24 +25,50 @@ def test_the_grader_and_judge_import_nothing_from_the_application():
 
 
 def test_the_key_counts_add_up():
-    for step, requests in EXPECTED["counts"].items():
-        for request, numbers in requests.items():
-            assert sum(numbers) == 8, (step, request)
+    sizes = {"seed": len(SEED["questions"]), "extended": len(ADDED["questions"])}
+    for suite, key in grade.suites(EXPECTED):
+        for step, requests in key["counts"].items():
+            for request, numbers in requests.items():
+                assert sum(numbers) == sizes[suite], (suite, step, request)
     assert EXPECTED["counts"]["S6"] == EXPECTED["counts"]["S5"]
     assert EXPECTED["counts"]["S9"] == EXPECTED["counts"]["S8"]
 
 
-def test_every_quote_and_authority_in_the_key_matches_the_seed():
-    docs = {d["id"]: d for d in SEED["documents"]}
-    passages = {p["id"]: p["text"] for d in SEED["documents"] for p in d["passages"]}
-    replaced_by = {d["supersedes"]: d["id"] for d in SEED["documents"] if d["supersedes"]}
-    for row in EXPECTED["cases"] + EXPECTED["extra_rows"]:
+def test_the_extended_counts_match_the_rows_statuses():
+    key = EXPECTED["extended"]
+    statuses = [row["checks"][0]["equals"] for row in key["cases"]]
+    assert key["counts"]["S1"]["R1"] == [statuses.count("answered"), statuses.count("unresolved"), 0, 0, 0]
+
+
+def test_every_quote_and_authority_in_the_key_matches_the_data():
+    documents = SEED["documents"] + ADDED["documents"]
+    docs = {d["id"]: d for d in documents}
+    passages = {p["id"]: p["text"] for d in documents for p in d["passages"]}
+    replaced_by = {d["supersedes"]: d["id"] for d in documents if d["supersedes"]}
+    rows = [row for _, key in grade.suites(EXPECTED) for row in key["cases"] + key["extra_rows"]]
+    for row in rows:
+        for gold in row.get("gold_passages", []):
+            assert gold in passages and gold.split(":")[0] not in replaced_by, (row["id"], gold)
+            assert gold in [s["passage_id"] for s in row["derived_from"]], (row["id"], gold)
         for source in row.get("derived_from", []):
             assert source["quote"] in passages[source["passage_id"]]
             doc, authority = docs[source["authority"]["doc_id"]], source["authority"]
             assert (authority["version"], authority["date"]) == (doc["version"], doc["date"])
             assert (authority["status"], authority["supersedes"]) == (doc["status"], doc["supersedes"])
             assert authority["superseded_by"] == replaced_by.get(doc["id"])
+
+
+def test_recall_counts_gold_passages_found_first_and_after_the_models_searches():
+    case = {"gold_passages": ["A:p1", "B:p1"], "checks": [{"step": "S1", "item": "R1/X1"}]}
+    suggestion = {
+        "retrieval": {"top_k": 5, "hits": [{"passage_id": "A:p1"}, {"passage_id": "C:p1"}]},
+        "steps": [{"action": "search_passages", "new": ["B:p1"]}, {"action": "answer"}],
+    }
+    steps = {"S1": {"items": {"R1/X1": {"suggestion": suggestion}}}}
+    found = grade.recall(case, steps)
+    assert (found["at_k"], found["shown"], found["missed"]) == (0.5, 1.0, [])
+    assert grade.recall({**case, "gold_passages": []}, steps)["at_k"] is None
+    assert grade.recall({"checks": case["checks"]}, steps) is None
 
 
 def _observed_q1(citations, replaced) -> dict:

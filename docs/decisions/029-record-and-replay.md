@@ -49,3 +49,9 @@ The simulated client lives in the tests (`tests/conftest.py`), not in `llm.py`, 
 
 - `data/seed/domain.md` (rules the recorded outputs are checked against).
 - `uv.lock` (the SDK version that fixes request and response field names).
+
+## Update (decision 040)
+
+Embeddings for retrieval are recorded the same way: one file per text, `runs/recordings/embed-<fingerprint>.json`,
+keyed by the embedding model, its size, the task type and the text. Replay serves them with no key, and a missing one
+is the same visible `no_recording` error.

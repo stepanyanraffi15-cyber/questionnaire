@@ -72,3 +72,17 @@ def test_unresolved_item_without_sources_cannot_be_approved():
     page.button(key="approve-R1/Q2").click().run()
     assert [e.value for e in page.error] == ["Choose at least one supporting passage"]
     assert load_state(state_path())["approvals"] == []
+
+
+def test_the_extended_questionnaire_has_its_own_workspace_and_shows_the_search_steps():
+    seed_request()
+    extended = load_state(state_path("workspace-extended"), "data/additions/extended.json")
+    process_request(extended, workspace_dataset(extended), SimulatedClient(), AT)
+    save_state(state_path("workspace-extended"), extended)
+    page = open_page()
+    page.radio(key="questionnaire").set_value("Extended questionnaire (X1–X26, added data)").run()
+    assert not page.exception
+    assert shown_counts(page)["Answered"] == "15" and shown_counts(page)["Unresolved"] == "11"
+    assert len([m for m in page.markdown if m.value.startswith("**X")]) == 26
+    assert any(text.value.startswith("Step 1 · retrieval for the question") for text in page.markdown)
+    assert len(load_state(state_path())["requests"]) == 1

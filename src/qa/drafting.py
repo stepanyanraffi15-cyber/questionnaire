@@ -1,8 +1,8 @@
-"""Draft one item: model draft -> mechanical checks -> recorded support check -> status (REQ-A1, REQ-A2,
-RULE-1).
+"""Draft one item: retrieval -> read-only search loop -> mechanical checks -> recorded support check ->
+status (REQ-A1, REQ-A2, RULE-1, decisions 040 and 041).
 
-The result is a suggestion record. It is never an approved answer; only a reviewer's approval is reused
-(RULE-3).
+The model's only tool is `search_passages`, which code runs; it changes nothing. The result is a
+suggestion record. It is never an approved answer; only a reviewer's approval is reused (RULE-3).
 """
 
 from __future__ import annotations
@@ -13,44 +13,95 @@ from qa.checks import citation_problem, strengthening_hints, valid_conflict, val
 from qa.dataset import Dataset, Question
 from qa.llm import ModelCallError, ModelClient, ModelReply, ModelRequest
 from qa.prompts import DraftOutput, SupportVerdict, draft_request, support_request
+from qa.retrieval import RetrievalSettings, hit_ids, load_retrieval_settings, search
 
 
-def draft_item(question: Question, dataset: Dataset, client: ModelClient) -> dict:
+def draft_item(
+    question: Question, dataset: Dataset, client: ModelClient, settings: RetrievalSettings | None = None
+) -> dict:
     """Return a suggestion record. Every failure becomes a visible status and reason, never an exception."""
+    settings = settings or load_retrieval_settings()
     suggestion = _blank()
     try:
-        draft = _ask(client, draft_request(question, dataset), DraftOutput, suggestion)
+        suggestion["retrieval"] = search(question.text, dataset, client, settings)
+        draft, shown = _search_loop(question, dataset, client, settings, suggestion)
     except ModelCallError as exc:
         return _finish(suggestion, "error", exc.reason, str(exc))
     suggestion["draft"] = draft.model_dump()
-    conflicts = [pair for pair in draft.conflicts if valid_conflict(pair, dataset)]
+    conflicts = [pair for pair in draft.conflicts if valid_conflict(pair, dataset, shown)]
     suggestion["conflicts"] = sorted({pid for pair in conflicts for pid in pair.passage_ids})
     if draft.status == "unresolved":
         if conflicts:
             suggestion["conflict_source"] = "draft"
             return _finish(suggestion, "unresolved", "conflict", "The passages give different answers")
         return _finish(suggestion, "unresolved", "undocumented", "No current passage states the answer")
-    return _check_answered(question, draft, dataset, client, suggestion, bool(conflicts))
+    return _check_answered(question, draft, dataset, client, suggestion, bool(conflicts), shown)
 
 
 def check_support(
-    question_text: str, answer: str, cited_ids: list[str], dataset: Dataset, client: ModelClient
+    question_text: str,
+    answer: str,
+    cited_ids: list[str],
+    dataset: Dataset,
+    client: ModelClient,
+    context_ids: list[str],
 ) -> tuple[SupportVerdict, dict]:
     """Ask the recorded support check whether the cited passages support `answer` (also used by the guard)."""
     calls: dict = {"calls": []}
-    verdict = _ask(client, support_request(question_text, answer, cited_ids, dataset), SupportVerdict, calls)
+    request = support_request(question_text, answer, cited_ids, dataset, context_ids)
+    verdict = _ask(client, request, SupportVerdict, calls)
     return verdict, calls["calls"][0]
 
 
+def _search_loop(
+    question: Question, dataset: Dataset, client: ModelClient, settings: RetrievalSettings, suggestion: dict
+) -> tuple[DraftOutput, list[str]]:
+    """Ask the model; while it calls search_passages (at most `max_searches` times), run the search in code
+    and ask again with the new passages added. Returns the final draft and every passage ID it was shown.
+    """
+    shown = hit_ids(suggestion["retrieval"])
+    searches: list[dict] = []
+    while True:
+        searches_left = settings.max_searches - len(searches)
+        passages = [dataset.passages[pid] for pid in shown]
+        request = draft_request(question, passages, searches, searches_left)
+        step = _ask(client, request, DraftOutput, suggestion)
+        if step.action == "answer":
+            suggestion["steps"].append({"action": "answer", "status": step.status})
+            return step, shown
+        if searches_left == 0:
+            limit = settings.max_searches
+            raise ModelCallError("step_limit", f"The model asked for more than {limit} searches")
+        found = search(step.query, dataset, client, settings)
+        new = [pid for pid in hit_ids(found) if pid not in shown]
+        shown = shown + new
+        searches.append({"query": step.query, "found": hit_ids(found)})
+        suggestion["steps"].append(
+            {
+                "action": "search_passages",
+                "query": step.query,
+                "found": hit_ids(found),
+                "new": new,
+                "embedding_labels": found["embedding_labels"],
+            }
+        )
+
+
 def _check_answered(
-    question: Question, draft: DraftOutput, dataset: Dataset, client, suggestion: dict, has_conflict: bool
+    question: Question,
+    draft: DraftOutput,
+    dataset: Dataset,
+    client,
+    suggestion: dict,
+    has_conflict: bool,
+    shown: list[str],
 ) -> dict:
     if not draft.answer.strip():
         return _finish(suggestion, "error", "invalid_model_output", "Status answered with an empty answer")
     if not draft.citations:
         return _finish(suggestion, "unresolved", "no_citation", "The draft cites no passage")
     for citation in draft.citations:
-        problem = citation_problem(citation, dataset)
+        problem = citation_problem(citation, dataset, shown)
         if problem:
             return _finish(suggestion, "unresolved", problem, f"Citation {citation.passage_id}: {problem}")
     suggestion["citations"] = [_citation_record(c.passage_id, c.excerpt, dataset) for c in draft.citations]
@@ -61,18 +112,25 @@ def _check_answered(
     cited_texts = [dataset.passages[pid].text for pid in cited_ids]
     suggestion["hints"] = strengthening_hints(draft.answer, cited_texts)
     try:
-        verdict, call = check_support(question.text, draft.answer, cited_ids, dataset, client)
+        verdict, call = check_support(question.text, draft.answer, cited_ids, dataset, client, shown)
     except ModelCallError as exc:
         return _finish(suggestion, "error", "support_check_failed", str(exc))
     suggestion["calls"].append(call)
-    return _apply_verdict(suggestion, verdict, draft, cited_ids, dataset)
+    return _apply_verdict(suggestion, verdict, draft, cited_ids, dataset, shown)
 
 
 def _apply_verdict(
-    suggestion: dict, verdict: SupportVerdict, draft: DraftOutput, cited_ids: list[str], dataset: Dataset
+    suggestion: dict,
+    verdict: SupportVerdict,
+    draft: DraftOutput,
+    cited_ids: list[str],
+    dataset: Dataset,
+    shown: list[str],
 ) -> dict:
     suggestion["support"] = verdict.model_dump()
-    valid = [c for c in verdict.contradicted_by if valid_contradiction(c, draft.answer, cited_ids, dataset)]
+    valid = [
+        c for c in verdict.contradicted_by if valid_contradiction(c, draft.answer, cited_ids, dataset, shown)
+    ]
     suggestion["contradictions_rejected"] = [
         c.model_dump() for c in verdict.contradicted_by if c not in valid
     ]
@@ -133,6 +191,8 @@ def _blank() -> dict:
         "hints": [],
         "support": None,
         "contradictions_rejected": [],
+        "retrieval": None,
+        "steps": [],
         "calls": [],
     }
 

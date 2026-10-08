@@ -6,12 +6,15 @@
 tests and documentation. Planning used Claude Code workflows (several agents reviewing the brief, the data and the
 rules, then independent plans judged against each other). A build workflow then produced the decision records
 and the scenario inputs for the first milestone; it was stopped because it was slow, and the rest was built
-directly, with two helper agents: one built the Streamlit page, one did a final independent verification. Project rules for the assistant are in
+directly, with helper agents: one built the Streamlit page, a `researcher` wrote the retrieval note, one re-derived
+the extended answer key blind, and a `verifier` did the independent verification passes. Project rules for the assistant are in
 `CLAUDE.md`; a hook (`.claude/hooks/protect_paths.py`) stops it from editing the supplied inputs or the answer key.
 Details: `ai-workflow/README.md`.
 
 **Application.** Gemini `gemini-3.8-flash` through the `google-genai` SDK 2.28.0, thinking level medium, default
-sampling (`config/models.toml`). Two prompts: `prompts/draft_answer.md` and `prompts/check_support.md`. The grader's
+sampling (`config/models.toml`), and `gemini-embedding-001` (768 dimensions) for retrieval. Two prompts:
+`prompts/draft_answer.md` (which also describes the one read-only tool, `search_passages`) and
+`prompts/check_support.md`. The grader's
 judge uses the same model with its own prompt, `reference/judge_prompt.md`.
 
 ## Generated components and how each was checked
@@ -22,7 +25,10 @@ judge uses the same model with its own prompt, `reference/judge_prompt.md`.
 | Answer key (`reference/expected.json`) | Drafted by Claude Code from the passages | A separate AI review agent re-derived every row from the passages; the author approved each row; `reference/test_grade.py` checks quotes, authority and arithmetic against the seed |
 | Application code (`src/qa/`) | Claude Code | One behaviour test per rule (`tests/`), ruff, and the independent grader on the full scenario |
 | Review page (`src/qa/ui.py`) | A Claude Code helper agent | Streamlit AppTest tests (render, approval survives a reload and is reused, guard message) |
-| Saved model responses (`runs/`) | Gemini, live: three runs (first run, then one per prompt fix) | Two keyless replays reproduce `observed.json` byte for byte; the grader and judge read them |
+| Added data (`data/additions/`, `data/scenario/extended-demo.json`) | Claude Code, following the starter pack's `generate-assignment-data` skill, at the author's request | Code checks (`tests/test_extended_data.py`, `qa check-data`); the key's quotes and authority are checked against it |
+| Extended answer key (`reference/expected.json`, `extended`) | Claude Code, from the passages, before the app ran on them | A separate agent re-derived every row blind (no app code or output); it agreed on every status, gold passage and count; its extra forbidden claims were added (decision 042) |
+| Retrieval and the search loop (`src/qa/retrieval.py`, `drafting.py`) | Claude Code | `tests/test_retrieval.py`, `tests/test_search_loop.py` with SIMULATED replies and embeddings |
+| Saved model responses and embeddings (`runs/`) | Gemini, live: five runs (first run, one per prompt fix, one for retrieval and the added data) | Two keyless replays reproduce both observed files byte for byte; the grader and judge read them |
 
 ## One representative instruction
 
@@ -79,3 +85,10 @@ sign-off (decision 027).
 **A development bug caught by running the code.** The grader's first run against simulated output crashed
 (`KeyError: 'passage_id'`) because it read passage IDs from every list, including stale-reason lists. It now reads IDs
 only for the checks that need them.
+
+**A failure left as it is: X4.** After retrieval was added, the live run answered X4 "How many rows can a single CSV
+export contain?" with "A single CSV export can contain up to 50,000 rows. CSV exports are available on paid plans
+only.", citing EXPORT-LIMITS-v2:p1 and EXPORT-v2:p1. Both are true and quoted exactly, but the second sentence was not
+asked for, and the key allows only the first passage, so the grader reports FAIL. It is most likely prompt rule 9 (the
+Q1 fix above) applied where it does not belong. The key was not changed, and the prompt was not tuned again in this
+round; it is listed as a limitation.

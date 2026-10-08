@@ -3,6 +3,7 @@
 Sources below were opened during planning on 2026-10-06; re-open before relying on a specific claim.
 
 Notes written by the `researcher` subagent go here, one file per open question (`oq-5-conflicts.md`, …).
+Notes so far: [retrieval-and-agent.md](retrieval-and-agent.md) (hybrid retrieval, embeddings, the search tool, recall@k).
 Every claim links a source that was actually opened. Label: peer-reviewed · preprint · vendor doc · blog.
 
 ## Starting bibliography (collected 2026-10-06 during planning)
