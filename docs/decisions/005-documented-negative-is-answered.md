@@ -1,6 +1,6 @@
 # 005 · A documented negative is an answered "No"; silence is unknown
 
-- Status: proposed
+- Status: accepted
 - Requirements: Rule 1 of `data/seed/domain.md` ("An undocumented feature is unknown, not automatically supported or
   unsupported."); the assignment brief's minimum demonstrations "A supported question receives a draft answer whose
   cited passages exist and support its claims." and "The unsupported question stays unresolved and offers an

@@ -14,7 +14,7 @@ Written by `reference/grade.py` from `runs/report/observed.json`. Do not edit by
 |---|---|---|
 | MIN-1 | RC-1: A supported question gets a draft whose cited passages exist and support it (Q3) | PENDING |
 | MIN-2 | RC-2: The unsupported question stays unresolved with a review route and no invented capability (Q2) | PASS |
-| MIN-3 | RC-3: The outdated policy's conflict is visible and the answer uses the document that supersedes it (Q1) | FAIL |
+| MIN-3 | RC-3: The outdated policy's conflict is visible and the answer uses the document that supersedes it (Q1) | PENDING |
 | MIN-4 | RC-4: An approved correction is reused when Q1 is asked again; an unapproved edit is not | PASS |
 | MIN-5 | RC-5: Reloading keeps approval and evidence; a source version change makes the approved answer need review | PASS |
 | REQ-A3 | answered / unresolved / approved counts at every step | PASS |
@@ -38,16 +38,16 @@ Written by `reference/grade.py` from `runs/report/observed.json`. Do not edit by
 | RC-2 | mechanical | S2 R1/Q2 status | {"equals": "unresolved"} | "unresolved" | PASS |  |
 | RC-2 | meaning | S1 R1/Q2 suggestion.answer | {"expected_facts": [], "forbidden_claims": ["JSON export is available.", "JSON export is not available or not supported.", "The CSV paid-plan rule also covers JSON export."]} | empty text states nothing, so no forbidden claim is made | PASS | not needed |
 | RC-3 | mechanical | S1 R1/Q1 status | {"equals": "answered"} | "answered" | PASS |  |
-| RC-3 | mechanical | S1 R1/Q1 citations | {"ids_subset_of": ["EXPORT-v2:p1"], "non_empty": true} | [{"passage_id": "EXPORT-v2:p1", "doc_id": "EXPORT-v2", "version": 2, "excerpt": "Free-plan users cannot export CSV."}] | PASS |  |
-| RC-3 | mechanical | S1 R1/Q1 citations | {"excerpts_verbatim": true} | [{"passage_id": "EXPORT-v2:p1", "doc_id": "EXPORT-v2", "version": 2, "excerpt": "Free-plan users cannot export CSV."}] | PASS |  |
+| RC-3 | mechanical | S1 R1/Q1 citations | {"ids_subset_of": ["EXPORT-v2:p1"], "non_empty": true} | [{"passage_id": "EXPORT-v2:p1", "doc_id": "EXPORT-v2", "version": 2, "excerpt": "CSV exports are available on paid plans only."}, {"passage_id": "EXPORT-v2:p1", | PASS |  |
+| RC-3 | mechanical | S1 R1/Q1 citations | {"excerpts_verbatim": true} | [{"passage_id": "EXPORT-v2:p1", "doc_id": "EXPORT-v2", "version": 2, "excerpt": "CSV exports are available on paid plans only."}, {"passage_id": "EXPORT-v2:p1", | PASS |  |
 | RC-3 | mechanical | S1 R1/Q1 replaced_shown | {"ids_include": ["EXPORT-v1:p1"]} | ["EXPORT-v1:p1"] | PASS |  |
 | RC-3 | mechanical | S1 R1/Q1 owner | {"equals": "Product reviewer"} | "Product reviewer" | PASS |  |
 | RC-3 | mechanical | S1 R1/Q1 reason | {"not_equals": "conflict"} | null | PASS |  |
-| RC-3 | meaning | S1 R1/Q1 answer | {"expected_facts": ["The answer is no: free-plan users cannot export CSV.", "CSV export is for paid plans only."], "forbidden_claims": ["Free-plan users can export CSV.", "CSV export is available on every plan as the current policy (mentioning the old, replaced policy as replaced is fine)."]} | judge: missing ['CSV export is for paid plans only.'], forbidden made [] | FAIL | awaiting the author's sign-off |
+| RC-3 | meaning | S1 R1/Q1 answer | {"expected_facts": ["The answer is no: free-plan users cannot export CSV.", "CSV export is for paid plans only."], "forbidden_claims": ["Free-plan users can export CSV.", "CSV export is available on every plan as the current policy (mentioning the old, replaced policy as replaced is fine)."]} | judge (gemini-3.8-flash): all facts stated, no forbidden claim | PENDING | awaiting the author's sign-off |
 | RC-4 | mechanical | S3 R2/Q1 status | {"equals": "answered"} | "answered" | PASS |  |
 | RC-4 | mechanical | S3 R2/Q1 reused | {"equals": false} | false | PASS |  |
-| RC-4 | mechanical | S3 R2/Q1 answer | {"not_equals_text": "W"} | "No, free-plan users cannot export CSV." | PASS |  |
-| RC-4 | mechanical | S3 R2/Q1 calls | {"non_empty": true} | [{"call_type": "draft", "label": "REPLAYED", "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe", "model": "gemini-3.8-flash", "re | PASS |  |
+| RC-4 | mechanical | S3 R2/Q1 answer | {"not_equals_text": "W"} | "No. CSV exports are available on paid plans only." | PASS |  |
+| RC-4 | mechanical | S3 R2/Q1 calls | {"non_empty": true} | [{"call_type": "draft", "label": "REPLAYED", "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e", "model": "gemini-3.8-flash", "re | PASS |  |
 | RC-4 | mechanical | S3 R2/Q3 answer | {"not_equals_text": "E3"} | "Email support is available Monday to Friday, 09:00 to 17:00 UTC." | PASS |  |
 | RC-4 | mechanical | S4 R1/Q1 status | {"equals": "approved"} | "approved" | PASS |  |
 | RC-4 | mechanical | S4 R1/Q1 approval.text | {"equals_text": "W"} | "No. CSV export is for paid plans only; free-plan users cannot export CSV." | PASS |  |
@@ -76,7 +76,7 @@ Written by `reference/grade.py` from `runs/report/observed.json`. Do not edit by
 | RC-5 | mechanical | S8 R4/Q1 status | {"equals": "answered"} | "answered" | PASS |  |
 | RC-5 | mechanical | S8 R4/Q1 reused | {"equals": false} | false | PASS |  |
 | RC-5 | mechanical | S8 R4/Q1 stale_approval_shown | {"not_equals": null} | "A1" | PASS |  |
-| RC-5 | mechanical | S8 R4/Q1 calls | {"non_empty": true} | [{"call_type": "draft", "label": "REPLAYED", "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe", "model": "gemini-3.8-flash", "re | PASS |  |
+| RC-5 | mechanical | S8 R4/Q1 calls | {"non_empty": true} | [{"call_type": "draft", "label": "REPLAYED", "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e", "model": "gemini-3.8-flash", "re | PASS |  |
 | RC-5 | mechanical | S9 | {"same_as": "S8"} | items and counts equal S8 | PASS |  |
 | XR-1 | mechanical | S10 R1/Q1 status | {"equals": "approved"} | "approved" | PASS |  |
 | XR-1 | mechanical | S10 R1/Q1 approval.sources | {"versions": {"EXPORT-v2:p1": 3}} | [{"passage_id": "EXPORT-v2:p1", "doc_id": "EXPORT-v2", "version": 3, "excerpt": "Free-plan users cannot export CSV."}] | PASS |  |

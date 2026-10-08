@@ -3,7 +3,9 @@
   "categories": {
     "development_tools_and_models": {
       "status": "used",
-      "files": ["ai-workflow/README.md"],
+      "files": [
+        "ai-workflow/README.md"
+      ],
       "notes": "Claude Code 2.1.293 with Claude Opus 5.5 (claude-opus-5-5) for planning, building and review. Claude Code workflows (multi-agent orchestration scripts) were used for planning and for the first milestone; the rest was built in the main session with two subagents (a UI builder and a final verifier). Session settings were the tool defaults apart from the per-step effort levels set inside the workflow scripts."
     },
     "plugins_and_extensions": {
@@ -13,12 +15,18 @@
     },
     "application_models_and_parameters": {
       "status": "used",
-      "files": ["config/models.toml", "reference/judge.py", "uv.lock"],
+      "files": [
+        "config/models.toml",
+        "reference/judge.py",
+        "uv.lock"
+      ],
       "notes": "Google Gemini gemini-3.8-flash through the google-genai SDK 2.28.0, thinking level medium, timeout 60000 ms, 3 retry attempts; temperature, top_p and top_k not set (provider defaults). The grader's judge uses the same model and thinking level, set in reference/judge.py. Saved real responses: 16 application calls in runs/recordings/ and 7 judge verdicts in runs/judge/verdicts.json, recorded 2026-10-07 21:29-21:32 UTC (2026-10-08 local time)."
     },
     "skills": {
       "status": "used",
-      "files": [".claude/skills/generate-assignment-data/SKILL.md"],
+      "files": [
+        ".claude/skills/generate-assignment-data/SKILL.md"
+      ],
       "notes": "Starter-pack skill, copied unchanged. Used as a checklist only when preparing the scenario inputs; no new documents were generated with it."
     },
     "agent_instructions_and_subagents": {
@@ -35,22 +43,37 @@
     },
     "hooks_and_scripts": {
       "status": "used",
-      "files": [".claude/hooks/protect_paths.py", ".claude/settings.json", "tests/test_protect_paths_hook.py"],
+      "files": [
+        ".claude/hooks/protect_paths.py",
+        ".claude/settings.json",
+        "tests/test_protect_paths_hook.py"
+      ],
       "notes": "One PreToolUse hook (Edit, Write, MultiEdit, NotebookEdit, Bash, Read). Exit code 2 blocks the tool call. It keeps starter-pack/ and data/seed/ read-only, allows edits to reference/ only when the human starts the session with QA_ALLOW_REFERENCE_EDIT=1, blocks reading or writing .env, and blocks staging or force-adding local-only files. First version in commit 9f7f30d, narrowed in commit 5e42644."
     },
     "prompts_and_rules": {
       "status": "used",
-      "files": ["prompts/draft_answer.md", "prompts/check_support.md", "reference/judge_prompt.md", "data/seed/domain.md"],
+      "files": [
+        "prompts/draft_answer.md",
+        "prompts/check_support.md",
+        "reference/judge_prompt.md",
+        "data/seed/domain.md"
+      ],
       "notes": "Two application prompts (draft, support check) and the grader's judge prompt. Every recording stores the prompt file path and its SHA-256, so a changed prompt cannot replay an old response. The four exercise rules in data/seed/domain.md are supplied input and are never edited."
     },
     "tool_and_mcp_settings": {
       "status": "used",
-      "files": [".claude/settings.json"],
+      "files": [
+        ".claude/settings.json"
+      ],
       "notes": "Project settings hold the permissions and the hook registration. There is no project MCP configuration (.mcp.json) and no .claude/settings.local.json. MCP servers available at user or account level were not used (see plugins_and_extensions)."
     },
     "permissions_and_environment_names": {
       "status": "used",
-      "files": [".claude/settings.json", ".env.example", "ai-workflow/.env.example"],
+      "files": [
+        ".claude/settings.json",
+        ".env.example",
+        "ai-workflow/.env.example"
+      ],
       "notes": "Permissions: 7 allow entries and 2 deny entries, each explained in the README. Environment variable names: GOOGLE_API_KEY (record mode and judge only; the SDK also reads GEMINI_API_KEY), QA_MODE, QA_STATE_DIR, and the developer-only QA_ALLOW_REFERENCE_EDIT (set in the shell, read only by the hook, never in .env)."
     }
   },
@@ -187,7 +210,7 @@
       "used_during": "Whole exercise (applies to every project)",
       "status": "redacted",
       "redactions": [
-        "Omitted: not exercise-specific (wording pending the author's confirmation)"
+        "Omitted: not exercise-specific (confirmed by the author)"
       ]
     },
     {
@@ -274,29 +297,29 @@
       "original_path_or_scope": "reference/judge.py (JUDGE_MODEL, THINKING_LEVEL)",
       "saved_path": "reference/judge.py",
       "version_or_commit": "gemini-3.8-flash; thinking_level medium; google-genai 2.28.0 (uv.lock)",
-      "used_during": "Judge run 2026-10-07 21:31-21:32 UTC; replayed by reference/grade.py",
+      "used_during": "Judge runs after each record run (2026-10-07, 2026-10-08); replayed by reference/grade.py",
       "status": "used",
       "redactions": []
     },
     {
       "name": "Saved real application responses",
       "category": "application_models_and_parameters",
-      "purpose": "16 real Gemini calls (8 drafts, 8 support checks) keyed by a fingerprint of the exact request; replay needs no API key.",
+      "purpose": "35 real Gemini calls from three record runs (the first run and one per prompt fix of decision 038), keyed by a fingerprint of the exact request; replay uses the latest and needs no API key.",
       "original_path_or_scope": "runs/recordings/",
       "saved_path": "runs/recordings/",
       "version_or_commit": "Each file stores provider, model, thinking level, prompt file and its SHA-256, request, response and recording time",
-      "used_during": "Recorded 2026-10-07 21:29-21:31 UTC (2026-10-08 local time); replayed by uv run qa report",
+      "used_during": "Recorded 2026-10-07 21:29 UTC, 2026-10-08 05:45 UTC and 10:20 UTC; replayed by uv run qa report",
       "status": "used",
       "redactions": []
     },
     {
       "name": "Saved judge verdicts",
       "category": "application_models_and_parameters",
-      "purpose": "7 real judge verdicts for the answer key's meaning checks; replayed by the grader without a key.",
+      "purpose": "10 real judge verdicts (one per distinct answer graded); replayed by the grader without a key.",
       "original_path_or_scope": "runs/judge/verdicts.json",
       "saved_path": "runs/judge/verdicts.json",
       "version_or_commit": "Each verdict stores model, thinking level, prompt file, request, response and recording time",
-      "used_during": "Recorded 2026-10-07 21:31-21:32 UTC (2026-10-08 local time)",
+      "used_during": "Recorded with each record run, 2026-10-07 and 2026-10-08",
       "status": "used",
       "redactions": []
     },
@@ -306,8 +329,8 @@
       "purpose": "System prompt for drafting a cited answer from the passages, or marking the question unresolved.",
       "original_path_or_scope": "prompts/draft_answer.md",
       "saved_path": "prompts/draft_answer.md",
-      "version_or_commit": "sha256 7388b8c19101650cbd3c2e26bf641181bfa6c0b668ee9d737de1cbcab25e38b9 (matches all 8 draft recordings)",
-      "used_during": "Record run and every replay",
+      "version_or_commit": "sha256 963a1f695bcab035b5ecd24257de807c37958488641868c66fb79dc383e27f86 (current, rule 9 of decision 038); earlier versions: commit f97a52c (no rule 9) and the first rule-9 wording, both kept in runs/recordings/",
+      "used_during": "Three record runs (2026-10-07 21:29 UTC; 2026-10-08 05:45 and 10:20 UTC) and every replay",
       "status": "used",
       "redactions": []
     },

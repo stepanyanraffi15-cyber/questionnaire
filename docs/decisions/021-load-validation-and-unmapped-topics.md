@@ -1,6 +1,6 @@
 # 021 · Load validation: report bad items by ID and continue; no default owner
 
-- Status: proposed
+- Status: accepted
 - Requirements: the assignment brief's "Load the documents and questionnaire, preserve their IDs, and check for
   missing or duplicate references.", "Handle invalid model output, missing references, and API failures visibly." and
   "Suggest an owner from the topic mapping instead of inventing one."; Rule 4 of `data/seed/domain.md` ("Use the
@@ -38,6 +38,10 @@ Option 1, with these codes:
 
 Duplicates are judged on IDs. The same question in a later request is not a duplicate, because the item key is
 `request/question` (R1/Q1, R3/Q1). Every code is a mechanical fact (decision 035).
+
+### As built (2026-10-08)
+
+Built codes: `duplicate_document_id`, `duplicate_passage_id`, `duplicate_question_id`, `unknown_supersedes`, `unmapped_topic`, `unknown_change_target` and the warning `status_mismatch`. Not built: `unknown_question_id` (there is no questionnaire file, so a question reference cannot be missing; decision 022) and `supersedes_cycle` (members of a cycle count as replaced, but the cycle is not reported; a stated limitation of the lean scope, decision 037).
 
 ## Consequences
 

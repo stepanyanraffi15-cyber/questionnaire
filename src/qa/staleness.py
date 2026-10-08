@@ -12,14 +12,16 @@ from qa.store import append
 
 
 def stale_reasons(approval: dict, dataset: Dataset) -> list[dict]:
-    """One entry per source document that changed since approval: a new version, replaced, or no longer
-    loaded.
+    """One entry per source that changed since approval: a new document version, a replaced document, or a
+    document or passage that is no longer loaded.
     """
     reasons = []
     for source in approval["sources"]:
         doc = dataset.documents.get(source["doc_id"])
         if doc is None:
             change, current = "removed", None
+        elif source["passage_id"] not in dataset.passages:
+            change, current = "passage_removed", doc.version
         elif doc.id in dataset.replaced_ids:
             change, current = "superseded", doc.version
         elif doc.version != source["version"]:

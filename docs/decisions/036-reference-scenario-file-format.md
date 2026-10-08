@@ -1,6 +1,6 @@
 # 036 · The reference scenario file holds timed reviewer actions, not expected results
 
-- Status: proposed
+- Status: accepted
 - Requirements: the assignment brief's "Let a reviewer edit and approve a supported answer, or leave it unresolved with
   a note. Show the correction and its reuse on a subsequent request; preserve this state after a reload."; its "Commit
   the final fictional inputs, generation method, and random seed if used."; its "Check five cases against the passages
@@ -60,6 +60,10 @@ Option 2 in each case. `data/scenario/min-demo.json` is labelled SCRIPTED REVIEW
 
 - Items are named `request/question`, such as R1/Q1.
 - No expected status, answer or count appears in the file.
+
+### As built (2026-10-08)
+
+`tests/test_data_inputs.py` and the drill file were removed in the lean build (decision 037). The scenario file is now checked end to end: `tests/test_scenario.py` runs every step and the independent grader checks the results against the answer key.
 
 ## Consequences
 

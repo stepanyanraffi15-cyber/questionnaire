@@ -1,6 +1,6 @@
 # 018 · Editing an approved answer creates a pending edit; the approval keeps serving
 
-- Status: proposed
+- Status: accepted
 - Requirements: Rule 3 of `data/seed/domain.md` ("Only an approved answer can be reused. An unapproved edit is a
   draft."); the assignment brief's minimum demonstration "A reviewer’s approved correction appears when the same
   question is asked again; an unapproved edit is not reused as approved knowledge." Ambiguity AMB-17.
@@ -21,6 +21,10 @@ edit cannot be reused until approved. What happens to the existing approval mean
 
 Option 1. Approval records are append-only. A new approval for the same match key carries `replaces: <previous id>`,
 and only the newest approval for a key can ever be served (decision 015). Revoking approvals is not built.
+
+### As built (2026-10-08)
+
+Approvals carry no `replaces` field. Only the newest approval for a match key is served (`review.newest_approval`), and the revision history lists every approval in order, so what replaced what is still visible.
 
 ## Consequences
 

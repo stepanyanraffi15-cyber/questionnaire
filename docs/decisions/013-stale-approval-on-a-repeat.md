@@ -1,6 +1,6 @@
 # 013 · What a repeated question shows when its approval is stale
 
-- Status: proposed
+- Status: accepted
 - Requirements: Rule 3 of `data/seed/domain.md` ("Only an approved answer can be reused. An unapproved edit is a draft.
   Mark an approved answer for review if a referenced document version changes."); the assignment brief's "If an
   approved answer’s source version changes, mark it for review before reuse; a simple version comparison is enough."

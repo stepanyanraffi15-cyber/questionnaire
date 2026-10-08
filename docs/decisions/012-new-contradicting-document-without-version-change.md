@@ -1,6 +1,6 @@
 # 012 · A new contradicting document does not mark existing approvals for review
 
-- Status: proposed
+- Status: accepted
 - Requirements: Rule 3 of `data/seed/domain.md` ("Mark an approved answer for review if a referenced document version
   changes."); the instruction "Record any unresolved ambiguity in your README. Do not silently add domain rules."
   (`data/seed/domain.md:18`). Ambiguity AMB-32.

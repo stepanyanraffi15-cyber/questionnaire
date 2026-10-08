@@ -1,6 +1,6 @@
 # 029 · Record real model responses and replay them by exact fingerprint
 
-- Status: proposed
+- Status: accepted
 - Requirements: the assignment brief's "Save real model responses and the prompt/model configuration.", "Label cached
   responses and simulated failures so the reviewer can distinguish them from new model calls." and "Handle invalid
   model output, missing references, and API failures visibly."; its submission item "Include a way to replay saved
@@ -32,6 +32,10 @@ text and schema. Three clients:
 A recording holds only: format, fingerprint, call type, question, provider, model, thinking level, repo-relative
 prompt file path and its SHA-256, the request (system, user, schema), the response (text, finish reason, model version,
 response id, token usage) and the recording time. No headers, keys, absolute paths or email addresses.
+
+### As built (2026-10-08)
+
+The simulated client lives in the tests (`tests/conftest.py`), not in `llm.py`, so application code has no simulated path. Recordings do not store a separate `question` field; the question is inside the saved request.
 
 ## Consequences
 

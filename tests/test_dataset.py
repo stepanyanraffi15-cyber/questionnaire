@@ -58,6 +58,22 @@ def test_only_a_supersedes_link_replaces_a_document(tmp_path):
     ]
 
 
+def test_replaced_text_is_shown_down_the_whole_supersedes_chain(tmp_path):
+    def add_v3(data):  # EXPORT-v3 supersedes EXPORT-v2, which supersedes EXPORT-v1
+        data["documents"].append(
+            {
+                **data["documents"][1],
+                "id": "EXPORT-v3",
+                "supersedes": "EXPORT-v2",
+                "passages": [{"id": "EXPORT-v3:p1", "text": "CSV exports are available on paid plans only."}],
+            }
+        )
+
+    dataset = _seed_variant(tmp_path, add_v3)
+    assert [p.id for p in dataset.replaced_by("EXPORT-v3")] == ["EXPORT-v2:p1", "EXPORT-v1:p1"]
+    assert dataset.replaced_ids == {"EXPORT-v1", "EXPORT-v2"}
+
+
 def test_a_change_file_replaces_a_document_by_id():
     dataset = load_dataset(change_paths=[CHANGE])
     assert dataset.documents["EXPORT-v2"].version == 3

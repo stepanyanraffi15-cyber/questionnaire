@@ -8,6 +8,7 @@ from conftest import SimulatedClient, W
 from qa.dataset import ROOT
 from qa.review import ApprovalBlocked, add_note, approve, match_key, process_request, save_edit, set_change
 from qa.review import workspace_dataset as dataset_of
+from qa.staleness import stale_reasons
 from qa.store import load_state, new_state, save_state
 from qa.views import counts, history, item_view
 
@@ -67,6 +68,14 @@ def test_a_version_change_marks_the_approval_for_review_and_the_mark_is_sticky(w
         state, dataset_of(state), client, "R1/Q1", W, ["EXPORT-v2:p1"], "Product reviewer", "re-checked", "t6"
     )
     assert item_view(state, dataset_of(state), "R1/Q1")["status"] == "approved"
+
+
+def test_a_removed_source_passage_also_needs_review():
+    approval = {"sources": [{"passage_id": "EXPORT-v2:p9", "doc_id": "EXPORT-v2", "version": 2}]}
+    reasons = stale_reasons(approval, dataset_of(new_state()))
+    assert reasons == [
+        {"doc_id": "EXPORT-v2", "approved_version": 2, "current_version": 2, "change": "passage_removed"}
+    ]
 
 
 def test_the_guard_blocks_mechanical_problems_and_needs_a_note_when_support_fails(workspace):

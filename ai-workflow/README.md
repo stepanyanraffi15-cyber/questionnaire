@@ -40,8 +40,8 @@ its own prompt `reference/judge_prompt.md`. The grader imports nothing from the 
 
 Saved real responses:
 
-- `runs/recordings/*.json`: 16 application calls (8 drafts, 8 support checks), recorded 2026-10-07
-  21:29–21:31 UTC (2026-10-08 local time). Each file stores the provider, model, thinking level, prompt file and its
+- `runs/recordings/*.json`: 35 application calls from three record runs (2026-10-07 21:29 UTC, then 2026-10-08
+  05:45 and 10:20 UTC, one per prompt fix of decision 038); replay uses the latest. Each file stores the provider, model, thinking level, prompt file and its
   SHA-256, the full request (system text, user text, schema), the response and the recording time.
 - `runs/judge/verdicts.json`: 7 judge verdicts, recorded 2026-10-07 21:31–21:32 UTC.
 
@@ -168,8 +168,8 @@ uv sync --locked && uv run qa report && uv run python reference/grade.py
 
 Checked on 2026-10-08 in a clean copy of the repository with no API key in the environment: the report ran and its
 output was byte-identical to the committed `runs/report/observed.json`, and the grader reproduced the committed
-`docs/RESULTS.md` (108 PASS, 1 FAIL, 6 PENDING; exit code 1). The FAIL and the PENDING checks are reported, not
-hidden; see `docs/RESULTS.md`.
+`docs/RESULTS.md` (108 PASS, 0 FAIL, 7 PENDING the author's sign-off; exit code 3). The first run's Q1 FAIL and
+its fix are described in `docs/LLM_USAGE.md`.
 
 To record new responses (live calls, needs a key in a local `.env`): `QA_MODE=record uv run qa report`, then
 `uv run python reference/judge.py` for missing verdicts. Any change to a prompt, schema or model setting changes the
@@ -186,8 +186,8 @@ placeholders (for example `<PLAN_FILE>`) with real files through the script's `a
   instructions; the rules that matter are restated in `CLAUDE.md` and the decision records in `docs/decisions/`.
   They are git-ignored, and their paths and contents are not reproduced here.
 - **User-level global instruction file** (omitted): it holds one personal git rule (never merge into the integration
-  branch; the human does every merge). It is not exercise-specific, so it is not copied (wording pending the
-  author's confirmation).
+  branch; the human does every merge). It is not exercise-specific, so it is not copied (confirmed by
+  the author).
 - **Workflow scripts** (`redacted`): the originals live in a local-only folder. The snapshots replace the paths of
   local planning files with placeholders (`<PLAN_FILE>`, `<BRIEF_FILE>`, `<REVIEW_OUTPUT_DIR>`,
   `<IMPLEMENTATION_PLAN_FILE>`, `<PROGRESS_DIR>`), replace the author's first name with "the author", replace the

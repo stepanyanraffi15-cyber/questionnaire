@@ -1,6 +1,6 @@
 # 019 · The approver is recorded, not enforced
 
-- Status: proposed
+- Status: accepted
 - Requirements: Rule 4 of `data/seed/domain.md` ("Use the supplied topic-to-reviewer mapping."); the assignment
   brief's "Suggest an owner from the topic mapping instead of inventing one." and "When a question is repeated, reuse
   its approved answer and show its approval and sources."; its notes list authentication as optional ("Model

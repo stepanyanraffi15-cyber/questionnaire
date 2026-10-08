@@ -77,9 +77,15 @@ class Dataset:
         return {p.id for p in self.authoritative_passages()}
 
     def replaced_by(self, doc_id: str) -> list[Passage]:
-        """Passages of documents `doc_id` supersedes: replaced text stays visible to reviewers (RULE-2)."""
+        """Passages of every document `doc_id` replaces, down the supersedes chain (RULE-2: kept visible)."""
+        passages: list[Passage] = []
+        seen = {doc_id}
         target = self.documents[doc_id].supersedes
-        return list(self.documents[target].passages) if target in self.documents else []
+        while target in self.documents and target not in seen:
+            seen.add(target)
+            passages += self.documents[target].passages
+            target = self.documents[target].supersedes
+        return passages
 
     def owner(self, question: Question) -> str | None:
         """RULE-4: the owner always comes from the supplied topic mapping, never invented."""

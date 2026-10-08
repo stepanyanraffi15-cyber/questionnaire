@@ -1,6 +1,6 @@
 # 004 · Code applies authority; replaced text and metadata stay out of model prompts
 
-- Status: proposed
+- Status: accepted
 - Requirements: Rule 2 of `data/seed/domain.md` ("Keep replaced text available to reviewers."); the assignment brief's
   "Keep document text separate from application instructions." and "Use a model to draft concise answers with
   supporting passage references and short evidence excerpts."; its minimum demonstration "The outdated policy’s

@@ -1,6 +1,6 @@
 # 007 · A question with only partial evidence is unresolved as a whole
 
-- Status: proposed
+- Status: accepted
 - Requirements: Rule 1 of `data/seed/domain.md` ("Use only the supplied fictional product documents as evidence. An
   undocumented feature is unknown, not automatically supported or unsupported."); the assignment brief's "Load the
   documents and questionnaire, preserve their IDs, and check for missing or duplicate references." Ambiguity AMB-22.

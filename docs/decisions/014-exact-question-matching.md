@@ -1,6 +1,6 @@
 # 014 · Exact question matching: whitespace and Unicode form only; topic ignored
 
-- Status: proposed
+- Status: accepted
 - Requirements: the assignment brief's "Exact question matching is sufficient; do not reuse an unreviewed draft as an
   approved answer." and "When a question is repeated, reuse its approved answer and show its approval and sources."
   Ambiguities AMB-3 (how exact) and AMB-10 (topic in the key).
@@ -30,6 +30,10 @@ Topic:
 Key = the question text after Unicode NFC, trimming, and collapsing whitespace runs. Case, punctuation and wording
 must match. The topic is not part of the key. Exact matching is a mechanical fact, so code decides it (decision 035).
 The UI shows the stored text that matched.
+
+### As built (2026-10-08)
+
+The UI shows the item's question text. Because matching is exact, the stored text that matched is the same text, so it is not shown a second time.
 
 ## Consequences
 

@@ -1,6 +1,6 @@
 # 030 · Review state lives in one append-only JSON file
 
-- Status: proposed
+- Status: accepted
 - Requirements: the assignment brief's "Store drafts, cited evidence, review status, edits, and approvals. Keep
   model-generated suggestions separate from approved answers, and retain the source versions behind each approved
   answer." and "Local JSON files or SQLite are sufficient."; its minimum demonstration "Reloading preserves approval
@@ -25,6 +25,10 @@ and the list of applied change files. Suggestions, Approvals and StaleMarks are 
 approvals are separate record types, so a suggestion can never be read as an approved answer. Status is computed from
 records (decision 020). The UI reads state from disk on every rerun and writes after each action; only selection and
 filters live in Streamlit session state. The state directory is gitignored.
+
+### As built (2026-10-08)
+
+Approvals carry no `replaces` field (see decision 018); otherwise as described.
 
 ## Consequences
 

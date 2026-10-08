@@ -31,7 +31,8 @@ and token usage, keyed by a fingerprint of the exact request. Replay never build
 `.env`. A request with no saved response becomes a visible `no_recording` error. Two keyless replays reproduce
 `runs/report/observed.json` byte for byte. Labels: **LIVE** (a new call), **REPLAYED** (a saved real response),
 **REUSED APPROVAL** (no model call), and **SIMULATED** (hand-written replies, used only in tests).
-`runs/report/observed-live.json` is the original recording run, with the calls that were live labelled LIVE.
+`runs/report/observed-live.json` is the latest recording run, with the calls that were live labelled LIVE.
+`runs/recordings/` also keeps the responses of the earlier runs (before the prompt fix of decision 038).
 
 ## Architecture
 
@@ -63,8 +64,9 @@ so approval, reuse and routing happen only through code paths the reviewer trigg
 Gemini `gemini-3.8-flash` (checked as stable on Google's model list on 2026-10-08), thinking level medium, default
 temperature, top-p and top-k, 3 retries, 60 s timeout: `config/models.toml`. Prompts: `prompts/draft_answer.md`,
 `prompts/check_support.md`; the grader's judge prompt: `reference/judge_prompt.md`. Model access: the author's own
-Gemini API key. No access was arranged with the hiring team, and none is claimed. The recorded run used about 8.6k
-input, 1.1k output and 2.3k thinking tokens for 16 application calls.
+Gemini API key. No access was arranged with the hiring team, and none is claimed. All live calls so far (three
+recording runs, decision 038) used about 20.2k input, 2.6k output and 5.8k thinking tokens over 35 application calls,
+plus 10 judge calls (3.8k input, 1.9k output, 1.8k thinking): well under one US dollar.
 
 ## Data and assumptions
 
@@ -101,16 +103,17 @@ by the author, and never taken from application output (`reference/README.md`). 
 |---|---|
 | MIN-1 Q3 answered from SUPPORT-v1:p1, excerpt verbatim | Mechanical PASS; meaning PENDING (judge PASS, awaiting the author's sign-off) |
 | MIN-2 Q2 unresolved, Product reviewer, no invented answer | PASS |
-| MIN-3 Q1 cites EXPORT-v2:p1 and shows EXPORT-v1:p1 as replaced | Mechanical PASS; **meaning FAIL** (below) |
+| MIN-3 Q1 cites EXPORT-v2:p1 and shows EXPORT-v1:p1 as replaced | Mechanical PASS; meaning PENDING (judge PASS after the prompt fix below) |
 | MIN-4 approved correction reused; unapproved edits not reused | PASS |
 | MIN-5 reload keeps state; version change → needs review | PASS |
 | Counts at every step | PASS |
 
-**The failure.** For Q1 Gemini answered "No, free-plan users cannot export CSV." The recorded judge found that it
-does not state the key's second fact, "CSV export is for paid plans only" (the seed's answer is "No, paid plans
-only."). The answer is correct but incomplete against the key. It is not hidden and the key was not changed. The
-fix is either the author signing it off as acceptable or a prompt change followed by re-recording; that choice is
-the author's.
+**The failure that was fixed.** In the first recorded run Gemini answered Q1 "No, free-plan users cannot export
+CSV.": correct, but without the passage's limit "paid plans only", which the key (and the seed's own answer "No, paid
+plans only.") expects. The recorded judge caught it and the grader reported FAIL; the key was not changed. A prompt
+rule asking for the passage's limit fixed it on the second attempt (decision 038, `docs/LLM_USAGE.md`): Q1 now reads
+"No. CSV exports are available on paid plans only." Overall: 108 PASS, 0 FAIL, 7 meaning rows awaiting the author's
+sign-off.
 
 Small fixed sets like this are limited evidence of how the system behaves on other data.
 

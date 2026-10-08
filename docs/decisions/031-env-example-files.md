@@ -1,6 +1,6 @@
 # 031 · Keep both .env.example files, identical
 
-- Status: proposed
+- Status: accepted
 - Requirements: the assignment brief's "Include only the relevant parts of user-level configuration. Replace secrets
   with placeholders and list environment variable names in .env.example" and its submission item asking for the AI
   configuration with "relevant versions, and sanitized environment examples"; the repository rule "Never read, print or
@@ -24,6 +24,10 @@ Option 2. Both files contain: an app section (`GOOGLE_API_KEY=`, `QA_MODE=replay
 `ANTHROPIC_API_KEY` only if that adapter is built); a commented note naming the variables the SDK reads by itself and
 which one wins when both are set; and a commented developer-only section for `QA_ALLOW_REFERENCE_EDIT`, set in the
 shell, never in `.env`, never read by the app. The template's `MODEL_API_KEY` is replaced.
+
+### As built (2026-10-08)
+
+Both files list the variable names with blank values; the code falls back to `replay` and `state/` when a value is empty or missing.
 
 ## Consequences
 

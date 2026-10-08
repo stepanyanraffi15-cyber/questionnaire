@@ -1,6 +1,6 @@
 # 003 · Supersession replaces whole documents; forks and replaced documents never block answers
 
-- Status: proposed
+- Status: accepted
 - Requirements: Rule 2 of `data/seed/domain.md` ("A document may replace another only through its explicit supersedes
   field. A newer date alone does not establish authority. Keep replaced text available to reviewers."); Rule 1 ("Use
   only the supplied fictional product documents as evidence. An undocumented feature is unknown, not automatically

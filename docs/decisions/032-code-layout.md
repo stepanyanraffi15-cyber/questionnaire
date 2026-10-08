@@ -1,6 +1,6 @@
 # 032 · Code layout: one package of plain functions with one-way imports
 
-- Status: proposed
+- Status: accepted
 - Requirements: the assignment brief's "Connect document loading, model-generated drafts, evidence checks, review, and
   reuse of saved approved answers. Local JSON files or SQLite are sufficient. Keep document text separate from
   application instructions."; the repository's clean-code rules (small single-purpose functions, explicit errors, no

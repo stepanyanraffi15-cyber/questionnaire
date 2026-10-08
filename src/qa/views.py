@@ -167,5 +167,5 @@ def reasons_text(reasons: list[dict]) -> str:
                 f"{r['doc_id']}: version {r['approved_version']} at approval, {r['current_version']} now"
             )
         else:
-            parts.append(f"{r['doc_id']}: {r['change']} since approval")
+            parts.append(f"{r['doc_id']}: {r['change'].replace('_', ' ')} since approval")
     return "; ".join(parts)

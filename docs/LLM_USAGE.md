@@ -22,7 +22,7 @@ judge uses the same model with its own prompt, `reference/judge_prompt.md`.
 | Answer key (`reference/expected.json`) | Drafted by Claude Code from the passages | A separate AI review agent re-derived every row from the passages; the author approved each row; `reference/test_grade.py` checks quotes, authority and arithmetic against the seed |
 | Application code (`src/qa/`) | Claude Code | One behaviour test per rule (`tests/`), ruff, and the independent grader on the full scenario |
 | Review page (`src/qa/ui.py`) | A Claude Code helper agent | Streamlit AppTest tests (render, approval survives a reload and is reused, guard message) |
-| Saved model responses (`runs/`) | Gemini, live, once | Two keyless replays reproduce `observed.json` byte for byte; the grader and judge read them |
+| Saved model responses (`runs/`) | Gemini, live: three runs (first run, then one per prompt fix) | Two keyless replays reproduce `observed.json` byte for byte; the grader and judge read them |
 
 ## One representative instruction
 
@@ -35,27 +35,42 @@ It became decision 035: code decides only mechanical facts (an ID exists, a quot
 per `supersedes`, a version changed); whether a passage supports a claim is decided by a recorded model call and the
 reviewer; word lists only raise hints.
 
-## Workflow example
+## Workflow example: one correction
 <a id="workflow-example"></a>
 
-**Instruction.** Plan the data additions the assignment's checks need, following `domain.md`.
+**The instruction.** The application's draft prompt (`prompts/draft_answer.md`) asked Gemini to answer each question
+from the passages, cite them with verbatim excerpts, and "answer only what is asked, in one or two short sentences".
 
-**What the AI produced.** A plan that added two invented refund documents ("Refunds can be requested within 14 days"
-and "… 30 days", the second newer and higher-versioned but without `supersedes`) and a new question Q9, to show a
-conflict that metadata does not resolve. It also graded answers with regular expressions.
+**What the model produced.** In the first recorded run, Q1 "Can free-plan users export CSV?" got "No, free-plan users
+cannot export CSV.", citing EXPORT-v2:p1 (`runs/recordings/draft-7d5bf79e9ed0f4b7.json`).
 
-**How it was checked.** An independent review agent re-derived the answer key from the passages. It showed the regex
-grading both passed wrong answers ("Team members can invite account owners." passed the Q6 check) and failed right
-ones ("9am to 5pm UTC"). The author read the plan against the brief and the seed.
+**How it was checked.** Every mechanical check passed: the citation exists, the excerpt is verbatim, EXPORT-v1:p1 is
+shown as replaced. The meaning check caught it. The recorded judge compared the answer with the answer key's plain-word
+facts and reported: `judge: missing ['CSV export is for paid plans only.']`. The supplied expected result is "No, paid
+plans only.", so the answer was correct but incomplete, and `docs/RESULTS.md` reported RC-3 (MIN-3) as FAIL. The key
+was not changed.
 
-**Correction.** The author rejected invented product facts: the main data stays exactly the supplied seed
-(decision 033), and the unresolved-conflict case moved into a test built from the supplied EXPORT pair with its
-`supersedes` link removed (decision 023). Regex grading was replaced by plain-word expected facts graded by a
-recorded judge plus the author's sign-off (decision 027).
+**The correction (decision 038).**
+1. *Attempt 1:* a prompt rule to "state that condition, not only yes or no". Re-recorded live once. Gemini answered
+   "No. Free-plan users cannot export CSV." again; its recorded basis shows why: the passage "directly states that
+   free-plan users cannot export CSV", so it did not see "paid plans only" as a condition on that answer. Still FAIL.
+2. *Attempt 2:* the rule was made concrete: "If a passage limits who or which plans something applies to, include
+   that limit in the answer, even when another sentence already answers yes or no", with a worked example and "never
+   add one it does not state". Re-recorded once more. Gemini answered "No. CSV exports are available on paid plans
+   only."; the judge found every expected fact and no forbidden claim, and the grader shows no FAIL.
 
-**Two later checks that caught real problems.**
-- The grader's first run against simulated output crashed (`KeyError: 'passage_id'`): it read passage IDs from every
-  list, including stale-reason lists. It now reads IDs only for the checks that need them.
-- In the real recorded run, Gemini answered Q1 "No, free-plan users cannot export CSV." The recorded judge found it
-  does not state the key's second fact, "CSV export is for paid plans only" (the seed's own answer is "No, paid plans
-  only."). This is reported as a FAIL in `docs/RESULTS.md`, not hidden; see the README for how it is being handled.
+All three runs' responses are kept in `runs/recordings/`. Lesson: the first fix described the goal in abstract words
+and the model reasonably read it differently; naming the exact pattern (a limit stated in another sentence) worked.
+Because the worked example uses the Q1 passage, this is weaker evidence for unseen questions.
+
+**An earlier correction, during planning.** The first AI-drafted plan invented two refund documents and a new
+question to show a conflict that metadata does not resolve, and graded answers with regular expressions. An
+independent review agent showed the regexes passed wrong answers ("Team members can invite account owners." passed
+the Q6 check) and failed right ones ("9am to 5pm UTC"). The author rejected invented product facts: the data stays
+the supplied seed (decision 033), the unresolved-conflict case became a test built from the EXPORT pair with its
+`supersedes` link removed (decision 023), and regex grading was replaced by a recorded judge plus the author's
+sign-off (decision 027).
+
+**A development bug caught by running the code.** The grader's first run against simulated output crashed
+(`KeyError: 'passage_id'`) because it read passage IDs from every list, including stale-reason lists. It now reads IDs
+only for the checks that need them.

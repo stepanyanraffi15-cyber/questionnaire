@@ -1,6 +1,6 @@
 # 010 · What counts as "a referenced document version changes"
 
-- Status: proposed
+- Status: accepted
 - Requirements: Rule 3 of `data/seed/domain.md` ("Mark an approved answer for review if a referenced document version
   changes."); the assignment brief's "If an approved answer’s source version changes, mark it for review before reuse;
   a simple version comparison is enough." and "Reloading preserves approval and evidence. Changing a referenced source

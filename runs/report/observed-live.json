@@ -33,10 +33,16 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage explicitly states that free-plan users cannot export CSV.",
-     "answer": "No, free-plan users cannot export CSV.",
+     "detail": "The cited passage directly confirms that free-plan users cannot export CSV and that CSV exports are only available on paid plans.",
+     "answer": "No. CSV exports are available on paid plans only.",
      "answer_source": "model",
      "citations": [
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 2,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
       {
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
@@ -52,22 +58,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "LIVE",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -99,9 +105,9 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -145,13 +151,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "3f6b1a4536f110a71b0b9eaeed1e856a257bc1d602b35d30a00c6a70cfca0013",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:08Z"
@@ -183,7 +189,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -199,22 +205,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "label": "REPLAYED",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -253,13 +259,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "73cff17da89726d7776d254eb400af2397d4301a60e64ce25dea07e1c2d23d42",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:22Z"
@@ -307,13 +313,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b8f4e93d86be0326b47b903c784bc30438f7b2ca10ef0e41601a2bbf69503c73",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:29Z"
@@ -361,13 +367,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:35Z"
@@ -415,13 +421,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "d0046d8d45216cc80ac00a4a2dc034860b0a041e5b61efe2c04ed1fa3dd8e109",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:42Z"
@@ -466,10 +472,16 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage explicitly states that free-plan users cannot export CSV.",
-     "answer": "No, free-plan users cannot export CSV.",
+     "detail": "The cited passage directly confirms that free-plan users cannot export CSV and that CSV exports are only available on paid plans.",
+     "answer": "No. CSV exports are available on paid plans only.",
      "answer_source": "model",
      "citations": [
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 2,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
       {
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
@@ -485,22 +497,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "LIVE",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -532,9 +544,9 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -578,13 +590,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "3f6b1a4536f110a71b0b9eaeed1e856a257bc1d602b35d30a00c6a70cfca0013",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:08Z"
@@ -616,7 +628,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -632,22 +644,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "label": "REPLAYED",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -686,13 +698,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "73cff17da89726d7776d254eb400af2397d4301a60e64ce25dea07e1c2d23d42",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:22Z"
@@ -740,13 +752,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b8f4e93d86be0326b47b903c784bc30438f7b2ca10ef0e41601a2bbf69503c73",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:29Z"
@@ -794,13 +806,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:35Z"
@@ -848,13 +860,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "d0046d8d45216cc80ac00a4a2dc034860b0a041e5b61efe2c04ed1fa3dd8e109",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:42Z"
@@ -906,10 +918,16 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage explicitly states that free-plan users cannot export CSV.",
-     "answer": "No, free-plan users cannot export CSV.",
+     "detail": "The cited passage directly confirms that free-plan users cannot export CSV and that CSV exports are only available on paid plans.",
+     "answer": "No. CSV exports are available on paid plans only.",
      "answer_source": "model",
      "citations": [
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 2,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
       {
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
@@ -925,22 +943,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "LIVE",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -972,9 +990,9 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -1018,13 +1036,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "3f6b1a4536f110a71b0b9eaeed1e856a257bc1d602b35d30a00c6a70cfca0013",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:08Z"
@@ -1056,7 +1074,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -1072,22 +1090,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "label": "REPLAYED",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -1126,13 +1144,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "73cff17da89726d7776d254eb400af2397d4301a60e64ce25dea07e1c2d23d42",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:22Z"
@@ -1180,13 +1198,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b8f4e93d86be0326b47b903c784bc30438f7b2ca10ef0e41601a2bbf69503c73",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:29Z"
@@ -1234,13 +1252,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:35Z"
@@ -1288,13 +1306,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "d0046d8d45216cc80ac00a4a2dc034860b0a041e5b61efe2c04ed1fa3dd8e109",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:42Z"
@@ -1325,10 +1343,16 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage explicitly states that free-plan users cannot export CSV.",
-     "answer": "No, free-plan users cannot export CSV.",
+     "detail": "The cited passage directly confirms that free-plan users cannot export CSV and that CSV exports are only available on paid plans.",
+     "answer": "No. CSV exports are available on paid plans only.",
      "answer_source": "model",
      "citations": [
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 2,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
       {
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
@@ -1344,22 +1368,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -1391,9 +1415,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -1437,9 +1461,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -1475,7 +1499,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -1491,22 +1515,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -1545,9 +1569,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -1599,9 +1623,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -1653,9 +1677,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -1707,9 +1731,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -1782,7 +1806,7 @@
       "calls": [
        {
         "call_type": "support",
-        "label": "LIVE",
+        "label": "REPLAYED",
         "fingerprint": "e2854a33cf6d84b99e8bddfe406c239d5b0dda3114bd7f3ea40bb14013385202",
         "model": "gemini-3.8-flash",
         "recorded_at": "2026-10-07T21:30:46Z"
@@ -1816,22 +1840,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "LIVE",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -1863,9 +1887,9 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -1909,13 +1933,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "3f6b1a4536f110a71b0b9eaeed1e856a257bc1d602b35d30a00c6a70cfca0013",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:08Z"
@@ -1947,7 +1971,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -1963,22 +1987,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "label": "REPLAYED",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -2017,13 +2041,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "73cff17da89726d7776d254eb400af2397d4301a60e64ce25dea07e1c2d23d42",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:22Z"
@@ -2071,13 +2095,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b8f4e93d86be0326b47b903c784bc30438f7b2ca10ef0e41601a2bbf69503c73",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:29Z"
@@ -2125,13 +2149,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:35Z"
@@ -2179,13 +2203,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "d0046d8d45216cc80ac00a4a2dc034860b0a041e5b61efe2c04ed1fa3dd8e109",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:42Z"
@@ -2216,10 +2240,16 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage explicitly states that free-plan users cannot export CSV.",
-     "answer": "No, free-plan users cannot export CSV.",
+     "detail": "The cited passage directly confirms that free-plan users cannot export CSV and that CSV exports are only available on paid plans.",
+     "answer": "No. CSV exports are available on paid plans only.",
      "answer_source": "model",
      "citations": [
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 2,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
       {
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
@@ -2235,22 +2265,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -2282,9 +2312,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -2328,9 +2358,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -2366,7 +2396,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -2382,22 +2412,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -2436,9 +2466,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -2490,9 +2520,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -2544,9 +2574,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -2598,9 +2628,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -2680,7 +2710,7 @@
       "calls": [
        {
         "call_type": "support",
-        "label": "LIVE",
+        "label": "REPLAYED",
         "fingerprint": "e2854a33cf6d84b99e8bddfe406c239d5b0dda3114bd7f3ea40bb14013385202",
         "model": "gemini-3.8-flash",
         "recorded_at": "2026-10-07T21:30:46Z"
@@ -2714,22 +2744,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "LIVE",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -2761,9 +2791,9 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -2807,13 +2837,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "3f6b1a4536f110a71b0b9eaeed1e856a257bc1d602b35d30a00c6a70cfca0013",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:08Z"
@@ -2845,7 +2875,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -2861,22 +2891,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "label": "REPLAYED",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -2915,13 +2945,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "73cff17da89726d7776d254eb400af2397d4301a60e64ce25dea07e1c2d23d42",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:22Z"
@@ -2969,13 +2999,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b8f4e93d86be0326b47b903c784bc30438f7b2ca10ef0e41601a2bbf69503c73",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:29Z"
@@ -3023,13 +3053,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:35Z"
@@ -3077,13 +3107,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "d0046d8d45216cc80ac00a4a2dc034860b0a041e5b61efe2c04ed1fa3dd8e109",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:42Z"
@@ -3114,10 +3144,16 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage explicitly states that free-plan users cannot export CSV.",
-     "answer": "No, free-plan users cannot export CSV.",
+     "detail": "The cited passage directly confirms that free-plan users cannot export CSV and that CSV exports are only available on paid plans.",
+     "answer": "No. CSV exports are available on paid plans only.",
      "answer_source": "model",
      "citations": [
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 2,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
       {
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
@@ -3133,22 +3169,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -3180,9 +3216,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -3226,9 +3262,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -3264,7 +3300,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -3280,22 +3316,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -3334,9 +3370,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -3388,9 +3424,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -3442,9 +3478,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -3496,9 +3532,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -3550,7 +3586,7 @@
       "calls": [
        {
         "call_type": "support",
-        "label": "LIVE",
+        "label": "REPLAYED",
         "fingerprint": "e2854a33cf6d84b99e8bddfe406c239d5b0dda3114bd7f3ea40bb14013385202",
         "model": "gemini-3.8-flash",
         "recorded_at": "2026-10-07T21:30:46Z"
@@ -3608,9 +3644,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -3654,9 +3690,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -3692,7 +3728,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -3708,22 +3744,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -3762,9 +3798,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -3816,9 +3852,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -3870,9 +3906,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -3924,9 +3960,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -4006,7 +4042,7 @@
       "calls": [
        {
         "call_type": "support",
-        "label": "LIVE",
+        "label": "REPLAYED",
         "fingerprint": "e2854a33cf6d84b99e8bddfe406c239d5b0dda3114bd7f3ea40bb14013385202",
         "model": "gemini-3.8-flash",
         "recorded_at": "2026-10-07T21:30:46Z"
@@ -4040,22 +4076,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "LIVE",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -4087,9 +4123,9 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -4133,13 +4169,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "3f6b1a4536f110a71b0b9eaeed1e856a257bc1d602b35d30a00c6a70cfca0013",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:08Z"
@@ -4171,7 +4207,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -4187,22 +4223,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "label": "REPLAYED",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -4241,13 +4277,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "73cff17da89726d7776d254eb400af2397d4301a60e64ce25dea07e1c2d23d42",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:22Z"
@@ -4295,13 +4331,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b8f4e93d86be0326b47b903c784bc30438f7b2ca10ef0e41601a2bbf69503c73",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:29Z"
@@ -4349,13 +4385,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:35Z"
@@ -4403,13 +4439,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "d0046d8d45216cc80ac00a4a2dc034860b0a041e5b61efe2c04ed1fa3dd8e109",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:42Z"
@@ -4440,10 +4476,16 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage explicitly states that free-plan users cannot export CSV.",
-     "answer": "No, free-plan users cannot export CSV.",
+     "detail": "The cited passage directly confirms that free-plan users cannot export CSV and that CSV exports are only available on paid plans.",
+     "answer": "No. CSV exports are available on paid plans only.",
      "answer_source": "model",
      "citations": [
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 2,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
       {
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
@@ -4459,22 +4501,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -4506,9 +4548,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -4552,9 +4594,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -4590,7 +4632,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -4606,22 +4648,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -4660,9 +4702,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -4714,9 +4756,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -4768,9 +4810,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -4822,9 +4864,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -4876,7 +4918,7 @@
       "calls": [
        {
         "call_type": "support",
-        "label": "LIVE",
+        "label": "REPLAYED",
         "fingerprint": "e2854a33cf6d84b99e8bddfe406c239d5b0dda3114bd7f3ea40bb14013385202",
         "model": "gemini-3.8-flash",
         "recorded_at": "2026-10-07T21:30:46Z"
@@ -4934,9 +4976,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -4980,9 +5022,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -5018,7 +5060,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -5034,22 +5076,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -5088,9 +5130,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -5142,9 +5184,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -5196,9 +5238,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -5250,9 +5292,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -5332,7 +5374,7 @@
       "calls": [
        {
         "call_type": "support",
-        "label": "LIVE",
+        "label": "REPLAYED",
         "fingerprint": "e2854a33cf6d84b99e8bddfe406c239d5b0dda3114bd7f3ea40bb14013385202",
         "model": "gemini-3.8-flash",
         "recorded_at": "2026-10-07T21:30:46Z"
@@ -5362,6 +5404,12 @@
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
        "version": 2,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 2,
        "excerpt": "Free-plan users cannot export CSV."
       }
      ],
@@ -5373,22 +5421,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "LIVE",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -5420,9 +5468,9 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -5466,13 +5514,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "3f6b1a4536f110a71b0b9eaeed1e856a257bc1d602b35d30a00c6a70cfca0013",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:08Z"
@@ -5504,7 +5552,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -5520,22 +5568,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "label": "REPLAYED",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -5574,13 +5622,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "73cff17da89726d7776d254eb400af2397d4301a60e64ce25dea07e1c2d23d42",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:22Z"
@@ -5628,13 +5676,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b8f4e93d86be0326b47b903c784bc30438f7b2ca10ef0e41601a2bbf69503c73",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:29Z"
@@ -5682,13 +5730,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:35Z"
@@ -5736,13 +5784,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "d0046d8d45216cc80ac00a4a2dc034860b0a041e5b61efe2c04ed1fa3dd8e109",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:42Z"
@@ -5773,10 +5821,16 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage explicitly states that free-plan users cannot export CSV.",
-     "answer": "No, free-plan users cannot export CSV.",
+     "detail": "The cited passage directly confirms that free-plan users cannot export CSV and that CSV exports are only available on paid plans.",
+     "answer": "No. CSV exports are available on paid plans only.",
      "answer_source": "model",
      "citations": [
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 2,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
       {
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
@@ -5792,22 +5846,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -5839,9 +5893,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -5885,9 +5939,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -5923,7 +5977,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -5939,22 +5993,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -5993,9 +6047,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -6047,9 +6101,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -6101,9 +6155,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -6155,9 +6209,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -6209,7 +6263,7 @@
       "calls": [
        {
         "call_type": "support",
-        "label": "LIVE",
+        "label": "REPLAYED",
         "fingerprint": "e2854a33cf6d84b99e8bddfe406c239d5b0dda3114bd7f3ea40bb14013385202",
         "model": "gemini-3.8-flash",
         "recorded_at": "2026-10-07T21:30:46Z"
@@ -6265,9 +6319,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -6311,9 +6365,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -6349,7 +6403,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -6365,22 +6419,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -6419,9 +6473,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -6473,9 +6527,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -6527,9 +6581,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -6581,9 +6635,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -6670,7 +6724,7 @@
       "calls": [
        {
         "call_type": "support",
-        "label": "LIVE",
+        "label": "REPLAYED",
         "fingerprint": "e2854a33cf6d84b99e8bddfe406c239d5b0dda3114bd7f3ea40bb14013385202",
         "model": "gemini-3.8-flash",
         "recorded_at": "2026-10-07T21:30:46Z"
@@ -6700,6 +6754,12 @@
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
        "version": 2,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 2,
        "excerpt": "Free-plan users cannot export CSV."
       }
      ],
@@ -6711,22 +6771,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "LIVE",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -6758,9 +6818,9 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -6804,13 +6864,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "3f6b1a4536f110a71b0b9eaeed1e856a257bc1d602b35d30a00c6a70cfca0013",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:08Z"
@@ -6842,7 +6902,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -6858,22 +6918,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "label": "REPLAYED",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -6912,13 +6972,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "73cff17da89726d7776d254eb400af2397d4301a60e64ce25dea07e1c2d23d42",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:22Z"
@@ -6966,13 +7026,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b8f4e93d86be0326b47b903c784bc30438f7b2ca10ef0e41601a2bbf69503c73",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:29Z"
@@ -7020,13 +7080,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:35Z"
@@ -7074,13 +7134,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "d0046d8d45216cc80ac00a4a2dc034860b0a041e5b61efe2c04ed1fa3dd8e109",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:42Z"
@@ -7111,10 +7171,16 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage explicitly states that free-plan users cannot export CSV.",
-     "answer": "No, free-plan users cannot export CSV.",
+     "detail": "The cited passage directly confirms that free-plan users cannot export CSV and that CSV exports are only available on paid plans.",
+     "answer": "No. CSV exports are available on paid plans only.",
      "answer_source": "model",
      "citations": [
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 2,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
       {
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
@@ -7130,22 +7196,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -7177,9 +7243,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -7223,9 +7289,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -7261,7 +7327,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -7277,22 +7343,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -7331,9 +7397,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -7385,9 +7451,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -7439,9 +7505,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -7493,9 +7559,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -7547,7 +7613,7 @@
       "calls": [
        {
         "call_type": "support",
-        "label": "LIVE",
+        "label": "REPLAYED",
         "fingerprint": "e2854a33cf6d84b99e8bddfe406c239d5b0dda3114bd7f3ea40bb14013385202",
         "model": "gemini-3.8-flash",
         "recorded_at": "2026-10-07T21:30:46Z"
@@ -7603,9 +7669,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -7649,9 +7715,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -7687,7 +7753,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -7703,22 +7769,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -7757,9 +7823,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -7811,9 +7877,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -7865,9 +7931,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -7919,9 +7985,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -7956,10 +8022,16 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage explicitly states that free-plan users cannot export CSV.",
-     "answer": "No, free-plan users cannot export CSV.",
+     "detail": "The cited passage directly confirms that free-plan users cannot export CSV and that CSV exports are only available on paid plans.",
+     "answer": "No. CSV exports are available on paid plans only.",
      "answer_source": "model",
      "citations": [
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 3,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
       {
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
@@ -7975,22 +8047,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -8022,9 +8094,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -8068,9 +8140,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -8106,7 +8178,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -8122,22 +8194,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -8176,9 +8248,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -8230,9 +8302,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -8284,9 +8356,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -8338,9 +8410,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -8427,7 +8499,7 @@
       "calls": [
        {
         "call_type": "support",
-        "label": "LIVE",
+        "label": "REPLAYED",
         "fingerprint": "e2854a33cf6d84b99e8bddfe406c239d5b0dda3114bd7f3ea40bb14013385202",
         "model": "gemini-3.8-flash",
         "recorded_at": "2026-10-07T21:30:46Z"
@@ -8457,6 +8529,12 @@
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
        "version": 2,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 2,
        "excerpt": "Free-plan users cannot export CSV."
       }
      ],
@@ -8468,22 +8546,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "LIVE",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -8515,9 +8593,9 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -8561,13 +8639,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "3f6b1a4536f110a71b0b9eaeed1e856a257bc1d602b35d30a00c6a70cfca0013",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:08Z"
@@ -8599,7 +8677,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -8615,22 +8693,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "label": "REPLAYED",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -8669,13 +8747,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "73cff17da89726d7776d254eb400af2397d4301a60e64ce25dea07e1c2d23d42",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:22Z"
@@ -8723,13 +8801,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b8f4e93d86be0326b47b903c784bc30438f7b2ca10ef0e41601a2bbf69503c73",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:29Z"
@@ -8777,13 +8855,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:35Z"
@@ -8831,13 +8909,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "d0046d8d45216cc80ac00a4a2dc034860b0a041e5b61efe2c04ed1fa3dd8e109",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:42Z"
@@ -8868,10 +8946,16 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage explicitly states that free-plan users cannot export CSV.",
-     "answer": "No, free-plan users cannot export CSV.",
+     "detail": "The cited passage directly confirms that free-plan users cannot export CSV and that CSV exports are only available on paid plans.",
+     "answer": "No. CSV exports are available on paid plans only.",
      "answer_source": "model",
      "citations": [
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 2,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
       {
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
@@ -8887,22 +8971,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -8934,9 +9018,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -8980,9 +9064,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -9018,7 +9102,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -9034,22 +9118,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -9088,9 +9172,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -9142,9 +9226,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -9196,9 +9280,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -9250,9 +9334,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -9304,7 +9388,7 @@
       "calls": [
        {
         "call_type": "support",
-        "label": "LIVE",
+        "label": "REPLAYED",
         "fingerprint": "e2854a33cf6d84b99e8bddfe406c239d5b0dda3114bd7f3ea40bb14013385202",
         "model": "gemini-3.8-flash",
         "recorded_at": "2026-10-07T21:30:46Z"
@@ -9360,9 +9444,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -9406,9 +9490,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -9444,7 +9528,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -9460,22 +9544,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -9514,9 +9598,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -9568,9 +9652,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -9622,9 +9706,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -9676,9 +9760,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -9713,10 +9797,16 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage explicitly states that free-plan users cannot export CSV.",
-     "answer": "No, free-plan users cannot export CSV.",
+     "detail": "The cited passage directly confirms that free-plan users cannot export CSV and that CSV exports are only available on paid plans.",
+     "answer": "No. CSV exports are available on paid plans only.",
      "answer_source": "model",
      "citations": [
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 3,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
       {
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
@@ -9732,22 +9822,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -9779,9 +9869,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -9825,9 +9915,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -9863,7 +9953,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -9879,22 +9969,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -9933,9 +10023,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -9987,9 +10077,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -10041,9 +10131,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -10095,9 +10185,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -10218,22 +10308,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "LIVE",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -10265,9 +10355,9 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -10311,13 +10401,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "3f6b1a4536f110a71b0b9eaeed1e856a257bc1d602b35d30a00c6a70cfca0013",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:08Z"
@@ -10349,7 +10439,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -10365,22 +10455,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "label": "REPLAYED",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -10419,13 +10509,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "73cff17da89726d7776d254eb400af2397d4301a60e64ce25dea07e1c2d23d42",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:22Z"
@@ -10473,13 +10563,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b8f4e93d86be0326b47b903c784bc30438f7b2ca10ef0e41601a2bbf69503c73",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:29Z"
@@ -10527,13 +10617,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:35Z"
@@ -10581,13 +10671,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "d0046d8d45216cc80ac00a4a2dc034860b0a041e5b61efe2c04ed1fa3dd8e109",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:42Z"
@@ -10618,10 +10708,16 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage explicitly states that free-plan users cannot export CSV.",
-     "answer": "No, free-plan users cannot export CSV.",
+     "detail": "The cited passage directly confirms that free-plan users cannot export CSV and that CSV exports are only available on paid plans.",
+     "answer": "No. CSV exports are available on paid plans only.",
      "answer_source": "model",
      "citations": [
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 2,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
       {
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
@@ -10637,22 +10733,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -10684,9 +10780,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -10730,9 +10826,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -10768,7 +10864,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -10784,22 +10880,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -10838,9 +10934,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -10892,9 +10988,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -10946,9 +11042,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -11000,9 +11096,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -11054,7 +11150,7 @@
       "calls": [
        {
         "call_type": "support",
-        "label": "LIVE",
+        "label": "REPLAYED",
         "fingerprint": "e2854a33cf6d84b99e8bddfe406c239d5b0dda3114bd7f3ea40bb14013385202",
         "model": "gemini-3.8-flash",
         "recorded_at": "2026-10-07T21:30:46Z"
@@ -11110,9 +11206,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -11156,9 +11252,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -11194,7 +11290,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -11210,22 +11306,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -11264,9 +11360,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -11318,9 +11414,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -11372,9 +11468,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -11426,9 +11522,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -11463,10 +11559,16 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage explicitly states that free-plan users cannot export CSV.",
-     "answer": "No, free-plan users cannot export CSV.",
+     "detail": "The cited passage directly confirms that free-plan users cannot export CSV and that CSV exports are only available on paid plans.",
+     "answer": "No. CSV exports are available on paid plans only.",
      "answer_source": "model",
      "citations": [
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 3,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
       {
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
@@ -11482,22 +11584,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -11529,9 +11631,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -11575,9 +11677,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -11613,7 +11715,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -11629,22 +11731,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -11683,9 +11785,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -11737,9 +11839,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -11791,9 +11893,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -11845,9 +11947,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -11975,22 +12077,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "LIVE",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -12022,9 +12124,9 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -12068,13 +12170,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "3f6b1a4536f110a71b0b9eaeed1e856a257bc1d602b35d30a00c6a70cfca0013",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:08Z"
@@ -12106,7 +12208,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -12122,22 +12224,22 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "label": "REPLAYED",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -12176,13 +12278,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "73cff17da89726d7776d254eb400af2397d4301a60e64ce25dea07e1c2d23d42",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:22Z"
@@ -12230,13 +12332,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b8f4e93d86be0326b47b903c784bc30438f7b2ca10ef0e41601a2bbf69503c73",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:29Z"
@@ -12284,13 +12386,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "b205357d81ddc20e7a5eadfa28e5b78385103f8c32502ef86b5dc23308f6513c",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:35Z"
@@ -12338,13 +12440,13 @@
       {
        "call_type": "draft",
        "label": "LIVE",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
-       "label": "LIVE",
+       "label": "REPLAYED",
        "fingerprint": "d0046d8d45216cc80ac00a4a2dc034860b0a041e5b61efe2c04ed1fa3dd8e109",
        "model": "gemini-3.8-flash",
        "recorded_at": "2026-10-07T21:30:42Z"
@@ -12375,10 +12477,16 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage explicitly states that free-plan users cannot export CSV.",
-     "answer": "No, free-plan users cannot export CSV.",
+     "detail": "The cited passage directly confirms that free-plan users cannot export CSV and that CSV exports are only available on paid plans.",
+     "answer": "No. CSV exports are available on paid plans only.",
      "answer_source": "model",
      "citations": [
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 2,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
       {
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
@@ -12394,22 +12502,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -12441,9 +12549,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -12487,9 +12595,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -12525,7 +12633,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -12541,22 +12649,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -12595,9 +12703,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -12649,9 +12757,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -12703,9 +12811,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -12757,9 +12865,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -12811,7 +12919,7 @@
       "calls": [
        {
         "call_type": "support",
-        "label": "LIVE",
+        "label": "REPLAYED",
         "fingerprint": "e2854a33cf6d84b99e8bddfe406c239d5b0dda3114bd7f3ea40bb14013385202",
         "model": "gemini-3.8-flash",
         "recorded_at": "2026-10-07T21:30:46Z"
@@ -12867,9 +12975,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -12913,9 +13021,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -12951,7 +13059,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -12967,22 +13075,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -13021,9 +13129,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -13075,9 +13183,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -13129,9 +13237,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -13183,9 +13291,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -13220,10 +13328,16 @@
      "note": null,
      "status": "answered",
      "reason": null,
-     "detail": "The cited passage explicitly states that free-plan users cannot export CSV.",
-     "answer": "No, free-plan users cannot export CSV.",
+     "detail": "The cited passage directly confirms that free-plan users cannot export CSV and that CSV exports are only available on paid plans.",
+     "answer": "No. CSV exports are available on paid plans only.",
      "answer_source": "model",
      "citations": [
+      {
+       "passage_id": "EXPORT-v2:p1",
+       "doc_id": "EXPORT-v2",
+       "version": 3,
+       "excerpt": "CSV exports are available on paid plans only."
+      },
       {
        "passage_id": "EXPORT-v2:p1",
        "doc_id": "EXPORT-v2",
@@ -13239,22 +13353,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "7d5bf79e9ed0f4b7ee423911a8b0f5247742485e2e599957775c6c0134745afe",
+       "fingerprint": "6ca64521e728946e3790b1434ad336165c093e6f66f561a90839b320af322b5e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:56Z"
+       "recorded_at": "2026-10-08T10:20:53Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "e75f808ac0a04da87e4a83922d39c269b7a390bfa10324b07b6fe0c5f6b345c9",
+       "fingerprint": "0fc3a65563f398783f02ac45b00b1999654ce4fc4ee0d424abfbf7393235e4d6",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:29:59Z"
+       "recorded_at": "2026-10-08T10:20:57Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, free-plan users cannot export CSV.",
+      "answer": "No. CSV exports are available on paid plans only.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -13286,9 +13400,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -13332,9 +13446,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -13370,7 +13484,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -13386,22 +13500,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -13440,9 +13554,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -13494,9 +13608,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -13548,9 +13662,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -13602,9 +13716,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",
@@ -13714,9 +13828,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "3cb0939bee4a42ae5e725d096ec74ccbd04979f614a968fdb2759e58c2f8c9f0",
+       "fingerprint": "1ab02aed2944250ce419e41ccffdd48d48a172e3b0297fc15a28527e78a8298f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:02Z"
+       "recorded_at": "2026-10-08T10:21:00Z"
       }
      ],
      "suggestion": {
@@ -13760,9 +13874,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "b02350152bf0325e9afd5d0b4af1a619d3cf8f1d0e362effed558c78fe025c11",
+       "fingerprint": "0a60aea2c2c4e7f95a6de83d8240809f8b0ad25ee88c63a3d527b2b67c951d50",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:04Z"
+       "recorded_at": "2026-10-08T10:21:04Z"
       },
       {
        "call_type": "support",
@@ -13798,7 +13912,7 @@
      "status": "answered",
      "reason": null,
      "detail": "The cited passage explicitly states that live chat is not offered.",
-     "answer": "No, live chat is not offered.",
+     "answer": "No. Live chat is not offered.",
      "answer_source": "model",
      "citations": [
       {
@@ -13814,22 +13928,22 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9fb31392ba64c512266a5049a447a42be20c5e24621dca4788c1f263ff7b287e",
+       "fingerprint": "1dd81a1cb4052a2120205595f59e37e74a190df7ed630cbf895de8f9398f8a3a",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:11Z"
+       "recorded_at": "2026-10-08T10:21:08Z"
       },
       {
        "call_type": "support",
        "label": "REPLAYED",
-       "fingerprint": "a6c87bbf5562e06fffd57c7fbf7b443aeb894782610021e3fe673a2617c2b74f",
+       "fingerprint": "320777c57647ad39e707dc01cdb9a8f0f008491f16c92b6f121427b81ff3d16e",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:15Z"
+       "recorded_at": "2026-10-08T05:46:03Z"
       }
      ],
      "suggestion": {
       "status": "answered",
       "reason": null,
-      "answer": "No, live chat is not offered.",
+      "answer": "No. Live chat is not offered.",
       "hints": [],
       "conflict_source": null,
       "contradictions_rejected": [],
@@ -13868,9 +13982,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "9adac0185abdffee2784aa415dc74e051a1b506dc2459546b40e99772197718e",
+       "fingerprint": "39acb3447c76c08db94a828533e4c136f7362b64e6a4df50b6cf3e14c4c9d210",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:19Z"
+       "recorded_at": "2026-10-08T10:21:11Z"
       },
       {
        "call_type": "support",
@@ -13922,9 +14036,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "041209ad40b0b7bb5c4f3b24ee93d69578a15164cb88eb6e7aecbcefa9d7def9",
+       "fingerprint": "a2b6cf5d3fcef57f4cd7796a0b66bd9cdf1d9cd35c0aff26770d30716338291d",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:26Z"
+       "recorded_at": "2026-10-08T10:21:15Z"
       },
       {
        "call_type": "support",
@@ -13976,9 +14090,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "ccec18b0bd727fa3bdc2ab573819bf5277e551706d20a364acc0ea5e63d4d6ac",
+       "fingerprint": "0ac36446c1dd26f09741c7405e85e30c806674f379ea870d2a83133defe144ae",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:33Z"
+       "recorded_at": "2026-10-08T10:21:19Z"
       },
       {
        "call_type": "support",
@@ -14030,9 +14144,9 @@
       {
        "call_type": "draft",
        "label": "REPLAYED",
-       "fingerprint": "e28e0ddbfb7cb585b7429d3798f0a253035a2df4916337a7e9afc311a0e578b7",
+       "fingerprint": "bbf492cb67d07d724369ca5348ddec50fdb39123706c2712dd1427016637368f",
        "model": "gemini-3.8-flash",
-       "recorded_at": "2026-10-07T21:30:39Z"
+       "recorded_at": "2026-10-08T10:21:24Z"
       },
       {
        "call_type": "support",

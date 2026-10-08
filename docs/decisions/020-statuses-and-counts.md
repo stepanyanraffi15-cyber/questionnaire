@@ -1,6 +1,6 @@
 # 020 · Item statuses are disjoint; counts are per request
 
-- Status: proposed
+- Status: accepted
 - Requirements: the assignment brief's "Create a questionnaire queue with status filters" and "Show answered,
   unresolved, and approved counts."; its note "The supplied expected values apply to the original seeds; recalculate
   them if added data changes a total." Ambiguity AMB-13.
@@ -24,6 +24,10 @@ approval) → approved if fresh, otherwise needs_review; (2) its latest processi
 than its latest suggestion or edit → unresolved; (4) the latest suggestion's status (answered or unresolved);
 (5) pending. Counts are shown per request as answered, unresolved, approved, then needs review, error, pending. Status
 and reason values and the counts are mechanical facts (decision 035).
+
+### As built (2026-10-08)
+
+There is no fifth status `pending`. An item with neither a suggestion nor an approval cannot arise from a processed request; if it ever did, it shows as `error` with reason `not_processed`. Counts are answered, unresolved, approved, needs_review and error.
 
 ## Consequences
 
