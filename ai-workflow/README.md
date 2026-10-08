@@ -88,9 +88,9 @@ redirect, `tee`, `rm`, `mv`, `sed -i` or `truncate` whose target is protected); 
 subtler is caught by git, because every protected file is tracked. Read the script before enabling it: it is about
 100 lines of standard-library Python.
 
-Earlier version: the first hook (commit `9f7f30d`) blocked any shell command that mentioned a protected path and
-contained a write-like word, which refused read-only commands such as `ls data/seed/ 2>&1`. Commit `5e42644`
-narrowed it and added the tests. `git show 9f7f30d:.claude/hooks/protect_paths.py` prints the first version.
+Earlier version: the first hook (commit `5584a09`) blocked any shell command that mentioned a protected path and
+contained a write-like word, which refused read-only commands such as `ls data/seed/ 2>&1`. Commit `1f6591f`
+narrowed it and added the tests. `git show 5584a09:.claude/hooks/protect_paths.py` prints the first version.
 
 ### Permissions in `.claude/settings.json`
 
@@ -133,11 +133,11 @@ CLAUDE.md, so the coding agent can never fix a failing check by editing the inpu
 | `.env` | Never read or write. |
 ```
 
-**First result and how it was checked.** The first hook (commit `9f7f30d`) treated any shell command that mentioned a
+**First result and how it was checked.** The first hook (commit `5584a09`) treated any shell command that mentioned a
 protected path and contained a write-like token as a write. During the planning review it blocked read-only
 commands, for example `ls data/seed/ 2>&1` (the `>` of `2>&1` looked like a redirect).
 
-**Correction.** Commit `5e42644` narrowed the hook to edits by path, shell writes whose *target* is protected, `.env`
+**Correction.** Commit `1f6591f` narrowed the hook to edits by path, shell writes whose *target* is protected, `.env`
 access and staging of local-only files, and added `tests/test_protect_paths_hook.py`. The tests pin both sides, for
 example:
 

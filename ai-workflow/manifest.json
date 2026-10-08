@@ -48,7 +48,7 @@
         ".claude/settings.json",
         "tests/test_protect_paths_hook.py"
       ],
-      "notes": "One PreToolUse hook (Edit, Write, MultiEdit, NotebookEdit, Bash, Read). Exit code 2 blocks the tool call. It keeps starter-pack/ and data/seed/ read-only, allows edits to reference/ only when the human starts the session with QA_ALLOW_REFERENCE_EDIT=1, blocks reading or writing .env, and blocks staging or force-adding local-only files. First version in commit 9f7f30d, narrowed in commit 5e42644."
+      "notes": "One PreToolUse hook (Edit, Write, MultiEdit, NotebookEdit, Bash, Read). Exit code 2 blocks the tool call. It keeps starter-pack/ and data/seed/ read-only, allows edits to reference/ only when the human starts the session with QA_ALLOW_REFERENCE_EDIT=1, blocks reading or writing .env, and blocks staging or force-adding local-only files. First version in commit 5584a09, narrowed in commit 1f6591f."
     },
     "prompts_and_rules": {
       "status": "used",
@@ -149,7 +149,7 @@
       "purpose": "Independent read-only check of the submission against the rules, requirements and answer key; reports findings, never edits.",
       "original_path_or_scope": ".claude/agents/verifier.md",
       "saved_path": ".claude/agents/verifier.md",
-      "version_or_commit": "9f7f30d (unchanged since)",
+      "version_or_commit": "5584a09 (unchanged since)",
       "used_during": "Final verification pass",
       "status": "used",
       "redactions": []
@@ -160,7 +160,7 @@
       "purpose": "Read-only research on one design question, written to docs/research/.",
       "original_path_or_scope": ".claude/agents/researcher.md",
       "saved_path": ".claude/agents/researcher.md",
-      "version_or_commit": "9f7f30d (unchanged since)",
+      "version_or_commit": "5584a09 (unchanged since)",
       "used_during": "Not used: the planning research was done by the main session and workflows (docs/research/ holds only the planning bibliography, no researcher notes)",
       "status": "not-used",
       "redactions": []
@@ -171,7 +171,7 @@
       "purpose": "Non-negotiables from the assignment, clean-code rules, protected paths and where files go; read by Claude Code at the start of every session.",
       "original_path_or_scope": "CLAUDE.md",
       "saved_path": "CLAUDE.md",
-      "version_or_commit": "9f7f30d (unchanged since)",
+      "version_or_commit": "5584a09 (unchanged since)",
       "used_during": "Whole exercise",
       "status": "used",
       "redactions": []
@@ -182,7 +182,7 @@
       "purpose": "Points AI coding tools other than Claude Code (for example Cursor) to CLAUDE.md and repeats the key rules.",
       "original_path_or_scope": "AGENTS.md",
       "saved_path": "AGENTS.md",
-      "version_or_commit": "9f7f30d (unchanged since)",
+      "version_or_commit": "5584a09 (unchanged since)",
       "used_during": "Not used: only Claude Code was used, and it reads CLAUDE.md",
       "status": "not-used",
       "redactions": []
@@ -219,7 +219,7 @@
       "purpose": "Starter-pack guidance for extending the fictional data under the supplied rules.",
       "original_path_or_scope": "starter-pack/skills/generate-assignment-data/SKILL.md, installed at .claude/skills/generate-assignment-data/SKILL.md",
       "saved_path": ".claude/skills/generate-assignment-data/SKILL.md",
-      "version_or_commit": "Starter pack 2026-10-02 (starter-pack/pack-version.json); identical to the starter-pack copy; commit 9f7f30d",
+      "version_or_commit": "Starter pack 2026-10-02 (starter-pack/pack-version.json); identical to the starter-pack copy; commit 5584a09",
       "used_during": "Used (checklist only): its checklist was followed when preparing the scenario inputs; no new documents were generated",
       "status": "used",
       "redactions": []
@@ -230,7 +230,7 @@
       "purpose": "Protections that must never depend on the agent's judgement: supplied inputs read-only, answer key locked unless the human unlocks it, .env never touched, local-only files never staged.",
       "original_path_or_scope": ".claude/hooks/protect_paths.py, registered in .claude/settings.json (PreToolUse)",
       "saved_path": ".claude/hooks/protect_paths.py",
-      "version_or_commit": "First version 9f7f30d; narrowed in 5e42644; the working tree adds only line wrapping",
+      "version_or_commit": "First version 5584a09; narrowed in 1f6591f; the working tree adds only line wrapping",
       "used_during": "Every Claude Code tool call from 2026-10-06 on",
       "status": "used",
       "redactions": []
@@ -241,7 +241,7 @@
       "purpose": "Pin down what the hook blocks and what it allows.",
       "original_path_or_scope": "tests/test_protect_paths_hook.py",
       "saved_path": "tests/test_protect_paths_hook.py",
-      "version_or_commit": "5e42644",
+      "version_or_commit": "1f6591f",
       "used_during": "Every test run (uv run pytest)",
       "status": "used",
       "redactions": []
@@ -252,7 +252,7 @@
       "purpose": "Registers the hook and holds the permission allow and deny lists.",
       "original_path_or_scope": ".claude/settings.json",
       "saved_path": ".claude/settings.json",
-      "version_or_commit": "9f7f30d (unchanged since)",
+      "version_or_commit": "5584a09 (unchanged since)",
       "used_during": "Whole exercise",
       "status": "used",
       "redactions": []
@@ -263,7 +263,7 @@
       "purpose": "Allow routine local commands (uv sync, tests, lint, the app CLI, read-only git) without a prompt; deny reading .env and .env.local.",
       "original_path_or_scope": ".claude/settings.json (permissions.allow, permissions.deny)",
       "saved_path": ".claude/settings.json",
-      "version_or_commit": "9f7f30d (unchanged since)",
+      "version_or_commit": "5584a09 (unchanged since)",
       "used_during": "Whole exercise",
       "status": "used",
       "redactions": []
@@ -329,7 +329,7 @@
       "purpose": "System prompt for drafting a cited answer from the passages, or marking the question unresolved.",
       "original_path_or_scope": "prompts/draft_answer.md",
       "saved_path": "prompts/draft_answer.md",
-      "version_or_commit": "sha256 963a1f695bcab035b5ecd24257de807c37958488641868c66fb79dc383e27f86 (current, rule 9 of decision 038); earlier versions: commit f97a52c (no rule 9) and the first rule-9 wording, both kept in runs/recordings/",
+      "version_or_commit": "sha256 963a1f695bcab035b5ecd24257de807c37958488641868c66fb79dc383e27f86 (current, rule 9 of decision 038); earlier versions: commit e6b9fee (no rule 9) and the first rule-9 wording, both kept in runs/recordings/",
       "used_during": "Three record runs (2026-10-07 21:29 UTC; 2026-10-08 05:45 and 10:20 UTC) and every replay",
       "status": "used",
       "redactions": []
@@ -362,7 +362,7 @@
       "purpose": "The four supplied rules the application and the answer key apply exactly.",
       "original_path_or_scope": "starter-pack/tasks/evidence/domain.md, copied to data/seed/domain.md",
       "saved_path": "data/seed/domain.md",
-      "version_or_commit": "Starter pack 2026-10-02; commit 9f7f30d (never edited)",
+      "version_or_commit": "Starter pack 2026-10-02; commit 5584a09 (never edited)",
       "used_during": "Whole exercise",
       "status": "used",
       "redactions": []

@@ -6,7 +6,7 @@
 
 ## Context
 
-In the first recorded run (commit f97a52c), Gemini answered Q1 "Can free-plan users export CSV?" with "No, free-plan
+In the first recorded run (commit e6b9fee), Gemini answered Q1 "Can free-plan users export CSV?" with "No, free-plan
 users cannot export CSV." (`runs/recordings/draft-7d5bf79e9ed0f4b7.json`). Every mechanical check passed: it cited
 EXPORT-v2:p1, the excerpt was verbatim and EXPORT-v1:p1 was shown as replaced. The recorded judge found that the
 answer does not state the key's second expected fact, "CSV export is for paid plans only", which the supplied expected
@@ -46,5 +46,5 @@ Option 3. Two attempts, both recorded:
 
 ## Evidence
 
-- `docs/RESULTS.md` at commit f97a52c (RC-3 meaning FAIL) and now (no FAIL).
+- `docs/RESULTS.md` at commit e6b9fee (RC-3 meaning FAIL) and now (no FAIL).
 - `uv run qa inspect S1 R1/Q1` shows the current request and response.
