@@ -73,3 +73,9 @@ Option 2.
 - `data/seed/domain.md:16`, `:18`.
 - `data/seed/seed.json` (five documents, eight questions, four owners).
 - `data/seed/expected-seed-results.json:21`, `:25` (the `approval-reuse` and `source-change` steps).
+
+## Update (decision 037)
+
+The lean build did not create `tests/fixtures/` or `data/changes/drill-exports-owner.json`. The same rules are tested
+with small inline variants of the seed in `tests/`, and the unresolved conflict (FX-1) is one of those inline tests.
+The rest of this decision stands: nothing was added to the main data.

@@ -178,9 +178,7 @@ def passages_column(view: dict, dataset: Dataset) -> None:
     for passage_id in view["conflicts_shown"]:
         st.error(f"Conflicting passage {passage_id}: {passage_text(dataset, passage_id)}")
     for passage_id in view["replaced_shown"]:
-        with st.container(border=True):
-            st.caption(SUPERSEDED_LABEL)
-            st.markdown(f"**{passage_id}**: {passage_text(dataset, passage_id)}")
+        st.warning(f"{SUPERSEDED_LABEL}  \n**{passage_id}**: {passage_text(dataset, passage_id)}")
 
 
 def passage_text(dataset: Dataset, passage_id: str) -> str:
@@ -234,12 +232,15 @@ def prefill_text(view: dict) -> str:
 
 
 def default_sources(state: dict, view: dict) -> list[str]:
+    """Passage IDs to preselect, each once (two excerpts can come from the same passage)."""
     if view["approval"]:
-        return [s["passage_id"] for s in view["approval"]["sources"]]
-    if view["stale_approval_shown"]:
+        ids = [s["passage_id"] for s in view["approval"]["sources"]]
+    elif view["stale_approval_shown"]:
         stale = next(a for a in state["approvals"] if a["id"] == view["stale_approval_shown"])
-        return [s["passage_id"] for s in stale["sources"]]
-    return [c["passage_id"] for c in view["citations"]]
+        ids = [s["passage_id"] for s in stale["sources"]]
+    else:
+        ids = [c["passage_id"] for c in view["citations"]]
+    return list(dict.fromkeys(ids))
 
 
 def run_action(state: dict, dataset: Dataset, item: str, action: str) -> None:

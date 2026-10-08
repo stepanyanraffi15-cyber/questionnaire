@@ -48,3 +48,8 @@ Option 3. Two attempts, both recorded:
 
 - `docs/RESULTS.md` at commit 38d5577 (RC-3 meaning FAIL) and now (no FAIL).
 - `uv run qa inspect S1 R1/Q1` shows the current request and response.
+
+## Update (sign-off)
+
+The meaning checks, RC-3 included, were later signed off in `reference/signoff.json`; the run now grades 115 PASS,
+0 FAIL, 0 PENDING.

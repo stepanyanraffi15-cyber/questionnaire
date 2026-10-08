@@ -11,6 +11,20 @@ This workspace drafts an answer for each question from the documents, shows exac
 leaves the question open when the documents don't say, and sends it to the right person. When a reviewer approves an
 answer, it is reused the next time the same question comes in, until the document behind it changes.
 
+## Quick look (5 minutes)
+
+No API key needed.
+
+```bash
+uv sync --locked
+uv run streamlit run src/qa/ui.py                      # click "New request", then look at Q1, Q2 and Q3
+uv run qa report && uv run python reference/grade.py   # replay the saved run and grade it: 115 PASS
+```
+
+Then, if you want more: [docs/RESULTS.md](docs/RESULTS.md) for every check,
+[decision 038](docs/decisions/038-state-the-deciding-condition.md) for the one real failure and how it was fixed, and
+[prompts/](prompts/) for the two prompts. Everything else is detail.
+
 ## What it looks like
 
 **A normal answer.** Q3 is answered from the support document. The quote on the right is copied word for word from
@@ -24,7 +38,7 @@ It leaves the question open and routes it to the Product reviewer.
 ![Q2 left unresolved and routed to the Product reviewer](docs/images/q2-unresolved.png)
 
 **An old document.** EXPORT-v1 said CSV export is on every plan. EXPORT-v2 replaced it and says paid plans only. The
-answer uses the new one, and the old text is still shown in a grey box so a reviewer can see what changed. The
+answer uses the new one, and the old text is still shown in a yellow warning box so a reviewer can see what changed. The
 revision history below it tells the whole story of this answer: drafted, edited, approved, marked for review when
 the document changed, approved again.
 

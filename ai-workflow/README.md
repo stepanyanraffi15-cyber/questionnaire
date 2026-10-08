@@ -43,7 +43,9 @@ Saved real responses:
 - `runs/recordings/*.json`: 35 application calls from three record runs (2026-10-07 21:29 UTC, then 2026-10-08
   05:45 and 10:20 UTC, one per prompt fix of decision 038); replay uses the latest. Each file stores the provider, model, thinking level, prompt file and its
   SHA-256, the full request (system text, user text, schema), the response and the recording time.
-- `runs/judge/verdicts.json`: 7 judge verdicts, recorded 2026-10-07 21:31–21:32 UTC.
+- `runs/judge/verdicts.json`: 10 judge verdicts, recorded 2026-10-07 21:31 to 2026-10-08 10:21 UTC: one for each of
+  the 7 meaning checks on the final answers, plus 3 on earlier Q1 and Q4 answers from before the prompt fixes of
+  decision 038. The grader uses the verdict that matches the answer it is grading.
 
 The prompt hashes stored in the recordings match the current prompt files (`7388b8c1…` for the draft prompt,
 `bfbecc28…` for the support-check prompt).
@@ -168,7 +170,8 @@ uv sync --locked && uv run qa report && uv run python reference/grade.py
 
 Checked on 2026-10-08 in a clean copy of the repository with no API key in the environment: the report ran and its
 output was byte-identical to the committed `runs/report/observed.json`, and the grader reproduced the committed
-`docs/RESULTS.md` (108 PASS, 0 FAIL, 7 PENDING the author's sign-off; exit code 3). The first run's Q1 FAIL and
+`docs/RESULTS.md` (115 PASS, 0 FAIL, 0 PENDING; exit code 0). Before the 7 meaning checks were signed off in
+`reference/signoff.json`, the same run showed 108 PASS and 7 PENDING (exit code 3). The first run's Q1 FAIL and
 its fix are described in `docs/LLM_USAGE.md`.
 
 To record new responses (live calls, needs a key in a local `.env`): `QA_MODE=record uv run qa report`, then
