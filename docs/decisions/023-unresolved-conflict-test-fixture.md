@@ -51,3 +51,8 @@ Option 4, plus one variant:
 
 - `data/seed/domain.md:6`, `:16`.
 - `data/seed/seed.json:3-28` (the EXPORT pair: texts, dates, versions, statuses and the one supersedes edge).
+
+## Update (decision 037)
+
+The lean build did not create `tests/fixtures/`. The same unresolved conflict (EXPORT-v2 without its `supersedes` link) is tested with a small inline variant of the seed in
+`tests/`.

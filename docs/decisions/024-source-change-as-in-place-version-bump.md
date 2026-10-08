@@ -58,3 +58,8 @@ EXPORT-v3 that supersedes EXPORT-v2, with the text unchanged.
 - `data/seed/expected-seed-results.json:25` (row `source-change`).
 - `data/seed/seed.json:16-28` (EXPORT-v2).
 - `data/seed/seed.json:111-116` (owner map: Product reviewer, Support reviewer, Billing reviewer).
+
+## Update (decision 037)
+
+The owner-map drill file `data/changes/drill-exports-owner.json` was not built. Changing `owners` in a copy of
+the seed shows the same routing. The version-bump change file is built and used by the scenario.

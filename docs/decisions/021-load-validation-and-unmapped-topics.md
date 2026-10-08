@@ -56,3 +56,8 @@ Built codes: `duplicate_document_id`, `duplicate_passage_id`, `duplicate_questio
 
 - `data/seed/seed.json:111-116` (owner map).
 - `data/seed/seed.json:21` (the only supersedes edge).
+
+## Update (decision 037)
+
+The lean build did not create `tests/fixtures/`. The same invalid-data handling is tested with a small inline variant of the seed in
+`tests/`.
