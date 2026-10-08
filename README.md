@@ -1,159 +1,238 @@
 # Questionnaire Evidence & Review Workspace
 
-Take-home assignment, Alternative C. A local workspace that drafts cited answers to buyer questionnaire questions from
-fictional product documents, checks the evidence, routes unresolved questions to the right reviewer, and reuses only
-answers a person has approved.
+My take-home for Provectus, Alternative C.
 
-## Setup and run
+A sales team gets the same buyer questions again and again: "Can free-plan users export CSV?", "Is live chat
+offered?", "Who can download invoices?". The answers are somewhere in the product documents, but some documents are
+old, some questions have no answer at all, and once someone fixes an answer by hand, nobody wants to fix it again
+next week.
 
-Requires [uv](https://docs.astral.sh/uv/); Python 3.12 is pinned (`.python-version`) and installed by uv.
+This workspace drafts an answer for each question from the documents, shows exactly which sentence it came from,
+leaves the question open when the documents don't say, and sends it to the right person. When a reviewer approves an
+answer, it is reused the next time the same question comes in, until the document behind it changes.
+
+## What it looks like
+
+**A normal answer.** Q3 is answered from the support document. The quote on the right is copied word for word from
+the passage, and the "Checks and raw draft" panel shows what code checked and what the model said.
+
+![Q3 answered with a verbatim quote and the checks panel](docs/images/q3-answered.png)
+
+**A question the documents don't answer.** Nothing says whether JSON export exists. The tool does not guess "no".
+It leaves the question open and routes it to the Product reviewer.
+
+![Q2 left unresolved and routed to the Product reviewer](docs/images/q2-unresolved.png)
+
+**An old document.** EXPORT-v1 said CSV export is on every plan. EXPORT-v2 replaced it and says paid plans only. The
+answer uses the new one, and the old text is still shown in a grey box so a reviewer can see what changed. The
+revision history below it tells the whole story of this answer: drafted, edited, approved, marked for review when
+the document changed, approved again.
+
+![Q1 approved, with the replaced text and the revision history](docs/images/q1-approved-history.png)
+
+**When a source changes.** After EXPORT-v2 moves from version 2 to version 3, the old approval is no longer trusted.
+It stays marked "needs review" until a person looks at it again, even if the version later changes back.
+
+![Q1 approval marked as needing review after a version change](docs/images/q1-needs-review.png)
+
+All four screens come from the saved scenario run, in replay mode, with no API key.
+
+## How one question goes through it
+
+```mermaid
+flowchart TD
+    Q[Buyer question] --> R{Approved answer for this exact question,<br/>with its sources unchanged?}
+    R -- yes --> U[Reuse it. No model call.]
+    R -- no --> D[Gemini drafts from current passages only:<br/>answer, passage IDs, word-for-word quotes]
+    D --> C[Code checks: the IDs exist, the quotes are exact,<br/>the passage has not been replaced]
+    C --> S[Second Gemini call: do the cited passages<br/>really say everything the answer says?]
+    S -- yes --> A[answered]
+    S -- no, or nothing found, or a conflict --> O[unresolved, sent to the topic owner]
+    A --> V[Reviewer edits, approves, or leaves a note]
+    O --> V
+    V --> F[(state/workspace.json)]
+    X[A document version changes] --> N[Approvals that used it: needs review]
+```
+
+The split I cared about most is who decides what. Code decides only plain facts that a computer can check without
+understanding the text: which document replaced which (from the `supersedes` field), whether a cited ID exists,
+whether a quote really appears in the passage, whether a version number changed, who owns a topic, and whether two
+questions are exactly the same. Anything that needs understanding, like "does this passage actually support this
+answer?", is left to the model and then to a person. I did not want a list of keywords pretending to read. There is
+a small word list ("only", "every", "always"...) but it only shows a hint to the reviewer and never decides anything.
+
+The documents are also treated as data, never as instructions. The prompts hold the rules, and the passages are sent
+separately as JSON. Replaced passages are never sent to the model. The model has no tools, so it cannot approve,
+reuse, or route anything by itself. Only the reviewer's clicks do that.
+
+## Run it
+
+You need [uv](https://docs.astral.sh/uv/). Python 3.12 is pinned and uv installs it.
 
 ```bash
 uv sync --locked
 uv run streamlit run src/qa/ui.py      # the review workspace (replay mode, no API key needed)
-uv run qa report                       # replay the scripted scenario S1–S11 -> runs/report/observed.json
+uv run qa report                       # replay the scripted scenario S1-S11 -> runs/report/observed.json
 uv run python reference/grade.py       # grade it against the answer key -> docs/RESULTS.md
-uv run pytest                          # tests (offline; the network is blocked in tests)
+uv run pytest                          # offline tests (network is blocked in tests)
 uv run qa check-data                   # load the data and list any reference problems
-uv run qa export R1                    # print a workspace request (made in the UI) as a completed questionnaire
-uv run qa inspect S1 R1/Q1             # one item with the saved request and raw model response behind it
+uv run qa export R1                    # print a request as a finished questionnaire
+uv run qa inspect S1 R1/Q1             # one item, with the saved request and raw model response behind it
 ```
 
-**Making new model calls.** Copy `.env.example` to `.env` and set `GOOGLE_API_KEY`, then run with `QA_MODE=record`
-(for example `QA_MODE=record uv run qa report`). Record mode replays any request that already has a saved response
-and calls Gemini only for new ones, saving each response under `runs/recordings/`. `uv run python reference/judge.py`
-records the grader's judge verdicts the same way.
+A short guided click-through is in [docs/WALKTHROUGH.md](docs/WALKTHROUGH.md).
 
-## Replaying saved real responses without an API key
+**No API key needed to try it.** Every real Gemini response was saved together with its request, prompt, settings
+and token counts. Replay is the default. It never reads `.env` and never creates a model client, so the reviewer sees
+the same answers I saw. If a request has no saved response, the item shows a clear `no_recording` error instead of
+quietly calling the model. Labels on screen tell you where each answer came from: **LIVE**, **REPLAYED**,
+**REUSED APPROVAL** (no model call), or **SIMULATED** (only in tests).
 
-Replay is the default (`QA_MODE=replay`). Every real response was saved with its request, prompt file, model settings
-and token usage, keyed by a fingerprint of the exact request. Replay never builds the provider client and never reads
-`.env`. A request with no saved response becomes a visible `no_recording` error. Two keyless replays reproduce
-`runs/report/observed.json` byte for byte. Labels: **LIVE** (a new call), **REPLAYED** (a saved real response),
-**REUSED APPROVAL** (no model call), and **SIMULATED** (hand-written replies, used only in tests).
-`runs/report/observed-live.json` is the latest recording run, with the calls that were live labelled LIVE.
-`runs/recordings/` also keeps the responses of the earlier runs (before the prompt fix of decision 038).
+**Making new calls.** Copy `.env.example` to `.env`, set `GOOGLE_API_KEY`, and run with `QA_MODE=record`, for example
+`QA_MODE=record uv run qa report`. Saved responses are replayed and only new requests go to Gemini.
 
-## Architecture
+## What the output looks like
 
+`uv run qa export R1` turns a request into a finished questionnaire with its evidence:
+
+```markdown
+# Questionnaire R1
+
+Counts: answered 6, unresolved 1, approved 1, needs_review 0, error 0
+
+**Q1. Can free-plan users export CSV?**
+
+No. CSV export is for paid plans only; free-plan users cannot export CSV.
+
+- Evidence: EXPORT-v2:p1 (version 3): "Free-plan users cannot export CSV."
+- Approved by Product reviewer at 2026-10-08T09:09:00Z (supported)
+- Replaced text kept for reviewers: EXPORT-v1:p1
+
+**Q4. Is live chat offered?**
+
+No. Live chat is not offered.
+
+- Evidence: SUPPORT-v1:p1 (version 1): "Live chat is not offered."
+- Model draft, not yet approved
 ```
-data/seed/seed.json (+ data/changes/*.json) -> dataset: load, validate IDs, authority from supersedes
-request (Q1–Q8) -> review.process_request, per question:
-   newest approval for the exact question text, not stale? -> reuse it (no model call)
-   else drafting.draft_item: Gemini draft (JSON: answer, citations, excerpts)
-        -> code checks: cited IDs exist, passage is current, excerpt verbatim
-        -> recorded Gemini support check: does the cited text support every claim?
-        -> status answered / unresolved (with reason) / error; owner from the topic map
-reviewer (ui.py): edit, approve (guard + support check + version snapshot), leave unresolved with a note
-state/workspace.json (append-only records) <-> ui.py;  version change -> sticky "needs review" mark
-scenario.py -> runs/report/observed.json -> reference/grade.py (independent) -> docs/RESULTS.md
-```
 
-Modules are listed in decision 032. **Who decides what (decision 035):** code decides only mechanical facts: which
-documents are current (from `supersedes`), whether a cited ID exists, whether an excerpt is verbatim, whether a
-version changed, the owner, exact question matching, statuses and counts. Meaning is decided by recorded model
-reasoning (the draft and the support check) and by the reviewer; a strengthening-word list ("only", "every", …) is
-shown as a hint and never decides.
+## Did it work?
 
-**Documents are data, not instructions.** The prompts hold only instructions; passages are sent as a JSON data
-message. Only current passages are sent, and dates, versions and status are not sent at all. The model has no tools,
-so approval, reuse and routing happen only through code paths the reviewer triggers.
-
-## Model configuration
-
-Gemini `gemini-3.8-flash` (checked as stable on Google's model list on 2026-10-08), thinking level medium, default
-temperature, top-p and top-k, 3 retries, 60 s timeout: `config/models.toml`. Prompts: `prompts/draft_answer.md`,
-`prompts/check_support.md`; the grader's judge prompt: `reference/judge_prompt.md`. Model access: the author's own
-Gemini API key. No access was arranged with the hiring team, and none is claimed. All live calls so far (three
-recording runs, decision 038) used about 20.2k input, 2.6k output and 5.8k thinking tokens over 35 application calls,
-plus 10 judge calls (3.8k input, 1.9k output, 1.8k thinking): well under one US dollar.
-
-## Data and assumptions
-
-The data is the supplied seed, unchanged; nothing was added (decision 033). Beside it: the scripted reviewer input
-for the scenario and one change file that bumps EXPORT-v2 from version 2 to 3. How and why: `data/GENERATION.md`.
-
-Ambiguity decisions (full records in `docs/decisions/`):
-
-| Question | Decision |
-|---|---|
-| `status: superseded` vs the `supersedes` field | Only `supersedes` gives or removes authority; a disagreeing status is a warning (001, 034) |
-| A newer date or higher version without `supersedes` | Grants no authority; disagreeing current passages stay unresolved for review (002) |
-| A documented "not offered" vs no documentation | "Live chat is not offered." answers Q4 "No"; silence is unknown (005) |
-| "can" vs "only" | Answers are never stronger than the passage; the support check decides, the word list only hints (006) |
-| What to cite when a passage holds two facts | Passage ID plus one verbatim sentence (008) |
-| What counts as a version change | The document's `version` differs from the approved one, or it is now replaced or missing (010) |
-| A version that changes back | The mark stays until a person re-approves (011) |
-| Exact question matching | Same text after Unicode NFC and whitespace collapse; case and wording must match (014) |
-| "Asked again" | A later request of the same questionnaire; earlier items never change (015) |
-| What blocks an approval | Mechanical problems block; a failed or unavailable support check needs a note and is stored as an override (016) |
-| Who approves | A free-text approver is recorded; there is no login (019) |
-| Statuses and counts | answered, unresolved, approved, needs_review, error; disjoint per request (020) |
-| Bad references in the data | Reported with the ID, the item left out, the rest loads; no default owner (021) |
-| Scope | Only what the assignment requires, plus export and revision history (037) |
-
-## Reference cases and check results
-
-The answer key (`reference/expected.json`) has five reference cases, one per minimum check, plus extra rows. It was
-derived from the passages and metadata, drafted with AI assistance, checked by a separate AI review agent, approved
-by the author, and never taken from application output (`reference/README.md`). Results from the recorded run
-(`docs/RESULTS.md`):
+The answer key (`reference/expected.json`) was made from the documents before the application existed, so it could
+not copy the app's output. It was drafted with AI help, checked by a separate review agent, and approved row by row by
+me ([reference/README.md](reference/README.md)). It has five reference cases, one per minimum check in the brief, plus extra rows for
+the other questions. A separate grader (`reference/grade.py`) replays the scripted scenario and compares. It uses only
+the Python standard library and imports nothing from the app.
 
 | Check | Result |
 |---|---|
-| MIN-1 Q3 answered from SUPPORT-v1:p1, excerpt verbatim | Mechanical PASS; meaning PENDING (judge PASS, awaiting the author's sign-off) |
-| MIN-2 Q2 unresolved, Product reviewer, no invented answer | PASS |
-| MIN-3 Q1 cites EXPORT-v2:p1 and shows EXPORT-v1:p1 as replaced | Mechanical PASS; meaning PENDING (judge PASS after the prompt fix below) |
-| MIN-4 approved correction reused; unapproved edits not reused | PASS |
-| MIN-5 reload keeps state; version change → needs review | PASS |
+| MIN-1: Q3 answered from SUPPORT-v1:p1, quote is word for word | PASS |
+| MIN-2: Q2 left open, routed to the Product reviewer, nothing made up | PASS |
+| MIN-3: Q1 cites EXPORT-v2:p1 and shows EXPORT-v1:p1 as replaced | PASS |
+| MIN-4: an approved correction is reused; an unapproved edit is not | PASS |
+| MIN-5: a reload keeps everything; a version change means "needs review" | PASS |
 | Counts at every step | PASS |
+| **All rows** | **115 PASS, 0 FAIL, 0 PENDING** |
 
-**The failure that was fixed.** In the first recorded run Gemini answered Q1 "No, free-plan users cannot export
-CSV.": correct, but without the passage's limit "paid plans only", which the key (and the seed's own answer "No, paid
-plans only.") expects. The recorded judge caught it and the grader reported FAIL; the key was not changed. A prompt
-rule asking for the passage's limit fixed it on the second attempt (decision 038, `docs/LLM_USAGE.md`): Q1 now reads
-"No. CSV exports are available on paid plans only." Overall: 108 PASS, 0 FAIL, 7 meaning rows awaiting the author's
-sign-off.
+Full table: [docs/RESULTS.md](docs/RESULTS.md).
 
-Small fixed sets like this are limited evidence of how the system behaves on other data.
+Plain checks (statuses, IDs, quotes, counts) are graded by code. The seven rows about meaning ("does this answer say
+the right thing?") are graded by a recorded Gemini judge and then signed off by a person in
+`reference/signoff.json`. A judge PASS alone only counts as PENDING. The meaning review was done by Claude at my
+request, against the passages, and the sign-offs say so.
+
+**The one real failure.** In the first live run, Gemini answered Q1 with "No, free-plan users cannot export CSV."
+That is true, but it drops the limit the document actually states: paid plans only. The judge caught it, and the
+grader failed it. I did not touch the key. I changed the drafting prompt instead: first a soft rule, which did not
+help, then a clear rule with a worked example, which did. Q1 now reads "No. CSV exports are available on paid plans
+only." The story is in [decision 038](docs/decisions/038-state-the-deciding-condition.md) and
+[docs/LLM_USAGE.md](docs/LLM_USAGE.md).
+
+Eight questions and five documents are a tiny test. 115 passing rows show that the rules work on this data, not that
+the system is accurate in general.
+
+## Papers behind the design
+
+I read around before building. These are the ones whose ideas actually ended up in the code. The full reading list is
+in [docs/research/README.md](docs/research/README.md).
+
+| Idea in this project | Where it comes from |
+|---|---|
+| Every answer carries a passage ID and a word-for-word quote, so a person can check it in seconds | Gao et al., *Enabling Large Language Models to Generate Text with Citations* (ALCE), EMNLP 2023. [link](https://aclanthology.org/2023.emnlp-main.398.pdf) |
+| A correct answer with a citation is not proof the citation was used. So the support check asks whether the cited text says everything the answer says, not whether the answer is true | Wallat et al., *Correctness is not Faithfulness in RAG Attributions*, ICTIR 2025. [link](https://staff.fnwi.uva.nl/m.derijke/wp-content/papercite-data/pdf/wallat-2025-correctness.pdf) |
+| A separate step checks each claim against the cited passages | Tang, Laban, Durrett, *MiniCheck*, EMNLP 2024. [link](https://aclanthology.org/2024.emnlp-main.499/) |
+| When the documents don't answer, the right output is "I don't know" and a handoff, not a guess | Wen et al., *Know Your Limits: A Survey of Abstention in LLMs*, TACL 2025 [link](https://aclanthology.org/2025.tacl-1.26/); Song et al., *Trust-Align*, ICLR 2025 [link](https://arxiv.org/abs/2409.11242) |
+| Models often follow whatever context they are given, even when it is wrong, so replaced passages are never sent to the model | Wu, Wu, Zou, *ClashEval*, NeurIPS 2024 [link](https://arxiv.org/abs/2404.10198) |
+| Conflicts between sources are shown to the reviewer, not hidden by quietly picking one | Xu et al., *Knowledge Conflicts for LLMs: A Survey*, EMNLP 2024 [link](https://arxiv.org/abs/2403.08319); Cattan et al., *DRAGged into Conflicts*, 2025 [link](https://arxiv.org/abs/2506.08500) |
+| Documents go in a separate JSON data message, marked as content and never instructions | Hines et al., *Defending Against Indirect Prompt Injection Attacks With Spotlighting*, 2024. [link](https://arxiv.org/abs/2403.14720) |
+| The model has no tools. Approving, reusing and routing happen only in code the reviewer triggers | Beurer-Kellner et al., *Design Patterns for Securing LLM Agents against Prompt Injections*, 2025. [link](https://arxiv.org/abs/2506.08837) |
+| Strict JSON output can hurt reasoning, so the JSON has a `basis` field the model fills in first | Tam et al., *Let Me Speak Freely?*, EMNLP 2024 Industry. [link](https://aclanthology.org/2024.emnlp-industry.91/) |
+| Reusing an answer for a question that only looks similar can return the wrong answer. Making that safe takes real work, so I reuse only on an exact text match | *vCache: Verified Semantic Prompt Caching*, 2025. [link](https://arxiv.org/abs/2502.03771) |
+| An LLM judge needs a human check of its verdicts, so meaning rows need a sign-off | Shankar et al., *Who Validates the Validators?*, UIST 2024. [link](https://arxiv.org/abs/2404.12272) |
+| A small test set is weak evidence, which is why I don't claim an accuracy number | Miller, *Adding Error Bars to Evals*, 2024. [link](https://arxiv.org/abs/2411.00640) |
+
+## The judgement calls
+
+The brief and the data leave some things open. Each choice has a short record in [docs/decisions/](docs/decisions/).
+The main ones:
+
+| Question | What I decided |
+|---|---|
+| A document says `status: superseded` but nothing points to it in `supersedes` | Only `supersedes` decides which document wins. The status alone is shown as a warning (001, 034) |
+| A newer date or higher version, but no `supersedes` link | That doesn't make it win. Disagreeing passages stay open for review (002) |
+| "Live chat is not offered" vs no mention at all | The first is a real "No". Silence is unknown (005) |
+| "can" vs "only" | An answer is never stronger than its passage. The support check decides, the word list only hints (006) |
+| What to cite when a passage holds two facts | The passage ID plus the one sentence that matters, copied exactly (008) |
+| What counts as a source change | The document's version differs from the one approved, or it was replaced or removed (010) |
+| A version that changes back | The "needs review" mark stays until a person approves again (011) |
+| What counts as the same question | Same text after normal whitespace and Unicode cleanup. Different wording is a different question (014) |
+| What stops an approval | Broken IDs or quotes block it. A failed support check needs a written note and is saved as an override (016) |
+| Who approves | A name is recorded. There is no login (019) |
+| Adding data | I added nothing to the seed. The only extra files are the scenario steps and one version bump for EXPORT-v2 (033) |
+
+## Model and cost
+
+Gemini `gemini-3.8-flash`, thinking level medium, default sampling, 3 retries, 60 second timeout
+(`config/models.toml`). Two prompts: [prompts/draft_answer.md](prompts/draft_answer.md) and
+[prompts/check_support.md](prompts/check_support.md). The grader's judge has its own:
+[reference/judge_prompt.md](reference/judge_prompt.md).
+
+I used my own Gemini API key. All live calls so far (three recording runs) came to about 20.2k input, 2.6k output and
+5.8k thinking tokens over 35 calls, plus 10 judge calls. That is well under one US dollar.
+
+## What it doesn't do yet
+
+- The judge is the same model family as the drafter, so it may like similar wording. The human sign-off is the
+  final say. A judge from another model family would be better.
+- The supplied data has no conflict that metadata can't resolve, so that case is shown only in a test.
+- No question needs facts from two documents, so combining sources isn't shown.
+- If a document's text changes but its version number doesn't, approvals are not marked. The rule in the brief
+  talks about versions only (010, 012).
+- In replay mode, a reviewer's own new wording has no saved support check. Approving it needs a note and is saved
+  as an override. In record mode the check runs live.
+- Two browser tabs saving at the same time: the last one wins. The file never gets corrupted.
+- Next things I would do: a cross-family judge, several live runs to measure how stable the answers are, and
+  suggesting an approved answer for a reworded question (shown for review, never reused automatically).
 
 ## Time spent
 
 To be filled in by the author.
 
-## Known limitations
-
-- The judge is the same model family as the drafter, so it may favour similar wording; the author's sign-off is the
-  final say on meaning.
-- A conflict that metadata does not resolve is shown only in a test, because the supplied seed has none.
-- No question needs facts from two documents, so synthesis across documents is not demonstrated.
-- A text change without a version change, or a new contradicting document, does not mark an approval for review
-  (the rule names version changes only; decisions 010, 012).
-- In replay mode, a reviewer's own new wording has no saved support check, so approving it needs a note and is
-  labelled an override; in record mode the check runs live.
-- Code checks that a contradiction's quotes are real, but cannot judge whether it is about the same question.
-- Two browser tabs writing at once: the last write wins (the file is never corrupted).
-
-## Requirement IDs used in code and records
-
-Docstrings and decision records cite the assignment's requirements by short IDs: **RULE-1…4** are the four rules
-in `data/seed/domain.md`; **MIN-1…5** the minimum checks; **REQ-D1/D2** data processing, **REQ-A1/A2/A3** drafting,
-conflicts and counts/reuse, **REQ-U1/U2** the workspace, **REQ-T1/T2** technical implementation; **REF-2** expected
-results kept apart from application output; **GEN-2** saved real responses and replay; **HIRE-2** simple local
-storage; **OPT-1** export and **OPT-3** revision history. Decision records also carry the ambiguity numbers used
-during planning (AMB-1…36); each record restates its question in full, so the number is only a cross-reference.
-
-## Repository map
+## Where things are
 
 | Path | What |
 |---|---|
-| `src/qa/` | The application (modules in decision 032) |
+| `src/qa/` | The application (module list in decision 032) |
 | `prompts/`, `config/models.toml` | Model instructions and settings |
-| `data/seed/` | Supplied seed, unchanged (protected); `data/scenario/`, `data/changes/` are the added inputs |
-| `reference/` | Answer key, grader, judge prompt, sign-offs (protected) |
-| `runs/` | Saved real model responses, judge verdicts, the observed report |
-| `docs/` | Decisions, results table, LLM usage note, walkthrough, research notes |
+| `data/seed/` | The supplied data, unchanged. `data/scenario/` and `data/changes/` are the only additions |
+| `reference/` | Answer key, grader, judge prompt, sign-offs |
+| `runs/` | Saved real model responses, judge verdicts, the scenario report |
+| `docs/` | Decisions, results, LLM usage note, walkthrough, reading list, screenshots |
 | `tests/` | Offline tests, one per rule or requirement |
-| `ai-workflow/` | AI configuration record |
-| `.claude/`, `CLAUDE.md`, `AGENTS.md` | Assistant settings, protect-paths hook, subagents, starter-pack skill |
-| `starter-pack/` | Supplied material, unchanged (protected) |
+| `ai-workflow/`, `.claude/`, `CLAUDE.md`, `AGENTS.md` | How I set up and used the coding assistant |
+| `starter-pack/` | Supplied material, unchanged |
+
+Code comments and decision records point back to the brief with short IDs: RULE-1 to RULE-4 are the four rules in
+`data/seed/domain.md`, MIN-1 to MIN-5 the minimum checks, and REQ-, GEN-, HIRE- and OPT- IDs the other requirements in
+the brief. AMB numbers in decision records are cross-references from planning. Each record states its question in
+full.

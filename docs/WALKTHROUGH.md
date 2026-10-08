@@ -40,7 +40,7 @@ override; the scripted wording above was checked live and replays.
 ## What the checks show
 
 `uv run qa report && uv run python reference/grade.py` replays the scripted scenario (S1–S11) and grades it against
-the hand-made key: every mechanical check and count passes, and the meaning checks await the author's sign-off. The
+the hand-made key: all 115 rows pass, including the seven meaning checks, which were reviewed against their passages and signed off. The
 first real run's Q1 answer failed a meaning check (it said "No" without "paid plans only"); a prompt fix corrected it
 (decision 038). See `docs/RESULTS.md` and `docs/LLM_USAGE.md`.
 
