@@ -37,7 +37,7 @@ STATUS_COLOURS = {
 SUPERSEDED_LABEL = "Superseded text — replaced via the supersedes field; not used as evidence"
 QUESTIONNAIRES = {
     "Seed questionnaire (Q1–Q8)": ("workspace", None),
-    "Extended questionnaire (X1–X26, added data)": (EXTENDED_WORKSPACE, EXTENDED_ADDITIONS),
+    "Extended questionnaire (X1–X35, added data)": (EXTENDED_WORKSPACE, EXTENDED_ADDITIONS),
 }
 
 
@@ -233,13 +233,18 @@ def retrieval_steps(suggestion: dict) -> None:
     retrieval = suggestion["retrieval"]
     labels = ", ".join(retrieval["embedding_labels"])
     st.write(f"Step 1 · retrieval for the question (top {retrieval['top_k']}, embeddings {labels}):")
-    st.table(retrieval["hits"])
+    st.table([{**hit, "bm25_rank": _rank(hit["bm25_rank"])} for hit in retrieval["hits"]])
     for number, step in enumerate(suggestion.get("steps") or [], start=2):
         if step["action"] == "search_passages":
             new = ", ".join(step["new"]) or "nothing new"
             st.write(f"Step {number} · model called search_passages({step['query']!r}) → found {new}")
         else:
             st.write(f"Step {number} · model answered ({step['status']})")
+
+
+def _rank(rank: int | None) -> str:
+    """A passage with no shared keyword has no BM25 rank; show a dash rather than an empty float column."""
+    return "—" if rank is None else str(rank)
 
 
 def review_actions(state: dict, dataset: Dataset, view: dict) -> None:

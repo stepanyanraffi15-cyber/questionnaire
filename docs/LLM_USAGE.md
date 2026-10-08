@@ -28,7 +28,7 @@ judge uses the same model with its own prompt, `reference/judge_prompt.md`.
 | Added data (`data/additions/`, `data/scenario/extended-demo.json`) | Claude Code, following the starter pack's `generate-assignment-data` skill, at the author's request | Code checks (`tests/test_extended_data.py`, `qa check-data`); the key's quotes and authority are checked against it |
 | Extended answer key (`reference/expected.json`, `extended`) | Claude Code, from the passages, before the app ran on them | A separate agent re-derived every row blind (no app code or output); it agreed on every status, gold passage and count; its extra forbidden claims were added (decision 042) |
 | Retrieval and the search loop (`src/qa/retrieval.py`, `drafting.py`) | Claude Code | `tests/test_retrieval.py`, `tests/test_search_loop.py` with SIMULATED replies and embeddings |
-| Saved model responses and embeddings (`runs/`) | Gemini, live: five runs (first run, one per prompt fix, one for retrieval and the added data) | Two keyless replays reproduce both observed files byte for byte; the grader and judge read them |
+| Saved model responses and embeddings (`runs/`) | Gemini, live: six runs (first run, one per prompt fix, one for retrieval and the added data, one after the review fixes) | Two keyless replays reproduce both observed files byte for byte; the grader and judge read them |
 
 ## One representative instruction
 
@@ -86,9 +86,14 @@ sign-off (decision 027).
 (`KeyError: 'passage_id'`) because it read passage IDs from every list, including stale-reason lists. It now reads IDs
 only for the checks that need them.
 
-**A failure left as it is: X4.** After retrieval was added, the live run answered X4 "How many rows can a single CSV
-export contain?" with "A single CSV export can contain up to 50,000 rows. CSV exports are available on paid plans
+**A second correction: X4, after retrieval.** The first live run with retrieval answered X4 "How many rows can a single
+CSV export contain?" with "A single CSV export can contain up to 50,000 rows. CSV exports are available on paid plans
 only.", citing EXPORT-LIMITS-v2:p1 and EXPORT-v2:p1. Both are true and quoted exactly, but the second sentence was not
-asked for, and the key allows only the first passage, so the grader reports FAIL. It is most likely prompt rule 9 (the
-Q1 fix above) applied where it does not belong. The key was not changed, and the prompt was not tuned again in this
-round; it is listed as a limitation.
+asked for, and the key allows only the first passage, so the grader reported FAIL. The cause was prompt rule 9 (the
+Q1 fix above) applied to a passage that did not answer the question. A review asked for rule 9 to cover only "the
+passage that answers the question", with rule 8 ("answer only what is asked") winning. After that change and one
+re-recording, X4 reads "A single CSV export can contain up to 50,000 rows." and passes; the key was not touched, and
+Q1 still keeps its "paid plans only" limit (decision 038, update).
+
+**Sign-offs.** Every meaning row is signed by the author, or it stays PENDING. Earlier sign-offs that Claude Code had
+written on the author's behalf were removed at the author's request; none is written by an agent.

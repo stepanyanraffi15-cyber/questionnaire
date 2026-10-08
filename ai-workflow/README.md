@@ -42,17 +42,18 @@ its own prompt `reference/judge_prompt.md`. The grader imports nothing from the 
 
 Saved real responses:
 
-- `runs/recordings/*.json`: 117 application calls from five record runs (2026-10-07 21:29 UTC, three on 2026-10-08
-  for the prompt changes of decision 038, and one on 2026-10-08 12:02-12:08 UTC for retrieval and the added data);
+- `runs/recordings/*.json`: 211 application calls from six record runs (2026-10-07 21:29 UTC, three on 2026-10-08
+  for the prompt changes of decision 038, one at 12:02-12:08 UTC for retrieval and the added data, and one at
+  13:21-13:29 UTC after the review fixes of decisions 040-043);
   replay uses the latest. Each file stores the provider, model, thinking level, prompt file and its SHA-256, the full
   request (system text, user text, schema), the response and the recording time.
-- `runs/recordings/embed-*.json`: 81 embeddings (31 passages and 50 queries), one file per text, with model, size,
+- `runs/recordings/embed-*.json`: 117 embeddings (42 passages and 75 queries), one file per text, with model, size,
   task type, text and vector.
-- `runs/judge/verdicts.json`: 26 judge verdicts, recorded 2026-10-07 and 2026-10-08: one for each distinct answer
+- `runs/judge/verdicts.json`: 36 judge verdicts, recorded 2026-10-07 and 2026-10-08: one for each distinct answer
   graded, including earlier Q1, Q4 and Q7 answers from before the prompt changes of decision 038, and 15 for the
-  extended questionnaire. The grader uses the verdict that matches the answer it is grading.
+  extended questionnaire (25 of them). The grader uses the verdict that matches the answer it is grading.
 
-The prompt hashes stored in the latest recordings match the current prompt files (`eebbb28b…` for the draft prompt,
+The prompt hashes stored in the latest recordings match the current prompt files (`efcbca62…` for the draft prompt,
 `4d7a101f…` for the support-check prompt).
 
 ## Configuration files
@@ -175,9 +176,10 @@ uv sync --locked && uv run qa report && uv run python reference/grade.py
   3: no FAIL but something PENDING; 2: the grader crashed.
 
 Checked on 2026-10-08 with no API key in the environment: two replays gave byte-identical `observed.json` and
-`observed-extended.json`, and the grader reproduced `docs/RESULTS.md`: seed 115 PASS; extended 144 PASS, 1 FAIL
-(X4), 15 PENDING (meaning rows await the author's sign-off); exit code 1. The first run's Q1 FAIL and its fix, and
-the X4 FAIL, are described in `docs/LLM_USAGE.md`.
+`observed-extended.json`, and the grader reproduced `docs/RESULTS.md`: 295 PASS, 0 FAIL, 28 PENDING (every meaning
+row waits for the author's own sign-off), exit code 3. A test (`tests/test_scenario.py`) replays both scenarios from
+the committed recordings and compares them with the committed reports. The Q1 and X4 failures and their fixes are
+described in `docs/LLM_USAGE.md`.
 
 To record new responses (live calls, needs a key in a local `.env`): `QA_MODE=record uv run qa report`, then
 `uv run python reference/judge.py` for missing verdicts. Any change to a prompt, schema or model setting changes the

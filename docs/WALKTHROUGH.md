@@ -39,22 +39,24 @@ override; the scripted wording above was checked live and replays.
 
 ## The extended questionnaire
 
-Switch the sidebar to "Extended questionnaire (X1–X26, added data)" and press New request. This workspace has its own
+Switch the sidebar to "Extended questionnaire (X1–X35, added data)" and press New request. This workspace has its own
 state file, so the seed counts above do not change. Look at:
 
 - X5: two current documents disagree (7 vs 30 days) and the newer one supersedes nothing, so it stays unresolved
   with both passages shown.
-- X4: EXPORT-LIMITS-v2 replaces v1; the old 10,000-row text is shown as replaced. This is also the one FAIL: the
-  answer adds a true but unasked sentence about paid plans.
+- X4: EXPORT-LIMITS-v2 replaces v1; the old 10,000-row text is shown as replaced. (Before rule 9 was scoped, this
+  answer added an unasked sentence about paid plans; decision 038.)
+- X35: BILLING-RETRY-v2 replaces v1 although v2 has the older date; X34: two separator documents disagree and the
+  newer "-v2" one does not win, because it supersedes nothing.
 - X9: open "Checks and raw draft". Step 1 is the hybrid retrieval for the question; steps 2 and 3 are the model's own
   `search_passages` calls; it still leaves the question open, because French is never mentioned.
 
 ## What the checks show
 
 `uv run qa report && uv run python reference/grade.py` replays both scripted scenarios (seed S1–S11, extended S1–S5)
-and grades them against the hand-made key, with retrieval recall@k per row. Code grades the plain checks; the 22
-meaning checks (7 seed, 15 extended) count only once the author has compared each answer with its passage and signed
-it off in `reference/signoff.json`. The
+and grades them against the hand-made key, with retrieval recall@k per row. Code grades the plain checks; the 28
+meaning checks (7 seed, 21 extended) count only once the author has compared each answer with its passage and signed
+it off in `reference/signoff.json`; until then they are PENDING and the grader exits 3. The
 first real run's Q1 answer failed a meaning check (it said "No" without "paid plans only"); a prompt fix corrected it
 (decision 038). See `docs/RESULTS.md` and `docs/LLM_USAGE.md`.
 

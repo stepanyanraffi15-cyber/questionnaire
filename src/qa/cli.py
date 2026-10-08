@@ -6,14 +6,13 @@ import argparse
 import json
 import os
 import sys
-import tempfile
 from pathlib import Path
 
 from qa.dataset import ROOT, load_dataset
 from qa.export import export_markdown
-from qa.llm import RECORDINGS_DIR, load_settings, make_client
+from qa.llm import RECORDINGS_DIR, make_client
 from qa.review import workspace_dataset
-from qa.scenario import EXTENDED_SCENARIO_PATH, SCENARIO_PATH, run_scenario
+from qa.scenario import EXTENDED_SCENARIO_PATH, SCENARIO_PATH, build_report
 from qa.store import EXTENDED_ADDITIONS, EXTENDED_WORKSPACE, load_state, state_path
 
 OBSERVED_PATH = ROOT / "runs" / "report" / "observed.json"
@@ -51,15 +50,7 @@ def _report(args) -> int:
 
 
 def _run_one(client, mode: str, scenario: Path, out: Path) -> None:
-    settings = load_settings()
-    with tempfile.TemporaryDirectory() as tmp:
-        observed = run_scenario(client, Path(tmp) / "workspace.json", scenario)
-    model = {
-        "provider": settings.provider,
-        "model": settings.model,
-        "embedding_model": settings.embedding_model,
-    }
-    observed = {"mode": mode, "model": model, **observed}
+    observed = build_report(client, scenario, mode)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(observed, indent=1, ensure_ascii=False) + "\n")
     print(observed["scenario"])

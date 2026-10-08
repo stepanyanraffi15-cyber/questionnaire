@@ -69,3 +69,49 @@ def test_a_passage_the_model_was_never_shown_cannot_be_cited():
 def test_search_passages_is_the_only_tool():
     actions = typing.get_args(DraftOutput.model_fields["action"].annotation)
     assert set(actions) == {"search_passages", "answer"}
+
+
+def test_a_contradicting_passage_outside_the_top_k_still_makes_a_conflict():
+    dataset = load_dataset(additions_path=EXTENDED)
+    answer = "After 14 days without a customer reply."
+    outside = {
+        "passage_id": "SUPPORT-TRAINING-v1:p1",
+        "answer_claim": "14 days",
+        "passage_quote": "Onboarding webinars are held on the first Tuesday of each month.",
+    }
+    client = SimulatedClient(
+        drafts={X12: _answer("SUPPORT-TICKETS-v1:p1", TICKETS)}, contradictions={answer: [outside]}
+    )
+    suggestion = draft_item(_x12(dataset), dataset, client)
+    assert "SUPPORT-TRAINING-v1:p1" not in suggestion["shown"]
+    others = {p["id"] for p in client.requests[-1]["other_passages"]}
+    assert others == dataset.current_passage_ids - {"SUPPORT-TICKETS-v1:p1"}
+    assert (suggestion["status"], suggestion["reason"]) == ("unresolved", "conflict")
+    assert suggestion["conflicts"] == ["SUPPORT-TICKETS-v1:p1", "SUPPORT-TRAINING-v1:p1"]
+
+
+def test_conflicts_and_contradictions_naming_passages_the_model_never_saw_are_rejected():
+    dataset = load_dataset(additions_path=EXTENDED)
+    unseen_pair = [{"passage_ids": ["SUPPORT-TICKETS-v1:p1", "SUPPORT-TRAINING-v1:p1"], "basis": "simulated"}]
+    draft = {**_answer("SUPPORT-TICKETS-v1:p1", TICKETS), "status": "unresolved", "conflicts": unseen_pair}
+    suggestion = draft_item(_x12(dataset), dataset, SimulatedClient(drafts={X12: draft}))
+    assert (suggestion["reason"], suggestion["conflicts"]) == ("undocumented", [])
+    replaced = {
+        "passage_id": "BILLING-REFUND-v1:p1",
+        "answer_claim": "14 days",
+        "passage_quote": "Refunds can be requested within 14 days of a payment.",
+    }
+    answer = "After 14 days without a customer reply."
+    client = SimulatedClient(
+        drafts={X12: _answer("SUPPORT-TICKETS-v1:p1", TICKETS)}, contradictions={answer: [replaced]}
+    )
+    suggestion = draft_item(_x12(dataset), dataset, client)
+    assert suggestion["status"] == "answered" and suggestion["contradictions_rejected"] == [replaced]
+
+
+def test_no_search_is_offered_once_every_current_passage_was_shown():
+    dataset = load_dataset()
+    q2 = next(q for q in dataset.questions if q.id == "Q2")
+    client = SimulatedClient()
+    draft_item(q2, dataset, client)
+    assert client.requests[0]["searches_left"] == 0

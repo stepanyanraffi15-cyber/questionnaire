@@ -18,6 +18,17 @@ from qa.dataset import ROOT, Dataset, Passage
 from qa.llm import ModelCallError, ModelClient
 
 SETTINGS_PATH = ROOT / "config" / "retrieval.toml"
+# Common words that match almost every passage ("do", "the", "can") and would let BM25 rank on noise.
+STOPWORDS = frozenset(
+    "a an and are as at be by can do does for from how in is it its of on or the their they this to was what "
+    "when where which who will with".split()
+)
+
+
+class RetrievalError(ModelCallError):
+    """Retrieval could not run (no current passages, or unusable embeddings); `reason` becomes the item's
+    visible error reason, like a failed model call.
+    """
 
 
 @dataclass(frozen=True)
@@ -34,12 +45,18 @@ def load_retrieval_settings(path: Path = SETTINGS_PATH) -> RetrievalSettings:
 
 
 def tokens(text: str) -> list[str]:
-    """Lower-case words and numbers; no stemming, so the keyword side stays easy to explain."""
-    return re.findall(r"[a-z0-9]+", text.lower())
+    """Lower-case words and numbers minus stopwords; no stemming, so the keyword side is easy to explain."""
+    return [word for word in re.findall(r"[a-z0-9]+", text.lower()) if word not in STOPWORDS]
 
 
 def bm25_ranking(query: str, passages: list[Passage], k1: float, b: float) -> list[str]:
-    """Passage IDs that share at least one word with the query, best first (Okapi BM25)."""
+    """Passage IDs that share at least one word with the query, best first."""
+    scores = bm25_scores(query, passages, k1, b)
+    return sorted(scores, key=lambda pid: (-scores[pid], pid))
+
+
+def bm25_scores(query: str, passages: list[Passage], k1: float, b: float) -> dict[str, float]:
+    """Okapi BM25 with the non-negative IDF log(1 + (N - df + 0.5) / (df + 0.5)); only scores above 0."""
     docs = {p.id: tokens(p.text) for p in passages}
     average = sum(len(words) for words in docs.values()) / len(docs)
     frequency = Counter(word for words in docs.values() for word in set(words))
@@ -53,7 +70,7 @@ def bm25_ranking(query: str, passages: list[Passage], k1: float, b: float) -> li
             score += idf * counts[word] * (k1 + 1) / (counts[word] + norm)
         if score > 0:
             scores[passage_id] = score
-    return sorted(scores, key=lambda pid: (-scores[pid], pid))
+    return scores
 
 
 def dense_ranking(query: list[float], vectors: dict[str, list[float]]) -> list[str]:
@@ -79,8 +96,11 @@ def search(query: str, dataset: Dataset, client: ModelClient, settings: Retrieva
     if not query.strip():
         raise ModelCallError("invalid_model_output", "A search needs a non-empty query")
     passages = dataset.authoritative_passages()
+    if not passages:
+        raise RetrievalError("no_passages", "There is no current passage to search")
     documents = client.embed([p.text for p in passages], "RETRIEVAL_DOCUMENT")
     question = client.embed([query], "RETRIEVAL_QUERY")[0]
+    _check_vectors([question.vector] + [e.vector for e in documents])
     keyword = bm25_ranking(query, passages, settings.bm25_k1, settings.bm25_b)
     vectors = {p.id: e.vector for p, e in zip(passages, documents, strict=True)}
     dense = dense_ranking(question.vector, vectors)
@@ -96,11 +116,29 @@ def search(query: str, dataset: Dataset, client: ModelClient, settings: Retrieva
         for pid in top
     ]
     labels = sorted({e.label for e in documents} | {question.label})
-    return {"query": query, "top_k": settings.top_k, "hits": hits, "embedding_labels": labels}
+    return {
+        "query": query,
+        "top_k": settings.top_k,
+        "hits": hits,
+        "bm25_top": keyword[: settings.top_k],
+        "dense_top": dense[: settings.top_k],
+        "embedding_labels": labels,
+    }
 
 
 def hit_ids(result: dict) -> list[str]:
     return [hit["passage_id"] for hit in result["hits"]]
+
+
+def _check_vectors(vectors: list[list[float]]) -> None:
+    """Every vector must have the query's length, finite values and a non-zero length, or cosine is
+    meaningless; a bad one is a visible error, never a silent ranking.
+    """
+    size = len(vectors[0])
+    for vector in vectors:
+        finite = all(math.isfinite(x) for x in vector)
+        if len(vector) != size or not finite or not any(vector):
+            raise RetrievalError("invalid_embedding", "An embedding is empty, the wrong size or not finite")
 
 
 def _cosine(a: list[float], b: list[float]) -> float:

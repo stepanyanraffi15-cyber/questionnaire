@@ -29,6 +29,7 @@ ROOT = Path(__file__).resolve().parents[1]
 EXPECTED = ROOT / "reference" / "expected.json"
 OBSERVED = ROOT / "runs" / "report" / "observed.json"
 EXTENDED_OBSERVED = ROOT / "runs" / "report" / "observed-extended.json"
+METHODS = ("bm25", "dense", "hybrid", "shown")
 VERDICTS = ROOT / "runs" / "judge" / "verdicts.json"
 SIGNOFF = ROOT / "reference" / "signoff.json"
 RESULTS = ROOT / "docs" / "RESULTS.md"
@@ -185,10 +186,11 @@ def _count_rows(expected: dict, steps: dict) -> list[dict]:
 
 
 def recall(case: dict, steps: dict) -> dict | None:
-    """Recall of the row's gold passages, at the row's first checked item; None for rows with no gold field.
+    """Recall of the row's gold passages at the row's first checked item; None for rows with no gold field.
 
-    `at_k` counts the first retrieval for the question; `shown` adds what the model's own searches found.
-    Both are None when the row has no gold passage (an undocumented question) or the item was not drafted.
+    `bm25`, `dense` and `hybrid` are the shares of gold passages in each method's top k for the question;
+    `shown` adds what the model's own searches found. All are None when the row has no gold passage (an
+    undocumented question) or the item was not drafted.
     """
     if "gold_passages" not in case:
         return None
@@ -196,18 +198,23 @@ def recall(case: dict, steps: dict) -> dict | None:
     view = steps[first["step"]]["items"].get(first["item"]) or {}
     retrieval = (view.get("suggestion") or {}).get("retrieval")
     gold = set(case["gold_passages"])
+    found = {"item": f"{first['step']} {first['item']}", "gold": sorted(gold)}
     if not gold or not retrieval:
-        return {"item": f"{first['step']} {first['item']}", "gold": sorted(gold), "at_k": None, "shown": None}
-    top = [hit["passage_id"] for hit in retrieval["hits"]]
-    found = [pid for step in view["suggestion"].get("steps") or [] for pid in step.get("new", [])]
+        return {**found, "bm25": None, "dense": None, "hybrid": None, "shown": None, "missed": []}
+    hybrid = [hit["passage_id"] for hit in retrieval["hits"]]
+    searched = [pid for step in view["suggestion"].get("steps") or [] for pid in step.get("new", [])]
     return {
-        "item": f"{first['step']} {first['item']}",
-        "gold": sorted(gold),
-        "k": retrieval["top_k"],
-        "at_k": len(gold & set(top)) / len(gold),
-        "shown": len(gold & set(top + found)) / len(gold),
-        "missed": sorted(gold - set(top + found)),
+        **found,
+        "bm25": _share_of(gold, retrieval.get("bm25_top", [])),
+        "dense": _share_of(gold, retrieval.get("dense_top", [])),
+        "hybrid": _share_of(gold, hybrid),
+        "shown": _share_of(gold, hybrid + searched),
+        "missed": sorted(gold - set(hybrid + searched)),
     }
+
+
+def _share_of(gold: set[str], found: list[str]) -> float:
+    return len(gold & set(found)) / len(gold)
 
 
 def _row(case: dict, check: dict, kind: str, result: str, seen: str, signed: str) -> dict:
@@ -262,7 +269,8 @@ def render(rows: list[dict], expected: dict, observed: dict, extended: dict) -> 
         "",
     ]
     lines += _extended_summary(rows, expected["extended"])
-    lines += _recall_table(rows, expected, observed, extended)
+    lines += _recall_table(rows, expected["extended"], extended)
+    lines += _ablation_table(extended)
     lines += [
         "## Every check",
         "",
@@ -288,7 +296,7 @@ def _run_line(observed: dict) -> str:
 def _extended_summary(rows: list[dict], key: dict) -> list[str]:
     ext_rows = [r for r in rows if r["suite"] == "extended"]
     lines = [
-        "## Extended questionnaire (added data, X1-X26)",
+        "## Extended questionnaire (added data)",
         "",
         "| Kind | Case | Result |",
         "|---|---|---|",
@@ -300,37 +308,60 @@ def _extended_summary(rows: list[dict], key: dict) -> list[str]:
     return lines + [f"| counts | counts at every step | {overall(count_rows)} |", ""]
 
 
-def _recall_table(rows: list[dict], expected: dict, observed: dict, extended: dict) -> list[str]:
-    """Recall next to each row's own result; rows with no gold passage show n/a, never 0 or 1."""
+def _recall_table(rows: list[dict], key: dict, extended: dict) -> list[str]:
+    """Extended rows only (the seed corpus is smaller than k, so every method finds everything there).
+    Recall sits next to each row's own result; rows with no gold passage show n/a, never 0 or 1.
+    """
     lines = [
-        "## Retrieval recall@k",
+        "## Retrieval recall@k (extended questionnaire)",
         "",
-        "Measured, not graded: recall@k is the share of a row's gold passages in the first retrieval for the",
-        'question; "shown" adds the passages the model\'s own searches found. n/a: no gold passage (an',
-        "undocumented question) or no draft at that item.",
+        "Measured, not graded. For each row, the share of its gold passages in the top k of keyword search",
+        'alone (BM25), embeddings alone (dense), and the fused list the model was given (hybrid); "shown"',
+        "adds what the model's own searches found. n/a: no gold passage (an undocumented question).",
         "",
-        "| Scenario | Case | Item | Gold | recall@k | shown | Missed | Row result |",
+        "| Case | Gold | BM25 | dense | hybrid | shown | Missed | Row result |",
         "|---|---|---|---|---|---|---|---|",
     ]
     measured = []
-    for (suite, key), data in zip(suites(expected), (observed, extended), strict=True):
-        for case in key["cases"] + key["extra_rows"]:
-            found = recall(case, data["steps"])
-            if found is None:
-                continue
-            result = overall([r for r in rows if r["suite"] == suite and r["case"] == case["id"]])
-            if found["at_k"] is not None:
-                measured.append(found)
-            lines.append(
-                f"| {suite} | {case['id']} | {found['item']} | {', '.join(found['gold']) or '-'} | "
-                f"{_share(found['at_k'])} | {_share(found['shown'])} | "
-                f"{', '.join(found.get('missed', []))} | {result} |"
-            )
+    for case in key["cases"] + key["extra_rows"]:
+        found = recall(case, extended["steps"])
+        if found is None:
+            continue
+        result = overall([r for r in rows if r["suite"] == "extended" and r["case"] == case["id"]])
+        if found["hybrid"] is not None:
+            measured.append(found)
+        shares = " | ".join(_share(found[m]) for m in METHODS)
+        lines.append(
+            f"| {case['id']} | {', '.join(found['gold']) or '-'} | {shares} | "
+            f"{', '.join(found['missed'])} | {result} |"
+        )
     if measured:
-        at_k = sum(f["at_k"] for f in measured) / len(measured)
-        shown = sum(f["shown"] for f in measured) / len(measured)
-        lines.append(f"| **mean** | {len(measured)} rows with gold | | | {at_k:.2f} | {shown:.2f} | | |")
+        means = " | ".join(f"{sum(f[m] for f in measured) / len(measured):.2f}" for m in METHODS)
+        lines.append(f"| **mean, {len(measured)} rows** | | {means} | | |")
     return lines + [""]
+
+
+def _ablation_table(extended: dict) -> list[str]:
+    """Did the search tool change an outcome? Read from the report's re-draft with no searches allowed."""
+    ablation = extended.get("search_ablation", {})
+    changed = [i for i, a in ablation.items() if _outcome(a["with_search"]) != _outcome(a["without_search"])]
+    lines = [
+        "## Did the search tool change an outcome? (extended questionnaire, request R1)",
+        "",
+        f"The model used search_passages on {len(ablation)} items. Each was drafted again with no search",
+        f"allowed; the outcome (status and reason) changed on {len(changed)} of them.",
+        "",
+        "| Item | With searches | Without searches | Changed |",
+        "|---|---|---|---|",
+    ]
+    for item, a in ablation.items():
+        mark = "yes" if item in changed else "no"
+        lines.append(f"| {item} | {_outcome(a['with_search'])} | {_outcome(a['without_search'])} | {mark} |")
+    return lines + [""]
+
+
+def _outcome(result: dict) -> str:
+    return f"{result['status']} ({result['reason']})" if result["reason"] else result["status"]
 
 
 def _share(value: float | None) -> str:

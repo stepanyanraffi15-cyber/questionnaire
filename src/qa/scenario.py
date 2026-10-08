@@ -7,10 +7,15 @@ in `reference/` and are never derived from them (REF-2).
 
 from __future__ import annotations
 
+import dataclasses
 import json
+import tempfile
 from pathlib import Path
 
 from qa.dataset import ROOT, Dataset
+from qa.drafting import draft_item
+from qa.llm import load_settings
+from qa.retrieval import load_retrieval_settings
 from qa.review import add_note, approve, process_request, save_edit, set_change, workspace_dataset
 from qa.store import load_state, new_state, save_state
 from qa.views import counts, item_view
@@ -27,6 +32,45 @@ SUGGESTION_FIELDS = (
     "retrieval",
     "steps",
 )
+
+
+def build_report(client, scenario_path: Path, mode: str) -> dict:
+    """The whole observed file: run the scenario from a clean state, then the search ablation."""
+    settings = load_settings()
+    with tempfile.TemporaryDirectory() as tmp:
+        observed = run_scenario(client, Path(tmp) / "workspace.json", scenario_path)
+    model = {
+        "provider": settings.provider,
+        "model": settings.model,
+        "embedding_model": settings.embedding_model,
+    }
+    ablation = search_ablation(client, scenario_path, observed["steps"]["S1"]["items"])
+    return {"mode": mode, "model": model, **observed, "search_ablation": ablation}
+
+
+def search_ablation(client, scenario_path: Path, items: dict) -> dict:
+    """Did the search tool change an outcome? Every first-request item where the model searched is drafted
+    again with no searches allowed, and both outcomes are kept side by side (measured, not graded).
+    """
+    scenario = json.loads(scenario_path.read_text())
+    dataset = workspace_dataset(new_state(scenario.get("additions")))
+    no_search = dataclasses.replace(load_retrieval_settings(), max_searches=0)
+    result = {}
+    for item, view in items.items():
+        suggestion = view["suggestion"] or {}
+        if not any(step["action"] == "search_passages" for step in suggestion.get("steps") or []):
+            continue
+        question = next(q for q in dataset.questions if q.id == view["question_id"])
+        without = draft_item(question, dataset, client, no_search)
+        result[item] = {
+            "with_search": {"status": suggestion["status"], "reason": suggestion["reason"]},
+            "without_search": {
+                "status": without["status"],
+                "reason": without["reason"],
+                "answer": without["answer"],
+            },
+        }
+    return result
 
 
 def run_scenario(client, state_file: Path, scenario_path: Path = SCENARIO_PATH) -> dict:

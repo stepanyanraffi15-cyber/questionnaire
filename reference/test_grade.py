@@ -60,14 +60,17 @@ def test_every_quote_and_authority_in_the_key_matches_the_data():
 
 def test_recall_counts_gold_passages_found_first_and_after_the_models_searches():
     case = {"gold_passages": ["A:p1", "B:p1"], "checks": [{"step": "S1", "item": "R1/X1"}]}
-    suggestion = {
-        "retrieval": {"top_k": 5, "hits": [{"passage_id": "A:p1"}, {"passage_id": "C:p1"}]},
-        "steps": [{"action": "search_passages", "new": ["B:p1"]}, {"action": "answer"}],
+    retrieval = {
+        "top_k": 5,
+        "hits": [{"passage_id": "A:p1"}, {"passage_id": "C:p1"}],
+        "bm25_top": ["C:p1"],
+        "dense_top": ["A:p1", "B:p1"],
     }
+    suggestion = {"retrieval": retrieval, "steps": [{"action": "search_passages", "new": ["B:p1"]}]}
     steps = {"S1": {"items": {"R1/X1": {"suggestion": suggestion}}}}
     found = grade.recall(case, steps)
-    assert (found["at_k"], found["shown"], found["missed"]) == (0.5, 1.0, [])
-    assert grade.recall({**case, "gold_passages": []}, steps)["at_k"] is None
+    assert [found[m] for m in grade.METHODS] == [0.0, 1.0, 0.5, 1.0] and found["missed"] == []
+    assert grade.recall({**case, "gold_passages": []}, steps)["hybrid"] is None
     assert grade.recall({"checks": case["checks"]}, steps) is None
 
 

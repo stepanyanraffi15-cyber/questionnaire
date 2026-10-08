@@ -21,7 +21,7 @@
         "reference/judge.py",
         "uv.lock"
       ],
-      "notes": "Google Gemini gemini-3.8-flash through the google-genai SDK 2.28.0, thinking level medium, timeout 60000 ms, 3 retry attempts; temperature, top_p and top_k not set (provider defaults). Retrieval embeddings: gemini-embedding-001 at 768 dimensions; retrieval settings in config/retrieval.toml. The grader's judge uses the same model and thinking level, set in reference/judge.py. Saved real responses: 117 application calls and 81 embeddings in runs/recordings/ and 26 judge verdicts in runs/judge/verdicts.json, from five record runs on 2026-10-07 and 2026-10-08."
+      "notes": "Google Gemini gemini-3.8-flash through the google-genai SDK 2.28.0, thinking level medium, timeout 60000 ms, 3 retry attempts; temperature, top_p and top_k not set (provider defaults). Retrieval embeddings: gemini-embedding-001 at 768 dimensions; retrieval settings in config/retrieval.toml. The grader's judge uses the same model and thinking level, set in reference/judge.py. Saved real responses: 211 application calls and 117 embeddings in runs/recordings/ and 36 judge verdicts in runs/judge/verdicts.json, from six record runs on 2026-10-07 and 2026-10-08."
     },
     "skills": {
       "status": "used",
@@ -300,7 +300,7 @@
       "original_path_or_scope": "config/models.toml",
       "saved_path": "config/models.toml",
       "version_or_commit": "gemini-3.8-flash; thinking_level medium; timeout_ms 60000; retry_attempts 3; temperature, top_p, top_k not set; embeddings gemini-embedding-001 at 768 dimensions; google-genai 2.28.0 (uv.lock)",
-      "used_during": "Five record runs (2026-10-07 and 2026-10-08) and every replay",
+      "used_during": "Six record runs (2026-10-07 and 2026-10-08) and every replay",
       "status": "used",
       "redactions": []
     },
@@ -311,7 +311,7 @@
       "original_path_or_scope": "config/retrieval.toml",
       "saved_path": "config/retrieval.toml",
       "version_or_commit": "top_k 5; rrf_k 60; bm25_k1 1.2; bm25_b 0.75; max_searches 2 (decisions 040, 041)",
-      "used_during": "Record run 2026-10-08 12:02 UTC and every replay",
+      "used_during": "Record runs 2026-10-08 12:02 and 13:21 UTC, and every replay",
       "status": "used",
       "redactions": []
     },
@@ -329,18 +329,18 @@
     {
       "name": "Saved real application responses",
       "category": "application_models_and_parameters",
-      "purpose": "117 real Gemini calls from five record runs (the first run, one per prompt change of decision 038, and one for retrieval and the added data) plus 81 recorded embeddings, each keyed by a fingerprint of the exact request or text; replay uses the latest and needs no API key.",
+      "purpose": "211 real Gemini calls from six record runs (the first run, one per prompt change of decision 038, one for retrieval and the added data, one after the review fixes) plus 117 recorded embeddings, each keyed by a fingerprint of the exact request or text; replay uses the latest and needs no API key.",
       "original_path_or_scope": "runs/recordings/",
       "saved_path": "runs/recordings/",
       "version_or_commit": "Each call file stores provider, model, thinking level, prompt file and its SHA-256, request, response and recording time; each embed-*.json file stores model, size, task type, text and vector",
-      "used_during": "Recorded 2026-10-07 21:29 UTC and on 2026-10-08 (last run 12:02-12:08 UTC); replayed by uv run qa report",
+      "used_during": "Recorded 2026-10-07 21:29 UTC and on 2026-10-08 (last run 13:21-13:29 UTC); replayed by uv run qa report",
       "status": "used",
       "redactions": []
     },
     {
       "name": "Saved judge verdicts",
       "category": "application_models_and_parameters",
-      "purpose": "26 real judge verdicts (one per distinct answer graded, 15 of them for the extended questionnaire); replayed by the grader without a key.",
+      "purpose": "36 real judge verdicts (one per distinct answer graded, 25 of them for the extended questionnaire); replayed by the grader without a key.",
       "original_path_or_scope": "runs/judge/verdicts.json",
       "saved_path": "runs/judge/verdicts.json",
       "version_or_commit": "Each verdict stores model, thinking level, prompt file, request, response and recording time",
@@ -354,8 +354,8 @@
       "purpose": "System prompt for drafting a cited answer from the retrieved passages, calling the read-only search_passages tool, or marking the question unresolved.",
       "original_path_or_scope": "prompts/draft_answer.md",
       "saved_path": "prompts/draft_answer.md",
-      "version_or_commit": "sha256 eebbb28b2d790fc72a0eb52f51674729e4e0da636f7eaf238a7e56bf2f0d8851 (current: the search_passages tool of decision 041 plus rule 9 of decision 038); earlier versions are in git history and their responses in runs/recordings/",
-      "used_during": "Five record runs (2026-10-07 and 2026-10-08) and every replay",
+      "version_or_commit": "sha256 efcbca6202c40a84ec7c70e1c4e9dd0081d3313d7bc33277dda6f32433379234 (current: the search_passages tool of decision 041, rule 9 of decision 038 scoped to the answering passage, rule 8 winning); earlier versions are in git history and their responses in runs/recordings/",
+      "used_during": "Six record runs (2026-10-07 and 2026-10-08) and every replay",
       "status": "used",
       "redactions": []
     },
@@ -365,8 +365,8 @@
       "purpose": "System prompt for checking that a drafted answer is supported by its cited passages.",
       "original_path_or_scope": "prompts/check_support.md",
       "saved_path": "prompts/check_support.md",
-      "version_or_commit": "sha256 4d7a101fdcb3343f3da34e778b6611258e70c9784153a882d99dd9ce778acbef (other_passages are the retrieved ones, decision 040)",
-      "used_during": "Five record runs and every replay",
+      "version_or_commit": "sha256 4d7a101fdcb3343f3da34e778b6611258e70c9784153a882d99dd9ce778acbef (other_passages are every current passage not cited, decision 040)",
+      "used_during": "Six record runs and every replay",
       "status": "used",
       "redactions": []
     },

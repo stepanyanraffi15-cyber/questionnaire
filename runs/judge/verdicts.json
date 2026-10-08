@@ -375,6 +375,62 @@
    "thoughts_token_count": 188
   }
  },
+ "3446af3a64e5ac4e752f903f400e49e6cd588ace1fec7a5ec5e64b8201475d33": {
+  "case": "EXT-X4",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T13:29:41Z",
+  "request": {
+   "answer": "A single CSV export can contain up to 50,000 rows.",
+   "expected_facts": [
+    "A single CSV export can contain up to 50,000 rows."
+   ],
+   "forbidden_claims": [
+    "A single CSV export is limited to 10,000 rows.",
+    "Exports larger than the limit are refused."
+   ],
+   "passages": [
+    {
+     "id": "EXPORT-LIMITS-v2:p1",
+     "text": "A single CSV export can contain up to 50,000 rows. Larger exports are split into several files."
+    },
+    {
+     "id": "EXPORT-LIMITS-v1:p1",
+     "text": "A single CSV export can contain up to 10,000 rows."
+    }
+   ],
+   "question": "How many rows can a single CSV export contain?"
+  },
+  "response": {
+   "basis": "The answer accurately states the limit of 50,000 rows and makes no forbidden claims.",
+   "facts": [
+    {
+     "fact": "A single CSV export can contain up to 50,000 rows.",
+     "quote": "A single CSV export can contain up to 50,000 rows.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "A single CSV export is limited to 10,000 rows.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "Exports larger than the limit are refused.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "wprHauDnB-ao28oPq_uxyAo",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 181,
+   "prompt_token_count": 426,
+   "thoughts_token_count": 205
+  }
+ },
  "3725d62d9080c484801b2049550f151ea5201dc330062980f3b9f95a39307d8b": {
   "case": "XR-Q6",
   "model": "gemini-3.8-flash",
@@ -639,6 +695,56 @@
    "thoughts_token_count": 127
   }
  },
+ "68f5c87c1e13a26eab619033981777ca3a21b42fb19690571de025ab1adcd8bc": {
+  "case": "EXT-X35",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T13:30:19Z",
+  "request": {
+   "answer": "Failed payments are retried 5 times over 10 days.",
+   "expected_facts": [
+    "A failed payment is retried 5 times."
+   ],
+   "forbidden_claims": [
+    "A failed payment is retried 3 times."
+   ],
+   "passages": [
+    {
+     "id": "BILLING-RETRY-v2:p1",
+     "text": "Failed payments are retried 5 times over 10 days."
+    },
+    {
+     "id": "BILLING-RETRY-v1:p1",
+     "text": "Failed payments are retried 3 times."
+    }
+   ],
+   "question": "How many times is a failed payment retried?"
+  },
+  "response": {
+   "basis": "The answer directly confirms that failed payments are retried 5 times and does not claim they are retried 3 times.",
+   "facts": [
+    {
+     "fact": "A failed payment is retried 5 times.",
+     "quote": "Failed payments are retried 5 times",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "A failed payment is retried 3 times.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "55rHar-bKoL-vdIP_NvD0Qo",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 131,
+   "prompt_token_count": 382,
+   "thoughts_token_count": 197
+  }
+ },
  "7acbac756da15ba13fb2711fc03d0f2cff383ca4ac9f590d4d2626e253acf8e4": {
   "case": "EXT-X19",
   "model": "gemini-3.8-flash",
@@ -777,6 +883,272 @@
    "thoughts_token_count": 178
   }
  },
+ "93a4514d5a1b7927f75bb265deed605e45f02ca68e4edfe003c283f4a3078623": {
+  "case": "EXT-X21",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T13:29:54Z",
+  "request": {
+   "answer": "Yes, payments can be made by credit card.",
+   "expected_facts": [
+    "Yes, payments can be made by credit card."
+   ],
+   "forbidden_claims": [
+    "Credit card is the only accepted payment method.",
+    "Another payment method is accepted, or is not accepted."
+   ],
+   "passages": [
+    {
+     "id": "BILLING-PAYMENT-v1:p1",
+     "text": "Payments can be made by credit card. A receipt is sent by email after each payment."
+    }
+   ],
+   "question": "Can payments be made by credit card?"
+  },
+  "response": {
+   "basis": "The answer directly states that payments can be made by credit card and introduces no forbidden claims.",
+   "facts": [
+    {
+     "fact": "Yes, payments can be made by credit card.",
+     "quote": "Yes, payments can be made by credit card.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Credit card is the only accepted payment method.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "Another payment method is accepted, or is not accepted.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "zZrHas3IOo2p28oPtabW0Ak",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 160,
+   "prompt_token_count": 354,
+   "thoughts_token_count": 213
+  }
+ },
+ "9923585bd5f9589ef45f2b9b1e026d5ae2436b39df8d0156a5dee3941f90e4d0": {
+  "case": "EXT-X30",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T13:30:11Z",
+  "request": {
+   "answer": "Extra seats cost 8 USD per month each.",
+   "expected_facts": [
+    "An additional seat costs 8 USD per month."
+   ],
+   "forbidden_claims": [
+    "An additional seat is free or costs a different amount.",
+    "Additional seats are billed yearly.",
+    "The seat price includes, or does not include, sales tax."
+   ],
+   "passages": [
+    {
+     "id": "BILLING-SEATS-v1:p1",
+     "text": "Each paid plan includes five seats. Extra seats cost 8 USD per month each. Account owners can move a seat from one team member to another."
+    }
+   ],
+   "question": "How much does an additional seat cost?"
+  },
+  "response": {
+   "basis": "The answer accurately states the monthly cost of an additional seat without making any forbidden claims.",
+   "facts": [
+    {
+     "fact": "An additional seat costs 8 USD per month.",
+     "quote": "Extra seats cost 8 USD per month each.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "An additional seat is free or costs a different amount.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "Additional seats are billed yearly.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "The seat price includes, or does not include, sales tax.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "4JrHat27Aa7bxs0PmLvu4A8",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 194,
+   "prompt_token_count": 379,
+   "thoughts_token_count": 175
+  }
+ },
+ "aa4ea0f8833a26daf470546c23bf67d6a64cac3734632231290485895f2e71ef": {
+  "case": "EXT-X8",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T13:29:45Z",
+  "request": {
+   "answer": "No. Phone support is not offered.",
+   "expected_facts": [
+    "Phone support is not offered (the answer is No)."
+   ],
+   "forbidden_claims": [
+    "Phone support is offered or available."
+   ],
+   "passages": [
+    {
+     "id": "SUPPORT-CHANNELS-v1:p1",
+     "text": "Support requests are handled by email. Phone support is not offered. Requests written in English or German are answered."
+    }
+   ],
+   "question": "Is phone support offered?"
+  },
+  "response": {
+   "basis": "The answer directly states that phone support is not offered.",
+   "facts": [
+    {
+     "fact": "Phone support is not offered (the answer is No).",
+     "quote": "No. Phone support is not offered.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Phone support is offered or available.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "xprHauC5DviovdIP2Jrr8Qk",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 115,
+   "prompt_token_count": 338,
+   "thoughts_token_count": 92
+  }
+ },
+ "aca0766d6c52715fc570d58c6aadd07b25578454447ad02bc3d6412d125be65f": {
+  "case": "EXT-X29",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T13:30:07Z",
+  "request": {
+   "answer": "During an outage, customers can follow progress on the status page at any time of day or week.",
+   "expected_facts": [
+    "Customers can follow progress on the status page, at any time (weekends included)."
+   ],
+   "forbidden_claims": [
+    "Email or phone support is available on Sundays.",
+    "Nothing can be checked until Monday.",
+    "The status page is updated every 30 minutes."
+   ],
+   "passages": [
+    {
+     "id": "SUPPORT-OUTAGE-v1:p1",
+     "text": "During an outage, customers can follow progress on the status page at any time of day or week."
+    }
+   ],
+   "question": "If the product stops working on a Sunday, where can a customer see what is happening?"
+  },
+  "response": {
+   "basis": "The answer directly matches the passage and states where customers can check status at any time, without making any forbidden claims.",
+   "facts": [
+    {
+     "fact": "Customers can follow progress on the status page, at any time (weekends included).",
+     "quote": "During an outage, customers can follow progress on the status page at any time of day or week.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Email or phone support is available on Sundays.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "Nothing can be checked until Monday.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "The status page is updated every 30 minutes.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "2prHapaPHq2_xN8PycHuiA4",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 215,
+   "prompt_token_count": 392,
+   "thoughts_token_count": 164
+  }
+ },
+ "acc92051031d8eef37a7ef46e49728bb0806afa16a599613d9712e4d2de940af": {
+  "case": "EXT-X13",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T13:29:49Z",
+  "request": {
+   "answer": "Yes. Account owners can require two-factor authentication for the whole team.",
+   "expected_facts": [
+    "Yes, account owners can require two-factor authentication for the whole team."
+   ],
+   "forbidden_claims": [
+    "Two-factor authentication is required for every user by default.",
+    "Only account owners can require two-factor authentication."
+   ],
+   "passages": [
+    {
+     "id": "ACCESS-2FA-v1:p1",
+     "text": "Each user can turn on two-factor authentication in their profile settings. Account owners can require two-factor authentication for the whole team."
+    }
+   ],
+   "question": "Can account owners require two-factor authentication for the whole team?"
+  },
+  "response": {
+   "basis": "The answer directly confirms that account owners can require two-factor authentication for the whole team.",
+   "facts": [
+    {
+     "fact": "Yes, account owners can require two-factor authentication for the whole team.",
+     "quote": "Yes. Account owners can require two-factor authentication for the whole team.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Two-factor authentication is required for every user by default.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "Only account owners can require two-factor authentication.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "yZrHaqP9GJKVxN8Prfz9kAw",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 172,
+   "prompt_token_count": 379,
+   "thoughts_token_count": 192
+  }
+ },
  "be956c4de6f4417c0f06f9c4e2edf32fe51fd4c1558e76d6f24b63889c6d81db": {
   "case": "EXT-X20",
   "model": "gemini-3.8-flash",
@@ -825,6 +1197,64 @@
    "candidates_token_count": 141,
    "prompt_token_count": 405,
    "thoughts_token_count": 136
+  }
+ },
+ "bfed79bace47405ec0c9aca1ec154afc8ea4164627a3e133239a84b0016a8cd0": {
+  "case": "EXT-X31",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T13:30:15Z",
+  "request": {
+   "answer": "Each paid plan includes five seats.",
+   "expected_facts": [
+    "A paid plan includes five seats."
+   ],
+   "forbidden_claims": [
+    "A paid plan includes a number of seats other than five.",
+    "Free plans include five seats.",
+    "A paid plan can have at most five seats."
+   ],
+   "passages": [
+    {
+     "id": "BILLING-SEATS-v1:p1",
+     "text": "Each paid plan includes five seats. Extra seats cost 8 USD per month each. Account owners can move a seat from one team member to another."
+    }
+   ],
+   "question": "How many seats come with a paid plan?"
+  },
+  "response": {
+   "basis": "The answer directly and accurately states that each paid plan includes five seats without asserting any forbidden claims.",
+   "facts": [
+    {
+     "fact": "A paid plan includes five seats.",
+     "quote": "Each paid plan includes five seats.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "A paid plan includes a number of seats other than five.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "Free plans include five seats.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "A paid plan can have at most five seats.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "5JrHavOhCvXCvdIPsbPHuQs",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 188,
+   "prompt_token_count": 372,
+   "thoughts_token_count": 183
   }
  },
  "c05583169dc3492a282974a0e8445dbe62e01b6f9e5e31ca8d79029d6ca7eed1": {
@@ -975,6 +1405,58 @@
    "candidates_token_count": 164,
    "prompt_token_count": 348,
    "thoughts_token_count": 132
+  }
+ },
+ "c7f4ad5b7d095f559104acdc858d9e470608f8965c499b704d98b043a380fc74": {
+  "case": "EXT-X28",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T13:30:02Z",
+  "request": {
+   "answer": "Yes. Receipts can be sent again from the Payments page.",
+   "expected_facts": [
+    "Yes: receipts can be sent again, from the Payments page."
+   ],
+   "forbidden_claims": [
+    "Receipts cannot be sent again.",
+    "Only account owners can have receipts sent again."
+   ],
+   "passages": [
+    {
+     "id": "BILLING-RECEIPTS-v1:p1",
+     "text": "Receipts can be sent again from the Payments page."
+    }
+   ],
+   "question": "Can a customer who deleted the payment confirmation email get it again?"
+  },
+  "response": {
+   "basis": "The answer directly confirms that receipts can be resent from the Payments page without making any forbidden claims.",
+   "facts": [
+    {
+     "fact": "Yes: receipts can be sent again, from the Payments page.",
+     "quote": "Yes. Receipts can be sent again from the Payments page.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Receipts cannot be sent again.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "Only account owners can have receipts sent again.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "1prHasjVMKCP28oP3_mp6Aw",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 162,
+   "prompt_token_count": 353,
+   "thoughts_token_count": 112
   }
  },
  "cbfecc727018a4c940e8d2bd882aa7b5be616cd4349afb92f00bf8ae151625d6": {
@@ -1157,6 +1639,64 @@
    "candidates_token_count": 205,
    "prompt_token_count": 393,
    "thoughts_token_count": 159
+  }
+ },
+ "ec5c786a208558e276a46c9ce5e646c03300bb37997e1c16f55050d27f7d2028": {
+  "case": "EXT-X27",
+  "model": "gemini-3.8-flash",
+  "prompt_file": "reference/judge_prompt.md",
+  "recorded_at": "2026-10-08T13:29:58Z",
+  "request": {
+   "answer": "No. Archived records are left out of every export.",
+   "expected_facts": [
+    "No: archived records are left out of exports."
+   ],
+   "forbidden_claims": [
+    "Archived records appear in exports.",
+    "Only some exports leave archived records out.",
+    "A setting can include archived records in an export."
+   ],
+   "passages": [
+    {
+     "id": "EXPORT-ARCHIVE-v1:p1",
+     "text": "Archived records are left out of every export."
+    }
+   ],
+   "question": "Will items that were moved to the archive appear in the downloaded file?"
+  },
+  "response": {
+   "basis": "The answer directly confirms that archived records are excluded from every export.",
+   "facts": [
+    {
+     "fact": "No: archived records are left out of exports.",
+     "quote": "No. Archived records are left out of every export.",
+     "stated": true
+    }
+   ],
+   "forbidden": [
+    {
+     "claim": "Archived records appear in exports.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "Only some exports leave archived records out.",
+     "made": false,
+     "quote": ""
+    },
+    {
+     "claim": "A setting can include archived records in an export.",
+     "made": false,
+     "quote": ""
+    }
+   ]
+  },
+  "response_id": "0prHatOTINec28oP9ZDJqA0",
+  "thinking_level": "medium",
+  "usage": {
+   "candidates_token_count": 186,
+   "prompt_token_count": 360,
+   "thoughts_token_count": 147
   }
  },
  "fa4227d18bca41d6d5a5dee59ab2b421d0d98758cf97325b76cbf73e4ab8480a": {

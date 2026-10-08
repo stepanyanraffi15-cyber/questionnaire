@@ -1,8 +1,9 @@
 """Build the two model requests: the instructions come from `prompts/*.md`, the documents travel as JSON data.
 
 REQ-T1: passage text only ever appears inside the JSON user message, never in the instructions. Only
-retrieved authoritative passages are sent (RULE-2 is applied in code before retrieval), and dates,
-versions and status are not sent, so they cannot sway the model (decisions 002, 004 and 040).
+authoritative passages are sent (RULE-2 is applied in code before retrieval): the retrieved ones to the
+drafter, all of them to the support check. Dates, versions and status are not sent, so they cannot sway
+the model (decisions 002, 004 and 040).
 """
 
 from __future__ import annotations
@@ -69,17 +70,13 @@ def draft_request(
     return _request("draft", DRAFT_PROMPT, data, DraftOutput)
 
 
-def support_request(
-    question_text: str, answer: str, cited_ids: list[str], dataset: Dataset, context_ids: list[str]
-) -> ModelRequest:
-    """The check sees the cited passages and, apart, the other retrieved passages, to spot contradictions."""
-    current = {p.id: p for p in dataset.authoritative_passages()}
-    cited = [{"id": pid, "text": current[pid].text} for pid in sorted(set(cited_ids)) if pid in current]
-    other = [
-        {"id": pid, "text": current[pid].text}
-        for pid in dict.fromkeys(context_ids)
-        if pid in current and pid not in cited_ids
-    ]
+def support_request(question_text: str, answer: str, cited_ids: list[str], dataset: Dataset) -> ModelRequest:
+    """The check sees the cited passages and, apart, every other current passage, so a contradiction is found
+    even when retrieval never showed it to the drafter (decision 040).
+    """
+    current = dataset.authoritative_passages()
+    cited = [{"id": p.id, "text": p.text} for p in current if p.id in cited_ids]
+    other = [{"id": p.id, "text": p.text} for p in current if p.id not in cited_ids]
     data = {"question": question_text, "answer": answer, "cited_passages": cited, "other_passages": other}
     return _request("support", SUPPORT_PROMPT, data, SupportVerdict)
 

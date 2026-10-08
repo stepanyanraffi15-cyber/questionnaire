@@ -25,11 +25,13 @@ Rules:
 6. If two passages give different answers to this question, list the pair under `conflicts`, set `status` to
    "unresolved" and leave `answer` empty.
 7. If the passages answer only part of the question, set `status` to "unresolved".
-8. Answer only what is asked, in one or two short sentences.
-9. If a passage limits who or which plans something applies to, include that limit in the answer, even when another
-   sentence already answers yes or no. Example (not from these documents): for the question "Can visitors book
-   meeting rooms?" and the passage "Meeting rooms can be booked by members only. Visitors cannot book rooms.", answer
-   "No. Meeting rooms can be booked by members only." Use the passage's own limit; never add one it does not state.
+8. Answer only what is asked, in one or two short sentences. Do not add facts from other passages that the question
+   does not ask about. If this rule and rule 9 pull in different directions, this rule wins.
+9. If the passage that answers the question limits who or which plans the answer applies to, include that limit in
+   the answer, even when another sentence of that passage already answers yes or no. Example (not from these
+   documents): for the question "Can visitors book meeting rooms?" and the passage "Meeting rooms can be booked by
+   members only. Visitors cannot book rooms.", answer "No. Meeting rooms can be booked by members only." Use the
+   passage's own limit; never add one it does not state, and never take one from another passage.
 
 Fill `basis` first with one short sentence saying which passage decides the answer, why none does, or what the
 search is for.

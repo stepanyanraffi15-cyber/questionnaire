@@ -2,8 +2,8 @@
 
 There are two datasets. The **seed** (`data/seed/`) is exactly as supplied: five documents, Q1–Q8 and the
 topic-to-owner map. A test checks that it is byte-identical to `starter-pack/tasks/evidence/`. The **additions**
-(`data/additions/extended.json`) are a second, labelled fictional dataset with its own questionnaire, X1–X26
-(decision 039). Decision 033 first added nothing; the author later asked for more data to test retrieval and every
+(`data/additions/extended.json`) are a second, labelled fictional dataset with its own questionnaire, X1–X35
+(decisions 039 and 043). Decision 033 first added nothing; the author later asked for more data to test retrieval and every
 scenario kind several times, and 039 replaced that part of 033.
 
 ## The seed and its scenario
@@ -23,8 +23,8 @@ EXPORT-v2's `supersedes` link removed; decision 023), and the extended data now 
 
 ## The added data (extended questionnaire)
 
-`data/additions/extended.json` (label `ADDED FICTIONAL DATA`): 30 documents with 31 short passages, and questions
-X1–X26, in the seed's four topics (exports, support, access, billing). The seed's owner map routes them. It is loaded
+`data/additions/extended.json` (label `ADDED FICTIONAL DATA`): 42 documents with 43 short passages, and questions
+X1–X35, in the seed's four topics (exports, support, access, billing). The seed's owner map routes them. It is loaded
 beside the seed documents, which stay in the corpus as extra on-topic passages. Its questions replace Q1–Q8 for that
 workspace only, so the seed scenario and its counts do not change.
 
@@ -39,6 +39,11 @@ workspace only, so the seed scenario and its counts do not change.
 | Partial answers (unresolved, decision 007) | X15, X25, X26 |
 | Multi-sentence passages, answer not in sentence 1 | X2, X8, X13, X17 |
 | On-topic distractors that answer nothing | EXPORT-AUDIT-v1, SUPPORT-TRAINING-v1, ACCESS-INVITE-v1, BILLING-DISCOUNT-v1, BILLING-TERMS-v1:p2, the seed passages |
+| Paraphrased questions with little word overlap (decision 043) | X27, X28, X29 |
+| Multi-fact passage, one question per fact | X30, X31 (BILLING-SEATS-v1:p1) |
+| Conflict partner worded differently and buried in a longer passage | X32 (EXPORT-GUIDE-v1), X33 (ACCESS-OVERVIEW-v1) |
+| Unlinked pair where the newer document is version 2 and named -v2 | X34 (EXPORT-DELIMITER-v1 / -v2) |
+| `supersedes` pair where the replacing document has the older date | X35 (BILLING-RETRY-v2, dated 2026-06-01, replaces v1, dated 2026-09-01) |
 | Approved reuse, unapproved edit, note | Extended scenario S2–S3 (X1, X13 approved; X12 edited; X5 note) |
 | Changed source version | `data/changes/access-2fa-version-2.json` at S4 (ACCESS-2FA-v1 version 1 → 2) |
 
@@ -69,7 +74,7 @@ close after 14 days without a customer reply." (SUPPORT-TICKETS-v1:p1); N5, the 
 "owners"?: {topic: owner}}`. A target that is not already loaded is reported as `unknown_change_target` and the file
 is not applied. Document IDs are treated as opaque labels, so "EXPORT-v2 at version 3" raises no warning.
 
-**Questionnaire mapping:** each dataset's flat question list is one questionnaire (Q1–Q8, or X1–X26, in file order).
+**Questionnaire mapping:** each dataset's flat question list is one questionnaire (Q1–Q8, or X1–X35, in file order).
 A request is one run of it; items are named request/question, such as R1/Q1 or R1/X5 (decision 022).
 
 ## Method

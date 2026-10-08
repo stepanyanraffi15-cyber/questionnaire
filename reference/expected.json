@@ -275,7 +275,7 @@
  },
  "counts_note": "Hand-computed from the passages: Q2 is the only unresolved item; Q1 and Q3-Q8 are answered unless approved. The counts assume each real draft passes its checks; a mismatch is reported as a FAIL, never fixed in this key.",
  "extended": {
-  "_purpose": "Answer key for the extended scenario in data/scenario/extended-demo.json (steps S1-S5, requests R1-R3 of the extended questionnaire X1-X26, over the seed documents plus data/additions/extended.json). Every expected value was derived by reading the passages and authority metadata and the rules in data/seed/domain.md, written before the application was run on this data, and re-derived blind by a separate AI agent; disagreements were resolved before use (decision 042). Never taken from application output. gold_passages are the current passages that answer each question (both sides of a conflict, the documented part of a partial question, none for an undocumented one); the grader reports retrieval recall@k against them.",
+  "_purpose": "Answer key for the extended scenario in data/scenario/extended-demo.json (steps S1-S5, requests R1-R3 of the extended questionnaire X1-X35, over the seed documents plus data/additions/extended.json). Every expected value was derived by reading the passages and authority metadata and the rules in data/seed/domain.md, written before the application was run on this data, and re-derived blind by a separate AI agent; disagreements were resolved before use (decision 042). Never taken from application output. gold_passages are the current passages that answer each question (both sides of a conflict, the documented part of a partial question, none for an undocumented one); the grader reports retrieval recall@k against them.",
   "scenario": "data/scenario/extended-demo.json",
   "observed": "runs/report/observed-extended.json",
   "texts": {
@@ -566,7 +566,7 @@
      {"step": "S1", "item": "R1/X13", "field": "owner", "equals": "Product reviewer"}
     ],
     "meaning": [
-     {"step": "S1", "item": "R1/X13", "field": "answer", "expected_facts": ["Yes, account owners can require two-factor authentication for the whole team."], "forbidden_claims": ["Two-factor authentication is required for every user by default."]}
+     {"step": "S1", "item": "R1/X13", "field": "answer", "expected_facts": ["Yes, account owners can require two-factor authentication for the whole team."], "forbidden_claims": ["Two-factor authentication is required for every user by default.", "Only account owners can require two-factor authentication."]}
     ]
    },
    {
@@ -744,7 +744,7 @@
      {"step": "S1", "item": "R1/X21", "field": "owner", "equals": "Billing reviewer"}
     ],
     "meaning": [
-     {"step": "S1", "item": "R1/X21", "field": "answer", "expected_facts": ["Yes, payments can be made by credit card."], "forbidden_claims": ["Credit card is the only accepted payment method."]}
+     {"step": "S1", "item": "R1/X21", "field": "answer", "expected_facts": ["Yes, payments can be made by credit card."], "forbidden_claims": ["Credit card is the only accepted payment method.", "Another payment method is accepted, or is not accepted."]}
     ]
    },
    {
@@ -850,6 +850,206 @@
      {"step": "S1", "item": "R1/X26", "field": "answer", "equals": ""}
     ],
     "meaning": []
+   },
+   {
+    "id": "EXT-X27",
+    "kind": "paraphrase, documented No",
+    "title": "\"moved to the archive … downloaded file\" vs \"Archived records are left out of every export\" (X27)",
+    "question": "Will items that were moved to the archive appear in the downloaded file?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": ["005-documented-negative-is-answered.md", "043-harder-retrieval-cases.md"],
+    "derived_from": [
+     {"passage_id": "EXPORT-ARCHIVE-v1:p1", "quote": "Archived records are left out of every export.", "authority": {"doc_id": "EXPORT-ARCHIVE-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["EXPORT-ARCHIVE-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X27", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X27", "field": "citations", "ids_subset_of": ["EXPORT-ARCHIVE-v1:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X27", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X27", "field": "owner", "equals": "Product reviewer"}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X27", "field": "answer", "expected_facts": ["No: archived records are left out of exports."], "forbidden_claims": ["Archived records appear in exports.", "Only some exports leave archived records out.", "A setting can include archived records in an export."]}
+    ]
+   },
+   {
+    "id": "EXT-X28",
+    "kind": "paraphrase, supported",
+    "title": "\"payment confirmation email … get it again\" vs \"Receipts can be sent again\" (X28)",
+    "question": "Can a customer who deleted the payment confirmation email get it again?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": ["043-harder-retrieval-cases.md"],
+    "derived_from": [
+     {"passage_id": "BILLING-RECEIPTS-v1:p1", "quote": "Receipts can be sent again from the Payments page.", "authority": {"doc_id": "BILLING-RECEIPTS-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["BILLING-RECEIPTS-v1:p1"],
+    "note": "BILLING-PAYMENT-v1:p1 ('A receipt is sent by email after each payment.') may also be cited: it is what makes the confirmation email a receipt. The gold passage is BILLING-RECEIPTS-v1:p1.",
+    "checks": [
+     {"step": "S1", "item": "R1/X28", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X28", "field": "citations", "ids_subset_of": ["BILLING-PAYMENT-v1:p1", "BILLING-RECEIPTS-v1:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X28", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X28", "field": "owner", "equals": "Billing reviewer"}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X28", "field": "answer", "expected_facts": ["Yes: receipts can be sent again, from the Payments page."], "forbidden_claims": ["Receipts cannot be sent again.", "Only account owners can have receipts sent again."]}
+    ]
+   },
+   {
+    "id": "EXT-X29",
+    "kind": "paraphrase, supported",
+    "title": "\"stops working on a Sunday … see what is happening\" vs \"outage … status page at any time\" (X29)",
+    "question": "If the product stops working on a Sunday, where can a customer see what is happening?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": ["043-harder-retrieval-cases.md"],
+    "derived_from": [
+     {"passage_id": "SUPPORT-OUTAGE-v1:p1", "quote": "During an outage, customers can follow progress on the status page at any time of day or week.", "authority": {"doc_id": "SUPPORT-OUTAGE-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["SUPPORT-OUTAGE-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X29", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X29", "field": "citations", "ids_subset_of": ["SUPPORT-OUTAGE-v1:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X29", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X29", "field": "owner", "equals": "Support reviewer"}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X29", "field": "answer", "expected_facts": ["Customers can follow progress on the status page, at any time (weekends included)."], "forbidden_claims": ["Email or phone support is available on Sundays.", "Nothing can be checked until Monday.", "The status page is updated every 30 minutes."]}
+    ]
+   },
+   {
+    "id": "EXT-X30",
+    "kind": "multi-fact passage",
+    "title": "The price is sentence 2 of three facts (X30)",
+    "question": "How much does an additional seat cost?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": ["008-citations-and-verbatim-excerpts.md", "043-harder-retrieval-cases.md"],
+    "derived_from": [
+     {"passage_id": "BILLING-SEATS-v1:p1", "quote": "Extra seats cost 8 USD per month each.", "authority": {"doc_id": "BILLING-SEATS-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["BILLING-SEATS-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X30", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X30", "field": "citations", "ids_subset_of": ["BILLING-SEATS-v1:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X30", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X30", "field": "owner", "equals": "Billing reviewer"}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X30", "field": "answer", "expected_facts": ["An additional seat costs 8 USD per month."], "forbidden_claims": ["An additional seat is free or costs a different amount.", "Additional seats are billed yearly.", "The seat price includes, or does not include, sales tax."]}
+    ]
+   },
+   {
+    "id": "EXT-X31",
+    "kind": "multi-fact passage",
+    "title": "The seat count is sentence 1 of three facts (X31)",
+    "question": "How many seats come with a paid plan?",
+    "rules": ["RULE-1", "RULE-4"],
+    "decisions": ["008-citations-and-verbatim-excerpts.md", "043-harder-retrieval-cases.md"],
+    "derived_from": [
+     {"passage_id": "BILLING-SEATS-v1:p1", "quote": "Each paid plan includes five seats.", "authority": {"doc_id": "BILLING-SEATS-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["BILLING-SEATS-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X31", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X31", "field": "citations", "ids_subset_of": ["BILLING-SEATS-v1:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X31", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X31", "field": "owner", "equals": "Billing reviewer"}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X31", "field": "answer", "expected_facts": ["A paid plan includes five seats."], "forbidden_claims": ["A paid plan includes a number of seats other than five.", "Free plans include five seats.", "A paid plan can have at most five seats."]}
+    ]
+   },
+   {
+    "id": "EXT-X32",
+    "kind": "conflict partner worded differently and buried",
+    "title": "\"encrypted at rest\" vs \"stored without any encryption\", sentence 3 of a four-sentence guide (X32)",
+    "question": "Are export files encrypted?",
+    "rules": ["RULE-1", "RULE-4", "RULE-2"],
+    "decisions": ["002-dates-and-versions-grant-no-authority.md", "043-harder-retrieval-cases.md"],
+    "derived_from": [
+     {"passage_id": "EXPORT-ENCRYPTION-v1:p1", "quote": "Export files are encrypted at rest.", "authority": {"doc_id": "EXPORT-ENCRYPTION-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}},
+     {"passage_id": "EXPORT-GUIDE-v1:p1", "quote": "Files produced by the export tool are stored without any encryption.", "authority": {"doc_id": "EXPORT-GUIDE-v1", "version": 1, "date": "2026-09-18", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["EXPORT-ENCRYPTION-v1:p1", "EXPORT-GUIDE-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X32", "field": "status", "equals": "unresolved"},
+     {"step": "S1", "item": "R1/X32", "field": "reason", "equals": "conflict"},
+     {"step": "S1", "item": "R1/X32", "field": "owner", "equals": "Product reviewer"},
+     {"step": "S1", "item": "R1/X32", "field": "answer", "equals": ""},
+     {"step": "S1", "item": "R1/X32", "field": "conflicts_shown", "ids_include": ["EXPORT-ENCRYPTION-v1:p1", "EXPORT-GUIDE-v1:p1"]}
+    ],
+    "meaning": []
+   },
+   {
+    "id": "EXT-X33",
+    "kind": "conflict partner worded differently and buried",
+    "title": "\"can be given read-only access\" vs \"no way to restrict someone to viewing only\", inside an overview (X33)",
+    "question": "Can a team member be limited to read-only access?",
+    "rules": ["RULE-1", "RULE-4", "RULE-2"],
+    "decisions": ["002-dates-and-versions-grant-no-authority.md", "043-harder-retrieval-cases.md"],
+    "derived_from": [
+     {"passage_id": "ACCESS-READONLY-v1:p1", "quote": "Team members can be given read-only access.", "authority": {"doc_id": "ACCESS-READONLY-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}},
+     {"passage_id": "ACCESS-OVERVIEW-v1:p1", "quote": "Everyone the owner adds to the team can edit every page; there is no way to restrict someone to viewing only.", "authority": {"doc_id": "ACCESS-OVERVIEW-v1", "version": 1, "date": "2026-09-12", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["ACCESS-OVERVIEW-v1:p1", "ACCESS-READONLY-v1:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X33", "field": "status", "equals": "unresolved"},
+     {"step": "S1", "item": "R1/X33", "field": "reason", "equals": "conflict"},
+     {"step": "S1", "item": "R1/X33", "field": "owner", "equals": "Product reviewer"},
+     {"step": "S1", "item": "R1/X33", "field": "answer", "equals": ""},
+     {"step": "S1", "item": "R1/X33", "field": "conflicts_shown", "ids_include": ["ACCESS-OVERVIEW-v1:p1", "ACCESS-READONLY-v1:p1"]}
+    ],
+    "meaning": []
+   },
+   {
+    "id": "EXT-X34",
+    "kind": "conflict not settled: the newer document is version 2 and named -v2",
+    "title": "comma vs semicolon; EXPORT-DELIMITER-v2 is newer and version 2 but supersedes nothing (X34)",
+    "question": "Which separator do CSV exports use?",
+    "rules": ["RULE-1", "RULE-4", "RULE-2"],
+    "decisions": ["002-dates-and-versions-grant-no-authority.md", "043-harder-retrieval-cases.md"],
+    "derived_from": [
+     {"passage_id": "EXPORT-DELIMITER-v1:p1", "quote": "CSV exports use a comma as the separator.", "authority": {"doc_id": "EXPORT-DELIMITER-v1", "version": 1, "date": "2026-08-01", "status": "current", "supersedes": null, "superseded_by": null}},
+     {"passage_id": "EXPORT-DELIMITER-v2:p1", "quote": "CSV exports use a semicolon as the separator.", "authority": {"doc_id": "EXPORT-DELIMITER-v2", "version": 2, "date": "2026-09-25", "status": "current", "supersedes": null, "superseded_by": null}}
+    ],
+    "gold_passages": ["EXPORT-DELIMITER-v1:p1", "EXPORT-DELIMITER-v2:p1"],
+    "note": "Both are current; neither has a supersedes link. The -v2 name, version 2 and later date give no authority.",
+    "checks": [
+     {"step": "S1", "item": "R1/X34", "field": "status", "equals": "unresolved"},
+     {"step": "S1", "item": "R1/X34", "field": "reason", "equals": "conflict"},
+     {"step": "S1", "item": "R1/X34", "field": "owner", "equals": "Product reviewer"},
+     {"step": "S1", "item": "R1/X34", "field": "answer", "equals": ""},
+     {"step": "S1", "item": "R1/X34", "field": "conflicts_shown", "ids_include": ["EXPORT-DELIMITER-v1:p1", "EXPORT-DELIMITER-v2:p1"]}
+    ],
+    "meaning": []
+   },
+   {
+    "id": "EXT-X35",
+    "kind": "conflict settled by supersedes, older date wins",
+    "title": "BILLING-RETRY-v2 (dated 2026-06-01) supersedes v1 (dated 2026-09-01): 5 times, with 3 shown as replaced (X35)",
+    "question": "How many times is a failed payment retried?",
+    "rules": ["RULE-1", "RULE-4", "RULE-2"],
+    "decisions": ["001-authority-from-supersedes-only.md", "043-harder-retrieval-cases.md"],
+    "derived_from": [
+     {"passage_id": "BILLING-RETRY-v2:p1", "quote": "Failed payments are retried 5 times over 10 days.", "authority": {"doc_id": "BILLING-RETRY-v2", "version": 2, "date": "2026-06-01", "status": "current", "supersedes": "BILLING-RETRY-v1", "superseded_by": null}},
+     {"passage_id": "BILLING-RETRY-v1:p1", "quote": "Failed payments are retried 3 times.", "authority": {"doc_id": "BILLING-RETRY-v1", "version": 1, "date": "2026-09-01", "status": "superseded", "supersedes": null, "superseded_by": "BILLING-RETRY-v2"}}
+    ],
+    "gold_passages": ["BILLING-RETRY-v2:p1"],
+    "note": "",
+    "checks": [
+     {"step": "S1", "item": "R1/X35", "field": "status", "equals": "answered"},
+     {"step": "S1", "item": "R1/X35", "field": "citations", "ids_subset_of": ["BILLING-RETRY-v2:p1"], "non_empty": true},
+     {"step": "S1", "item": "R1/X35", "field": "citations", "excerpts_verbatim": true},
+     {"step": "S1", "item": "R1/X35", "field": "owner", "equals": "Billing reviewer"},
+     {"step": "S1", "item": "R1/X35", "field": "replaced_shown", "ids_include": ["BILLING-RETRY-v1:p1"]}
+    ],
+    "meaning": [
+     {"step": "S1", "item": "R1/X35", "field": "answer", "expected_facts": ["A failed payment is retried 5 times."], "forbidden_claims": ["A failed payment is retried 3 times."]}
+    ]
    }
   ],
   "extra_rows": [
@@ -889,7 +1089,9 @@
      {"step": "S4", "item": "R1/X1", "field": "status", "equals": "approved"},
      {"step": "S5", "item": "R3/X13", "field": "reused", "equals": false},
      {"step": "S5", "item": "R3/X13", "field": "status", "equals": "answered"},
-     {"step": "S5", "item": "R3/X13", "field": "stale_approval_shown", "equals": "A2"},
+     {"step": "S4", "item": "R1/X14", "field": "status", "equals": "answered"},
+     {"step": "S5", "item": "R3/X13", "field": "stale_approval_shown", "not_equals": null},
+     {"step": "S5", "item": "R3/X13", "field": "citations", "versions": {"ACCESS-2FA-v1:p1": 2}},
      {"step": "S5", "item": "R3/X13", "field": "calls", "non_empty": true},
      {"step": "S5", "item": "R3/X1", "field": "reused", "equals": true}
     ],
@@ -910,12 +1112,12 @@
   ],
   "counts_order": ["answered", "unresolved", "approved", "needs_review", "error"],
   "counts": {
-   "S1": {"R1": [15, 11, 0, 0, 0]},
-   "S2": {"R1": [13, 11, 2, 0, 0]},
-   "S3": {"R1": [13, 11, 2, 0, 0], "R2": [13, 11, 2, 0, 0]},
-   "S4": {"R1": [13, 11, 1, 1, 0], "R2": [13, 11, 1, 1, 0]},
-   "S5": {"R1": [13, 11, 1, 1, 0], "R2": [13, 11, 1, 1, 0], "R3": [14, 11, 1, 0, 0]}
+   "S1": {"R1": [21, 14, 0, 0, 0]},
+   "S2": {"R1": [19, 14, 2, 0, 0]},
+   "S3": {"R1": [19, 14, 2, 0, 0], "R2": [19, 14, 2, 0, 0]},
+   "S4": {"R1": [19, 14, 1, 1, 0], "R2": [19, 14, 1, 1, 0]},
+   "S5": {"R1": [19, 14, 1, 1, 0], "R2": [19, 14, 1, 1, 0], "R3": [20, 14, 1, 0, 0]}
   },
-  "counts_note": "Hand-computed: 15 of X1-X26 are answered and 11 unresolved when every draft is right. S2 approves X1 and X13 (2 approved). R2 reuses both. S4 makes the X13 approval stale in R1 and R2. R3 reuses X1 and drafts X13 afresh. A mismatch is reported as a FAIL, never fixed in this key."
+  "counts_note": "Hand-computed: 21 of X1-X35 are answered and 14 unresolved when every draft is right. S2 approves X1 and X13 (2 approved). R2 reuses both. S4 makes the X13 approval stale in R1 and R2. R3 reuses X1 and drafts X13 afresh. A mismatch is reported as a FAIL, never fixed in this key."
  }
 }

@@ -52,3 +52,11 @@ Option 3, in `src/qa/drafting.py` (`_search_loop`) and `prompts/draft_answer.md`
 - Yao et al., ReAct, https://arxiv.org/abs/2210.03629; Trivedi et al., IRCoT, https://arxiv.org/abs/2212.10509; Liu et
   al., https://arxiv.org/abs/2511.17006; McCleary and Ghawaly, https://arxiv.org/abs/2603.08877; Beurer-Kellner et al.,
   https://arxiv.org/abs/2506.08837.
+
+## Update: did the tool help? (2026-10-08)
+
+`qa report` now drafts every item the model searched on a second time with no searches allowed, and the grader
+compares the two outcomes. In the extended run the model searched on 9 items (X2, X3, X6, X9, X15, X22, X25, X26,
+X28), and the status and reason were the same with and without searching on all 9. On this data the tool changed
+nothing. It stays, read-only and capped, because a retrieval miss on messier documents is exactly what it is for, but
+that benefit is not shown here. When the first retrieval already covers every current passage, no search is offered.

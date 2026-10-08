@@ -80,9 +80,9 @@ def test_the_extended_questionnaire_has_its_own_workspace_and_shows_the_search_s
     process_request(extended, workspace_dataset(extended), SimulatedClient(), AT)
     save_state(state_path("workspace-extended"), extended)
     page = open_page()
-    page.radio(key="questionnaire").set_value("Extended questionnaire (X1–X26, added data)").run()
+    page.radio(key="questionnaire").set_value("Extended questionnaire (X1–X35, added data)").run()
     assert not page.exception
-    assert shown_counts(page)["Answered"] == "15" and shown_counts(page)["Unresolved"] == "11"
-    assert len([m for m in page.markdown if m.value.startswith("**X")]) == 26
+    assert shown_counts(page)["Answered"] == "21" and shown_counts(page)["Unresolved"] == "14"
+    assert len([m for m in page.markdown if m.value.startswith("**X")]) == 35
     assert any(text.value.startswith("Step 1 · retrieval for the question") for text in page.markdown)
     assert len(load_state(state_path())["requests"]) == 1

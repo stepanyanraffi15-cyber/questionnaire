@@ -59,3 +59,15 @@ changed wording without changing meaning (Q4 "No, live chat is not offered."; Q7
 monthly in USD."); every count still matches the answer key. The meaning sign-offs for the current answers were
 delegated by the author: Claude Code compared each answer with its passage, and each entry in
 `reference/signoff.json` says so.
+
+## Update: rule 9 scoped to the answering passage (decision 040 run)
+
+With retrieval and the extended data, rule 9 misfired: for X4 ("How many rows can a single CSV export contain?") the
+model added "CSV exports are available on paid plans only." from EXPORT-v2:p1, a passage that does not answer the
+question, and the grader failed X4. Rule 9 now reads "If the passage that answers the question limits who or which
+plans the answer applies to, include that limit …; never take one from another passage", and rule 8 ("Answer only
+what is asked … Do not add facts from other passages") wins when the two disagree. Re-recorded once: X4 is "A
+single CSV export can contain up to 50,000 rows." and passes, with its key unchanged; Q1 still reads "No. CSV exports
+are available on paid plans only." Two seed answers changed wording only (Q4 "No. Live chat is not offered.", Q7
+"Paid subscriptions are billed monthly."). The delegated sign-offs described in the update above were later removed at the author's request: every meaning
+row is signed by the author or stays PENDING.

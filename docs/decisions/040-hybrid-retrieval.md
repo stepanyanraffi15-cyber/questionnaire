@@ -58,3 +58,21 @@ Option 4, in `src/qa/retrieval.py`, with the settings in `config/retrieval.toml`
   al., ECIR 2022, https://arxiv.org/abs/2201.10582; Lee et al., *Gemini Embedding*, 2025,
   https://arxiv.org/abs/2503.07891; Lewis et al., *Retrieval-Augmented Generation*, NeurIPS 2020,
   https://arxiv.org/abs/2005.11401.
+
+## Update after review (2026-10-08)
+
+- **The support check and the approval guard see every current passage again**, not only the retrieved ones. With
+  only the top 5, an answer could pass while its contradicting passage sat outside them. The drafter still gets the
+  top 5 plus its own searches; the support check gets everything, so a contradiction is caught either way. The
+  approval guard no longer searches: it runs the same support check and stores the draft's shown passages with the
+  approval. Test: `tests/test_search_loop.py::test_a_contradicting_passage_outside_the_top_k_still_makes_a_conflict`.
+- **Stopwords:** a short list of common words ("do", "the", "can", …) is dropped before BM25; they had let BM25 rank
+  passages on noise.
+- **No pointless searches:** when the first retrieval already returned every current passage (the seed corpus has 4,
+  k is 5), the model is offered no searches.
+- **Visible failures:** no current passage is the error `no_passages`; an empty, zero, non-finite or wrong-size
+  vector is `invalid_embedding`.
+- **Measured:** each first retrieval also keeps the BM25-only and embedding-only top 5. On the extended rows, mean
+  recall@5 was 0.94 for BM25, 1.00 for embeddings and 1.00 for the hybrid list. Hybrid did not beat embeddings alone
+  on this data; it is kept because the cost is small and the papers above report gains on harder domains, but this
+  run gives no evidence that it helps.

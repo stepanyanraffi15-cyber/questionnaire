@@ -87,7 +87,20 @@ def _unresolved(*conflict: str) -> dict:
     }
 
 
-# The extended questionnaire (X1-X26), hand-written from data/additions/extended.json.
+def search_step(query: str) -> dict:
+    """A simulated draft step that calls the search_passages tool."""
+    return {
+        "basis": "simulated",
+        "action": "search_passages",
+        "query": query,
+        "status": "unresolved",
+        "answer": "",
+        "citations": [],
+        "conflicts": [],
+    }
+
+
+# The extended questionnaire (X1-X35), hand-written from data/additions/extended.json.
 EXTENDED_DRAFTS = {
     "When do scheduled exports run?": _answered(
         "Once a day at 02:00 UTC.", "EXPORT-SCHEDULE-v1:p1", "Scheduled exports run once a day at 02:00 UTC."
@@ -169,20 +182,43 @@ EXTENDED_DRAFTS = {
         "Are refunds paid back to the original payment method, and how long do they take to arrive?"
     ): _unresolved(),
     "Do passwords expire, and how many failed sign-in attempts lock an account?": _unresolved(),
+    # Word-count embeddings miss these two paraphrases, so the simulated model searches first.
+    "Will items that were moved to the archive appear in the downloaded file?": [
+        search_step("archived records export"),
+        _answered(
+            "No, archived records are left out of every export.",
+            "EXPORT-ARCHIVE-v1:p1",
+            "Archived records are left out of every export.",
+        ),
+    ],
+    "Can a customer who deleted the payment confirmation email get it again?": _answered(
+        "Yes, receipts can be sent again from the Payments page.",
+        "BILLING-RECEIPTS-v1:p1",
+        "Receipts can be sent again from the Payments page.",
+    ),
+    "If the product stops working on a Sunday, where can a customer see what is happening?": [
+        search_step("outage progress status page"),
+        _answered(
+            "On the status page, at any time.",
+            "SUPPORT-OUTAGE-v1:p1",
+            "During an outage, customers can follow progress on the status page at any time of day or week.",
+        ),
+    ],
+    "How much does an additional seat cost?": _answered(
+        "8 USD per month.", "BILLING-SEATS-v1:p1", "Extra seats cost 8 USD per month each."
+    ),
+    "How many seats come with a paid plan?": _answered(
+        "Five seats.", "BILLING-SEATS-v1:p1", "Each paid plan includes five seats."
+    ),
+    "Are export files encrypted?": _unresolved("EXPORT-ENCRYPTION-v1:p1", "EXPORT-GUIDE-v1:p1"),
+    "Can a team member be limited to read-only access?": _unresolved(
+        "ACCESS-READONLY-v1:p1", "ACCESS-OVERVIEW-v1:p1"
+    ),
+    "Which separator do CSV exports use?": _unresolved("EXPORT-DELIMITER-v1:p1", "EXPORT-DELIMITER-v2:p1"),
+    "How many times is a failed payment retried?": _answered(
+        "5 times.", "BILLING-RETRY-v2:p1", "Failed payments are retried 5 times over 10 days."
+    ),
 }
-
-
-def search_step(query: str) -> dict:
-    """A simulated draft step that calls the search_passages tool."""
-    return {
-        "basis": "simulated",
-        "action": "search_passages",
-        "query": query,
-        "status": "unresolved",
-        "answer": "",
-        "citations": [],
-        "conflicts": [],
-    }
 
 
 def simulated_vector(text: str) -> list[float]:
@@ -196,18 +232,22 @@ def simulated_vector(text: str) -> list[float]:
 class SimulatedClient:
     """Replies keyed by question text (drafts) or by answer text (support checks). Counts every call.
 
-    A draft entry may be a list of steps: the client plays them in order, one per draft call for that
-    question, which is how the search loop is tested.
+    A draft entry may be a list of steps: the reply is the step matching the number of searches already
+    made in the request, which is how the search loop is tested.
     """
 
     def __init__(
-        self, drafts: dict | None = None, unsupported: set[str] | None = None, fail: set[str] | None = None
+        self,
+        drafts: dict | None = None,
+        unsupported: set[str] | None = None,
+        fail: set[str] | None = None,
+        contradictions: dict[str, list[dict]] | None = None,
     ):
         self.drafts = {**DRAFTS, **EXTENDED_DRAFTS} if drafts is None else drafts
         self.unsupported = unsupported or set()
+        self.contradictions = contradictions or {}
         self.fail = fail or set()
         self.calls: list[str] = []
-        self.steps: dict[str, int] = {}
         self.requests: list[dict] = []
 
     def embed(self, texts: list[str], task_type: str) -> list[Embedding]:
@@ -222,16 +262,14 @@ class SimulatedClient:
         if request.call_type == "draft":
             body = self.drafts[data["question"]]
             if isinstance(body, list):
-                step = self.steps.get(data["question"], 0)
-                self.steps[data["question"]] = step + 1
-                body = body[min(step, len(body) - 1)]
+                body = body[min(len(data["searches"]), len(body) - 1)]
         else:
             supported = data["answer"] not in self.unsupported
             body = {
                 "basis": "simulated",
                 "supported": supported,
                 "unsupported_claims": [],
-                "contradicted_by": [],
+                "contradicted_by": self.contradictions.get(data["answer"], []),
             }
         text = body if isinstance(body, str) else json.dumps(body)
         return ModelReply(text, "SIMULATED", "simulated", "simulated", "2026-10-08T00:00:00Z")

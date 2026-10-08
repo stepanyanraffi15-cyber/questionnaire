@@ -1,5 +1,5 @@
 {
-  "_purpose": "Fixed inputs for the extended scenario, steps S1 to S5, on the extended questionnaire X1-X26 (seed documents plus data/additions/extended.json). Each run_questionnaire step runs the whole extended questionnaire as a new request (items R1/X1 ... R1/X26). The reviewer texts are scripted, not model output, and add no product facts: the X1 and X13 approvals restate EXPORT-SCHEDULE-v1:p1 and ACCESS-2FA-v1:p1, the X12 edit restates SUPPORT-TICKETS-v1:p1 and is never approved, and the X5 note records the conflict. Times are fixed. Expected results are kept separately, in the answer key.",
+  "_purpose": "Fixed inputs for the extended scenario, steps S1 to S5, on the extended questionnaire X1-X35 (seed documents plus data/additions/extended.json). Each run_questionnaire step runs the whole extended questionnaire as a new request (items R1/X1 ... R1/X35). The reviewer texts are scripted, not model output, and add no product facts: the X1 and X13 approvals restate EXPORT-SCHEDULE-v1:p1 and ACCESS-2FA-v1:p1, the X12 edit restates SUPPORT-TICKETS-v1:p1 and is never approved, and the X5 note records the conflict. Times are fixed. Expected results are kept separately, in the answer key.",
   "label": "SCRIPTED REVIEWER INPUT",
   "dataset": "data/seed/seed.json",
   "additions": "data/additions/extended.json",

@@ -17,10 +17,10 @@ Each row records what it covers, the rules and decision records it rests on, the
 metadata it was derived from (`derived_from`), the gold passages (`gold_passages`: the current passages that answer
 the question), the mechanical checks, and the meaning checks.
 
-**The extended questionnaire** (X1–X26 over the seed plus `data/additions/extended.json`) has its own key in the
+**The extended questionnaire** (X1–X35 over the seed plus `data/additions/extended.json`) has its own key in the
 `extended` block, with its own texts, rows and step counts. It was written from the passages and metadata before the
 application ran on that data, and a separate AI agent re-derived every row blind, without the application's code or
-output; it agreed on every status, reason, owner, gold passage and count (decision 042). Adding `gold_passages` to
+output; it agreed on every status, reason, owner, gold passage and count (decisions 042, 043). Adding `gold_passages` to
 the seed rows changed no seed expectation.
 
 ## How it is graded
@@ -35,7 +35,8 @@ passages from `data/` itself.
 - **Meaning checks** (expected facts and forbidden claims, in plain words): a Gemini judge with its own prompt
   (`judge_prompt.md`) gives a verdict per fact and claim, quoting the answer; code checks only that the quotes are
   really in the answer. `uv run python reference/judge.py` records the verdicts into `runs/judge/verdicts.json`
-  (live calls, needs a key); the grader replays them. The author then signs off each one in `signoff.json`.
+  (live calls, needs a key); the grader replays them. The author then signs off each one in `signoff.json`;
+  nobody signs on the author's behalf.
   Only the author's sign-off makes a meaning check PASS: unsigned, a judge PASS (or a missing verdict) is
   **PENDING** and a judge FAIL is **FAIL**. The judge is the same model family as
   the application, which is a stated limitation.

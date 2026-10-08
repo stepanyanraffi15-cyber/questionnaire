@@ -1,5 +1,5 @@
 {
-  "_purpose": "Added fictional data for the extended questionnaire X1-X26 (decision 039). It is loaded together with the unchanged seed documents, which stay in the corpus as extra on-topic passages; the seed questions Q1-Q8 are not part of this questionnaire. Same four topics and owners as the seed, same short style. Hand-written with AI assistance; every passage is invented for this exercise and states no real product's policy. Some documents are on-topic distractors that answer none of the questions. Expected results live separately in reference/expected.json.",
+  "_purpose": "Added fictional data for the extended questionnaire X1-X35 (decisions 039 and 043). It is loaded together with the unchanged seed documents, which stay in the corpus as extra on-topic passages; the seed questions Q1-Q8 are not part of this questionnaire. Same four topics and owners as the seed, same short style. Hand-written with AI assistance; every passage is invented for this exercise and states no real product's policy. Some documents are on-topic distractors that answer none of the questions. Expected results live separately in reference/expected.json.",
   "label": "ADDED FICTIONAL DATA",
   "documents": [
     {
@@ -395,6 +395,162 @@
           "text": "Nonprofit organisations can apply for a discount by email."
         }
       ]
+    },
+    {
+      "id": "EXPORT-ARCHIVE-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "EXPORT-ARCHIVE-v1:p1",
+          "text": "Archived records are left out of every export."
+        }
+      ]
+    },
+    {
+      "id": "BILLING-RECEIPTS-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "BILLING-RECEIPTS-v1:p1",
+          "text": "Receipts can be sent again from the Payments page."
+        }
+      ]
+    },
+    {
+      "id": "SUPPORT-OUTAGE-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "SUPPORT-OUTAGE-v1:p1",
+          "text": "During an outage, customers can follow progress on the status page at any time of day or week."
+        }
+      ]
+    },
+    {
+      "id": "BILLING-SEATS-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "BILLING-SEATS-v1:p1",
+          "text": "Each paid plan includes five seats. Extra seats cost 8 USD per month each. Account owners can move a seat from one team member to another."
+        }
+      ]
+    },
+    {
+      "id": "EXPORT-ENCRYPTION-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "EXPORT-ENCRYPTION-v1:p1",
+          "text": "Export files are encrypted at rest."
+        }
+      ]
+    },
+    {
+      "id": "EXPORT-GUIDE-v1",
+      "version": 1,
+      "date": "2026-09-18",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "EXPORT-GUIDE-v1:p1",
+          "text": "This guide walks through the export screen. Pick the columns you need before you start. Files produced by the export tool are stored without any encryption. Large files can take a few minutes to appear."
+        }
+      ]
+    },
+    {
+      "id": "ACCESS-READONLY-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "ACCESS-READONLY-v1:p1",
+          "text": "Team members can be given read-only access."
+        }
+      ]
+    },
+    {
+      "id": "ACCESS-OVERVIEW-v1",
+      "version": 1,
+      "date": "2026-09-12",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "ACCESS-OVERVIEW-v1:p1",
+          "text": "This overview describes how a workspace is organised. Each workspace belongs to one account owner. Everyone the owner adds to the team can edit every page; there is no way to restrict someone to viewing only. Workspaces cannot be merged."
+        }
+      ]
+    },
+    {
+      "id": "EXPORT-DELIMITER-v1",
+      "version": 1,
+      "date": "2026-08-01",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "EXPORT-DELIMITER-v1:p1",
+          "text": "CSV exports use a comma as the separator."
+        }
+      ]
+    },
+    {
+      "id": "EXPORT-DELIMITER-v2",
+      "version": 2,
+      "date": "2026-09-25",
+      "status": "current",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "EXPORT-DELIMITER-v2:p1",
+          "text": "CSV exports use a semicolon as the separator."
+        }
+      ]
+    },
+    {
+      "id": "BILLING-RETRY-v1",
+      "version": 1,
+      "date": "2026-09-01",
+      "status": "superseded",
+      "supersedes": null,
+      "passages": [
+        {
+          "id": "BILLING-RETRY-v1:p1",
+          "text": "Failed payments are retried 3 times."
+        }
+      ]
+    },
+    {
+      "id": "BILLING-RETRY-v2",
+      "version": 2,
+      "date": "2026-06-01",
+      "status": "current",
+      "supersedes": "BILLING-RETRY-v1",
+      "passages": [
+        {
+          "id": "BILLING-RETRY-v2:p1",
+          "text": "Failed payments are retried 5 times over 10 days."
+        }
+      ]
     }
   ],
   "questions": [
@@ -527,6 +683,51 @@
       "id": "X26",
       "topic": "access",
       "text": "Do passwords expire, and how many failed sign-in attempts lock an account?"
+    },
+    {
+      "id": "X27",
+      "topic": "exports",
+      "text": "Will items that were moved to the archive appear in the downloaded file?"
+    },
+    {
+      "id": "X28",
+      "topic": "billing",
+      "text": "Can a customer who deleted the payment confirmation email get it again?"
+    },
+    {
+      "id": "X29",
+      "topic": "support",
+      "text": "If the product stops working on a Sunday, where can a customer see what is happening?"
+    },
+    {
+      "id": "X30",
+      "topic": "billing",
+      "text": "How much does an additional seat cost?"
+    },
+    {
+      "id": "X31",
+      "topic": "billing",
+      "text": "How many seats come with a paid plan?"
+    },
+    {
+      "id": "X32",
+      "topic": "exports",
+      "text": "Are export files encrypted?"
+    },
+    {
+      "id": "X33",
+      "topic": "access",
+      "text": "Can a team member be limited to read-only access?"
+    },
+    {
+      "id": "X34",
+      "topic": "exports",
+      "text": "Which separator do CSV exports use?"
+    },
+    {
+      "id": "X35",
+      "topic": "billing",
+      "text": "How many times is a failed payment retried?"
     }
   ]
 }

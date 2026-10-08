@@ -49,18 +49,15 @@ def valid_conflict(pair: ConflictPair, dataset: Dataset, shown_ids: list[str]) -
     return len(ids) >= 2 and ids <= dataset.current_passage_ids & set(shown_ids)
 
 
-def valid_contradiction(
-    item: Contradiction, answer: str, cited_ids: list[str], dataset: Dataset, context_ids: list[str]
-) -> bool:
+def valid_contradiction(item: Contradiction, answer: str, cited_ids: list[str], dataset: Dataset) -> bool:
     """Decision 009: the model decides a contradiction exists; code checks only that its quotes are real and
-    that the passage was one it was shown.
+    that the passage is a current one, which the support check is always shown.
     """
     passage = dataset.passages.get(item.passage_id)
     current = dataset.current_passage_ids
     return (
         passage is not None
         and item.passage_id in current
-        and item.passage_id in context_ids
         and item.passage_id not in cited_ids
         and is_verbatim(item.passage_quote, passage.text)
         and is_verbatim(item.answer_claim, answer)

@@ -28,6 +28,7 @@ def draft_item(
     except ModelCallError as exc:
         return _finish(suggestion, "error", exc.reason, str(exc))
     suggestion["draft"] = draft.model_dump()
+    suggestion["shown"] = shown
     conflicts = [pair for pair in draft.conflicts if valid_conflict(pair, dataset, shown)]
     suggestion["conflicts"] = sorted({pid for pair in conflicts for pid in pair.passage_ids})
     if draft.status == "unresolved":
@@ -39,16 +40,11 @@ def draft_item(
 
 
 def check_support(
-    question_text: str,
-    answer: str,
-    cited_ids: list[str],
-    dataset: Dataset,
-    client: ModelClient,
-    context_ids: list[str],
+    question_text: str, answer: str, cited_ids: list[str], dataset: Dataset, client: ModelClient
 ) -> tuple[SupportVerdict, dict]:
     """Ask the recorded support check whether the cited passages support `answer` (also used by the guard)."""
     calls: dict = {"calls": []}
-    request = support_request(question_text, answer, cited_ids, dataset, context_ids)
+    request = support_request(question_text, answer, cited_ids, dataset)
     verdict = _ask(client, request, SupportVerdict, calls)
     return verdict, calls["calls"][0]
 
@@ -62,7 +58,7 @@ def _search_loop(
     shown = hit_ids(suggestion["retrieval"])
     searches: list[dict] = []
     while True:
-        searches_left = settings.max_searches - len(searches)
+        searches_left = _searches_left(settings, searches, shown, dataset)
         passages = [dataset.passages[pid] for pid in shown]
         request = draft_request(question, passages, searches, searches_left)
         step = _ask(client, request, DraftOutput, suggestion)
@@ -85,6 +81,13 @@ def _search_loop(
                 "embedding_labels": found["embedding_labels"],
             }
         )
+
+
+def _searches_left(settings: RetrievalSettings, searches: list, shown: list[str], dataset: Dataset) -> int:
+    """No search can add anything once every current passage has been shown, so the model gets none."""
+    if dataset.current_passage_ids <= set(shown):
+        return 0
+    return settings.max_searches - len(searches)
 
 
 def _check_answered(
@@ -112,25 +115,18 @@ def _check_answered(
     cited_texts = [dataset.passages[pid].text for pid in cited_ids]
     suggestion["hints"] = strengthening_hints(draft.answer, cited_texts)
     try:
-        verdict, call = check_support(question.text, draft.answer, cited_ids, dataset, client, shown)
+        verdict, call = check_support(question.text, draft.answer, cited_ids, dataset, client)
     except ModelCallError as exc:
         return _finish(suggestion, "error", "support_check_failed", str(exc))
     suggestion["calls"].append(call)
-    return _apply_verdict(suggestion, verdict, draft, cited_ids, dataset, shown)
+    return _apply_verdict(suggestion, verdict, draft, cited_ids, dataset)
 
 
 def _apply_verdict(
-    suggestion: dict,
-    verdict: SupportVerdict,
-    draft: DraftOutput,
-    cited_ids: list[str],
-    dataset: Dataset,
-    shown: list[str],
+    suggestion: dict, verdict: SupportVerdict, draft: DraftOutput, cited_ids: list[str], dataset: Dataset
 ) -> dict:
     suggestion["support"] = verdict.model_dump()
-    valid = [
-        c for c in verdict.contradicted_by if valid_contradiction(c, draft.answer, cited_ids, dataset, shown)
-    ]
+    valid = [c for c in verdict.contradicted_by if valid_contradiction(c, draft.answer, cited_ids, dataset)]
     suggestion["contradictions_rejected"] = [
         c.model_dump() for c in verdict.contradicted_by if c not in valid
     ]
@@ -193,6 +189,7 @@ def _blank() -> dict:
         "contradictions_rejected": [],
         "retrieval": None,
         "steps": [],
+        "shown": [],
         "calls": [],
     }
 

@@ -13,8 +13,9 @@ import sys
 from conftest import SimulatedClient
 from qa.dataset import ROOT
 from qa.export import export_markdown
+from qa.llm import ReplayClient
 from qa.review import workspace_dataset
-from qa.scenario import EXTENDED_SCENARIO_PATH, run_scenario
+from qa.scenario import EXTENDED_SCENARIO_PATH, SCENARIO_PATH, build_report, run_scenario
 from qa.store import load_state
 
 
@@ -52,3 +53,14 @@ def test_the_simulated_scenario_passes_every_mechanical_check_of_the_key(tmp_pat
     exported = export_markdown(state, workspace_dataset(state), "R5")
     assert "Approved by Product reviewer" in exported and "EXPORT-v2:p1 (version 3)" in exported
     assert "Q2. Is JSON export available?" in exported.split("## Unresolved")[1]
+
+
+def test_both_scenarios_replay_from_the_committed_recordings_exactly():
+    """No key, no network: the saved responses and embeddings alone reproduce the committed reports."""
+    client = ReplayClient()
+    for scenario, committed in (
+        (SCENARIO_PATH, ROOT / "runs" / "report" / "observed.json"),
+        (EXTENDED_SCENARIO_PATH, ROOT / "runs" / "report" / "observed-extended.json"),
+    ):
+        replayed = json.dumps(build_report(client, scenario, "replay"), indent=1, ensure_ascii=False) + "\n"
+        assert replayed == committed.read_text(), scenario.name

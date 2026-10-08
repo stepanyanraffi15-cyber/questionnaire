@@ -58,3 +58,8 @@ Option 2.
 - Rahmani et al., *Synthetic Test Collections for Retrieval Evaluation*, SIGIR 2024,
   https://arxiv.org/abs/2405.07767; Cuconasu et al., *The Power of Noise*, SIGIR 2024,
   https://arxiv.org/abs/2401.14887 (on-topic distractors hurt more than random ones, so the distractors are on-topic).
+
+## Update (decision 043)
+
+Nine harder questions (X27–X35) and twelve documents were added later; the file now has 42 documents, 43 passages and
+questions X1–X35.

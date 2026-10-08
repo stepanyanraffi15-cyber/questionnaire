@@ -4,14 +4,23 @@ Embeddings here are SIMULATED word-count vectors (conftest), except in the repla
 file shaped like a real recording.
 """
 
+import dataclasses
 import json
 
 import pytest
 
 from conftest import SimulatedClient
 from qa.dataset import ROOT, Passage, load_dataset
-from qa.llm import ModelCallError, ReplayClient, embedding_fingerprint, load_settings
-from qa.retrieval import bm25_ranking, fuse, hit_ids, load_retrieval_settings, search
+from qa.llm import Embedding, ModelCallError, ReplayClient, embedding_fingerprint, load_settings
+from qa.retrieval import (
+    RetrievalError,
+    bm25_ranking,
+    bm25_scores,
+    fuse,
+    hit_ids,
+    load_retrieval_settings,
+    search,
+)
 
 EXTENDED = ROOT / "data" / "additions" / "extended.json"
 
@@ -54,3 +63,35 @@ def test_embeddings_replay_from_saved_files_and_a_missing_one_is_a_visible_error
     with pytest.raises(ModelCallError) as missing:
         client.embed(["Passwords do not expire."], "RETRIEVAL_QUERY")
     assert missing.value.reason == "no_recording"
+
+
+def test_a_bm25_score_matches_the_hand_computed_value():
+    # "apple" is in 1 of 2 passages: idf = ln(1 + (2 - 1 + 0.5) / (1 + 0.5)) = ln 2 = 0.693147.
+    # Passage A has 2 words, the average is 2.5: norm = 1.2 * (1 - 0.75 + 0.75 * 2 / 2.5) = 1.02.
+    # score = idf * 1 * (1.2 + 1) / (1 + 1.02) = 0.754913. Stopwords ("the") are dropped first.
+    passages = [Passage("A:p1", "A", "The red apple"), Passage("B:p1", "B", "green pear pear")]
+    assert bm25_scores("the apple", passages, 1.2, 0.75) == {"A:p1": pytest.approx(0.754913, abs=1e-6)}
+
+
+def test_an_empty_corpus_and_a_bad_embedding_are_visible_errors():
+    dataset = load_dataset(additions_path=EXTENDED)
+    settings = load_retrieval_settings()
+    empty = dataclasses.replace(dataset, documents={})
+    with pytest.raises(RetrievalError) as nothing:
+        search("Is phone support offered?", empty, SimulatedClient(), settings)
+    assert nothing.value.reason == "no_passages"
+
+    class ZeroVectors(SimulatedClient):
+        def embed(self, texts, task_type):
+            return [Embedding([0.0] * 64, "SIMULATED") for _ in texts]
+
+    with pytest.raises(RetrievalError) as bad:
+        search("Is phone support offered?", dataset, ZeroVectors(), settings)
+    assert bad.value.reason == "invalid_embedding"
+
+
+def test_the_first_retrieval_keeps_its_bm25_and_dense_lists_for_measurement():
+    dataset = load_dataset(additions_path=EXTENDED)
+    result = search("Are export files encrypted?", dataset, SimulatedClient(), load_retrieval_settings())
+    assert len(result["bm25_top"]) <= result["top_k"] and len(result["dense_top"]) == result["top_k"]
+    assert result["bm25_top"][0] == "EXPORT-ENCRYPTION-v1:p1"
